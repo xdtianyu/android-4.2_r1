@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2010 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<com.android.photoeditor.EffectsGroup
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:photoeditor="http://schemas.android.com/apk/res/com.android.photoeditor"
+    style="@style/EffectsBarLinearLayout">
+
+    <FrameLayout android:id="@+id/group_header" style="@style/GroupHeader">
+
+        <TextView android:text="@string/fix_group" style="@style/GroupLabel"/>
+        <ImageView android:id="@+id/group_arrow" style="@style/GroupArrow"/>
+
+    </FrameLayout>
+
+    <LinearLayout android:id="@+id/grouped_effects" style="@style/GroupContent">
+
+        <LinearLayout style="@style/Effect" android:id="@+id/crop_effect">
+            <com.android.photoeditor.IconIndicator
+                android:id="@+id/effect_button"
+                style="@style/EffectIcon"
+                photoeditor:modes="@array/crop_modes"
+                photoeditor:icons="@array/crop_icons"/>
+            <TextView
+                android:id="@+id/effect_label"
+                android:text="@string/crop"
+                style="@style/EffectLabel"/>
+        </LinearLayout>
+        <LinearLayout style="@style/Effect" android:id="@+id/rotate_effect">
+            <com.android.photoeditor.IconIndicator
+                android:id="@+id/effect_button"
+                style="@style/EffectIcon"
+                photoeditor:modes="@array/rotate_modes"
+                photoeditor:icons="@array/rotate_icons"/>
+            <TextView
+                android:id="@+id/effect_label"
+                android:text="@string/rotate"
+                style="@style/EffectLabel"/>
+        </LinearLayout>
+        <LinearLayout style="@style/Effect" android:id="@+id/straighten_effect">
+            <com.android.photoeditor.IconIndicator
+                android:id="@+id/effect_button"
+                style="@style/EffectIcon"
+                photoeditor:modes="@array/straighten_modes"
+                photoeditor:icons="@array/straighten_icons"/>
+            <TextView
+                android:id="@+id/effect_label"
+                android:text="@string/straighten"
+                style="@style/EffectLabel"/>
+        </LinearLayout>
+        <LinearLayout style="@style/Effect" android:id="@+id/flip_effect">
+            <com.android.photoeditor.IconIndicator
+                android:id="@+id/effect_button"
+                style="@style/EffectIcon"
+                photoeditor:modes="@array/flip_modes"
+                photoeditor:icons="@array/flip_icons"/>
+            <TextView
+                android:id="@+id/effect_label"
+                android:text="@string/flip"
+                style="@style/EffectLabel"/>
+        </LinearLayout>
+        <LinearLayout style="@style/Effect" android:id="@+id/redeye_effect">
+            <com.android.photoeditor.IconIndicator
+                android:id="@+id/effect_button"
+                style="@style/EffectIcon"
+                photoeditor:modes="@array/redeye_modes"
+                photoeditor:icons="@array/redeye_icons"/>
+            <TextView
+                android:id="@+id/effect_label"
+                android:text="@string/redeye"
+                style="@style/EffectLabel"/>
+        </LinearLayout>
+        <LinearLayout style="@style/Effect" android:id="@+id/sharpen_effect">
+            <com.android.photoeditor.IconIndicator
+                android:id="@+id/effect_button"
+                style="@style/EffectIcon"
+                photoeditor:modes="@array/sharpen_modes"
+                photoeditor:icons="@array/sharpen_icons"/>
+            <TextView
+                android:id="@+id/effect_label"
+                android:text="@string/sharpen"
+                style="@style/EffectLabel"/>
+        </LinearLayout>
+        <!--<LinearLayout style="@style/Effect" android:id="@+id/softfocus_effect">
+            <com.android.photoeditor.IconIndicator
+                android:id="@+id/effect_button"
+                style="@style/EffectIcon"
+                photoeditor:modes="@array/softfocus_modes"
+                photoeditor:icons="@array/softfocus_icons"/>
+            <TextView
+                android:id="@+id/effect_label"
+                android:text="@string/softfocus"
+                style="@style/EffectLabel"/>
+        </LinearLayout>-->
+
+    </LinearLayout>
+</com.android.photoeditor.EffectsGroup>

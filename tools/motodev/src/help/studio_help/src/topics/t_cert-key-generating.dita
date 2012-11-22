@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task
+  PUBLIC "-//OASIS//DTD DITA Task//EN" "../dtd/task.dtd">
+<task xml:lang="en-us" id="t_cert-key-generating">
+  <title>Creating a key</title>
+  <shortdesc>Use the Signing and Keys view within MOTODEV Studio for Android to generate public/private key pairs for
+    use when signing Android packages (APKs).</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <steps>
+      <step>
+        <cmd>If necessary, open the Signing and Keys view by <ph product="webui android-studio">selecting <menucascade>
+              <uicontrol>Window</uicontrol>
+              <uicontrol>Show View</uicontrol>
+              <uicontrol>Other</uicontrol>
+            </menucascade> and then selecting <menucascade>
+              <uicontrol>MOTODEV Studio</uicontrol>
+              <uicontrol>Signing and Keys</uicontrol>
+            </menucascade> from the list of views</ph>. Note that this view is part of the MOTODEV Studio for Android
+          perspective and is thus normally opened when you switch to that perspective.</cmd>
+      </step>
+      <step>
+        <cmd>Within the Signing and Keys view, select the keystore into which the newly created key is to be stored.</cmd>
+      </step>
+      <step>
+        <cmd>Click <image href="../images/KeyCreate.png"/> (Create Key).</cmd>
+        <info>A dialog appears that contains fields for the key name (its "alias"), for each of the components of a
+          distinguished name (DN; used to identify the creator of a key pair or certificate) and for a password used to
+          protect the key.</info>
+      </step>
+      <step>
+        <cmd>Enter an identifier for your key using the <uicontrol>Alias name</uicontrol> field.</cmd>
+      </step>
+      <step>
+        <cmd>Fill out the DN fields. Note that most of these are optional, although the <uicontrol>Validity</uicontrol>
+          field is required.</cmd>
+        <info>See <xref href="u_sign-cert-properties.dita"/> if you have
+          questions about what to supply for a particular field.</info>
+      </step>
+      <step>
+        <cmd>Enter a password that will be used to protect the key (you'll need to supply this password when you sign an
+          Android package using this key). If you want the password to be saved (and automatically used when you sign an
+          APK with this key), select <uicontrol>Save this password</uicontrol>.</cmd>
+      </step>
+      <step>
+        <cmd>Click <uicontrol>Finish</uicontrol>.</cmd>
+      </step>
+    </steps>
+    <result>The key pair is generated and added to the list shown in the Signing and Keys view.</result>
+  </taskbody>
+</task>

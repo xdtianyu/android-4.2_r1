@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference id="u_new-activity-template" xml:lang="en-us">
+  <title>New Activity Based on Template wizard</title>
+  <shortdesc>Creates a new Android activity based upon a sample you have chosen.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <p>When adding a new activity to your Android project, MOTODEV Studio enables you to quickly and easily add either
+        a basic (mostly empty) activity, or one based upon a sample. MOTODEV Studio includes a number of sample
+        activities that, with minor modifications, can be incorporated into your applications and will perform various
+        functions commonly needed by many Android applications.</p>
+      <p>To create a basic, empty activity you select <menucascade><uicontrol>New</uicontrol><uicontrol>Android
+          Activity</uicontrol></menucascade> from the <uicontrol>File</uicontrol> menu. If you want to base your
+        activity on one of the supplied sample activities, either select <menucascade><uicontrol
+            >New</uicontrol><uicontrol>Android Activity</uicontrol></menucascade> from the <uicontrol>File</uicontrol>
+        menu and then click <uicontrol>Create New Activity Based On Template</uicontrol> from the dialog that appears,
+        or select <menucascade><uicontrol>Auto-generated code</uicontrol><uicontrol>Create Activity based on
+          template</uicontrol></menucascade> from the <uicontrol>MOTODEV</uicontrol> menu. Either method invokes the New
+        Android Activity Based on Template wizard.</p>
+      <p>The New Android Activity Based on Template wizard begins by having you select the sample activity on which your
+        project's new activity is to be based. (Note that one of the samples--Database List--lists the contents of
+        selected columns within your application's SQLite database; in order to select this sample your application must
+        already have a database in its <codeph>assets</codeph> folder.) Select the template activity, and click
+          <uicontrol>Next</uicontrol>. You will then be presented with a dialog containing a number of fields with which
+        you specify various aspects of the activity to be created.</p>
+      <simpletable>
+        <strow>
+          <stentry><uicontrol>Source folder</uicontrol></stentry>
+          <stentry>The folder into which the source code for the new activity is to be stored. By default this is the
+            current project's src folder.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Package</uicontrol></stentry>
+          <stentry>The package that is to contain the new activity. By default this is the current project's
+          package.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Name</uicontrol></stentry>
+          <stentry>The name to be used for the class that implements the activity. This should be a simple,
+            non-qualified name.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Label</uicontrol></stentry>
+          <stentry>(optional) The label for the activity. This label is displayed to the user, often along with the
+            activity's icon, when the activity needs to be identified to the user. Note that if you specify a label, the
+            wizard creates a string resource to hold this value. If the <uicontrol>Default</uicontrol> option is
+            selected, a label is not set for this activity (the Label field is not editable); the user sees the
+            application's label instead.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Superclass</uicontrol></stentry>
+          <stentry>The class from which the activity inherits. For activities, this is <codeph
+            >android.app.Activity</codeph>.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Permission</uicontrol></stentry>
+          <stentry>(optional) Permissions that should be added to the project's manifest file due to this activity.
+            Click <uicontrol>Add</uicontrol> to display a list of possible permissions from which you can
+          select.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Action</uicontrol></stentry>
+          <stentry>(optional) The actions to be performed by an intent filter associated with this activity. Click
+              <uicontrol>Add</uicontrol> to select from the available actions, or <uicontrol>Input</uicontrol> to simply
+            enter the full name of the intent filter. Note that you can select multiple intents from the dialog that
+            appears when you click <uicontrol>Add</uicontrol>. To select a range, select the first item in the set and
+            then hold down the Shift key while selecting the last item in the set. To select multiple separate intents,
+            select the first item and then hold down the Control key while selecting the remaining items.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Category</uicontrol></stentry>
+          <stentry>(optional) The associated intent filter categories. Click <uicontrol>Add</uicontrol> to select from
+            the available categories or click <uicontrol>Input</uicontrol> to enter a category manually.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Set as the main activity</uicontrol></stentry>
+          <stentry>Select this option if this new activity is to be the app's main activity. Doing so updates the
+            application's manifest file to specify that this is the activity that should be started when the application
+            is first launched.</stentry>
+        </strow>
+      </simpletable>
+    </section>
+  </refbody>
+</reference>

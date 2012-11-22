@@ -1,0 +1,24 @@
+This file contains version information for the NFC stack code.
+
+# reset nv data on Clear All Pipe CMD Ntf
+element * .../main_prasadk_1747333/LATEST
+
+# turn off NFC when in power-off-sleep mode
+element * .../main_sherrys_1747155/LATEST
+
+# reading NDEF message in T3T
+element * .../main_darinlee_1726051/LATEST
+
+# NFA_RwT3TWrite crash
+element * .../main_darinlee_1721357/LATEST
+
+# handle deleted connectivity pipe
+element * .../main_prasadk_1722753/LATEST
+
+# handle missing EEPROM
+element * .../main_sherrys_1706383/LATEST
+
+# warm-reset Oberthur secure element
+element * .../main_sherrys_1704686/LATEST
+
+element * NFA_MI_1.03.45

@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html>
+<!--
+Copyright (c) 2012 The Chromium Authors. All rights reserved.
+Use of this source code is governed by a BSD-style license that can be
+found in the LICENSE file.
+-->
+<head>
+<title>TimelineAsyncSliceGroup tests</title>
+<script src="base.js"></script>
+</head>
+<body>
+  <script>
+    base.require('unittest');
+    base.require('test_utils');
+    base.require('timeline_model');
+  </script>
+  <script>
+    'use strict';
+
+  var TimelineProcess = tracing.TimelineProcess;
+  var TimelineThread = tracing.TimelineThread;
+  var TimelineModel = tracing.TimelineModel;
+  var TimelineAsyncSlice = tracing.TimelineAsyncSlice;
+  var TimelineAsyncSliceGroup = tracing.TimelineAsyncSliceGroup;
+  var newAsyncSlice = test_utils.newAsyncSlice;
+
+  function testAsyncSliceGroupBounds_Empty() {
+    var g = new TimelineAsyncSliceGroup(name);
+    g.updateBounds();
+    assertEquals(undefined, g.minTimestamp);
+    assertEquals(undefined, g.maxTimestamp);
+  }
+
+  function testAsyncSliceGroupBounds_Basic() {
+    var p1 = new TimelineProcess(1);
+    var t1 = new TimelineThread(p1, 1);
+    var g = new TimelineAsyncSliceGroup('a');
+    g.push(newAsyncSlice(0, 1, t1, t1));
+    g.push(newAsyncSlice(1, 1.5, t1, t1));
+    assertEquals(2, g.length);
+    g.updateBounds();
+    assertEquals(0, g.minTimestamp);
+    assertEquals(2.5, g.maxTimestamp);
+  }
+
+  function testAsyncSlice_toJSON() {
+    var js = [
+      '{',
+      '  "category" : "",',
+      '  "title" : "a",',
+      '  "start" : 0,',
+      '  "colorId" : 0,',
+      '  "didNotFinish" : false,',
+      '  "duration" : 1,',
+      '  "startThread" : "1:1",',
+      '  "endThread" : "1:1",',
+      '  "subSlices" : [ {',
+      '        "category" : "",',
+      '        "title" : "a",',
+      '        "start" : 0,',
+      '        "colorId" : 0,',
+      '        "didNotFinish" : false,',
+      '        "duration" : 1,',
+      '        "startThread" : "1:1",',
+      '        "endThread" : "1:1"',
+      '      } ]',
+      '}'].join('\n');
+    // Modify whitespace of "js" so that string compare with another
+    // JSON.stringified version can succeed.
+    js = JSON.stringify(JSON.parse(js));
+
+    var p1 = new TimelineProcess(1);
+    var t1 = new TimelineThread(p1, 1);
+    var s = newAsyncSlice(0, 1, t1, t1);
+
+    assertEquals(js, JSON.stringify(s));
+  }
+
+</script>
+</body>
+</html>

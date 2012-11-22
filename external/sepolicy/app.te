@@ -1,0 +1,185 @@
+#
+# Domains for apps that do not run with one of the predefined
+# platform UIDs (system, radio, nfc, ...).
+#
+
+#
+# Apps signed with the platform key.
+#
+type platform_app, domain;
+app_domain(platform_app)
+platform_app_domain(platform_app)
+# Access the network.
+net_domain(platform_app)
+# Access bluetooth.
+bluetooth_domain(platform_app)
+# Read logs.
+allow platform_app log_device:chr_file read;
+# Write to /cache.
+allow platform_app cache_file:dir rw_dir_perms;
+allow platform_app cache_file:file create_file_perms;
+# Read from /data/local.
+allow platform_app shell_data_file:dir search;
+allow platform_app shell_data_file:file { open getattr read };
+allow platform_app shell_data_file:lnk_file read;
+# Populate /data/app/vmdl*.tmp file created by system server.
+allow platform_app apk_tmp_file:file rw_file_perms;
+# Read/[open] to /proc/net/xt_qtaguid/ctrl and /dev/xt_qtaguid
+allow platform_app qtaguid_proc:file { open };
+allow platform_app qtaguid_device:chr_file r_file_perms;
+
+# Apps signed with the media key.
+type media_app, domain;
+app_domain(media_app)
+platform_app_domain(media_app)
+# Access the network.
+net_domain(media_app)
+# Read logs.
+allow media_app log_device:chr_file read;
+# Access /dev/mtp_usb.
+allow media_app mtp_device:chr_file rw_file_perms;
+# Write to /cache.
+allow media_app cache_file:dir rw_dir_perms;
+allow media_app cache_file:file create_file_perms;
+# Read/[write] to /proc/net/xt_qtaguid/ctrl and /dev/xt_qtaguid
+allow media_app qtaguid_proc:file rw_file_perms;
+allow media_app qtaguid_device:chr_file r_file_perms;
+
+# Apps signed with the shared key.
+type shared_app, domain;
+app_domain(shared_app)
+platform_app_domain(shared_app)
+# Access the network.
+net_domain(shared_app)
+# Access bluetooth.
+bluetooth_domain(shared_app)
+# Read logs.
+allow shared_app log_device:chr_file read;
+
+# Apps signed with the release key (testkey in AOSP).
+type release_app, domain;
+app_domain(release_app)
+platform_app_domain(release_app)
+# Access the network.
+net_domain(release_app)
+# Access bluetooth.
+bluetooth_domain(release_app)
+# Read logs.
+allow release_app log_device:chr_file read;
+
+# Services with isolatedProcess=true in their manifest.
+type isolated_app, domain;
+app_domain(isolated_app)
+
+#
+# An example of a specific domain for a specific app
+# A domain for com.android.browser.
+type browser_app, domain;
+app_domain(browser_app)
+platform_app_domain(browser_app)
+# Access the network.
+net_domain(browser_app)
+
+#
+# Rules for platform app domains.
+#
+
+# App sandbox file accesses.
+allow platformappdomain platform_app_data_file:dir create_dir_perms;
+allow platformappdomain platform_app_data_file:notdevfile_class_set create_file_perms;
+# App sdcard file accesses
+allow platformappdomain sdcard:dir create_dir_perms;
+allow platformappdomain sdcard:file create_file_perms;
+# System data file accesses (e.g, shared objects from the lib directory)
+allow platformappdomain system_data_file:file { execute open };
+
+#
+# Untrusted apps.
+#
+type untrusted_app, domain;
+app_domain(untrusted_app)
+# Boolean-controlled options for untrusted apps.
+# Network access.
+bool app_network true;
+if (app_network) {
+# Cannot use net_domain within a conditional - type attribute.
+allow untrusted_app self:{ tcp_socket udp_socket } *;
+allow untrusted_app port_type:tcp_socket name_connect;
+allow untrusted_app node_type:{ tcp_socket udp_socket } node_bind;
+allow untrusted_app port_type:udp_socket name_bind;
+allow untrusted_app port_type:tcp_socket name_bind;
+unix_socket_connect(untrusted_app, dnsproxyd, netd)
+# Get route information.
+allow untrusted_app self:netlink_route_socket { create bind read nlmsg_read };
+}
+# Bluetooth access.
+bool app_bluetooth false;
+if (app_bluetooth or android_cts) {
+# No specific SELinux class for bluetooth sockets presently.
+allow untrusted_app self:socket *;
+}
+# SDCard rw access.
+bool app_sdcard_rw true;
+if (app_sdcard_rw) {
+allow untrusted_app sdcard:dir create_dir_perms;
+allow untrusted_app sdcard:file create_file_perms;
+}
+# Native app support.
+bool app_ndk false;
+if (app_ndk or android_cts) {
+allow untrusted_app system_data_file:file { execute open };
+}
+# Read Logs
+bool app_read_logs false;
+if (app_read_logs or android_cts) {
+allow untrusted_app log_device:chr_file read;
+}
+
+#
+# Rules for all app domains.
+#
+
+# Receive and use open file descriptors inherited from zygote.
+allow appdomain zygote:fd use;
+
+# Read system properties managed by zygote.
+allow appdomain zygote_tmpfs:file read;
+
+# Notify zygote of death;
+allow appdomain zygote:process sigchld;
+
+# Communicate over a FIFO or socket created by the system_server.
+allow appdomain system:fifo_file rw_file_perms;
+allow appdomain system:unix_stream_socket { read write };
+
+# Communicate over a socket created by surfaceflinger.
+allow appdomain surfaceflinger:unix_stream_socket { read write setopt };
+
+# App sandbox file accesses.
+allow appdomain app_data_file:dir create_dir_perms;
+allow appdomain app_data_file:notdevfile_class_set create_file_perms;
+
+# Read/write data files created by the platform apps.
+allow appdomain platform_app_data_file:file rw_file_perms;
+
+# lib subdirectory of /data/data dir is system-owned.
+allow appdomain system_data_file:dir r_dir_perms;
+
+# Read/write wallpaper file (opened by system).
+allow appdomain wallpaper_file:file { read write };
+
+# Write to /data/anr/traces.txt.
+allow appdomain anr_data_file:dir search;
+allow appdomain anr_data_file:file { open append };
+
+# Write to /proc/net/xt_qtaguid/ctrl file.
+allow appdomain qtaguid_proc:file write;
+
+# Use the Binder.
+binder_use(appdomain)
+# Perform binder IPC to binder services.
+binder_call(appdomain, binderservicedomain)
+binder_transfer(appdomain, binderservicedomain)
+# Perform binder IPC to other apps.
+binder_call(appdomain, appdomain)
+binder_transfer(appdomain, appdomain)

@@ -1,0 +1,9 @@
+<resources>
+    <string name="menuItem1">Item 1</string>
+    <string name="menuItem2">Item 2</string>
+    <string name="menuItem3">Item 3</string>
+    <string name="menuItem4">Item 4</string>
+    <string name="menuItem5">Item 5</string>
+    <string name="actionBarTitle">Action Bar Title</string>
+    <string name="actionBarSubtitle">Action Bar Subtitle</string>
+</resources>

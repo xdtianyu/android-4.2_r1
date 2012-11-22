@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE cshelp PUBLIC "-//IBM//DTD DITA CSHelp//EN"
+ "..\dtd\cshelp.dtd">
+<!-- This file is part of the DITA Open Toolkit project hosted on -->
+<!-- Sourceforge.net. See the accompanying license.txt file for   -->
+<!-- applicable licenses.                                         -->
+<cshelp id="test_csh_1" xml:lang="en-us">
+<title>Test CSH file</title>
+<shortdesc></shortdesc>
+<csbody></csbody>
+<cshelp id="contextId1" xml:lang="en-us">
+<title>My First CSH topic</title>
+<shortdesc>This is the first sentence of my context-sensitive help topic.</shortdesc>
+<csprolog><csmetadata>
+<cswindowtitle>(optional) The name of the window or view discussed by this
+CSH topic.</cswindowtitle>
+<cswidgetlabel>(optional) The name of the control discussed by this CSH topic.</cswidgetlabel>
+</csmetadata></csprolog>
+<csbody>
+<p>Here is the second sentence of my cshelp topic.</p>
+</csbody>
+<related-links>
+<link format="dita" href="../com.mycompany.myplugin/a.dita" scope="peer"><linktext>Link
+text</linktext></link>
+</related-links>
+</cshelp>
+<cshelp id="contextId2" xml:lang="en-us">
+<title>Another CSH topic</title>
+<shortdesc>This is the first sentence of another context-sensitive help topic.</shortdesc>
+<csbody>
+<p>This is the second sentence of my cshelp topic.</p>
+</csbody>
+<related-links>
+<link format="dita" href="../com.mycompany.myplugin/a.dita" scope="peer"><linktext>Link
+text</linktext></link>
+</related-links>
+</cshelp>
+<cshelp id="contextId3" xml:lang="en-us">
+<title>Third CSH topic</title>
+<shortdesc>Here is the third CSH topic.</shortdesc>
+<csbody></csbody>
+<related-links>
+<link format="dita" href="../com.mycompany.myplugin/b.dita" scope="peer"><linktext>Link
+text</linktext></link>
+</related-links>
+</cshelp>
+</cshelp>

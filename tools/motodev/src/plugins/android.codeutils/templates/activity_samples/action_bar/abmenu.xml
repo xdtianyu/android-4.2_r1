@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+	<!-- Menu items that will appear if there is enough UI space -->
+	
+	<!-- Item represented by an icon -->
+    <item android:id="@+id/menuItem1"
+          android:title="@string/menuItem1"
+          android:icon="@drawable/actionbaricon"
+          android:showAsAction="ifRoom"/>
+          
+	<!-- Item represented by a text description (title)-->
+    <item android:id="@+id/menuItem2"
+          android:title="@string/menuItem2" 
+          android:showAsAction="ifRoom"/>
+          
+	<!-- Item represented both by an icon and a text description (title)-->
+    <item android:id="@+id/menuItem3"
+          android:title="@string/menuItem3" 
+          android:icon="@drawable/actionbaricon"
+          android:showAsAction="ifRoom|withText"/>
+          
+	<!-- Menu items that will appear on the overflow menu by default -->
+	
+    <item android:id="@+id/menuItem4"
+          android:icon="@drawable/actionbaricon"    
+          android:title="@string/menuItem4"/>
+          
+    <item android:id="@+id/menuItem5"
+          android:title="@string/menuItem5"/>
+</menu>

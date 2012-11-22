@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task
+  PUBLIC "-//OASIS//DTD DITA Task//EN" "../dtd/task.dtd">
+<task xml:lang="en-us" id="t_app-debugging_android">
+  <title>Debugging an Android application</title>
+  <shortdesc>Use this procedure to debug an Android application, defined by a project listed in the Package Explorer, on
+    an emulated device, or on a physical device connected to your development
+    computer.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <prereq>In order to debug your application, you need to have a target device defined. To debug on an emulated
+      device, you must have created at least one AVD. To debug on a physical device, you must <!--either -->connect that
+      device to your development computer using a supported method such as a USB
+      cable<!--, or you must have acquired the device
+      and connected to it using the <tm tmtype="tm">DeviceAnywhere</tm> service-->.</prereq>
+    <steps>
+      <step>
+        <cmd>Set a breakpoint in your project by double-clicking in the grey "gutter" to the left of the line before
+          which execution should halt.</cmd>
+        <stepresult>A blue circle appears in the gutter, indicating that a breakpoint has been set. Note that if you do
+          not set a breakpoint before beginning to debug, execution does not automatically halt anywhere within your
+          application.</stepresult>
+      </step>
+      <step>
+        <cmd>Right-click the project in the Package Explorer and select <menucascade><uicontrol>Debug
+              As</uicontrol><uicontrol>Android Application using Studio for Android</uicontrol></menucascade> from the
+          menu that appears.</cmd>
+        <stepresult>The Debug Configurations dialog appears, open to your application's debug configuration (if this is
+          the first time you have debugged this application, a new configuration will have been created for
+        you).</stepresult>
+      </step>
+      <step>
+        <cmd>On the Main tab of the Debug Configurations dialog, click <uicontrol>Browse</uicontrol> next to the
+            <uicontrol>Instance</uicontrol> field and select the target AVD or device.</cmd>
+        <info>The Instance Selection list lists all AVDs and all physical devices connected to your development
+          computer<!--, and all Android devices acquired through the DeviceAnywhere VDL-->. If the Instance Selection
+          list is empty, you will either need to create an AVD or connect an Android device to your development
+          computer<!--, or use DeviceAnywhere Studio to acquire and connect to a target device-->.</info>
+      </step>
+      <!--<step xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"><cmd>If you are debugging on a remote device through the DeviceAnywhere VDL, select <uicontrol>Launcher for DeviceAnywhere Studio devices</uicontrol>. Otherwise, leave <uicontrol>Default launcher</uicontrol> selected.</cmd></step>-->
+      <step>
+        <cmd>Click <uicontrol>Debug</uicontrol> to save and run your new configuration.</cmd>
+      </step>
+      <step>
+        <cmd>If you are debugging your application on an emulated device and the Android Emulator view is not open, you
+          will be asked whether the emulator should be presented within an Eclipse view. If you click <uicontrol
+          >No</uicontrol>, the emulator will appear in a separate window.</cmd>
+        <info>At any time you can switch the emulator from a view within MOTODEV Studio to an external window (or from an external window to a view): see <xref href="t_emulator-external.dita"></xref>.
+</info>
+      </step>
+    </steps>
+    <result>The application is transferred to the target device and then launched for debugging.</result>
+  </taskbody>
+</task>

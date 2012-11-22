@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  Copyright (C) 2010 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+ -->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name" msgid="6794833895507358569">"Photo Studio"</string>
+    <string name="loading_failure" msgid="8575831322115054185">"Laden des Fotos zum Bearbeiten nicht möglich."</string>
+    <string name="saving_failure" msgid="3116717307036082369">"Beim Speichern ist ein Problem aufgetreten."</string>
+    <string name="photo_saved" msgid="5093564498138145422">"<xliff:g id="FILENAME">%s</xliff:g> gespeichert"</string>
+    <string name="save_photo" msgid="3125109368779997862">"Bearbeitetes Foto speichern?"</string>
+    <string name="yes" msgid="5402582493291792293">"Ja"</string>
+    <string name="no" msgid="5595408018304861875">"Nein"</string>
+    <string name="cancel" msgid="6286688759430767307">"Abbrechen"</string>
+    <string name="edited_photo_bucket_name" msgid="3777746536831799890">"Bearbeitet"</string>
+    <string name="artistic_group" msgid="573091775825402562">"Kunstvoll"</string>
+    <string name="color_group" msgid="3390757893475444688">"Farbe"</string>
+    <string name="exposure_group" msgid="7019148007708100078">"Belichtung"</string>
+    <string name="fix_group" msgid="971450155810247383">"Korrektur"</string>
+    <string name="autofix" msgid="1223859191856172755">"Gute Stimmung"</string>
+    <string name="crossprocess" msgid="4173724489001742342">"Cross-Entwickl."</string>
+    <string name="documentary" msgid="50396326708699797">"Dokumentation"</string>
+    <string name="doodle" msgid="1686409894518940990">"Doodle"</string>
+    <string name="duotone" msgid="8145893940788467106">"Duoton"</string>
+    <string name="filllight" msgid="2644989991700022526">"Aufhellen"</string>
+    <string name="fisheye" msgid="6037488646928998921">"Fischauge"</string>
+    <string name="flip" msgid="2357692401826287480">"Spiegeln"</string>
+    <string name="grain" msgid="7487585304579789098">"Filmkörnung"</string>
+    <string name="grayscale" msgid="615169770671286699">"Graustufen"</string>
+    <string name="highlight" msgid="3902653944386623972">"Highlights"</string>
+    <string name="lomoish" msgid="7793824845892532976">"Lomoesk"</string>
+    <string name="negative" msgid="1985508917342811252">"Negativ"</string>
+    <string name="posterize" msgid="4139212359561383385">"Tontrennung"</string>
+    <string name="redeye" msgid="4958448806369928239">"Rote Augen"</string>
+    <string name="rotate" msgid="6607597269792373083">"Drehen"</string>
+    <string name="saturation" msgid="8621322012271169931">"Sättigung"</string>
+    <string name="sepia" msgid="7978093531824705601">"Sepia"</string>
+    <string name="shadow" msgid="8235188588101973090">"Schatten"</string>
+    <string name="sharpen" msgid="8449662378104403230">"Scharf stellen"</string>
+    <string name="softfocus" msgid="6334228862566408303">"Weichzeichnen"</string>
+    <string name="straighten" msgid="5217801513491493491">"Ausrichten"</string>
+    <string name="temperature" msgid="3589958696423284897">"Temperatur"</string>
+    <string name="tint" msgid="154435943863418434">"Färbung"</string>
+    <string name="vignette" msgid="7648125924662648282">"Vignettierung"</string>
+    <string name="warmify" msgid="2404474974251014984">"Wärmer gestalten"</string>
+    <string name="doodle_tooltip" msgid="2902117272374362915">"Zum Erstellen eines Doodles auf dem Foto zeichnen"</string>
+    <string name="flip_tooltip" msgid="2700943256714731737">"Foto ziehen, um es umzudrehen"</string>
+    <string name="redeye_tooltip" msgid="9112774042113471358">"Zum Entfernen roter Augen tippen"</string>
+    <string name="rotate_tooltip" msgid="7008602969130734229">"Foto ziehen, um es zu drehen"</string>
+    <string name="straighten_tooltip" msgid="4846317027139212339">"Foto ziehen, um es zu strecken"</string>
+</resources>

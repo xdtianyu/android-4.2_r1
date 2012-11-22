@@ -1,0 +1,30 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'maven'
+
+dependencies {
+    // this is temporary
+    compile fileTree(dir: 'prebuilts', include: '*.jar')
+
+    compile 'com.google.guava:guava:13.0.1'
+
+    testCompile 'junit:junit:3.8.1'
+}
+
+group = 'com.android.build'
+archivesBaseName = 'android-builder'
+
+jar {
+    from { configurations.runtime.collect { it.directory ? it : zipTree(it) } }
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: uri("$rootDir/repo"))
+            // Discard all the dependencies from the POM, as they are packaged in the JAR.
+            pom.scopeMappings.mappings.clear()
+        }
+    }
+}

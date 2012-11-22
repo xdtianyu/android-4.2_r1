@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sample_ddlist_select">Selected: </string>
+    <string name="sample_ddlist_pick_item">Pick an Item</string>
+    <string-array name="sample_ddlist_items">
+        <item>List Item 1</item>
+        <item>List Item 2</item>
+        <item>List Item 3</item>
+        <item>List Item 4</item>
+        <item>List Item 5</item>
+        <item>List Item 6</item>
+        <item>List Item 7</item>
+        <item>List Item 8</item>
+        <item>List Item 9</item>
+        <item>List Item 10</item>
+        <item>List Item 11</item>
+        <item>List Item 12</item>
+        <item>List Item 13</item>
+        <item>List Item 14</item>
+        <item>List Item 15</item>
+    </string-array>
+</resources>

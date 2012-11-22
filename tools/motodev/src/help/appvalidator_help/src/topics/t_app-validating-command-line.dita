@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "../dtd/task.dtd">
+<task id="t_app-validating-command-line" xml:lang="en-us">
+  <title>Validating an application from the command line</title>
+  <shortdesc>The App Validator can be run from the command-line as well as from within Eclipse. This enables you
+    to run the validator as part of your automated build process.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody><steps>
+      <step>
+        <cmd>From the command-line, or from within your build script, invoke the appvalidator script located in the
+          MOTODEV Studio for Android installation directory. Note that on Microsoft Windows the script is a batch file
+          (appvalidator.bat), while on Mac OS X and Linux it is a shell script (appvalidator.sh). Specify the APK file
+          or the Android project folder for the application to be validated. If your system path does not include the
+          location of the Android SDK's primary tools directory, specify it using the <codeph>-sdk</codeph> option.</cmd>
+        <info>See <xref href="r_appvalidator-cmdline.dita"/> for the set of options you can use when invoking the
+          appvalidator script.</info>
+      </step>
+    </steps><example>To run all available checkers on your project or APK, issue the following command from within the
+      MOTODEV Studio for Android installation directory:
+      <codeblock>appvalidator &lt;path_to_project_or_APK&gt; -sdk &lt;path_to_SDK&gt;></codeblock> To run a specific
+      checker:
+      <codeblock>appvalidator &lt;path_to_project_or_APK&gt; -sdk &lt;path_to_SDK&gt; -c &lt;checker_ID&gt;</codeblock></example></taskbody>
+</task>

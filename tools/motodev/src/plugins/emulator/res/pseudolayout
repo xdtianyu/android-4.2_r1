@@ -1,0 +1,21 @@
+layouts {
+    default {
+        event     EV_SW:0:1
+
+        uniqueRef1 {
+            name    ___UNIQUE___
+            x       0
+            y       0
+        }
+    }
+
+    rotated {
+        event     EV_SW:0:0
+
+        uniqueRef2 {
+            name      ___UNIQUE___
+            x         0
+            rotation  3
+        }
+    }
+}

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference id="u_db-classes-create" xml:lang="en-us">
+  <title>Create Database Management Classes</title>
+  <shortdesc>Creates classes you can use to manage and access your application's database: content providers for each of
+    the database's tables, and a SQL open helper that can create and if desired initialize your database at runtime. To
+    access this dialog you right-click your project in the Package Explorer and select <menucascade><uicontrol>Studio
+        for Android</uicontrol><uicontrol>Create Database Management Classes</uicontrol></menucascade>. Note that these
+    classes are generated based upon the schema from an existing database; thus, you must have a version of your
+    application's database on your development computer.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <simpletable>
+        <strow>
+          <stentry><uicontrol>Project</uicontrol></stentry>
+          <stentry>The project to which the database management classes are to be added.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Database File</uicontrol></stentry>
+          <stentry>The SQLite database file from which the classes are to be generated. Note that this database file
+            need not be in your current project; click <uicontrol>Filesystem</uicontrol> to select a database from
+            anywhere that is accessible to your development computer, or <uicontrol>Workspace</uicontrol> to select a
+            database from within the current project. If the database is not part of your current project, it will be
+            copied to the project's <codeph>assets</codeph> folder.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Generate SQL Open Helper</uicontrol></stentry>
+          <stentry>Adds a SQL Open Helper class to your project. The SQL Open Helper can automatically check for an
+            accessible database at runtime, and if necessary copy an initial database from the <codeph>assets</codeph>
+            folder within your APK to the proper location in <codeph>/data/data/</codeph>. This allows your application
+            to start with a pre-populated database on first launch.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>SQL Open Helper</uicontrol></stentry>
+          <stentry>If <uicontrol>Generate SQL Open Helper</uicontrol> is selected, specify the desired name of the
+            generated helper class using the <uicontrol>Name</uicontrol> field. Also indicate the source folder into
+            which the generated class is to be written using the <uicontrol>Source folder</uicontrol> field, and the
+            package of which the class is to be a member using the <uicontrol>Package</uicontrol> field.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Generate Content Providers for each table</uicontrol></stentry>
+          <stentry>Generates a content provider class for each table in the specified database.  Content providers allow
+            you to create Live Folders that can show the contents of your database tables, and can make your database
+            tables accessible to other applications.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Content Provider</uicontrol></stentry>
+          <stentry>If <uicontrol>Generate Content Providers for each table</uicontrol> is selected, specify the source
+            folder into which the generated classes are to be written using the <uicontrol>Source Folder</uicontrol>
+            field, and the package of which the classes are to be a member using the <uicontrol>Package</uicontrol>
+            field. Each generated content provider class will be named for the table from which it was generated; the
+            class name will have the form <i>table_name</i><codeph>ContentProvider</codeph>. If the generated source
+            file names conflict with existing files within the specified source folder, the existing files will be
+            overwritten unless you clear the <uicontrol>Overwrite if it already exists</uicontrol> option.</stentry>
+        </strow>
+      </simpletable>
+    </section>
+  </refbody>
+</reference>

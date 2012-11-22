@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference xml:lang="en-us" id="u_studio-prefs_android">
+  <title>MOTODEV Studio for Android preferences</title>
+  <shortdesc>Contains preferences specific to MOTODEV Studio for Android. </shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>To access these preferences, select <uicontrol>Preferences</uicontrol> from the <ph
+        conref="g_variables.dita#g_variables/studio-sdk-prefs-parent-menu"/> menu. Then from the list of preferences,
+      select <menucascade><uicontrol>MOTODEV Studio</uicontrol><uicontrol>MOTODEV Studio for
+      Android</uicontrol></menucascade>.</section>
+    <section>
+      <title>MOTODEV Studio for Android Dialogs</title>
+      <simpletable>
+        <strow>
+          <stentry>
+            <uicontrol>Clear</uicontrol>
+          </stentry>
+          <stentry>Click <uicontrol>Clear</uicontrol> to once again be presented with all dialogs that you may have
+            permanently dismissed by selecting the "do not show again" and "always proceed without asking"
+          options.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>API Key</uicontrol></stentry>
+          <stentry>In order to use Google's translation service to automatically translate text strings within the
+            Localization Files Editor you must have obtained a key from Google and entered it into this field. Click the
+            link above this field to be taken to the Google APIs Console, from which you can obtain the needed key. See
+            the "Configuring the Localization Files Editor" help topic (under "Localizing Text Strings") for
+            step-by-step instructions on how to obtain this key.</stentry>
+        </strow>
+      </simpletable>
+    </section>
+  </refbody>
+</reference>

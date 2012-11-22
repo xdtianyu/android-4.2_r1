@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="MOTODEV Studio for Android" default="generate.release.artifacts">
+
+	<description>
+     This Build file generates the Studio Android Product using PDE + P2 infraestructure
+     USAGE:
+     ant generate.release.artifacts [to generate Release Artifacts]
+     ant generate.release.artifacts -Dmotodev.storepass=[storepass] -Dmotodev.keypass=[keypass] [to build the product signing the features and plugins]
+    </description>
+
+	<!-- define timestamp for build -->
+	<tstamp>
+		<format property="timestamp" pattern="ddMMyyyyhhmm" />
+	</tstamp>
+
+	<!-- define basic properties -->
+	<property environment="env" />
+	<property name="BASE_DIR" value="${env.BUILD_BASE_PATH}" />
+
+	<target name="generate.release.artifacts" depends="devQualifier, releaseQualifier" description="Generate Release Artifacts">
+
+		<property file="${BASE_DIR}/env/code/android/makefile/common.properties" />
+		<property file="${BASE_DIR}/env/code/android/makefile/studioBuild.properties" />
+		<!-- property file="${BASE_DIR}/input/sign/jarsigner.properties" / -->
+
+		<available file="${BASE_DIR}/buildplatform" property="buildplatform" />
+
+		<antcall target="init" />
+		
+		<mkdir dir="${OUTPUT_DIR}/output" />
+
+		<!-- antcall target="check_plugins_needing_version_update" /-->
+
+		<!-- antcall target="build.app.validator.product" /-->
+
+		<antcall target="build.studio.repositories" />
+
+		<antcall target="generate.repository.packages" />
+
+		<antcall target="generate.updatesite.repositories.packages" />
+
+		<antcall target="calculate_checksums" />
+		
+		<!--antcall target="automated_tests" -->
+		
+	</target>
+	
+    <target name="automated_tests">
+            <echo level="info" message="studioBuild.xml Automated Tests target"/>
+    		<exec executable="chmod">
+    				<arg value="a+x" />
+    				<arg value="${MAKEFILE}/autotest.sh" />
+    		</exec>
+            <exec executable="${MAKEFILE}/autotest.sh"  output="/android/tests/autotest_output.log"/>
+    </target>
+
+	<target name="generate.updatesite.repositories.packages">
+
+		<ant antfile="${MAKEFILE}/studioRepositoryUtils.xml" target="genAdditionsArchive" />
+
+		<ant antfile="${MAKEFILE}/studioRepositoryUtils.xml" target="genNativeArchive" />
+
+
+	</target>
+
+	<!-- initialize build (remove all previous output and copy source to a temporary location) -->
+	<target name="init">
+		<defaultexcludes add="**/*.contrib" />
+		<delete includeemptydirs="true" failonerror="false">
+			<fileset dir="${OUTPUT_DIR}/" includes="**/*" />
+		</delete>
+		<delete includeemptydirs="true" failonerror="false">
+			<fileset dir="${user.home}/workspace" includes="**/**" />
+		</delete>
+	</target>
+	
+	<target name="clearSettings">
+		<delete failonerror="false" includeEmptyDirs="true" verbose="true">
+			<fileset dir="${eclipse.builder.path}/configuration/.settings/" includes="**/**" />
+			<fileset dir="${eclipse.builder.path}/p2/org.eclipse.equinox.p2.core/cache/" includes="**/**" />
+			<fileset dir="${eclipse.builder.path}/p2/org.eclipse.equinox.p2.engine/.settings/" includes="**/**" />
+			<fileset dir="${eclipse.builder.path}/p2/org.eclipse.equinox.p2.engine/profileRegistry/" includes="**/**" excludes="**/SDKProfile.profile/**" />
+		</delete>
+	</target>
+
+	<target name="check_plugins_needing_version_update">
+		<echo level="info">
+			Calling checkmodifications with the following arguments: 
+			${MAKEFILE}/scripts/checkmodifications.sh ${GIT_REPOSITORY_PATH} APP-VALIDATOR_N_00.09.100I_B001 ${studioVersion} ${platformVersion} ${appvalidatorVersion} ${appvalidatorUIVersion} ${OUTPUT_DIR}/output
+		</echo>
+		<exec executable="${MAKEFILE}/scripts/checkmodifications.sh">
+			<!-- path to git code -->
+			<arg value="${GIT_REPOSITORY_PATH}" />
+			<!-- label to serve as base to check modifications -->
+			<!-- Latest studio label: STUDIO-ANDROID_N_03.01.00I_B003 -->
+			<arg value="STUDIO-ANDROID_N_04.00.00I_B003" />
+			<!-- studio version -->
+			<arg value="${studioVersion}" />
+			<!-- platform version -->
+			<arg value="${platformVersion}" />
+			<!-- app validator version -->
+			<arg value="${appvalidatorVersion}" />
+			<!-- app validator ui version -->
+			<arg value="${appvalidatorUIVersion}" />
+			<!-- output folder -->
+			<arg value="${OUTPUT_DIR}/output" />
+		</exec>
+	</target>
+
+	<target name="generate.repository.packages" description="Pack repositories within zip packages">
+		<!-- Besides installers, the MOTODEV Studio Repositories are outputs too-->
+		<zip destfile="${OUTPUT_DIR}/output/repository_studio.zip" basedir="${OUTPUT_METADATA_PRODUCT}" />
+		<zip destfile="${OUTPUT_DIR}/output/repository_basic.zip" basedir="${OUTPUT_METADATA_STUDIO_BASIC}" />
+		<zip destfile="${OUTPUT_DIR}/output/MOTODEV_Studio_for_Android_${studioVersion}_Archive.zip" basedir="${OUTPUT_METADATA_STUDIO_FULL}" />
+		<zip destfile="${OUTPUT_DIR}/output/repository_appvalidator.zip" basedir="${APPVALIDATOR_OUTPUT}" />
+		<zip destfile="${OUTPUT_DIR}/output/javadoc_appvalidator.zip" basedir="${APPVALIDATOR_API_OUTPUT}" />
+	</target>
+
+	<target name="calculate_checksums">
+		<checksum fileext=".MD5.txt" format="MD5SUM">
+			<fileset dir="${OUTPUT_DIR}/output" excludes="*.MD5.txt" />
+		</checksum>
+		<concat destfile="${OUTPUT_DIR}/output/md5sums.txt" binary="yes">
+			<fileset dir="${OUTPUT_DIR}/output" includes="*.MD5.txt" />
+		</concat>
+		<delete>
+			<fileset dir="${OUTPUT_DIR}/output/" includes="*.MD5.txt" />
+		</delete>
+	</target>
+
+	<!-- ============================================================================================== -->
+	<!-- GENERATE FULL PRODUCT 							        											-->
+	<!-- ============================================================================================== -->
+	<target name="generate_full_product">
+		
+		<antcall target="p2_director">
+			<param name="installable_unit" value="org.eclipse.mylyn_feature.feature.group" />
+			<param name="operating_system" value="${operating_system}" />
+			<param name="windowing_system" value="${windowing_system}" />
+			<param name="arch" value="${arch}" />
+			<param name="REPO_LIST" value="&quot;${REPOSITORY_LIST_BASE},${REPOSITORY_LIST_EXTRA}&quot;" />
+		</antcall>
+
+		<antcall target="p2_director">
+			<param name="installable_unit" value="org.eclipse.mylyn.context_feature.feature.group" />
+			<param name="operating_system" value="${operating_system}" />
+			<param name="windowing_system" value="${windowing_system}" />
+			<param name="arch" value="${arch}" />
+			<param name="REPO_LIST" value="&quot;${REPOSITORY_LIST_BASE},${REPOSITORY_LIST_EXTRA}&quot;" />
+		</antcall>
+
+		<antcall target="p2_director">
+			<param name="installable_unit" value="org.eclipse.cvs.feature.group" />
+			<param name="operating_system" value="${operating_system}" />
+			<param name="windowing_system" value="${windowing_system}" />
+			<param name="arch" value="${arch}" />
+			<param name="REPO_LIST" value="&quot;${REPOSITORY_LIST_BASE},${REPOSITORY_LIST_EXTRA}&quot;" />
+		</antcall>
+
+		<antcall target="p2_director">
+			<param name="installable_unit" value="org.eclipse.team.svn.feature.group" />
+			<param name="operating_system" value="${operating_system}" />
+			<param name="windowing_system" value="${windowing_system}" />
+			<param name="arch" value="${arch}" />
+			<param name="REPO_LIST" value="&quot;${REPOSITORY_LIST_BASE},${REPOSITORY_LIST_EXTRA}&quot;" />
+		</antcall>
+
+		<antcall target="p2_director">
+			<param name="installable_unit" value="org.eclipse.team.svn.feature.group" />
+			<param name="operating_system" value="${operating_system}" />
+			<param name="windowing_system" value="${windowing_system}" />
+			<param name="arch" value="${arch}" />
+			<param name="REPO_LIST" value="&quot;${REPOSITORY_LIST_BASE},${REPOSITORY_LIST_EXTRA}&quot;" />
+		</antcall>
+
+		<antcall target="p2_director">
+			<param name="installable_unit" value="org.eclipse.egit.feature.group" />
+			<param name="operating_system" value="${operating_system}" />
+			<param name="windowing_system" value="${windowing_system}" />
+			<param name="arch" value="${arch}" />
+			<param name="REPO_LIST" value="&quot;${REPOSITORY_LIST_BASE},${REPOSITORY_LIST_EXTRA}&quot;" />
+		</antcall>
+
+	</target>
+
+
+	<!-- ============================================================================================== -->
+	<!-- GENERATE PRODUCT 							        											-->
+	<!-- ============================================================================================== -->
+
+	<target name="generate_basic_product">
+		<mkdir dir="${OUTPUT_DIRECTOR_BASE}/${operating_system}_${windowing_system}_${arch}" />
+
+		<!-- antcall target="p2_director">
+			<param name="installable_unit" value="com.motorola.studio.android.product.android" />
+			<param name="operating_system" value="${operating_system}" />
+			<param name="windowing_system" value="${windowing_system}" />
+			<param name="arch" value="${arch}" />
+			<param name="REPO_LIST" value="&quot;${REPOSITORY_LIST_BASE}&quot;" />
+		</antcall -->
+
+
+		<!-- Install things as top features (prevents p2 bug). Can be removed when p2 bug going to be fixed 
+		https://bugs.eclipse.org/bugs/show_bug.cgi?id=313979
+		-->
+		
+		<antcall target="p2_director">
+			<param name="installable_unit" value="com.motorolamobility.preflighting.feature.feature.group" />
+			<param name="operating_system" value="${operating_system}" />
+			<param name="windowing_system" value="${windowing_system}" />
+			<param name="arch" value="${arch}" />
+			<param name="REPO_LIST" value="&quot;${REPOSITORY_LIST_BASE}&quot;" />
+		</antcall>
+		
+		<antcall target="p2_director">
+			<param name="installable_unit" value="com.motorolamobility.preflighting.sdk.feature.feature.group" />
+			<param name="operating_system" value="${operating_system}" />
+			<param name="windowing_system" value="${windowing_system}" />
+			<param name="arch" value="${arch}" />
+			<param name="REPO_LIST" value="&quot;${REPOSITORY_LIST_BASE}&quot;" />
+		</antcall>
+
+		<antcall target="p2_director">
+			<param name="installable_unit" value="com.motorolamobility.preflighting.ui.feature.feature.group" />
+			<param name="operating_system" value="${operating_system}" />
+			<param name="windowing_system" value="${windowing_system}" />
+			<param name="arch" value="${arch}" />
+			<param name="REPO_LIST" value="&quot;${REPOSITORY_LIST_BASE}&quot;" />
+		</antcall>
+
+		<antcall target="p2_director">
+			<param name="installable_unit" value="org.eclipse.datatools.enablement.sqlite.feature.feature.group" />
+			<param name="operating_system" value="${operating_system}" />
+			<param name="windowing_system" value="${windowing_system}" />
+			<param name="arch" value="${arch}" />
+			<param name="REPO_LIST" value="&quot;${REPOSITORY_LIST_BASE}&quot;" />
+		</antcall>
+
+		<antcall target="p2_director">
+			<param name="installable_unit" value="org.eclipse.datatools.doc.user.feature.group" />
+			<param name="operating_system" value="${operating_system}" />
+			<param name="windowing_system" value="${windowing_system}" />
+			<param name="arch" value="${arch}" />
+			<param name="REPO_LIST" value="&quot;${REPOSITORY_LIST_BASE}&quot;" />
+		</antcall>
+
+		<antcall target="p2_director">
+			<param name="installable_unit" value="org.eclipse.gef.feature.group" />
+			<param name="operating_system" value="${operating_system}" />
+			<param name="windowing_system" value="${windowing_system}" />
+			<param name="arch" value="${arch}" />
+			<param name="REPO_LIST" value="&quot;${REPOSITORY_LIST_BASE}&quot;" />
+		</antcall>
+
+		<antcall target="p2_director">
+			<param name="installable_unit" value="org.eclipse.mat.feature.feature.group" />
+			<param name="operating_system" value="${operating_system}" />
+			<param name="windowing_system" value="${windowing_system}" />
+			<param name="arch" value="${arch}" />
+			<param name="REPO_LIST" value="&quot;${REPOSITORY_LIST_BASE}&quot;" />
+		</antcall>
+
+		<antcall target="p2_director">
+			<param name="installable_unit" value="org.eclipse.mat.chart.feature.feature.group" />
+			<param name="operating_system" value="${operating_system}" />
+			<param name="windowing_system" value="${windowing_system}" />
+			<param name="arch" value="${arch}" />
+			<param name="REPO_LIST" value="&quot;${REPOSITORY_LIST_BASE}&quot;" />
+		</antcall>
+
+		<antcall target="p2_director">
+			<param name="installable_unit" value="org.eclipse.sequoyah.device.feature.feature.group" />
+			<param name="operating_system" value="${operating_system}" />
+			<param name="windowing_system" value="${windowing_system}" />
+			<param name="arch" value="${arch}" />
+			<param name="REPO_LIST" value="&quot;${REPOSITORY_LIST_BASE}&quot;" />
+		</antcall>
+
+		<antcall target="p2_director">
+			<param name="installable_unit" value="org.eclipse.sequoyah.localization.tools.feature.feature.group" />
+			<param name="operating_system" value="${operating_system}" />
+			<param name="windowing_system" value="${windowing_system}" />
+			<param name="arch" value="${arch}" />
+			<param name="REPO_LIST" value="&quot;${REPOSITORY_LIST_BASE}&quot;" />
+		</antcall>
+
+		<antcall target="p2_director">
+			<param name="installable_unit" value="org.eclipse.sequoyah.localization.android.feature.feature.group" />
+			<param name="operating_system" value="${operating_system}" />
+			<param name="windowing_system" value="${windowing_system}" />
+			<param name="arch" value="${arch}" />
+			<param name="REPO_LIST" value="&quot;${REPOSITORY_LIST_BASE}&quot;" />
+		</antcall>
+
+		<antcall target="p2_director">
+			<param name="installable_unit" value="org.eclipse.wst.common.fproj.feature.group" />
+			<param name="operating_system" value="${operating_system}" />
+			<param name="windowing_system" value="${windowing_system}" />
+			<param name="arch" value="${arch}" />
+			<param name="REPO_LIST" value="&quot;${REPOSITORY_LIST_BASE}&quot;" />
+		</antcall>
+
+		<antcall target="p2_director">
+			<param name="installable_unit" value="org.eclipse.wst.jsdt.feature.feature.group" />
+			<param name="operating_system" value="${operating_system}" />
+			<param name="windowing_system" value="${windowing_system}" />
+			<param name="arch" value="${arch}" />
+			<param name="REPO_LIST" value="&quot;${REPOSITORY_LIST_BASE}&quot;" />
+		</antcall>
+
+		<antcall target="p2_director">
+			<param name="installable_unit" value="org.eclipse.wst.jsdt.feature.feature.group" />
+			<param name="operating_system" value="${operating_system}" />
+			<param name="windowing_system" value="${windowing_system}" />
+			<param name="arch" value="${arch}" />
+			<param name="REPO_LIST" value="&quot;${REPOSITORY_LIST_BASE}&quot;" />
+		</antcall>
+
+		<antcall target="p2_director">
+			<param name="installable_unit" value="org.eclipse.wst.server_adapters.feature.feature.group" />
+			<param name="operating_system" value="${operating_system}" />
+			<param name="windowing_system" value="${windowing_system}" />
+			<param name="arch" value="${arch}" />
+			<param name="REPO_LIST" value="&quot;${REPOSITORY_LIST_BASE}&quot;" />
+		</antcall>
+
+		<antcall target="p2_director">
+			<param name="installable_unit" value="org.eclipse.wst.web_ui.feature.feature.group" />
+			<param name="operating_system" value="${operating_system}" />
+			<param name="windowing_system" value="${windowing_system}" />
+			<param name="arch" value="${arch}" />
+			<param name="REPO_LIST" value="&quot;${REPOSITORY_LIST_BASE}&quot;" />
+		</antcall>
+
+		<antcall target="p2_director">
+			<param name="installable_unit" value="org.eclipse.wst.xml_ui.feature.feature.group" />
+			<param name="operating_system" value="${operating_system}" />
+			<param name="windowing_system" value="${windowing_system}" />
+			<param name="arch" value="${arch}" />
+			<param name="REPO_LIST" value="&quot;${REPOSITORY_LIST_BASE}&quot;" />
+		</antcall>
+
+		<antcall target="p2_director">
+			<param name="installable_unit" value="org.eclipse.wst.xml_core.feature.feature.group" />
+			<param name="operating_system" value="${operating_system}" />
+			<param name="windowing_system" value="${windowing_system}" />
+			<param name="arch" value="${arch}" />
+			<param name="REPO_LIST" value="&quot;${REPOSITORY_LIST_BASE}&quot;" />
+		</antcall>
+
+		<antcall target="p2_director">
+			<param name="installable_unit" value="org.eclipse.wst.xsl.feature.feature.group" />
+			<param name="operating_system" value="${operating_system}" />
+			<param name="windowing_system" value="${windowing_system}" />
+			<param name="arch" value="${arch}" />
+			<param name="REPO_LIST" value="&quot;${REPOSITORY_LIST_BASE}&quot;" />
+		</antcall>
+
+		<antcall target="p2_director">
+			<param name="installable_unit" value="net.certiv.proguarddt.feature.feature.group" />
+			<param name="operating_system" value="${operating_system}" />
+			<param name="windowing_system" value="${windowing_system}" />
+			<param name="arch" value="${arch}" />
+			<param name="REPO_LIST" value="&quot;${REPOSITORY_LIST_BASE}&quot;" />
+		</antcall>
+
+		<antcall target="p2_director">
+			<param name="installable_unit" value="org.eclipse.pde.feature.group" />
+			<param name="operating_system" value="${operating_system}" />
+			<param name="windowing_system" value="${windowing_system}" />
+			<param name="arch" value="${arch}" />
+			<param name="REPO_LIST" value="&quot;${REPOSITORY_LIST_BASE}&quot;" />
+		</antcall>
+
+		<!-- create dropins folder -->
+		<mkdir dir="${OUTPUT_DIRECTOR_BASE}/${operating_system}_${windowing_system}_${arch}/dropins" />
+
+		<!-- remove p2 cache -->
+		<delete includeemptydirs="true" failonerror="false">
+			<fileset dir="${OUTPUT_DIRECTOR_BASE}/${operating_system}_${windowing_system}_${arch}/p2/org.eclipse.equinox.p2.core/" includes="**/*" />
+		</delete>
+		<delete includeemptydirs="true" failonerror="false">
+			<fileset dir="${OUTPUT_DIRECTOR_BASE}/${operating_system}_${windowing_system}_${arch}/p2/org.eclipse.equinox.p2.director/" includes="**/*" />
+		</delete>
+		<delete includeemptydirs="true" failonerror="false">
+			<fileset dir="${OUTPUT_DIRECTOR_BASE}/${operating_system}_${windowing_system}_${arch}/p2/org.eclipse.equinox.p2.engine/.settings/" includes="**/*" />
+		</delete>
+
+		<!-- copy repository list to the product -->
+		<mkdir dir="${OUTPUT_DIRECTOR_BASE}/${operating_system}_${windowing_system}_${arch}/p2/org.eclipse.equinox.p2.engine/profileRegistry/MOTODEV_Profile_Android.profile/.data/.settings" />
+		<copy todir="${OUTPUT_DIRECTOR_BASE}/${operating_system}_${windowing_system}_${arch}/p2/org.eclipse.equinox.p2.engine/profileRegistry/MOTODEV_Profile_Android.profile/.data/.settings" overwrite="true" failonerror="true">
+			<fileset dir="${SETTINGS_DIR}" includes="**/*" />
+		</copy>
+		
+		<copy  todir="${OUTPUT_DIRECTOR_BASE}/${operating_system}_${windowing_system}_${arch}/plugins" overwrite="true" failonerror="true">
+			<fileset dir="${OUTPUT_METADATA_PRODUCT}/plugins" includes="com.motorola.studio.android.common*"/>
+		</copy>
+
+	</target>
+
+	<!-- ============================================================================================== -->
+	<!-- P2 Director ant									 		                					-->
+	<!-- ============================================================================================== -->
+	<target name="p2_director">
+		<echo level="info" message="${BASE_DIR}/env/eclipse/eclipse -noSplash -clean -application org.eclipse.equinox.p2.director.app.application -metadataRepository ${REPO_LIST} -artifactRepository ${REPO_LIST} -installIU ${installable_unit} -version ${installable_unit_version} -destination ${OUTPUT_DIRECTOR_BASE}/${operating_system}_${windowing_system}_${arch} -bundlepool ${OUTPUT_DIRECTOR_BASE}/${operating_system}_${windowing_system}_${arch} -profile MOTODEV_Profile_Android -p2.os ${operating_system} -p2.ws ${windowing_system} -p2.arch ${arch} -roaming -vmArgs -Xms256M -Xmx512M -Declipse.p2.data.area=${OUTPUT_DIRECTOR_BASE}/${operating_system}_${windowing_system}_${arch}/p2" />
+		<java failonerror="true" jar="${eclipse.builder.path}/plugins/${eclipse.builder.launcher}" fork="true">
+			<arg line="-application org.eclipse.equinox.p2.director" />
+			<arg line="-metadataRepository ${REPO_LIST}" />
+			<arg line="-artifactRepository ${REPO_LIST}" />
+			<arg line="-installIU ${installable_unit}" />
+			<arg line="-destination ${OUTPUT_DIRECTOR_BASE}/${operating_system}_${windowing_system}_${arch}" />
+			<arg line="-bundlepool ${OUTPUT_DIRECTOR_BASE}/${operating_system}_${windowing_system}_${arch}" />
+			<arg line="-profile MOTODEV_Profile_Android" />
+			<arg line="-profileProperties org.eclipse.update.install.features=true" />
+			<arg line="-p2.os ${operating_system}" />
+			<arg line="-p2.ws ${windowing_system}" />
+			<arg line="-p2.arch ${arch}" />
+			<arg line="-roaming" />
+			<arg line="-vmArgs -Xms256M -Xmx512M -Declipse.p2.data.area=${OUTPUT_DIRECTOR_BASE}/${operating_system}_${windowing_system}_${arch}/p2" />
+		</java>
+
+	</target>
+
+	<target name="devQualifier" if="env.DEV_RELEASE">
+		<property name="forceContextQualifier" value="${timestamp}" />
+	</target>
+
+	<target name="releaseQualifier" unless="env.DEV_RELEASE">
+		<property name="forceContextQualifier" value="release" />
+	</target>
+
+	<target name="createBuildDirectory">
+		<delete includeemptydirs="true" failonerror="false">
+			<fileset dir="${buildDirectory}" includes="**/**" />
+		</delete>
+
+		<mkdir dir="${buildDirectory}" />
+
+		<copy todir="${buildDirectory}" file="${builder}/customTargets.xml" />
+		<copy todir="${buildDirectory}" file="${builder}/customAssembly.xml" failonerror="false" />
+		<copy tofile="${buildDirectory}/tmpbuild.properties" file="${builder}/build.properties" />
+		<copy todir="${buildDirectory}" file="${MAKEFILE}/common.properties" />
+
+		<concat destfile="${buildDirectory}/build.properties" binary="yes">
+			<fileset dir="${buildDirectory}/" includes="*.properties" />
+		</concat>
+	</target>
+
+
+	<target name="build.studio.repositories" depends="build.app.validator.repositories">
+		<antcall target="clearSettings" />
+
+		<property name="studioBuildDir" value="/tmp/studio_android_build_${studioVersion}" />
+
+		<antcall target="createBuildDirectory">
+			<param name="buildDirectory" value="${studioBuildDir}" />
+			<param name="builder" value="${MAKEFILE}" />
+		</antcall>
+
+		<java failonerror="true" jar="${eclipse.builder.path}/plugins/${eclipse.builder.launcher}" fork="true">
+			<jvmarg value="-Xmx1024m" />
+			<jvmarg value="-Xms80m" />
+			<arg value="-application" />
+			<arg value="org.eclipse.ant.core.antRunner" />
+			<arg value="-buildfile" />
+			<!-- arg value="${eclipse.builder.path}/plugins/${eclipse.builder.pde}/scripts/productBuild/productBuild.xml" /-->
+			<arg value="${eclipse.builder.path}/plugins/${eclipse.builder.pde}/scripts/build.xml" />
+			<arg value="-Dbuilder=${studioBuildDir}/" />
+			<!-- arg value="-Dmotodev.storepass=${motodev.storepass}" />
+			<arg value="-Dmotodev.keypass=${motodev.keypass}" / -->
+			<arg value="-DBASE_DIR=${BASE_DIR}" />
+			<arg value="-Dtimestamp=${timestamp}" />
+			<arg value="-DforceContextQualifier=${forceContextQualifier}" />
+			<arg value="-DrepoBaseLocation=${BASE_REPOSITORIES_DIR}" />
+			<arg value="-DtransformedRepoLocation=${INPUT_DIR}/transformedRepos" />
+			<arg value="-DbuildDirectory=${studioBuildDir}" />
+			<arg value="-DbaseLocation=${eclipse.builder.path}" />
+			<arg value="-DoutputDirectory=${OUTPUT_METADATA_PRODUCT}" />
+		</java>
+
+		<ant antfile="${MAKEFILE}/studioRepositoryUtils.xml" target="mergeAppValidatorAndStudioRepositories" />
+
+		<ant antfile="${MAKEFILE}/studioRepositoryUtils.xml" target="genFullRepo" />
+		
+		<ant antfile="${MAKEFILE}/studioRepositoryUtils.xml" target="createSimpleBasicRepository" />
+
+	</target>
+
+	<target name="build.app.validator.repositories">
+
+		<antcall target="clearSettings" />
+
+		<property name="appvalBuildDir" value="/tmp/application_validator_build_${appvalidatorVersion}" />
+
+		<antcall target="createBuildDirectory">
+			<param name="buildDirectory" value="${appvalBuildDir}" />
+			<param name="builder" value="${MAKEFILE}/preflighting/" />
+		</antcall>
+
+
+		<java failonerror="true" jar="${eclipse.builder.path}/plugins/${eclipse.builder.launcher}" fork="true">
+			<jvmarg value="-Xmx1024m" />
+			<jvmarg value="-Xms80m" />
+			<arg value="-application" />
+			<arg value="org.eclipse.ant.core.antRunner" />
+			<arg value="-buildfile" />
+			<arg value="${eclipse.builder.path}/plugins/${eclipse.builder.pde}/scripts/productBuild/productBuild.xml" />
+			<!-- arg value="${eclipse.builder.path}/plugins/${eclipse.builder.pde}/scripts/build.xml" /-->
+			<arg value="-Dbuilder=${appvalBuildDir}" />
+			<!-- arg value="-Dmotodev.storepass=${motodev.storepass}" />
+			<arg value="-Dmotodev.keypass=${motodev.keypass}" / -->
+			<arg value="-DBASE_DIR=${BASE_DIR}" />
+			<arg value="-Dtimestamp=${timestamp}" />
+			<arg value="-DforceContextQualifier=${forceContextQualifier}" />
+			<arg value="-DrepoBaseLocation=${BASE_REPOSITORIES_DIR}" />
+			<arg value="-DtransformedRepoLocation=${INPUT_DIR}/transformedRepos" />
+			<arg value="-DbuildDirectory=${appvalBuildDir}" />
+			<arg value="-DbaseLocation=${eclipse.builder.path}" />
+			<arg value="-DoutputDirectory=${APPVALIDATOR_OUTPUT}" />
+			<arg value="-DappValidatorJavadocOutputDirectory=${APPVALIDATOR_API_OUTPUT}" />
+		</java>
+	</target>
+
+	<target name="build.app.validator.product">
+
+		<antcall target="clearSettings" />
+
+		<property name="appvalProductBuildDir" value="/tmp/application_validator_product_build_${appvalidatorVersion}" />
+
+		<antcall target="createBuildDirectory">
+			<param name="buildDirectory" value="${appvalProductBuildDir}" />
+			<param name="builder" value="${MAKEFILE}/preflighting/product/" />
+		</antcall>
+
+		<java failonerror="true" jar="${eclipse.builder.path}/plugins/${eclipse.builder.launcher}" fork="true">
+			<jvmarg value="-Xmx1024m" />
+			<jvmarg value="-Xms80m" />
+			<arg value="-application" />
+			<arg value="org.eclipse.ant.core.antRunner" />
+			<arg value="-buildfile" />
+			<arg value="${eclipse.builder.path}/plugins/${eclipse.builder.pde}/scripts/productBuild/productBuild.xml" />
+			<arg value="-Dbuilder=${appvalProductBuildDir}" />
+			<!-- arg value="-Dmotodev.storepass=${motodev.storepass}" />
+			<arg value="-Dmotodev.keypass=${motodev.keypass}" / -->
+			<arg value="-DBASE_DIR=${BASE_DIR}" />
+			<arg value="-Dtimestamp=${timestamp}" />
+			<arg value="-DforceContextQualifier=${forceContextQualifier}" />
+			<arg value="-DrepoBaseLocation=${BASE_REPOSITORIES_DIR}" />
+			<arg value="-DtransformedRepoLocation=${INPUT_DIR}/transformedRepos" />
+			<arg value="-DbuildDirectory=${appvalProductBuildDir}" />
+			<arg value="-DbaseLocation=${eclipse.builder.path}" />
+			<arg value="-DoutputDirectory=${OUTPUT_DIR}/output" />
+		</java>
+	</target>
+
+</project>

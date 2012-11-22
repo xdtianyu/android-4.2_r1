@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference id="u_new-service" xml:lang="en-us">
+  <title>New Service wizard</title>
+  <shortdesc>Creates a new Android service.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <simpletable>
+        <strow>
+          <stentry><uicontrol>Source folder</uicontrol></stentry>
+          <stentry>The folder into which the source code for the new service is to be stored. By default this is the
+            current project's src folder.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Package</uicontrol></stentry>
+          <stentry>The package that is to contain the new service. By default this is the current project's
+          package.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Name</uicontrol></stentry>
+          <stentry>The name to be used for the class that implements the service. This should be a simple, non-qualified
+            name.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Label</uicontrol></stentry>
+          <stentry>(optional) The label for the service. This label is displayed to the user, often along with the
+            service's icon, when the service needs to be identified to the user. Note that if you specify a label, the
+            New Service wizard creates a string resource to hold this value. If the <uicontrol>Default</uicontrol>
+            option is selected, a label is not set for this service (the Label field is not editable); the user sees the
+            application's label instead.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Superclass</uicontrol></stentry>
+          <stentry>The class from which the service inherits. For services, this is <codeph
+            >android.app.Service</codeph>.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Permission</uicontrol></stentry>
+          <stentry>(optional) Permissions that should be added to the project's manifest file due to this service. Click
+              <uicontrol>Add</uicontrol> to display a list of possible permissions from which you can select.</stentry>
+        </strow>
+      </simpletable>
+      <p>The New Service wizard can optionally include empty onCreate() and onStart() methods.</p>
+    </section>
+  </refbody>
+</reference>

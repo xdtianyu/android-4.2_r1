@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/topic.dtd">
+<topic id="g_variables">
+    <title>Variables</title>
+    <body>
+        <p>Use this file to create variables for elements supported in generic topics. Create a
+            phrase or other element, assign it an ID, then add text to the element. To have a
+            different value based on a filtered attribute (product, platform, audience, otherprops),
+            nest multiple elements within the ID'd element, each with a different attribute value.
+            See the example below:</p>
+        <p>
+            <ph id="studio-sdk-product-name"><ph product="javame-sdk">MOTODEV SDK for Java ME</ph><ph product="javame-studio">MOTODEV Studio for Java ME</ph><ph product="webui">MOTODEV Studio for WebUI</ph><ph product="android-studio">MOTODEV Studio for Android</ph></ph>
+            <ph id="gui-product-name"><ph product="javame-sdk">the Launchpad application</ph><ph product="javame-studio">MOTODEV Studio for Java ME</ph><ph product="webui">MOTODEV Studio for WebUI</ph><ph product="android-studio">MOTODEV Studio for Android</ph></ph>            
+            <ph id="tools-and-services-view-name"><ph product="javame-sdk">Utilities</ph><ph product="javame-studio">Java ME Options</ph></ph>
+            <ph id="studio-sdk-prefs-parent-menu"><ph product="javame-sdk"><uicontrol>File</uicontrol></ph><ph product="javame-studio android-studio"><uicontrol>Window</uicontrol> (on Mac OS X, <uicontrol>MOTODEV Studio for Android</uicontrol>)</ph></ph>
+        </p>
+      
+        <p>
+            <ph id="product-copyright-years"><ph product="javame-sdk javame-studio">2007-2009</ph><ph product="android-studio">2009-2012</ph></ph>
+        </p>
+    
+    <p>Here's an example of how to conref one of the above variables:</p>
+    <codeblock>&lt;ph conref="g_variables.dita#g_variables/studio-sdk-product-name"/></codeblock>
+      
+    </body>
+</topic>

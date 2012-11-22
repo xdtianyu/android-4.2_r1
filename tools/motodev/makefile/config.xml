@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<cruisecontrol>
+
+<!--
+#########################################################
+############## ONLY MODIFY THESE PROPERTIES #############
+#########################################################-->
+
+	<property name="project_name" value="Android-5.0.0" />
+	<property name="path_name" value="5.0.0" />
+<!--
+#########################################################
+#########################################################
+-->	
+	
+	<project name="${project_name}" buildafterfailed="true">
+
+	<listeners>
+		<currentbuildstatuslistener
+			file="/android/${path_name}/logs/${project_name}/status.txt"/>
+	</listeners>
+
+	<bootstrappers>
+		<execbootstrapper command="sh" args="git_update.sh" workingdir="/android/${path_name}/env/code/android/makefile/scripts/"/>
+	</bootstrappers>
+	
+    <!-- Defines where cruise looks for changes, to decide whether to run the build -->
+	<modificationset quietperiod="300">
+		<git LocalWorkingCopy="/android/${path_name}/env/code/" />
+	</modificationset>
+
+    <!-- Configures the build loop, how often and which build file/target -->
+	<schedule interval="900">
+		<ant antscript="/android/${path_name}/env/code/android/makefile/eant" buildfile="/android/${path_name}/env/code/android/makefile/studioBuild.xml"/>
+	</schedule>
+
+    <!-- directory to write build logs to -->
+	<log dir="/android/${path_name}/logs/${project_name}">
+		<delete unit="WEEK"
+			every="2"
+			ignoreSuffix="true"/>
+	</log>
+
+    <!-- Publishers are run *after* a build completes -->
+	<publishers>
+		<artifactspublisher dest="/android/${path_name}/logs/${project_name}" dir="/android/${path_name}/output/output"/>
+	</publishers>
+	</project>
+	
+</cruisecontrol>

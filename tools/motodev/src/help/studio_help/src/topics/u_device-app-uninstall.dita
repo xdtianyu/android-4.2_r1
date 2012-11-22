@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference id="u_device-app-uninstall" xml:lang="en-us">
+  <title>Uninstall Application dialog</title>
+  <shortdesc>Allows you to remove applications from a running emulator or connected device. To bring up this dialog,
+    from the Device Management view right-click the running emulator or connected device and select <uicontrol>Uninstall
+      App</uicontrol>. </shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <p>This dialog presents a list of applications (identified by package name) that can be deleted from the selected
+        device. Note that not all applications are listed: only those that can be uninstalled. Click an application to
+        select it. To select multiple applications, Control-click them (on Mac OS X, Command-click the applications).
+        Selected applications will not be uninstalled until you click <uicontrol>Finish</uicontrol>.</p>
+    </section>
+  </refbody>
+</reference>

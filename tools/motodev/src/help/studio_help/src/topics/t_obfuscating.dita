@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task
+  PUBLIC "-//OASIS//DTD DITA Task//EN" "../dtd/task.dtd">
+<task xml:lang="en-us" id="t_obfuscating">
+  <title>Obfuscating Android projects</title>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <context>
+      <p>ADT uses ProGuard to shrink, optimize, and obfuscate your Java code. Obfuscation is intended to make your Java
+        code harder to reverse-engineer, and thus is a useful tool when writing code that needs to be secure. Android
+        projects are not obfuscated by default, but you can enable it at project creation time or after the fact. Note
+        that obfuscation is only performed when building a release version of your project: obfuscation gets in the way
+        of the debugging process and thus is not performed for debug builds.</p>
+      <ul>
+        <li>To specify at project creation time that a project should be obfuscated, simply select <uicontrol>Obfuscate
+            Java classes</uicontrol> in the New Android Project using Studio for Android dialog.</li>
+        <li>To enable obfuscation for a single project, right-click the project in the Package Explorer, select
+            <uicontrol>Properties</uicontrol>, select <uicontrol>MOTODEV Studio</uicontrol> from the list of properties,
+          and then select <uicontrol>Obfuscate Java classes</uicontrol>. Clear this option if you want to prevent
+          obfuscation of this project in future project builds.</li>
+        <li>To enable or disable obfuscation for multiple projects, select <uicontrol>Enable/Disable Obfuscation</uicontrol> from the MOTODEV menu. In the dialog that appears select those projects that should be
+          obfuscated (ensuring that any projects that should not be obfuscated are not selected), then click <uicontrol
+            >OK</uicontrol>. </li>
+      </ul>
+      <p>Whichever of the above you use to enable obfuscation, MOTODEV Studio for Android enables and configures
+        ProGuard for you. If needed you can then further customize it as outlined on the ProGuard page within the
+        Android developer documentation.</p>
+      <note>ProGuard requires that your development computer have a full JDK (Java Development Kit) installed; you
+        cannot obfuscate your Android projects with only a JRE (Java Runtime Environment). Also, ProGuard will not work
+        if the project's path contains spaces or parenthesis.</note>
+    </context>
+  </taskbody>
+</task>

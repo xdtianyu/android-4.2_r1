@@ -1,0 +1,113 @@
+include $(srcdir)/Source/JavaScriptCore/GNUmakefile.list.am
+
+javascriptcore_cppflags += \
+	-I$(srcdir)/Source \
+	-I$(srcdir)/Source/JavaScriptCore \
+	-I$(srcdir)/Source/JavaScriptCore/API \
+	-I$(srcdir)/Source/JavaScriptCore/assembler \
+	-I$(srcdir)/Source/JavaScriptCore/bytecode \
+	-I$(srcdir)/Source/JavaScriptCore/bytecompiler \
+	-I$(srcdir)/Source/JavaScriptCore/heap \
+	-I$(srcdir)/Source/JavaScriptCore/debugger \
+	-I$(srcdir)/Source/JavaScriptCore/ForwardingHeaders \
+	-I$(srcdir)/Source/JavaScriptCore/interpreter \
+	-I$(srcdir)/Source/JavaScriptCore/jit \
+	-I$(srcdir)/Source/JavaScriptCore/jit \
+	-I$(srcdir)/Source/JavaScriptCore/parser \
+	-I$(srcdir)/Source/JavaScriptCore/profiler \
+	-I$(srcdir)/Source/JavaScriptCore/runtime \
+	-I$(srcdir)/Source/JavaScriptCore/wtf \
+	-I$(srcdir)/Source/JavaScriptCore/wtf \
+	-I$(srcdir)/Source/JavaScriptCore/wtf/gobject \
+	-I$(srcdir)/Source/JavaScriptCore/wtf/gtk \
+	-I$(srcdir)/Source/JavaScriptCore/wtf/text \
+	-I$(srcdir)/Source/JavaScriptCore/wtf/unicode \
+	-I$(srcdir)/Source/JavaScriptCore/yarr \
+	-I$(top_builddir)/Source/JavaScriptCore \
+	-I$(top_builddir)/Source/JavaScriptCore/parser \
+	-I$(top_builddir)/Source/JavaScriptCore/runtime
+
+Source/JavaScriptCore/Lexer.lut.h: $(srcdir)/Source/JavaScriptCore/create_hash_table $(srcdir)/Source/JavaScriptCore/parser/Keywords.table
+	$(AM_V_GEN)$(PERL) $^ > $@
+
+Source/JavaScriptCore/%.lut.h: $(srcdir)/Source/JavaScriptCore/create_hash_table $(srcdir)/Source/JavaScriptCore/%.cpp
+	$(AM_V_GEN)$(PERL) $^ -i > $@
+
+Source/JavaScriptCore/RegExpJitTables.h: $(srcdir)/Source/JavaScriptCore/create_regex_tables
+	$(AM_V_GEN)$(PYTHON) $^ > $@
+
+jsc: $(javascriptcore_built_nosources) Programs/jsc-@WEBKITGTK_API_MAJOR_VERSION@$(EXEEXT);
+
+bin_PROGRAMS += \
+	Programs/jsc-@WEBKITGTK_API_MAJOR_VERSION@$(EXEEXT)
+
+noinst_PROGRAMS += \
+	Programs/jsc \
+	Programs/minidom
+
+Programs_minidom_CPPFLAGS = \
+	$(global_cppflags) \
+	$(javascriptcore_cppflags)
+
+Programs_minidom_CFLAGS = \
+	-ansi \
+	-fno-strict-aliasing \
+	$(global_cflags) \
+	$(GLOBALDEPS_CFLAGS)
+
+Programs_minidom_LDADD = \
+	 libJavaScriptCore.la \
+	 $(WINMM_LIBS) \
+	 -lm \
+	 -lstdc++
+
+Programs_minidom_LDFLAGS = \
+	-no-install \
+	-no-fast-install
+
+# jsc
+Programs/jsc-@WEBKITGTK_API_MAJOR_VERSION@$(EXEEXT): Programs/jsc$(EXEEXT)
+	$(AM_V_GEN)cp -f Programs/jsc$(EXEEXT) Programs/jsc-@WEBKITGTK_API_MAJOR_VERSION@$(EXEEXT)
+Programs_jsc_@WEBKITGTK_API_MAJOR_VERSION@_LDADD =
+Programs_jsc_@WEBKITGTK_API_MAJOR_VERSION@_SOURCES =
+
+Programs_jsc_CPPFLAGS = \
+	$(global_cppflags) \
+	$(javascriptcore_cppflags)
+
+Programs_jsc_CXXFLAGS = \
+	-fno-strict-aliasing \
+	$(global_cxxflags) \
+	$(global_cflags) \
+	$(GLOBALDEPS_CFLAGS) \
+	$(UNICODE_CFLAGS)
+
+Programs_jsc_LDADD = \
+	libJavaScriptCore.la \
+	$(WINMM_LIBS)
+
+EXTRA_DIST += \
+	Source/JavaScriptCore/AUTHORS \
+	Source/JavaScriptCore/ChangeLog \
+	Source/JavaScriptCore/COPYING.LIB \
+	Source/JavaScriptCore/create_hash_table \
+	Source/JavaScriptCore/create_regex_tables \
+	Source/JavaScriptCore/icu/LICENSE \
+	Source/JavaScriptCore/icu/README \
+	Source/JavaScriptCore/parser/Keywords.table \
+	Source/JavaScriptCore/THANKS
+
+# Clean rules for JavaScriptCore
+# FIXME: Should this list be generated from javascriptcore_built_nosources?
+CLEANFILES += \
+	Source/JavaScriptCore/runtime/ArrayPrototype.lut.h \
+	Source/JavaScriptCore/runtime/DatePrototype.lut.h \
+	Source/JavaScriptCore/runtime/JSONObject.lut.h \
+	Source/JavaScriptCore/runtime/MathObject.lut.h \
+	Source/JavaScriptCore/runtime/NumberConstructor.lut.h \
+	Source/JavaScriptCore/runtime/RegExpConstructor.lut.h \
+	Source/JavaScriptCore/runtime/RegExpObject.lut.h \
+	Source/JavaScriptCore/runtime/StringPrototype.lut.h \
+	Programs/jsc \
+	Programs/jsc-@WEBKITGTK_API_MAJOR_VERSION@ \
+	Programs/minidom

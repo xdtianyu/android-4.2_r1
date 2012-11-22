@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference id="u_sign-import-key" xml:lang="en-us">
+  <title>Import Key dialog</title>
+  <shortdesc>Allows you to specify a public-private key pair to be imported. </shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <p>This dialog is displayed when you click  (Import Key) in the Application Signing Tool view.</p>
+      <simpletable>
+        <strow>
+          <stentry><uicontrol>Alias name</uicontrol></stentry>
+          <stentry>A unique name to be given to this key pair. Certificates and key pairs are identified by alias within
+            the Application Signing Tool.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Certificate</uicontrol></stentry>
+          <stentry>Path to the private key file to be imported.</stentry>
+        </strow>
+      </simpletable>
+    </section>
+  </refbody>
+</reference>

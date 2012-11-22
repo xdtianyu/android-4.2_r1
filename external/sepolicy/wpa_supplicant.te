@@ -1,0 +1,20 @@
+# wpa - wpa supplicant or equivalent
+type wpa, domain;
+type wpa_exec, exec_type, file_type;
+
+init_daemon_domain(wpa)
+allow wpa kernel:system module_request;
+allow wpa self:capability { setuid net_admin setgid net_raw };
+allow wpa cgroup:dir create_dir_perms;
+allow wpa self:netlink_route_socket *;
+allow wpa self:netlink_socket *;
+allow wpa self:packet_socket *;
+allow wpa self:udp_socket *;
+allow wpa wifi_data_file:dir create_dir_perms;
+allow wpa wifi_data_file:file create_file_perms;
+unix_socket_send(wpa, system_wpa, system)
+allow wpa random_device:chr_file r_file_perms;
+
+# Create a socket for receiving info from wpa
+type_transition wpa wifi_data_file:sock_file wpa_socket;
+allow wpa wpa_socket:sock_file create_file_perms;

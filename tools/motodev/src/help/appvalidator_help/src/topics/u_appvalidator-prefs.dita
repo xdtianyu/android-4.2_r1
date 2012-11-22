@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference id="u_appvalidator-prefs" xml:lang="en-us">
+  <title>Android App Validator preferences dialog</title>
+  <shortdesc>The Android App Validator preferences dialog enables you to control how the validator operates when invoked
+    from within Eclipse. The Android App Validator preferences dialog can be found among the Eclipse preferences, under
+      <menucascade><uicontrol>MOTODEV Studio</uicontrol><uicontrol>Android App Validator</uicontrol></menucascade>.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody/>
+</reference>

@@ -1,0 +1,282 @@
+<project name="Build specific targets and properties" default="noDefault">
+	<target name="createSiteXML">
+		<echoxml file="${buildDirectory}/site.xml">
+			<site>
+				<feature url="features/${studioFeatureName}.${studioFeatureVersion}.jar" id="${studioFeatureName}" version="${studioFeatureVersion}">
+					<category name="MOTODEVStudioforAndroid" />
+				</feature>
+				<category-def name="MOTODEVStudioforAndroid" label="MOTODEV Studio for Android" />
+			</site>
+		</echoxml>
+	</target>
+
+	<target name="init">
+		<copy todir="${buildDirectory}">
+			<fileset dir="${SOURCE_DIR}/" includes="**/**" />
+		</copy>
+		<move file="${buildDirectory}/features/feature" tofile="${buildDirectory}/features/com.motorola.studio.android.feature" />
+		<move file="${buildDirectory}/features/basic" tofile="${buildDirectory}/features/basic.feature" />
+	</target>
+
+	<target name="setTimeStamp">
+		<echo message="1=${timestamp}" file="${buildDirectory}/plugins/product/about.mappings" append="true" />
+		<replace file="${buildDirectory}/plugins/product/about.mappings" token="@studioversion@" value="${studioVersion}" />
+		<echo message="1=${timestamp}" file="${buildDirectory}/plugins/common/about.mappings" append="true" />
+		<replace file="${buildDirectory}/plugins/common/about.mappings" token="@studioversion@" value="${studioVersion}" />
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Run a given ${target} on all elements being built -->
+	<!-- Add on <ant> task for each top level element being built. -->
+	<!-- ===================================================================== -->
+	<available property="allElementsFile" file="${builder}/allElements.xml" value="${builder}/allElements.xml" />
+	<property name="allElementsFile" location="${eclipse.pdebuild.templates}/headless-build/allElements.xml" />
+
+	<import file="${allElementsFile}" />
+	<target name="allElements">
+		<antcall target="allElementsDelegator" />
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- ===================================================================== -->
+	<target name="getBaseComponents" depends="checkLocalBase" unless="skipBase">
+		<get src="${eclipseBaseURL}" dest="${buildDirectory}/../temp-base.zip" />
+		<unzip dest="${base}" overwrite="true" src="${buildDirectory}/../temp-base.zip" />
+	</target>
+
+	<target name="checkLocalBase">
+		<available file="${base}" property="skipBase" />
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Check out map files from correct repository -->
+	<!-- Replace values for mapsCheckoutTag as desired. -->
+	<!-- ===================================================================== -->
+	<target name="getMapFiles" depends="checkLocalMaps" unless="skipMaps">
+		<property name="mapsCheckoutTag" value="HEAD" />
+		<cvs cvsRoot="${mapsRepo}" package="${mapsRoot}" dest="${buildDirectory}/maps" tag="${mapsCheckoutTag}" />
+	</target>
+
+	<target name="checkLocalMaps">
+		<available property="skipMaps" file="${buildDirectory}/maps" />
+	</target>
+
+	<target name="tagMapFiles" if="tagMaps">
+		<cvs dest="${buildDirectory}/maps/${mapsRoot}" command="tag ${mapsTagTag}" />
+	</target>
+
+	<!-- ===================================================================== -->
+
+	<target name="clean" unless="noclean">
+		<antcall target="allElements">
+			<param name="target" value="cleanElement" />
+		</antcall>
+	</target>
+
+	<target name="gatherLogs">
+		<mkdir dir="${buildDirectory}/${buildLabel}/compilelogs" />
+		<antcall target="allElements">
+			<param name="target" value="gatherLogs" />
+		</antcall>
+		<unzip dest="${buildDirectory}/${buildLabel}/compilelogs" overwrite="true">
+			<fileset dir="${buildDirectory}/features">
+				<include name="**/*.log.zip" />
+			</fileset>
+		</unzip>
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do before setup -->
+	<!-- ===================================================================== -->
+	<target name="preSetup">
+		<antcall target="init" />
+		<!-- Copy studio_android.product and plugin.properties to the build folder -->
+		<antcall target="setTimeStamp" />
+		<antcall target="createSiteXML" />
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do after setup but before starting the build proper -->
+	<!-- ===================================================================== -->
+	<target name="postSetup">
+		<antcall target="getBaseComponents" />
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do before fetching the build elements -->
+	<!-- ===================================================================== -->
+	<target name="preFetch">
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do after fetching the build elements -->
+	<!-- ===================================================================== -->
+	<target name="postFetch">
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do before the repositories are being processed -->
+	<!-- ===================================================================== -->
+	<target name="preProcessRepos">
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do after the repositories have been processed -->
+	<!-- ===================================================================== -->
+	<target name="postProcessRepos">
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do before generating the build scripts. -->
+	<!-- ===================================================================== -->
+	<target name="preGenerate">
+		<mkdir dir="${buildDirectory}/tmp/plugins" />
+		<copy todir="${buildDirectory}/tmp/plugins">
+			<fileset dir="${GIT_REPOSITORY_PATH}/android/docs/manuals/" includes="*.jar" />
+		</copy>
+		<p2.generator append="true" source="${buildDirectory}/tmp/" artifactrepository="file:${transformedRepoLocation}" metadatarepository="file:${transformedRepoLocation}" publishartifacts="true" />
+
+		<delete dir="${transformedRepoLocation}/plugins/${ADT_JAR_FILENAME}/" />
+		<copy overwrite="true" file="${BASE_REPOSITORIES_DIR}/REPO_ADT/plugins/${ADT_JAR_FILENAME}.jar" todir="${transformedRepoLocation}/plugins/" />
+		<unzip src="${transformedRepoLocation}/plugins/${ADT_JAR_FILENAME}.jar" dest="${transformedRepoLocation}/plugins/${ADT_JAR_FILENAME}/" />
+		<delete file="${transformedRepoLocation}/plugins/${ADT_JAR_FILENAME}.jar" />
+
+		<delete dir="${transformedRepoLocation}/plugins/${DDMS_JAR_FILENAME}/" />
+		<copy overwrite="true" file="${BASE_REPOSITORIES_DIR}/REPO_ADT/plugins/${DDMS_JAR_FILENAME}.jar" todir="${transformedRepoLocation}/plugins/" />
+		<unzip src="${transformedRepoLocation}/plugins/${DDMS_JAR_FILENAME}.jar" dest="${transformedRepoLocation}/plugins/${DDMS_JAR_FILENAME}/" />
+		<delete file="${transformedRepoLocation}/plugins/${DDMS_JAR_FILENAME}.jar" />
+
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do after generating the build scripts. -->
+	<!-- ===================================================================== -->
+	<target name="postGenerate">
+		<antcall target="clean" />
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do before running the build.xmls for the elements being built. -->
+	<!-- ===================================================================== -->
+	<target name="preProcess">
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do after running the build.xmls for the elements being built. -->
+	<!-- ===================================================================== -->
+	<target name="postProcess">
+		<jar basedir="${transformedRepoLocation}/plugins/${ADT_JAR_FILENAME}/" destfile="${transformedRepoLocation}/plugins/${ADT_JAR_FILENAME}.jar" />
+		<delete dir="${transformedRepoLocation}/plugins/${ADT_JAR_FILENAME}/" />
+		<jar basedir="${transformedRepoLocation}/plugins/${DDMS_JAR_FILENAME}/" destfile="${transformedRepoLocation}/plugins/${DDMS_JAR_FILENAME}.jar" />
+		<delete dir="${transformedRepoLocation}/plugins/${DDMS_JAR_FILENAME}/" />
+	</target>
+
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do before running assemble. -->
+	<!-- ===================================================================== -->
+	<target name="preAssemble">
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do after  running assemble. -->
+	<!-- ===================================================================== -->
+	<target name="postAssemble">
+	</target>
+
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do before running package. -->
+	<!-- ===================================================================== -->
+	<target name="prePackage">
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do after  running package. -->
+	<!-- ===================================================================== -->
+	<target name="postPackage">
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do after the build is done. -->
+	<!-- ===================================================================== -->
+	<target name="postBuild">
+		<antcall target="gatherLogs" />
+		<!-- ================================= 
+		Mirror the build repo to the repository output folder (excluding exceeding packages)
+		================================= -->
+		<mkdir dir="${p2.repo.dir}"/>
+		<copy todir="${p2.repo.dir}" file="${MAKEFILE}/repository_skel/content.xml"/>
+		
+		<!-- p2.mirror source="${p2.build.dir}" destination="${p2.artifact.repo}" raw="false">
+			<iu id="com.motorola.studio.android.feature.feature.group" />
+			<slicingoptions followstrict="true" includeoptional="false" includenongreedy="false" followonlyfilteredrequirements="true" includefeatures="true" />
+		</p2.mirror -->
+
+		<eclipse.publish.featuresAndBundles append="true" artifactrepository="${p2.artifact.repo}" 
+			artifactrepositoryname="${p2.artifact.repo.name}" metadatarepository="${p2.metadata.repo}" 
+			metadatarepositoryname="${p2.metadata.repo.name}" site="${p2.category.site}">
+			<features dir="${p2.build.dir}" includes="features/com.motorola.studio.android.*" />
+			<bundles dir="${p2.build.dir}" includes="plugins/com.motorola.studio.android*" />
+			<bundles dir="${p2.build.dir}" includes="plugins/com.motorolamobility.studio.android*" />
+		</eclipse.publish.featuresAndBundles>
+		
+		<!-- Remove equinox launcher artifacts from our repository -->
+		<p2.remove.iu>
+			<repository location="${p2.artifact.repo}"/>
+			<iu id="org.eclipse.equinox.launcher.gtk.linux.x86_64"/>
+			<iu id="org.eclipse.equinox.launcher.gtk.linux.x86"/>
+			<iu id="org.eclipse.equinox.launcher.win32.win32.x86_64"/>
+			<iu id="org.eclipse.equinox.launcher.win32.win32.x86"/>
+			<iu id="org.eclipse.equinox.launcher.cocoa.macosx"/>
+			<iu id="org.eclipse.equinox.launcher.cocoa.macosx.x86_64"/>
+		</p2.remove.iu>
+
+
+		<!-- categorize the repository -->
+		<java failonerror="true" jar="${eclipse.builder.path}/plugins/${eclipse.builder.launcher}" fork="true">
+			<arg value="-application" />
+			<arg value="org.eclipse.equinox.p2.publisher.CategoryPublisher" />
+			<arg value="-metadataRepository" />
+			<arg value="${p2.artifact.repo}" />
+			<arg value="-categoryDefinition" />
+			<arg value="file:/${buildDirectory}/site.xml" />
+		</java>
+		
+		<!-- antcall target="signStudio" / --> 
+
+		<copy todir="${outputDirectory}">
+			<fileset dir="${p2.repo.dir}" includes="**/**" />
+		</copy>
+
+	</target>
+
+	<!-- target name="signStudio" if="motodev.keypass">
+		<p2.process.artifacts repositorypath="${p2.artifact.repo}">
+			<sign keystore="${motodev.keystore}" alias="motodev" keypass="${motodev.keypass}" storepass="${motodev.storepass}" />
+		</p2.process.artifacts>
+	</target -->
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do to test the build results -->
+	<!-- ===================================================================== -->
+	<target name="test">
+		<echo level="info" message="Studio Build Custom Targets Test"/>
+		<!-- exec executable="autotest.sh" output="/android/tests/autotest_output.log"/ -->		
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do to publish the build results -->
+	<!-- ===================================================================== -->
+	<target name="publish">
+	</target>
+
+
+	<!-- ===================================================================== -->
+	<!-- Default target                                                        -->
+	<!-- ===================================================================== -->
+	<target name="noDefault">
+		<echo message="You must specify a target when invoking this file" />
+	</target>
+
+</project>

@@ -1,0 +1,13 @@
+# nfc subsystem
+type nfc, domain;
+app_domain(nfc)
+
+# NFC device access.
+allow nfc nfc_device:chr_file rw_file_perms;
+
+# Data file accesses.
+allow nfc nfc_data_file:dir create_dir_perms;
+allow nfc nfc_data_file:notdevfile_class_set create_file_perms;
+
+allow nfc sysfs_nfc_power_writable:file rw_file_perms;
+allow nfc sysfs:file write;

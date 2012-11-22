@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "../dtd/task.dtd">
+<task id="t_db-table-editing" xml:lang="en-us">
+  <title>Exploring or editing a database table</title>
+  <shortdesc>MOTODEV Studio for Android lets you easily view and manipulate the contents of an SQLite database table in
+    spreadsheet form.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <prereq>You perform this task from within the MOTODEV Database Explorer view. This view is part of the MOTODEV
+      Database perspective; switch to this perspective when working with Android databases.</prereq>
+    <steps>
+      <step>
+        <cmd>Ensure that you are connected to the database.</cmd>
+      </step>
+      <step>
+        <cmd>Within the MOTODEV Database Explorer view, use the dislosure triangles to expose the tables within your
+          database.</cmd>
+        <stepxmp>The following image shows the tables that make up the "alarms" database:<image
+            href="../images/db-tables.png" placement="break"/></stepxmp>
+      </step>
+      <step>
+        <cmd>Right-click the table you want to edit or explore, and select <uicontrol>Browse table contents</uicontrol>.</cmd>
+        <stepresult>A view appears showing the table contents, with columns representing the fields in a record, and
+          rows representing the table records.</stepresult>
+      </step>
+      <step>
+        <cmd>To change the contents of a record, simply click within the cell to be changed and edit its contents. To
+          add a new row, simply enter the new row's data in the row marked <uicontrol>&lt;new row></uicontrol>. To
+          perform other operations, right-click to get a context-sensitive menu that will allow you to:</cmd>
+        <choices>
+          <choice>Set the current cell's value to NULL.</choice>
+          <choice>Insert a new row at the bottom of the table.</choice>
+          <choice>Delete the current row.</choice>
+          <choice>Refresh the table. This will load the table's contents from the local filesystem, potentially
+            overwriting any changes you have made. You will be given an opportunity to first save any changes you have
+            made. To reload data from the device you must disconnect and reconnect.</choice>
+          <choice>Revert to the last saved version of the table. This will also re-load the table's contents from the
+            local filesystem, overwriting any changes you have made. You are not given an opportunity to save any
+            changes first. To reload data from the device you must disconnect and reconnect.</choice>
+        </choices>
+      </step>
+      <step>
+        <cmd>If you have made any changes, save them by selecting <menucascade><uicontrol>File</uicontrol><uicontrol
+              >Save</uicontrol></menucascade>.</cmd>
+        <info>
+          <note type="important">Changes made to a database on a connected device or running emulator with the MOTODEV
+            Studio Table Editor are made to the local copy in your Temp directory. To have those changes reflected on
+            the device, you must save your changes (<menucascade><uicontrol>File</uicontrol><uicontrol
+            >Save</uicontrol></menucascade>). Note that if the database has changed on the device since you connected to
+            it, you cannot merge your changes with the device database; you either must override the device database
+            with your Temp copy or abandon your changes.</note>
+        </info>
+      </step>
+    </steps>
+  </taskbody>
+</task>

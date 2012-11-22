@@ -1,0 +1,9 @@
+/dev/pvrsrvkm             0666   system     system
+
+#for DSSCOMP
+/dev/dsscomp              0666   system     system
+/dev/tiler                0666   system     system
+
+#for SYSLINK
+/dev/rpmsg-omx0           0666   system     system
+/dev/rpmsg-omx1           0666   system     system

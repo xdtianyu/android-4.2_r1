@@ -1,0 +1,4 @@
+Code completion in completion5.xml for android:orientation='^' selecting horizontal:
+<     android:orientation='^'
+---
+>     android:orientation='horizontal'^

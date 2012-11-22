@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE cshelp
+  PUBLIC "-//IBM//DTD DITA CSHelp//EN" "../dtd/cshelp.dtd">
+<cshelp id="cs_android" xml:lang="en-us">
+  <title>Android CS Help</title>
+  <shortdesc/>
+  <csbody/>
+  <!-- Plug-in: com.motorola.studio.android.emulator -->
+  <cshelp id="emulator">
+    <title>Android Emulator view</title>
+    <shortdesc>Presents a simulated handset to which you can deploy and test your applications.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_emulator_android.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorola.studio.android -->
+  <cshelp id="newproj">
+    <title>New Android Project wizard</title>
+    <shortdesc>Creates a new MOTODEV Studio for Android project.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_new-proj_android.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorola.studio.android -->
+  <cshelp id="newwdgproj">
+    <title>New Android Widget Project wizard</title>
+    <shortdesc>Creates a new MOTODEV Studio for Android project for an Android widget.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_new-proj-widget_android.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorola.studio.android.codeutils -->
+  <cshelp id="newactivity">
+    <title>New Activity wizard</title>
+    <shortdesc>Creates a new activity in an existing project.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_new-activity.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorola.studio.android.codeutils -->
+  <cshelp id="new-activity-based-on-template">
+    <title>New Android Activity Based on Template wizard</title>
+    <shortdesc>Creates a new activity, based on a sample activity, in an existing project.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_new-activity-template.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorola.studio.android.codeutils -->
+  <cshelp id="newbcastrcvr">
+    <title>New Broadcast Receiver wizard</title>
+    <shortdesc>Creates a new broadcast receiver in an existing project.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_new-broadcast-receiver.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorola.studio.android.codeutils -->
+  <cshelp id="newcontprov">
+    <title>New Content Provider wizard</title>
+    <shortdesc>Creates a new content provider in an existing project.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_new-content-provider.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorola.studio.android.codeutils -->
+  <cshelp id="newwidgtprvd">
+    <title>New Android Widget Provider wizard</title>
+    <shortdesc>Creates a new Android widget provider in an existing project.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_new-widget-provider.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorola.studio.android.codeutils -->
+  <cshelp id="newservice">
+    <title>New Service wizard</title>
+    <shortdesc>Creates a new Android service in an existing project.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_new-service.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorola.studio.android -->
+  <cshelp id="started_instances_selection_dialog">
+    <title>Preferred AVD Offline dialog</title>
+    <shortdesc>Shown when the AVD specified by a run configuration is not running, and a compatible AVD is running. This dialog allows you to specify whether the app should be deployed to the compatible AVD or the specified AVD.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_avd-offline-dialog.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorola.studio.platform.logger.collector -->
+  <cshelp id="collectlogs">
+    <title>Collect Log Files dialog</title>
+    <shortdesc>Allows you to collect Eclipse and Studio log files and package them into a single ZIP archive.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_collect-log-files.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: org.eclipse.sequoyah.device.framework.ui -->
+  <cshelp id="devmgr">
+    <title>Device Management view</title>
+    <shortdesc>Displays configuration information for a selected device and can be used to manually start or stop a
+      selected device.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_device-manager_android.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: org.eclipse.sequoyah.device.framework.ui -->
+  <cshelp id="newdev">
+    <title>Create a New Device dialog</title>
+    <shortdesc>Creates a new Android Virtual Device (AVD).</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_new-device.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorola.studio.android.emulator -->
+  <cshelp id="newdevmain">
+    <title>New Android Virtual Device Instance dialog (main information)</title>
+    <shortdesc>Supply basic information about the AVD, such as the target operating system and the device skin to use.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_new-device-main_android.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorola.studio.android.emulator -->
+  <cshelp id="newdevstartup">
+    <title>New Android Virtual Device Instance dialog (startup options)</title>
+    <shortdesc>Supply options to use when starting the AVD.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_new-device-startup_android.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorola.studio.android.launch -->
+  <cshelp id="mainLaunchTab">
+    <title>MOTODEV Studio for Android Application - run/debug configuration dialog</title>
+    <shortdesc>A run configuration brings together all of the information needed to run a specific executable on a
+      specific device instance, making it simple to repeatedly run that executable on that device instance.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_run-config-main.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorola.studio.android.launch.ui -->
+  <!-- the above plug-in doesn't exist... -->
+  <cshelp id="DeviceSelectionDialog">
+    <title>Instance Selection dialog</title>
+    <shortdesc>Select a device instance (either real or emulated).</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_select-instance.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorola.studio.android.launch -->
+  <cshelp id="activitySelectionDialog">
+    <title>Activity Selection dialog</title>
+    <shortdesc>Select an activity.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_select-activity.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorola.studio.android.launch -->
+  <cshelp id="projectSelectionDialog">
+    <title>Project Selection dialog</title>
+    <shortdesc>Select a project.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_select-project.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorolamobility.studio.android.certmanager -->
+  <cshelp id="sign_external_pkg_wiz">
+    <title>Package Signing dialog</title>
+    <shortdesc>Allows you to sign one or more Android packages with a public/private key pair.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_mpkg-sign_android.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorolamobility.studio.android.certmanager -->
+  <cshelp id="unsign_external_pkg_wiz">
+    <title>Package Signature Removal dialog</title>
+    <shortdesc>Allows you to remove the signatures applied to one or more packages.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_mpkg-unsign_android.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorola.studio.platform.tools.sign.ui -->
+  <cshelp id="appsigning">
+    <title>Application Signing Tool view</title>
+    <shortdesc>Automates the digital signing of applications for Android devices.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_app-signing-view.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorola.studio.android -->
+  <cshelp id="preference-emulator-view">
+    <title>Android Emulator preferences</title>
+    <shortdesc>Contains preferences that control the operation of the Android Emulator view.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_studio-prefs_emulator.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorola.studio.android -->
+  <cshelp id="preference-android-emulator">
+    <title>MOTODEV Studio for Android preferences</title>
+    <shortdesc>Contains preferences specific to MOTODEV Studio for Android.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_studio-prefs_android.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorola.studio.android -->
+  <!-- Currently this one is not linked from anywhere, but should be Preferences > MOTODEV Studio > MOTODEV Login -->
+  <cshelp id="preference-motoappstore">
+    <title>MOTODEV Login preferences</title>
+    <shortdesc>Contains preferences specific to publishing apps to Motorola.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_studio-prefs_appstore.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorolamobility.studio.android.db.devices -->
+  <cshelp id="preference-database">
+    <title>MOTODEV Database preferences</title>
+    <shortdesc>Contains preferences that are used when working with databases within MOTODEV Studio.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_studio-prefs_db.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorola.studio.platform.tools.sign.ui -->
+  <cshelp id="create-key-pair">
+    <title>Create Key Pair dialog</title>
+    <shortdesc>Create a public/private key pair.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_sign-create-key-pair.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorola.studio.platform.tools.sign.ui -->
+  <cshelp id="import-cert">
+    <title>Import Certificate dialog</title>
+    <shortdesc>Import a certificate.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_sign-import-cert.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorola.studio.platform.tools.sign.ui -->
+  <cshelp id="import-key">
+    <title>Import Key dialog</title>
+    <shortdesc>Import a key.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_sign-import-key.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorolamobility.studio.android.certmanager -->
+  <cshelp id="create-self-cert">
+    <title>Create Key dialog</title>
+    <shortdesc>Create a new self-signing key for use when signing Android packages (APKs).</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_sign-create-self-cert.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorolamobility.studio.android.certmanager -->
+  <cshelp id="import_keystore">
+    <title>Import Keystore dialog</title>
+    <shortdesc>Import a keystore created outside of MOTODEV Studio for use within MOTODEV Studio's Signing and Keys view.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_sign-import-keystore.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorola.studio.android.packaging.ui -->
+  <cshelp id="packaging_help">
+    <title>Export Android Package Files dialog</title>
+    <shortdesc>Create Android package files for selected projects.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_pkg-export.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorola.studio.android -->
+  <cshelp id="install_app">
+    <title>Install application dialog</title>
+    <shortdesc>Specify a package to be installed.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_pkg-install.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorola.studio.android -->
+  <cshelp id="uninstall_app">
+    <title>Uninstall Application dialog</title>
+    <shortdesc>Specify one or more packages to be removed from a device.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_device-app-uninstall.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorolamobility.studio.android.db.core -->
+  <cshelp id="dbexplorer">
+    <title>MOTODEV Database Explorer</title>
+    <shortdesc>View and edit SQLite databases in Android apps.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_db-database-explorer.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: org.eclipse.datatools.sqltools.sqleditor -->
+  <cshelp id="sqleditorhelp">
+    <title>SQL Scrapbook</title>
+    <shortdesc>Construct and execute SQL statements.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_db-sql-scrapbook.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorola.studio.android.codeutils -->
+  <cshelp id="create_db_classes">
+    <title>Database Management Classes</title>
+    <shortdesc>Generate classes that allow you to manage and access a database.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_db-classes-create.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorola.studio.android.installer -->
+  <cshelp id="configuration_dialog">
+    <title>Download Components</title>
+    <shortdesc>Downloads and installs new components, such as SDKs, SDK add-ons, language packs, and code samples.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_download-components.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorola.studio.android.installer -->
+  <cshelp id="sdk_download_location">
+    <title>SDK Download Location</title>
+    <shortdesc>Specifies the location to which the Android SDK should be downloaded.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_sdk-download-location.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorola.studio.android.installer -->
+  <cshelp id="sdk_download_retry">
+    <title>SDK Not Found</title>
+    <shortdesc>Indicates that the chosen SDK could not be downloaded due to a problem with your Internet connection.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_download-components.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorola.studio.android.devices.services -->
+  <cshelp id="langPage">
+    <title>Emulator Language</title>
+    <shortdesc>Changes the device's language configuration.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_emulator-language.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorola.studio.android -->
+  <cshelp id="dump_hprof">
+    <title>Analyze Memory Using MAT dialog</title>
+    <shortdesc>Select the running application to be analyzed using MAT, the Eclipse memory analyzer.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_memory-analyze-app-select.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorola.studio.android -->
+  <cshelp id="monkey">
+    <title>Run Configurations (Monkey) dialog</title>
+    <shortdesc>The Android UI/Application Exerciser Monkey sends pseudo-random events (within limits you set) to your
+      application. This can prove to be an effective way to exercise little-used paths within your code, thus uncovering
+      bugs you might otherwise not find. Within MOTODEV Studio for Android you create "Test events with Monkey" run
+      configurations that specify the device on which to test, the packages to be exercised, the number of pseudo-random
+      events to send, and other constraints on how the events are generated. These configurations allow you to create
+      repeatable test scenarios for your applications.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_run-config-monkey-main.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorola.studio.android -->
+  <cshelp id="obuscation_property">
+    <title>MOTODEV Studio</title>
+    <shortdesc>Use this dialog to control whether Java classes should be obfuscated when the parent Android project is
+      built for release.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_obfuscation-prop.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorola.studio.android -->
+  <cshelp id="obfuscation-dialog">
+    <title>Obfuscation</title>
+    <shortdesc>Obfuscate the Java classes that make up one or more Android projects.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_obfuscate-projects.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorola.studio.android.codeutils -->
+  <cshelp id="generate-code-from-layout-dialog">
+    <title>Generate Java Code Based on Layout</title>
+    <shortdesc>Generates boilerplate code for selected UI elements defined in an activity's or fragment's layout file.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_code-generator.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorola.studio.android.videos.views -->
+  <cshelp id="MOTODEVVideosView">
+    <title>MOTODEV Video Tutorials view</title>
+    <shortdesc>Presents tutorial videos that demonstrate how to use MOTODEV Studio.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_video-view.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorolamobility.studio.android.db.core -->
+  <cshelp id="create_database_wizard">
+    <title>Create New Database</title>
+    <shortdesc>Creates a new database, and optionally defines one or more new, empty tables within that database.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_db-create.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorolamobility.studio.android.db.core -->
+  <cshelp id="create_table_wizard">
+    <title>Create New Table</title>
+    <shortdesc>Defines a new, empty table within an existing database.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_db-table-create.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorola.studio.android.codeutils -->
+  <cshelp id="generate-code-from-context-menu-dialog">
+    <title>Generate Options Menu Code Based on XML file</title>
+    <shortdesc>Generates options menu code from a selected XML-format menu definition file in your project's res/menu
+    folder.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_options-menu-code-create.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorola.studio.android.codeutils -->
+  <cshelp id="defineconnectiondatabasepage">
+    <title>Select Database Table dialog</title>
+    <shortdesc>Allows you to select the database table to be displayed when creating a new activity based upon the Database List template.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_select-table.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorola.studio.android.codeutils -->
+  <cshelp id="selectcolumnspage">
+    <title>Select Table Columns dialog</title>
+    <shortdesc>Allows you to select the database table's columns to be displayed when creating a new activity based upon the Database List template.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_select-columns.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorolamobility.studio.android.certmanager -->
+  <cshelp id="keystore-key-help-id">
+    <title>Keys and Keystores</title>
+    <shortdesc>Keys (public/private key pairs) are used to sign Android packages (APKs); APKs cannot be installed unless they are signed. Keys are contained within specially formatted files known as "keystores."</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="c_keys-keystores.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorolamobility.studio.android.certmanager -->
+  <cshelp id="import_entries_dialog">
+    <title>Import Entries dialog</title>
+    <shortdesc>Import into a keystore selected entries (keys) from another keystore.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_sign-import-keystore-entries.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorolamobility.studio.android.certmanager -->
+  <cshelp id="new_keystore">
+    <title>Create Keystore dialog</title>
+    <shortdesc>Create a new keystore. A keystore contains keys for use when signing Android packages (APKs); each key must reside within a keystore.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_sign-create-keystore.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorolamobility.studio.android.certmanager -->
+  <cshelp id="convert_keystore_type">
+    <title>Change Keystore Type dialog</title>
+    <shortdesc>Change the file format of a keystore.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_sign-keystore-type-changing.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorolamobility.studio.android.certmanager -->
+  <cshelp id="backup_keystore">
+    <title>Keystores Backup dialog</title>
+    <shortdesc>Back up one or more keystores to a zip archive.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_sign-keystore-backup.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorolamobility.studio.android.certmanager -->
+  <cshelp id="restore_keystore">
+    <title>Restore From Backup dialog</title>
+    <shortdesc>Restore one or more keystores that had been backed up to a zip archive.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_sign-keystore-backup-restore.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorolamobility.studio.android.certmanager -->
+  <cshelp id="certificate_info_dialog">
+    <title>Key Properties dialog</title>
+    <shortdesc>Examine the various properties of a key.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_sign-cert-properties.dita"/>
+    </related-links>
+  </cshelp>
+  <!-- Plug-in: com.motorolamobility.studio.android.certmanager -->
+  <cshelp id="select_keystore">
+    <title>Import Keystore (during package export) dialog</title>
+    <shortdesc>Select a keystore that isn't known to the Signing and Keys view for use during the package export process.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_keystore-select.dita"/>
+    </related-links>
+  </cshelp>
+</cshelp>

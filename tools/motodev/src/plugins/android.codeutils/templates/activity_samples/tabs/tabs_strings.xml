@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sample_tab_tab">Tab</string>
+    <string name="sample_tab_content">content.</string>
+</resources>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference id="u_avd-offline-dialog" xml:lang="en-us">
+  <title>Preferred AVD Offline dialog</title>
+  <shortdesc>The AVD specified by your run configuration is offline, but a compatible AVD is running. This dialog gives
+    you the choice of either launching the app in the compatible AVD or starting the specified AVD and launching it
+    there.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>This dialog is only displayed if you attempt to launch an app on an emulated device (AVD) that isn't
+      running while there is a compatible emulated device already running. The three buttons in this dialog allow you to
+      do the following:</section>
+    <simpletable>
+      <strow>
+        <stentry>
+          <uicontrol>Ignore</uicontrol>
+        </stentry>
+        <stentry>Ignore the suggested AVD(s). Launch the AVD specified in the run configuration, and then install and
+          run the app on that AVD.</stentry>
+      </strow>
+      <strow>
+        <stentry>
+          <uicontrol>Abort</uicontrol>
+        </stentry>
+        <stentry>Cancel the app launch.</stentry>
+      </strow>
+      <strow>
+        <stentry>
+          <uicontrol>OK</uicontrol>
+        </stentry>
+        <stentry>Deploy the app to the chosen AVD and launch it, rather than using the AVD specified in the run
+          configuration. Note that the OK button is disabled if you have not yet selected a running AVD.</stentry>
+      </strow>
+    </simpletable>
+    <section>There is also an option to "Update configuration to use selected AVD". If you select this option, the
+      Device field in the run configuration will be changed to the selected AVD, ensuring that future runs of that
+      configuration will deploy to the selected AVD automatically.</section>
+  </refbody>
+</reference>

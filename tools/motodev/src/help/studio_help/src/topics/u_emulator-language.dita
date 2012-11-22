@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference id="u_emulator-language" xml:lang="en-us">
+  <title>Emulator Language dialog</title>
+  <shortdesc>Changes the emulated device's configuration to a locale that you specify as a combination of language and
+    region (or country). Note that this operation causes the emulator to restart.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <p>This function (accessible by right-clicking a running emulator from the Device Management view and selecting
+          <uicontrol>Language</uicontrol>) changes the emulator settings to the selected locale using <codeph>setprop
+          persist</codeph> adb shell commands. The emulator is then restarted so that the settings can take effect. Note
+        that not all emulators support all of the listed languages and countries; if you select an unsupported locale
+        the system displays using its default language. However, your application should localize based upon the
+        selected locale.</p>
+      <p>A locale is specified as a combination of language and region (or country).</p>
+    </section>
+    <section>
+      <simpletable>
+        <strow>
+          <stentry><uicontrol>Language</uicontrol></stentry>
+          <stentry>The language the device should use. Select from the provided list of languages.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Country</uicontrol></stentry>
+          <stentry>The region that uses the desired language. Select from the provided list.</stentry>
+        </strow>
+      </simpletable>
+    </section>
+    <section>Note that you can instead change the emulator's locale using the <uicontrol>Custom Locale</uicontrol>
+      application that is accessible from the Application tab on the emulated device.</section>
+  </refbody>
+</reference>

@@ -1,0 +1,16 @@
+#!/bin/sh
+# Put the Quake shared library into the Quake APK and resign the APK.
+# TODO: Use our own cert instead of a test cert
+
+pushd $OUT/system/app
+mkdir -p lib/armeabi
+mv $OUT/system/lib/libquake.so lib/armeabi
+zip -r Quake.apk lib
+rm -rf lib
+SIGNAPK_JAR=$TOP/out/host/darwin-x86/framework/signapk.jar
+PRIVATE_CERTIFICATE=$TOP/target/product/security/testkey.x509.pem
+PRIVATE_PRIVATE_KEY=$TOP/target/product/security/testkey.pk8
+mv Quake.apk Quake-unsigned.apk
+java -jar $SIGNAPK_JAR $PRIVATE_CERTIFICATE $PRIVATE_PRIVATE_KEY Quake-unsigned.apk Quake.apk
+rm Quake-unsigned.apk
+popd

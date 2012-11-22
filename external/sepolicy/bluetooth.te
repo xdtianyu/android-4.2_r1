@@ -1,0 +1,4 @@
+# Domains that can create and use bluetooth sockets.
+# SELinux does not presently define a specific socket class for
+# bluetooth sockets, nor does it distinguish among the bluetooth protocols.
+allow bluetoothdomain self:socket *;

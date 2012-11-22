@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference id="u_video-view" xml:lang="en-us">
+  <title>MOTODEV Video Tutorials view</title>
+  <shortdesc>Presents tutorial videos that demonstrate how to use MOTODEV Studio. This view is part of the MOTODEV
+    Studio for Android perspective. It can also be opened by selecting <menucascade>
+      <uicontrol>Window</uicontrol><uicontrol>Show View</uicontrol><uicontrol>Other</uicontrol>
+    </menucascade> and then selecting <menucascade>
+      <uicontrol>MOTODEV Studio</uicontrol><uicontrol>MOTODEV Video Tutorials</uicontrol>
+    </menucascade>. </shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <p>The MOTODEV Video Tutorials view presents instructional videos from a dedicated YouTube channel that is
+        maintained by Motorola Mobility. You can either watch these videos in the MOTODEV Video Tutorials view or in
+        your browser. Select <uicontrol>Open in External Browser</uicontrol> to show the selected video in your default
+        browser rather than in the view.</p>
+      <p>Use the view's <uicontrol>Search</uicontrol> box to search for terms within the video titles and
+      descriptions.</p>
+    </section>
+  </refbody>
+</reference>

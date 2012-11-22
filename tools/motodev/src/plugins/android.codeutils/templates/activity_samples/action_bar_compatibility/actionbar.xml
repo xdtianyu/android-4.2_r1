@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	Action bar layout file.
+	Adjust it to your application.
+-->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:drawable/screen_background_light"
+    android:orientation="vertical" >
+
+    <ImageButton
+        android:id="@+id/applicationIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:background="@android:drawable/screen_background_light"
+        android:onClick="onActionBarItemSelected"
+        android:paddingBottom="2dp"
+        android:paddingTop="2dp"
+        android:src="@drawable/actionbaricon" />
+
+    <TextView
+        android:id="@+id/actionBarTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="2dp"
+        android:layout_toRightOf="@id/applicationIcon"       
+        android:clickable="true"
+        android:onClick="onActionBarItemSelected"
+        android:text="@string/actionBarTitle"
+        android:textColor="@android:color/primary_text_light"
+        android:textSize="18dp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignBottom="@id/applicationIcon"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@id/applicationIcon"        
+        android:background="@android:drawable/screen_background_light"
+        android:orientation="horizontal"
+        android:baselineAligned="false" >
+
+        <ImageButton
+            android:id="@+id/menuItem3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="2dp"
+            android:background="@android:drawable/menuitem_background"
+            android:onClick="onActionBarItemSelected"
+            android:src="@drawable/actionbaricon" />
+
+        <ImageView
+            android:id="@+id/separator2"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="2dp"
+            android:scaleType="fitXY"
+            android:src="@android:drawable/divider_horizontal_dark" />
+
+        <ImageButton
+            android:id="@+id/menuItem2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="2dp"
+            android:background="@android:drawable/menuitem_background"
+            android:onClick="onActionBarItemSelected"
+            android:src="@drawable/actionbaricon" />
+
+        <ImageView
+            android:id="@+id/separator1"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="2dp"
+            android:scaleType="fitXY"
+            android:src="@android:drawable/divider_horizontal_dark" />
+
+        <ImageButton
+            android:id="@+id/menuItem1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@android:drawable/menuitem_background"
+            android:onClick="onActionBarItemSelected"
+            android:src="@drawable/actionbaricon" />
+    </LinearLayout>
+
+</RelativeLayout>

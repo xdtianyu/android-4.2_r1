@@ -1,0 +1,39 @@
+buildscript {
+    repositories {
+        maven { url '../../repo' }
+    }
+    dependencies {
+        classpath 'com.android.build:gradle-android:0.1-SNAPSHOT'
+    }
+}
+apply plugin: 'android'
+
+version='1.0'
+
+android {
+    // Define the target platform
+    target 'android-16'
+
+    // Define the flavors of our product
+    productFlavors {
+        free {
+            packageName = 'org.gradle.sample.free'
+        }
+        paid
+    }
+
+    // Add a custom build type
+    buildTypes {
+        custom
+    }
+}
+
+// You can configure the various source locations
+sourceSets {
+    // Add an additional main source directory and resource directory
+    main.java.srcDir 'some-dir'
+    main.resources.srcDir 'some-resources'
+
+    // A source set for each product flavor and build type is also available for configuration
+    free.java.srcDir 'some-free-dir'
+}

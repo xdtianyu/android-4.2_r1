@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task
+  PUBLIC "-//OASIS//DTD DITA Task//EN" "../dtd/task.dtd">
+<task xml:lang="en-us" id="t_bcast-rcvr-creating">
+  <title>Adding a broadcast receiver</title>
+  <shortdesc>Allows you to easily add a new broadcast receiver to an existing Android project. A broadcast receiver
+    enables you to receive intents sent either from the system or from other applications, even when your application
+    isn't running.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <context/>
+    <steps>
+      <step>
+        <cmd>In the Package Explorer, right-click the project to which the activity should be added and select
+            <menucascade><uicontrol>New</uicontrol><uicontrol>Android Broadcast
+        Receiver</uicontrol></menucascade>.</cmd>
+      </step>
+      <step>
+        <cmd>Specify a name for your new BroadcastReceiver subclass in <uicontrol>Name</uicontrol>.</cmd>
+      </step>
+      <step>
+        <cmd>By default the new broadcast receiver will not have a label of its own; the application's label will be
+          used wherever necessary. If you want a specific label for this broadcast receiver, clear the <uicontrol
+            >Default</uicontrol> option (next to the <uicontrol>Label</uicontrol> field) and then enter your preferred
+          user-readable label.</cmd>
+      </step>
+      <step>
+        <cmd>If this broadcast receiver uses device capabilities for which the user must grant permission, specify them
+          in the <uicontrol>Permission</uicontrol> area. These permissions will be added to the appropriate place in
+          your application's manifest file. To specify a permission, click <uicontrol>Add</uicontrol>, select the needed
+          permission, and click <uicontrol>OK</uicontrol>.</cmd>
+      </step>
+      <step>
+        <cmd>Specify the types of broadcasts that this new receiver can handle: for each, click <uicontrol
+          >Add</uicontrol> (next to <uicontrol>Action</uicontrol>) and select the appropriate intent.</cmd>
+      </step>
+      <step>
+        <cmd>If you need to specify additional information about the intents using one or more standard categories, for
+          each click <uicontrol>Add</uicontrol> (next to <uicontrol>Category</uicontrol>) and select the appropriate
+          one.</cmd>
+      </step>
+      <step>
+        <cmd>Click <uicontrol>Finish</uicontrol>.</cmd>
+      </step>
+    </steps>
+    <result>The broadcast receiver is created and added to the selected project. It is also opened in an editor
+    view.</result>
+  </taskbody>
+</task>

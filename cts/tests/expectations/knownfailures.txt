@@ -1,0 +1,6 @@
+[
+{
+  name: "android.openglperf.cts.GlVboPerfTest#testVboWithVaryingIndexBufferNumbers",
+  bug: 6950385
+}
+]

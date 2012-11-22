@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?pde version="3.5"?>
+
+<product name="MOTODEV Studio Application Validator" uid="com.motorolamobility.preflighting.product" id="com.motorolamobility.preflighting.appvalidator" application="com.motorolamobility.preflighting.MOTODEVApplicationValidator" version="1.0.0" useFeatures="true" includeLaunchers="true">
+
+   <configIni use="default">
+   </configIni>
+
+   <launcherArgs>
+      <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts</vmArgsMac>
+   </launcherArgs>
+
+   <windowImages/>
+
+   <launcher name="motodevstudio">
+      <linux icon="/com.motorolamobility.preflighting/icons/AppValidator.xpm"/>
+      <macosx icon="/com.motorolamobility.preflighting/icons/Appvalidator.icns"/>
+      <solaris/>
+      <win useIco="true">
+         <ico path="/com.motorolamobility.preflighting/icons/AppValidator.ico"/>
+         <bmp/>
+      </win>
+   </launcher>
+
+   <vm>
+   </vm>
+
+   <plugins>
+   </plugins>
+
+   <features>
+      <feature id="com.motorolamobility.preflighting.feature"/>
+   </features>
+
+   <configurations>
+      <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="1" />
+   </configurations>
+
+</product>

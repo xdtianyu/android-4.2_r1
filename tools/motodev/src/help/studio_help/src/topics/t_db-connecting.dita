@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "../dtd/task.dtd">
+<task id="t_db-connecting" xml:lang="en-us">
+  <title>Connecting to a database</title>
+  <shortdesc>Before you can work with the contents of a database, you must connect to it.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody><prereq>You perform this task from within the MOTODEV Database Explorer view. This view is part of the
+      MOTODEV Database perspective; switch to this perspective when working with Android databases.</prereq><steps>
+      <step>
+        <cmd>Locate the database within the MOTODEV Database Explorer view.</cmd>
+        <choices>
+          <choice>If the database is within an app on a connected handset or a running emulator, click the disclosure
+            triangle to the left of the device or emulator to see all of the applications with databases. Click the
+            disclosure triangle next to the application that controls the database you wish to work with.</choice>
+          <choice>If the database is on an SD card on a connected handset or a running emulator, and the SD card is not
+            mounted for USB access, click the disclosure triangle to the left of the device or emulator. At the top of
+            the list of applications is an entry for <uicontrol>External Storage</uicontrol>; right-click it and select
+              <uicontrol>Map Database</uicontrol>. In the dialog that appears, enter the path to the database. Note that
+            although you can browse and edit the contents of a mapped database, you cannot delete it.</choice>
+          <choice>If the database is part of a project in your current workspace, click the disclosure triangle next to
+            the word "Workspace" to expose all of the projects in your workspace. Then, click the disclosure triangle
+            next to the project that contains the database you wish to work with.</choice>
+          <choice>If the database is somewhere else accessible to your development computer (for instance, if it is on
+            an SD card within a connected device that is mounted for USB access), right-click the "Filesystem" entry in
+            the MOTODEV Database Explorer view and select <uicontrol>Map Database</uicontrol>. Using the dialog that
+            appears, browse to the desired SQLite database and click <uicontrol>Open</uicontrol>. Note that although you
+            can browse and edit the contents of a mapped database, you cannot delete it.</choice>
+        </choices>
+      </step>
+      <step>
+        <cmd>Double-click the grey database icon (<image href="../images/db-icon.png"/>) to connect it. When it is
+          connected, a copy of the database is transferred from the target device to your computer's Temp directory and
+          displayed as a node in the MOTODEV Database Explorer view.</cmd>
+        <info>
+          <note type="important">Changes made to a database with the MOTODEV Studio Table Editor are made to the local
+            copy in your Temp directory. MOTODEV Studio normally will keep the local database and the version on the
+            connected device or emulator in sync. If necessary you can manually synchronize the two either by
+            right-clicking the database file and selecting <uicontrol>Refresh</uicontrol> or selecting the database file
+            and pressing F5. Note that MOTODEV Studio does not perform a true synchronization operation; if the database
+            has changed on the device since you connected to it, you cannot merge your changes with the device database.
+            Instead, you either must override the device database with your Temp copy or abandon your changes.</note>
+        </info>
+      </step>
+    </steps><example>The following shows how the "alarms" database within the MOTODEV Database Explorer view looks when
+      it is disconnected and when it is connected. <image href="../images/db-connected-states.png" placement="break"
+    /></example></taskbody>
+</task>

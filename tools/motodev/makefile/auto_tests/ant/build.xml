@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+
+<project name="testsuite" default="run">
+
+<property file="../config.properties"/>
+
+	<property name="eclipse-home" value="${MOTODEV_INSTALLATION_PATH_BUILD}" />
+	<property name="plugin-name" value="com.motorola.studio.android.autotester" />
+	<property name="test-classname" value="${CATEGORY}" />
+	<property name="library-file" value="${LIBRARY_PATH_BUILD}/library.xml" />
+
+	
+	<target name="suite">
+	
+		<property name="jvmOption" value=""></property>
+
+			<property name="temp-workspace" value="workspace" />
+			<delete dir="${temp-workspace}" quiet="true" />
+		   
+			<ant target="swtbot-test" antfile="${library-file}" dir="${eclipse-home}">
+			 <property name="data-dir" value="${temp-workspace}" />
+			 <property name="plugin-name" value="${plugin-name}" />
+			 <property name="os" value="" />
+			 <property name="ws" value="workspace" />
+			 <property name="arch" value="x86_64" />
+			 <property name="classname" value="${test-classname}" />
+			 <property name="vmargs" value=" -Xms128M -XX:MaxPermSize=512m -Xmx512M" />
+			</ant>
+		</target>
+		
+	<target name="cleanup" >
+			<delete dir="${WORKSPACE_TEMP}" />
+	</target>
+	<!--target name="run" depends="init, suite, cleanup"-->
+	<target name="run" depends="suite, cleanup">
+		<antcall target="finishing"/>
+	</target>
+
+<target name="finishing" if="${COPY_LOG}">
+	<property file="../lastlog.txt"/>
+	<echo>Last Log: ${LAST_LOG_DIR} workspace: ${WORKSPACE}</echo>
+	<mkdir dir="${LAST_LOG_DIR}/autotests"/>
+	<copy todir="${LAST_LOG_DIR}/autotests">
+		<fileset dir="${WORKSPACE}/results" includes="**/**"/>
+		<fileset file="../logscripts.txt"/>
+		<fileset file="logant.txt"/>
+	</copy>
+</target>
+		
+</project>

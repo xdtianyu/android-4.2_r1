@@ -1,0 +1,39 @@
+# rild - radio interface layer daemon
+type rild, domain;
+type rild_exec, exec_type, file_type;
+
+init_daemon_domain(rild)
+net_domain(rild)
+allow rild self:netlink_route_socket setopt;
+allow rild kernel:system module_request;
+unix_socket_connect(rild, property, init)
+unix_socket_connect(rild, qemud, qemud)
+allow rild self:capability { setuid net_admin net_raw };
+allow rild alarm_device:chr_file rw_file_perms;
+allow rild cgroup:dir create_dir_perms;
+allow rild radio_device:chr_file rw_file_perms;
+allow rild radio_device:blk_file r_file_perms;
+allow rild qemu_device:chr_file rw_file_perms;
+allow rild mtd_device:dir search;
+allow rild efs_file:dir create_dir_perms;
+allow rild efs_file:file create_file_perms;
+allow rild shell_exec:file rx_file_perms;
+allow rild bluetooth_efs_file:file r_file_perms;
+allow rild bluetooth_efs_file:dir r_dir_perms;
+allow rild radio_data_file:dir r_dir_perms;
+allow rild radio_data_file:file rw_file_perms;
+allow rild radio_device:lnk_file r_file_perms;
+allow rild sdcard:dir r_dir_perms;
+allow rild system_data_file:dir create_dir_perms;
+allow rild system_data_file:file create_file_perms;
+allow rild system_file:file x_file_perms;
+dontaudit rild self:capability sys_admin;
+# XXX Label sysfs files with a specific type?
+allow rild sysfs:file rw_file_perms;
+
+# property service
+allow rild rild_prop:property_service set;
+allow rild radio_prop:property_service set;
+
+# Read/Write to uart driver (for GPS)
+allow rild gps_device:chr_file rw_file_perms;

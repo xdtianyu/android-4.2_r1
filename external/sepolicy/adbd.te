@@ -1,0 +1,35 @@
+# adbd seclabel is specified in init.rc since
+# it lives in the rootfs and has no unique file type.
+type adbd, domain, mlstrustedsubject;
+allow adbd adb_device:chr_file rw_file_perms;
+allow adbd qemu_device:chr_file rw_file_perms;
+allow adbd self:capability { net_raw setgid setuid dac_override sys_boot sys_admin };
+allow adbd rootfs:file entrypoint;
+allow adbd init:process sigchld;
+allow adbd self:tcp_socket *;
+allow adbd self:unix_stream_socket *;
+allow adbd node:tcp_socket node_bind;
+allow adbd port:tcp_socket name_bind;
+allow adbd devpts:chr_file rw_file_perms;
+allow adbd cgroup:dir { write add_name create };
+allow adbd labeledfs:filesystem remount;
+allow adbd shell_data_file:dir rw_dir_perms;
+allow adbd shell_data_file:file create_file_perms;
+allow adbd graphics_device:dir search;
+allow adbd graphics_device:chr_file r_file_perms;
+allow adbd log_device:chr_file r_file_perms;
+# XXX Run /system/bin/vdc to connect to vold.  Run in a separate domain?
+allow adbd system_file:file rx_file_perms;
+unix_socket_connect(adbd, vold, vold)
+# Talk to init via the property socket.
+unix_socket_connect(adbd, property, init)
+
+# Run sh in its own domain.
+domain_auto_trans(adbd, shell_exec, shell)
+# Do not sanitize the environment of the shell.
+allow adbd shell:process noatsecure;
+
+# Perform binder IPC to surfaceflinger (screencap)
+# XXX Run screencap in a separate domain?
+binder_use(adbd)
+binder_call(adbd, surfaceflinger)

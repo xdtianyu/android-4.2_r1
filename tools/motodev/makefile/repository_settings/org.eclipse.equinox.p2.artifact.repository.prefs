@@ -1,0 +1,12 @@
+eclipse.preferences.version=1
+repositories/https\:__studio-android.motodevupdate.com_android_4.1/url=https\://studio-android.motodevupdate.com/android/4.1/
+repositories/https\:__studio-android.motodevupdate.com_android_4.1/enabled=true
+repositories/https\:__studio-android.motodevupdate.com_android_4.1/isSystem=false
+
+repositories/http\:__download.eclipse.org_eclipse_updates_4.2/enabled=false
+repositories/http\:__download.eclipse.org_eclipse_updates_4.2/isSystem=false
+repositories/http\:__download.eclipse.org_eclipse_updates_4.2/url=http\://download.eclipse.org/eclipse/updates/4.2/
+
+repositories/http\:__download.eclipse.org_releases_juno/enabled=false
+repositories/http\:__download.eclipse.org_releases_juno/isSystem=true
+repositories/http\:__download.eclipse.org_releases_juno/url=http\://download.eclipse.org/releases/juno/

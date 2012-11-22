@@ -1,0 +1,8 @@
+buildscript {
+    repositories {
+        maven { url '../../repo' }
+    }
+    dependencies {
+        classpath 'com.android.build:gradle-android:0.1-SNAPSHOT'
+    }
+}

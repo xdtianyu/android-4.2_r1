@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "../dtd/task.dtd">
+<task id="t_db-creating" xml:lang="en-us">
+  <title>Creating a database</title>
+  <shortdesc>From the MOTODEV Database Explorer view you can create new databases on a device or within an Android
+    project in your workspace.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <prereq>You perform this task from within the MOTODEV Database Explorer view. This view is part of the MOTODEV
+      Database perspective; switch to this perspective when working with Android databases.</prereq>
+    <steps>
+      <step>
+        <cmd>In the MOTODEV Database Explorer view, right-click the app (under Workspace) or the APK on a connected
+          device or running emulator in which the database is to be created and select <uicontrol>Create
+          Database</uicontrol>.</cmd>
+        <info>
+          <note>The <uicontrol>Duplicate</uicontrol> command is not supported by MOTODEV Studio for Android, and cannot
+            be used to "clone" an existing database.</note>
+        </info>
+        <stepresult>You are prompted for a name for the new database.</stepresult>
+      </step>
+      <step>
+        <cmd>In the Database Name dialog, enter the name for your new database and click <uicontrol>OK</uicontrol>.</cmd>
+        <stepresult>The SQLite database is created. If you created it for a project in your current workspace, the
+          database file is created in the project's <filepath>assets</filepath> folder.</stepresult>
+      </step>
+      <step>
+        <cmd>In the MOTODEV Explorer view double-click the app to expose its contents, then double-click the grey
+          database icon (<image href="../images/db-icon.png"/>) to connect the database. When it is connected, a copy of
+          the database is transferred from the target app or device to your computer's Temp directory and displayed as a
+          node in the MOTODEV Database Explorer view.</cmd>
+        <info>
+          <note type="important">Changes made to a database using the MOTODEV Studio Table Editor are made to the local
+            copy in your Temp directory. MOTODEV Studio normally will keep the local database and the version on the
+            connected device or emulator in sync. If necessary you can manually synchronize the two either by
+            right-clicking the database file and selecting <uicontrol>Refresh</uicontrol> or selecting the database file
+            and pressing F5. Note that MOTODEV Studio does not perform a true synchronization operation; if the database
+            has changed on the device since you connected to it, you cannot merge your changes with the device database.
+            Instead, you either must override the device database with your Temp copy or abandon your changes.</note>
+        </info>
+      </step>
+    </steps>
+    <postreq>After creating a new database, you will likely want to create one or more tables within that
+    database.</postreq>
+  </taskbody>
+</task>

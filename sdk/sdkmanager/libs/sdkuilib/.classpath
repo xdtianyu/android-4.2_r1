@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="**/Android.mk" kind="src" path="src"/>
+	<classpathentry excluding="**/Android.mk" kind="src" path="tests"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/SdkLib"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/3"/>
+	<classpathentry kind="var" path="ANDROID_OUT_FRAMEWORK/swtmenubar.jar" sourcepath="/ANDROID_SRC/sdk/swtmenubar/src"/>
+	<classpathentry kind="var" path="ANDROID_SRC/prebuilts/tools/common/eclipse/org.eclipse.core.commands_3.6.0.I20100512-1500.jar"/>
+	<classpathentry kind="var" path="ANDROID_SRC/prebuilts/tools/common/eclipse/org.eclipse.equinox.common_3.6.0.v20100503.jar"/>
+	<classpathentry kind="var" path="ANDROID_SRC/prebuilts/tools/common/eclipse/org.eclipse.jface_3.6.2.M20110210-1200.jar"/>
+	<classpathentry kind="var" path="ANDROID_SRC/prebuilts/tools/common/http-client/commons-codec-1.4.jar"/>
+	<classpathentry kind="var" path="ANDROID_SRC/prebuilts/tools/common/http-client/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="var" path="ANDROID_SRC/prebuilts/tools/common/http-client/httpclient-4.1.1.jar" sourcepath="/ANDROID_SRC/prebuilts/tools/common/http-client/src/httpcomponents-client-4.1.1-src.zip"/>
+	<classpathentry kind="var" path="ANDROID_SRC/prebuilts/tools/common/http-client/httpcore-4.1.jar" sourcepath="/ANDROID_SRC/prebuilts/tools/common/http-client/src/httpcomponents-core-4.1-src.zip"/>
+	<classpathentry kind="var" path="ANDROID_SRC/prebuilts/tools/common/http-client/httpmime-4.1.1.jar" sourcepath="/ANDROID_SRC/prebuilts/tools/common/http-client/src/httpcomponents-client-4.1.1-src.zip"/>
+	<classpathentry kind="var" path="ANDROID_OUT_FRAMEWORK/swt.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/layoutlib_api"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/common"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference id="u_sdk-download-location" xml:lang="en-us">
+  <title>SDK Download Location dialog</title>
+  <shortdesc>Specify the location to which the Android SDK should be downloaded.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <simpletable>
+      <strow>
+        <stentry><uicontrol>Download Location</uicontrol></stentry>
+        <stentry>Use this field to specify where the downloaded SDK should be stored on your development computer.
+          Either enter the path into this field, or click <uicontrol>Browse</uicontrol> and navigate to the directory in
+          which the SDK should be placed. Note that the path to the chosen directory should not contain any whitespace
+          characters, since whitespace characters cause problems with the Android project obfuscation
+        mechanism.</stentry>
+      </strow>
+    </simpletable>
+  </refbody>
+</reference>

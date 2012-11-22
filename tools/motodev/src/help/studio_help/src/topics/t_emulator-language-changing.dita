@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "../dtd/task.dtd">
+<task id="t_emulator-language-changing" xml:lang="en-us">
+  <title>Changing the emulator's operating language</title>
+  <shortdesc>From the Device Management view you can change the locale of a running emulator, and thus its operating
+    language.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <context>
+      <p>You have two options for changing the operating language of a running emulator: either use the <uicontrol
+          >Custom Locale</uicontrol> application (found on the Application tab of the emulated device), or change the
+        emulator settings using the appropriate adb commands. MOTODEV Studio for Android simplifies this latter
+        operation, allowing you to easily change the emulator's locale from the Device Management view. Note that the
+        emulator will be restarted if you choose this option.</p>
+    </context>
+    <steps>
+      <step>
+        <cmd>In the Device Management view, right-click the running emulator and select <uicontrol>Language</uicontrol>.</cmd>
+        <stepresult>The Emulator Language dialog appears.</stepresult>
+      </step>
+      <step>
+        <cmd>Specify the desired locale as a combination of language and country. For example, to configure the emulator
+          to appear as it would in England, select "English" as the language and "United Kingdom" as the country.</cmd>
+      </step>
+      <step>
+        <cmd>Click <uicontrol>Finish</uicontrol>.</cmd>
+      </step>
+    </steps>
+    <result>MOTODEV Studio for Android issues the appropriate <codeph>setprop persist</codeph> adb shell commands, and
+      then restarts the emulator.</result>
+  </taskbody>
+</task>

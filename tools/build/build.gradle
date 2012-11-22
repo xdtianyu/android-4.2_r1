@@ -1,0 +1,9 @@
+allprojects {
+    apply plugin: 'idea'
+
+    repositories {
+        mavenCentral()
+    }
+
+    version = '0.1-SNAPSHOT'
+}

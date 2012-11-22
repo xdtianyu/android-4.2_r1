@@ -1,0 +1,82 @@
+/* -*- c++ -*- */
+/*
+ * Copyright (C) 2010 The Android Open Source Project
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *  * Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ *  * Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in
+ *    the documentation and/or other materials provided with the
+ *    distribution.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+ * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+ * COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+ * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+ * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS
+ * OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
+ * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+ * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+ * OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ * SUCH DAMAGE.
+ */
+
+#ifndef ANDROID_ASTL_IOMANIP__
+#define ANDROID_ASTL_IOMANIP__
+
+#include <ostream>
+
+// iomanips are structures used to manipulate streams. There are 3
+// parts to a manip:
+// - a struct to hold the parameters of the manip.
+// - a function in the std namespace to generate the above structure.
+// - a stream operator that takes the structure as second argument and
+//   apply the manip using the params in the structure.
+//
+// This allows something like that : cout << setprecision(10);
+
+namespace android {
+// Structures passed to the streams to set various aspect of it.
+struct SetBase { int base; };
+struct SetPrecision { int precision; };
+}
+
+namespace std {
+
+// Sent to a stream, calls 'precision(size_type)' on the instance.
+inline android::SetPrecision setprecision(int precision) {
+    android::SetPrecision params;
+    params.precision = precision;
+    return params;
+}
+
+inline ostream& operator<<(ostream& os, android::SetPrecision params) {
+    os.precision(params.precision);
+    return os;
+}
+
+// Sent to a stream, set the ios_base::basefield on the instance.
+// Sent to a stream, calls 'precision(size_type)' on the instance.
+inline android::SetBase setbase(int base) {
+    android::SetBase params;
+    params.base = base;
+    return params;
+}
+
+inline ostream& operator<<(ostream& os, android::SetBase params) {
+    os.setf(params.base == 8  ? ios_base::oct :
+            params.base == 10 ? ios_base::dec :
+            params.base == 16 ? ios_base::hex :
+            ios_base::fmtflags(0), ios_base::basefield);
+    return os;
+}
+
+}  // namespace std
+
+#endif

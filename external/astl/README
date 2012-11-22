@@ -1,0 +1,12 @@
+ASTL (Android STL) is a slimmed-down version of the regular C++ STL.
+
+Its sole purpose for existence is to be able to compile some third party
+packages. As a result only a subset of the regular STL is provided. We only add
+feature to it as we need them.
+
+Size of the library is a concern. For that reason, template usage has been
+reduced to a bare minimum, there is little parametrization in classes.
+
+To keep things simple, some inheritance hierarchies are just not there (e.g
+string is not a template specialization of basic_string - there is no
+basic_string class template.)

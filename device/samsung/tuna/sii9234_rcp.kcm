@@ -1,0 +1,63 @@
+# Copyright (C) 2012 The Android Open Source Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+type SPECIAL_FUNCTION
+
+key NUMPAD_0 {
+    label, base: '0'
+}
+
+key NUMPAD_1 {
+    label, base: '1'
+}
+
+key NUMPAD_2 {
+    label, base: '2'
+}
+
+key NUMPAD_3 {
+    label, base: '3'
+}
+
+key NUMPAD_4 {
+    label, base: '4'
+}
+
+key NUMPAD_5 {
+    label, base: '5'
+}
+
+key NUMPAD_6 {
+    label, base: '6'
+}
+
+key NUMPAD_7 {
+    label, base: '7'
+}
+
+key NUMPAD_8 {
+    label, base: '8'
+}
+
+key NUMPAD_9 {
+    label, base: '9'
+}
+
+key NUMPAD_DOT {
+    label, base: '.'
+}
+
+key NUMPAD_ENTER {
+    label, base: '\n'
+}

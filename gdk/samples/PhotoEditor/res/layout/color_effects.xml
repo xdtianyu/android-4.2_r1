@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2010 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<com.android.photoeditor.EffectsGroup
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:photoeditor="http://schemas.android.com/apk/res/com.android.photoeditor"
+    style="@style/EffectsBarLinearLayout">
+
+    <FrameLayout android:id="@+id/group_header" style="@style/GroupHeader">
+
+        <TextView android:text="@string/color_group" style="@style/GroupLabel"/>
+        <ImageView android:id="@+id/group_arrow" style="@style/GroupArrow"/>
+
+    </FrameLayout>
+
+    <LinearLayout android:id="@+id/grouped_effects" style="@style/GroupContent">
+
+        <LinearLayout style="@style/Effect" android:id="@+id/warmify_effect">
+            <com.android.photoeditor.IconIndicator
+                android:id="@+id/effect_button"
+                style="@style/EffectIcon"
+                photoeditor:modes="@array/warmify_modes"
+                photoeditor:icons="@array/warmify_icons"/>
+            <TextView
+                android:id="@+id/effect_label"
+                android:text="@string/warmify"
+                style="@style/EffectLabel"/>
+        </LinearLayout>
+        <LinearLayout style="@style/Effect" android:id="@+id/sepia_effect">
+            <com.android.photoeditor.IconIndicator
+                android:id="@+id/effect_button"
+                style="@style/EffectIcon"
+                photoeditor:modes="@array/sepia_modes"
+                photoeditor:icons="@array/sepia_icons"/>
+            <TextView
+                android:id="@+id/effect_label"
+                android:text="@string/sepia"
+                style="@style/EffectLabel"/>
+        </LinearLayout>
+        <LinearLayout style="@style/Effect" android:id="@+id/grayscale_effect">
+            <com.android.photoeditor.IconIndicator
+                android:id="@+id/effect_button"
+                style="@style/EffectIcon"
+                photoeditor:modes="@array/grayscale_modes"
+                photoeditor:icons="@array/grayscale_icons"/>
+            <TextView
+                android:id="@+id/effect_label"
+                android:text="@string/grayscale"
+                style="@style/EffectLabel"/>
+        </LinearLayout>
+        <LinearLayout style="@style/Effect" android:id="@+id/negative_effect">
+            <com.android.photoeditor.IconIndicator
+                android:id="@+id/effect_button"
+                style="@style/EffectIcon"
+                photoeditor:modes="@array/negative_modes"
+                photoeditor:icons="@array/negative_icons"/>
+            <TextView
+                android:id="@+id/effect_label"
+                android:text="@string/negative"
+                style="@style/EffectLabel"/>
+        </LinearLayout>
+        <LinearLayout style="@style/Effect" android:id="@+id/duotone_effect">
+            <com.android.photoeditor.IconIndicator
+                android:id="@+id/effect_button"
+                style="@style/EffectIcon"
+                photoeditor:modes="@array/duotone_modes"
+                photoeditor:icons="@array/duotone_icons"/>
+            <TextView
+                android:id="@+id/effect_label"
+                android:text="@string/duotone"
+                style="@style/EffectLabel"/>
+        </LinearLayout>
+        <LinearLayout style="@style/Effect" android:id="@+id/tint_effect">
+            <com.android.photoeditor.IconIndicator
+                android:id="@+id/effect_button"
+                style="@style/EffectIcon"
+                photoeditor:modes="@array/tint_modes"
+                photoeditor:icons="@array/tint_icons"/>
+            <TextView
+                android:id="@+id/effect_label"
+                android:text="@string/tint"
+                style="@style/EffectLabel"/>
+        </LinearLayout>
+        <LinearLayout style="@style/Effect" android:id="@+id/temperature_effect">
+            <com.android.photoeditor.IconIndicator
+                android:id="@+id/effect_button"
+                style="@style/EffectIcon"
+                photoeditor:modes="@array/temperature_modes"
+                photoeditor:icons="@array/temperature_icons"/>
+            <TextView
+                android:id="@+id/effect_label"
+                android:text="@string/temperature"
+                style="@style/EffectLabel"/>
+        </LinearLayout>
+        <LinearLayout style="@style/Effect" android:id="@+id/saturation_effect">
+            <com.android.photoeditor.IconIndicator
+                android:id="@+id/effect_button"
+                style="@style/EffectIcon"
+                photoeditor:modes="@array/saturation_modes"
+                photoeditor:icons="@array/saturation_icons"/>
+            <TextView
+                android:id="@+id/effect_label"
+                android:text="@string/saturation"
+                style="@style/EffectLabel"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</com.android.photoeditor.EffectsGroup>

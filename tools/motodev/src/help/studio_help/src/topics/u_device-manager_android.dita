@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference id="u_device-manager_android" xml:lang="en-us">
+  <title>Device Management view</title>
+  <shortdesc>Lists available devices (both physical and virtual) and allows you to install applications to them.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <p>The Device Management view displays any connected Android devices and any available Android Virtual Devices
+        (AVDs), identified by name and categorized by type. For each device, the Devices column also includes the AVD
+        name and operating system version (for running emulated devices) or device ID and operating system version (for
+        real devices). The Status column indicates whether the device is online (an AVD that is online is one that is
+        running) or offline. If an AVD shows "no user data", that AVD has no associated user data: either it has never
+        been run, or it has been reset since it was last run.</p>
+      <p>Right-click a device to display a menu that varies depend upon the type of device you have selected. When a
+        physical device is selected you can open an ADB shell window or install an application to the device. When an
+        AVD is selected you can also start, stop, or reset the virtual device, and you can open an Android console
+        window.</p>
+      <simpletable>
+        <strow>
+          <stentry><image href="../images/tml-new-instance.png"/></stentry>
+          <stentry>Creates a new device. Use this to create new AVD instances.</stentry>
+        </strow>
+        <strow>
+          <stentry><image href="../images/refresh-device-list-button_android.png"/></stentry>
+          <stentry>Refreshes the list of devices and their status indications.</stentry>
+        </strow>
+        <strow>
+          <stentry><image href="../images/menu-button.png"/></stentry>
+          <stentry>Displays a menu that allows you to create a new device.</stentry>
+        </strow>
+      </simpletable>
+      <p>The context-sensitive menu that appears when you right-click a device has some or all of the following commands
+        (depending upon whether the device is real or emulated).</p>
+      <simpletable>
+        <sthead>
+          <stentry>Command</stentry>
+          <stentry>Icon</stentry>
+          <stentry>Function</stentry>
+        </sthead>
+        <strow>
+          <stentry><uicontrol>New</uicontrol></stentry>
+          <stentry><image href="../images/dev-mgr_new-icon.png"/></stentry>
+          <stentry>Creates a new AVD.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Delete</uicontrol></stentry>
+          <stentry><image href="../images/loc_editor-remove-line-button.png"/></stentry>
+          <stentry>Deletes an existing AVD.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Properties</uicontrol></stentry>
+          <stentry/>
+          <stentry>Opens a dialog from which you can view and edit some of the device's properties.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>ADB Shell</uicontrol></stentry>
+          <stentry><image href="../images/dev-mgr_adb-shell-icon.png"/></stentry>
+          <stentry>Opens a new ADB (Android Debug Bridge) shell console from which you can issue adb commands. These
+            commands allow you to manage the state of connected Android devices and AVDs. See the Android SDK
+            documentation at <xref href="http://developer.android.com/guide/developing/tools/adb.html#shellcommands"
+              scope="external" format="html">http://developer.android.com/guide/developing/tools/adb.html</xref> for
+            information on the commands you can issue.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Console</uicontrol></stentry>
+          <stentry><image href="../images/dev-mgr_console-icon.png"/></stentry>
+          <stentry>Opens a new Emulator Console connected to the selected emulator instance. You can use the Emulator
+            Console to simulate hardware events, simulate telephony events, and control various aspects of the emulated
+            device. For more information see the Android SDK documentation for the Emulator Console at <xref
+              href="http://developer.android.com/guide/developing/tools/emulator.html#console" scope="external"
+              format="html">http://developer.android.com/guide/developing/tools/emulator.html#console</xref>.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Install app</uicontrol></stentry>
+          <stentry><image href="../images/dev-mgr_install-app-icon.png"/></stentry>
+          <stentry>Prompts you for an application package, and then installs the package to the selected device. Note
+            that the target device must be running. Also note that you can install apps simply by dragging and dropping
+            one or more APKs onto a running AVD or connected handset listed in the Device Management view.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Uninstall app</uicontrol></stentry>
+          <stentry><image href="../images/dev-mgr_uninstall-app-icon.png"/></stentry>
+          <stentry>Lists applications that can be uninstalled, and uninstalls those that you have selected.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Take Screenshot</uicontrol></stentry>
+          <stentry><image href="../images/dev-mgr_take-screenshot-icon.png"/></stentry>
+          <stentry>Captures an image of the device's screen. This function works for both real and emulated
+          devices.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Test events with Monkey</uicontrol></stentry>
+          <stentry><image href="../images/dev-mgr_monkey-test-icon.png"/></stentry>
+          <stentry>Creates a launch configuration for the Android UI/Application Exerciser Monkey, which tests your apps
+            by sending pseudo-random events to them.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Language</uicontrol></stentry>
+          <stentry><image href="../images/dev-mgr_language-icon.png"/></stentry>
+          <stentry>Changes the locale of the selected emulator instance. The emulator must be running. This feature is
+            particularly useful when testing localized versions of your applications. Note that it lets you change the
+            emulated device's locale to any language/country combination, whether or not the device has the specified
+            locale installed. If the locale is not installed the device defaults to English, but within your application
+            your localized strings.xml file is used.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Reset</uicontrol></stentry>
+          <stentry><image href="../images/dev-mgr_reset-icon.png"/></stentry>
+          <stentry>Deletes all of the selected emulator's data. This has the same effect as deleting and recreating the
+            AVD.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Stop</uicontrol></stentry>
+          <stentry><image href="../images/dev-mgr_stop-icon.png"/></stentry>
+          <stentry>Stops the selected emulator instance.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Repair</uicontrol></stentry>
+          <stentry><image href="../images/dev-mgr_repair-icon.png"/></stentry>
+          <stentry>Tries to repair a corrupt AVD (depending upon the problem) so that it can once again be
+          used.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Start</uicontrol></stentry>
+          <stentry><image href="../images/dev-mgr_start-icon.png"/></stentry>
+          <stentry>Starts the selected emulator instance.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Analyze Memory with MAT</uicontrol></stentry>
+          <stentry><image href="../images/dev-mgr_mat-analyze-icon.png"/></stentry>
+          <stentry>Generates an HPROF file and then runs the Memory Analyzer (MAT). MAT analyzes the Java heap and can
+            be extremely helpful when trying to track down memory leaks. It is also a valuable tool when trying to
+            reduce your app's memory consumption.</stentry>
+        </strow>
+      </simpletable>
+      <p>The toolbar icons across the top of the Device Management view correspond to many of the above commands. These
+        icons are enabled and disabled as appropriate for the selected devices. Note that they enable you to issue
+        commands to more than one device at a time. For instance, you can start multiple AVDs by selecting them and
+        clicking <image href="../images/start-avd-button.png"/>.</p>
+    </section>
+  </refbody>
+</reference>

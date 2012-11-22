@@ -1,0 +1,290 @@
+/* -*- c++ -*- */
+/*
+ * Copyright (C) 2010 The Android Open Source Project
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *  * Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ *  * Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in
+ *    the documentation and/or other materials provided with the
+ *    distribution.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+ * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+ * COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+ * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+ * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS
+ * OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
+ * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+ * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+ * OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ * SUCH DAMAGE.
+ */
+
+#ifndef ANDROID_ASTL_ITERATOR__
+#define ANDROID_ASTL_ITERATOR__
+
+#include <cstddef>
+#include <type_traits.h>
+
+// Iterators are a generalization of pointers to allow programs to
+// work with different data structures (containers) in a uniform
+// manner.
+namespace std {
+
+// Tags for the various iterator categories. Only input and forward
+// iterators are supported.
+struct input_iterator_tag {};
+struct output_iterator_tag {};
+struct forward_iterator_tag : public input_iterator_tag {};
+struct bidirectional_iterator_tag : public forward_iterator_tag {};
+struct random_access_iterator_tag : public bidirectional_iterator_tag {};
+
+template<typename _Category, typename _T, typename _Distance = ptrdiff_t,
+         typename _Pointer = _T*, typename _Reference = _T&>
+struct iterator
+{
+    typedef _Category  iterator_category;  // See tags above.
+    typedef _T         value_type;
+    typedef _Distance  difference_type;  // Distance between iterators.
+    typedef _Pointer   pointer;
+    typedef _Reference reference;
+};
+
+// Generic version, simply forward the typedef to the iterator
+// template argument.
+template<typename _Iterator>
+struct iterator_traits
+{
+    typedef typename _Iterator::iterator_category iterator_category;
+    typedef typename _Iterator::value_type        value_type;
+    typedef typename _Iterator::difference_type   difference_type;
+    typedef typename _Iterator::pointer           pointer;
+    typedef typename _Iterator::reference         reference;
+};
+
+// Specialization for pointers and const pointers. These are random
+// access iterators.
+template<typename _T>
+struct iterator_traits<_T*>
+{
+    typedef random_access_iterator_tag iterator_category;
+    typedef _T                         value_type;
+    typedef ptrdiff_t                  difference_type;
+    typedef _T*                        pointer;
+    typedef _T&                        reference;
+};
+
+template<typename _T>
+struct iterator_traits<const _T*>
+{
+    typedef random_access_iterator_tag iterator_category;
+    typedef _T                         value_type;
+    typedef ptrdiff_t                  difference_type;
+    typedef const _T*                  pointer;
+    typedef const _T&                  reference;
+};
+
+// Wrap an interator that is not a class (e.g pointer) into an
+// iterator that is a class.
+// TODO: move this definition in the android ns.
+template<typename _Iterator, typename _Container>
+class __wrapper_iterator
+{
+  public:
+    typedef _Iterator iterator_type;
+    typedef typename iterator_traits<_Iterator>::iterator_category
+    iterator_category;
+    typedef typename iterator_traits<_Iterator>::value_type value_type;
+    typedef typename iterator_traits<_Iterator>::difference_type
+    difference_type;
+    typedef typename iterator_traits<_Iterator>::reference reference;
+    typedef typename iterator_traits<_Iterator>::pointer pointer;
+
+    __wrapper_iterator() : mCurrent(_Iterator()) { }
+    explicit __wrapper_iterator(const _Iterator& i) : mCurrent(i) { }
+
+    // Allow iterator to const_iterator conversion
+    template<typename _Iter>
+    __wrapper_iterator(const __wrapper_iterator<_Iter, _Container>& i)
+        : mCurrent(i.base()) { }
+
+    // Forward iterator requirements
+    reference operator*() const { return *mCurrent; }
+    pointer operator->() const { return mCurrent; }
+    __wrapper_iterator& operator++() {
+        ++mCurrent;
+        return *this;
+    }
+    __wrapper_iterator operator++(int) {
+        return __wrapper_iterator(mCurrent++);
+    }
+
+    // Bidirectional iterator requirements
+    __wrapper_iterator& operator--() {
+        --mCurrent;
+        return *this;
+    }
+    __wrapper_iterator operator--(int) {
+        return __wrapper_iterator(mCurrent--);
+    }
+
+    // Random access iterator requirements
+    reference operator[](const difference_type& n) const {
+        return mCurrent[n];
+    }
+
+    __wrapper_iterator& operator+=(const difference_type& n) {
+        mCurrent += n;
+        return *this;
+    }
+
+    __wrapper_iterator operator+(const difference_type& n) const {
+        return __wrapper_iterator(mCurrent + n);
+    }
+
+    __wrapper_iterator& operator-=(const difference_type& n) {
+        mCurrent -= n; return *this;
+    }
+
+    __wrapper_iterator operator-(const difference_type& n) const {
+        return __wrapper_iterator(mCurrent - n);
+    }
+
+    const _Iterator& base() const {
+        return mCurrent;
+    }
+
+  private:
+    _Iterator mCurrent;
+};
+
+// Forward iterator requirements
+template<typename _IteratorL, typename _IteratorR, typename _Container>
+inline bool
+operator==(const __wrapper_iterator<_IteratorL, _Container>& lhs,
+           const __wrapper_iterator<_IteratorR, _Container>& rhs)
+{ return lhs.base() == rhs.base(); }
+
+template<typename _Iterator, typename _Container>
+inline bool
+operator==(const __wrapper_iterator<_Iterator, _Container>& lhs,
+           const __wrapper_iterator<_Iterator, _Container>& rhs)
+{ return lhs.base() == rhs.base(); }
+
+template<typename _IteratorL, typename _IteratorR, typename _Container>
+inline bool
+operator!=(const __wrapper_iterator<_IteratorL, _Container>& lhs,
+           const __wrapper_iterator<_IteratorR, _Container>& rhs)
+{ return lhs.base() != rhs.base(); }
+
+template<typename _Iterator, typename _Container>
+inline bool
+operator!=(const __wrapper_iterator<_Iterator, _Container>& lhs,
+           const __wrapper_iterator<_Iterator, _Container>& rhs)
+{ return lhs.base() != rhs.base(); }
+
+// operator+ so we support 100 + iterator<>.
+template<typename _Iterator, typename _Container>
+inline __wrapper_iterator<_Iterator, _Container>
+operator+(typename __wrapper_iterator<_Iterator, _Container>::difference_type n,
+          const __wrapper_iterator<_Iterator, _Container>& i)
+{ return __wrapper_iterator<_Iterator, _Container>(i.base() + n); }
+
+// operator- : diff is supported on iterators.
+
+template<typename _Iterator, typename _Container>
+inline typename __wrapper_iterator<_Iterator, _Container>::difference_type
+operator-(const __wrapper_iterator<_Iterator, _Container>& lhs,
+          const __wrapper_iterator<_Iterator, _Container>& rhs)
+{ return lhs.base() - rhs.base(); }
+
+}  // namespace std
+
+namespace android {
+
+// Shorthand to return the catogory of an iterator. Not part of the
+// STL -> android namespace.
+template<typename _Iterator>
+inline typename std::iterator_traits<_Iterator>::iterator_category
+iterator_category(const _Iterator&)
+{ return typename std::iterator_traits<_Iterator>::iterator_category(); }
+
+// Detect wrapper iterators.
+template<typename _T>
+struct is_wrapper_iterator: public std::false_type { };
+
+template<typename _Iterator, typename _Container>
+struct is_wrapper_iterator<std::__wrapper_iterator<_Iterator, _Container> >:
+            public std::true_type { };
+
+// iter::base
+//
+// For wrapper iterators, android::iter::base(it) returns a pointer
+// (it.base()) which is going to match implementation(s) that use
+// pointers (e.g memmove).
+template<typename _Iterator,
+         bool _IsWrapper = is_wrapper_iterator<_Iterator>::value>
+struct iter {
+    static _Iterator base(_Iterator it) { return it; }
+};
+
+template<typename _Iterator>
+struct iter<_Iterator, true> {
+    static typename _Iterator::iterator_type base(_Iterator it) {
+        return it.base();
+    }
+};
+
+}  // namespace android
+
+namespace std {
+
+// Utilities: distance().
+
+template<typename _InputIterator>
+inline typename iterator_traits<_InputIterator>::difference_type
+distance(_InputIterator first, _InputIterator last,
+         input_iterator_tag)  // Match input iterators.
+{
+    typename iterator_traits<_InputIterator>::difference_type dist = 0;
+    while (first != last) {
+        ++first;
+        ++dist;
+    }
+    return dist;
+}
+
+// Random access iterator: equivalent to mem pointer arithmetic.
+template<typename _RandomAccessIterator>
+inline typename iterator_traits<_RandomAccessIterator>::difference_type
+distance(_RandomAccessIterator first, _RandomAccessIterator last,
+         random_access_iterator_tag)  // Match random access iterators.
+{
+    return last - first;
+}
+
+/**
+ * Iterator arithmetic.
+ * @param first An input iterator.
+ * @param last  An input iterator.
+ * @return The distance between them.
+ */
+template<typename _InputIterator>
+inline typename iterator_traits<_InputIterator>::difference_type
+distance(_InputIterator first, _InputIterator last)
+{
+    // The correct implementation (above) will be called based on the
+    // iterator's category.
+    return distance(first, last, android::iterator_category(first));
+}
+
+}  // namespace std
+
+#endif  // ANDROID_ASTL_ITERATOR__

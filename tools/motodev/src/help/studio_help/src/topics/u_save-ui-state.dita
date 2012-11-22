@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference id="u_save-ui-state" xml:lang="en-us">
+  <title>Generate Save UI State code</title>
+  <shortdesc>Generates code to save and restore UI state for many of the views in a selected xml layout.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <p>This dialog is presented when you select a project in the Package Explorer that has views that can be saved and
+        then select <menucascade>
+          <uicontrol>Auto-Generated Code</uicontrol>
+          <uicontrol>Generate Save UI State code</uicontrol>
+        </menucascade> from the <uicontrol>MOTODEV</uicontrol> menu.</p>
+      <simpletable>
+        <strow>
+          <stentry><uicontrol>Project</uicontrol></stentry>
+          <stentry>The project into which the state-saving code is to be added.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Target Class</uicontrol></stentry>
+          <stentry>The Java class into which the state-saving code is to be added. This feature adds code to the
+            selected class's onPause() method that saves the state of the selected views. It also adds code to the
+            selected class's onResume() method to restore the saved state.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Source Layout File</uicontrol></stentry>
+          <stentry>A read-only text field that indicates which layout file's state will be saved and restored by the
+            generated code.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>UI Objects</uicontrol></stentry>
+          <stentry>A list of views for which state can be saved and restored. Select those views for which you want code
+            to be generated.</stentry>
+        </strow>
+      </simpletable>
+    </section>
+  </refbody>
+</reference>

@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "../dtd/concept.dtd">
+<concept id="c_appvalidator-conditions" xml:lang="en-us">
+  <title>Interpreting App Validator results</title>
+  <shortdesc>The App Validator runs a series of "checkers," each of which has one or more conditions that it checks for.
+    This document provides detailed information about each checker and each condition, detailing the issues that the
+    checkers and conditions are examining your Android apps for and noting the corrective action you may want to take in
+    the event that your app is flagged for a given checker/condition combination. </shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <conbody>
+    <p>Note that whether or not you elect to take corrective action is up to you; many conditions simply point out
+      possible problem areas that in some cases may not actually require any correction.</p>
+    <section>
+      <title>Permissions Checker</title>
+      <p>Checker ID: <b>permissions</b></p>
+      <p>Examines the permissions required by the app and the APIs used by the app, looking for possible problems.</p>
+      <dl>
+        <dlentry>
+          <dt>Condition: blockedPermission</dt>
+          <dd>
+            <p>Verifies that the requested permissions are required by the application. Permissions have a "protection
+              level" that characterizes the potential risk implied by the permission and indicates how the system will
+              determine whether to grant the permission to the requesting application (see the Android documentation on
+              AndroidManifestPermission_protectionLevel for more information on these protection levels). The
+              blockedPermission condition looks to see if the application requires a permission that has a <b
+              >signature</b> or <b>signatureOrSystem</b> protection level. Such permissions are not intended to be used
+              by third-party developers; Android will deny their use.</p>
+            <p>If your app fails this test, remove the requirement for the problematic permissions within your app's
+              Android manifest file.</p>
+          </dd>
+        </dlentry>
+        <dlentry>
+          <dt>Condition: missingPermission</dt>
+          <dd>
+            <p>Some APIs require that the app request specific permissions in order to be used. If the necessary
+              permissions are not declared in the Android manifest file, a SecurityException is thrown at runtime. This
+              checker looks at the permissions requested in the Android manifest file to ensure that all needed
+              permissions (based upon an examination of the app's source) have been requested.</p>
+            <p>If your app fails this test, add the noted permissions to your application's Android manifest file.</p>
+          </dd>
+        </dlentry>
+        <dlentry>
+          <dt>Condition: unneededPermission</dt>
+          <dd>
+            <p>Verifies that all of the requested permissions are actually needed by the app</p>
+            <p>If you are notified that your app is requesting unneeded permissions, ensure that they are truly needed.
+              If they are not, remove the superfluous ones from your AndroidManifest.xml file.</p>
+          </dd>
+        </dlentry>
+      </dl>
+    </section>
+    <section>
+      <title>Google Play Filters Checker</title>
+      <p>Checker ID: <b>googlePlayFilters</b></p>
+      <p>The Google Play Filters checker looks for situations where:<ul>
+          <li>your app will be rejected by Google Play</li>
+          <li>your app will not appear in Google Play on specific devices</li>
+          <li>your app will appear in Google Play on devices for which it wasn't intended</li>
+        </ul></p>
+      <dl>
+        <dlentry>
+          <dt>Condition: missingVersionCodeOrName</dt>
+          <dd>
+            <p>Verifies the existence of android:versionCode and android:versionName attributes in the &lt;manifest&gt;
+              element within the app's Android manifest file. Google Play requires the presence of both of these
+              attributes. It uses android:versionCode to identify the application internally and to handle updates, and
+              it displays the android:versionName value to users as the application's version.</p>
+            <p>If your app fails this test, add the required attributes to the &lt;manifest&gt; element in your app's
+              Android manifest file.</p>
+          </dd>
+        </dlentry>
+        <dlentry>
+          <dt>Condition: certificatePeriodExpired</dt>
+          <dd>
+            <p>Verifies that the validity period for the certificate used to sign the app meets the requirements set by
+              Google Play. Google Play requires that your app be signed with a cryptographic private key that is valid
+              beyond 22 October 2033.</p>
+            <p>If your app fails this test, re-sign the app with a certificate that has the required validity
+            period.</p>
+          </dd>
+        </dlentry>
+        <dlentry>
+          <dt>Condition: missingManifestIconOrLabel</dt>
+          <dd>
+            <p>Verifies the existence of android:icon and android:label attributes on the &lt;application&gt; element
+              within the app's Android manifest file. Both of these attributes are required by Google Play.</p>
+            <p>If your app fails this test, edit the app's Android manifest file and add the missing attributes to the
+              &lt;application&gt; element.</p>
+          </dd>
+        </dlentry>
+        <dlentry>
+          <dt>Condition: missingMinSdkVersion</dt>
+          <dd>
+            <p>Verifies that the &lt;uses-sdk&gt; element has the android:minSdkVersion attribute set to an explicit
+              value. Although this attribute is not strictly required, Android assumes a value of "1" if it is not
+              present, indicating that the app is compatible with all versions of Android. Most apps are not compatible
+              with all versions of Android, for various reasons. If, for instance, your app uses an API that was
+              introduced in a later version and you do not set the android:minSdkVersion attribute to that version (or
+              later), your app could potentially be installed on a device running an earlier version of Android, where
+              it will crash when the missing API is called. Because of this, apps should always explicitly declare the
+              minimum SDK version they support.</p>
+            <p>If your app fails this test, add the android:minSdkVersion attribute, with the appropriate API level
+              value, to the &lt;uses-sdk&gt; element in your Android manifest file.</p>
+          </dd>
+        </dlentry>
+        <dlentry>
+          <dt>Condition: permissionToImpliedFeatures</dt>
+          <dd>
+            <p>Checks if an application's manifest file contains &lt;uses-permission> elements that imply certain
+              features without explicitly declaring those features. For example, if an application requests the CAMERA
+              permission but does not declare a &lt;uses-feature> element for android.hardware.camera, Google Play
+              assumes that the application requires a camera and does not show it on devices that do not have a camera. </p>
+            <p>For a list of permissions that imply hardware features, see the <xref
+                href="http://developer.android.com/guide/topics/manifest/uses-feature-element.html" format="html"
+                scope="external">documentation for the &lt;uses-feature> element</xref>. </p>
+            <p>Because Google Play does not filter based on &lt;uses-permission> elements, and because it is able to
+              infer certain features based upon permission requests, you are not required to supply the implied
+              &lt;uses-feature> elements. However, it is good practice to do so: explicitly list all features and
+              permissions required by your app in the app's Android manifest file. Note that if your app is able to use,
+              but does not require, an implied feature, add <b>android:required="false"</b> to the feature declaration,
+              and check for the presence of the feature at run time by calling <b>getSystemAvailableFeatures()</b>. </p>
+          </dd>
+        </dlentry>
+        <dlentry>
+          <dt>Condition: declaredMaxSdkVersion</dt>
+          <dd>
+            <p>Checks if the &lt;uses-sdk> element has the android:maxSdkVersion attribute. This attribute has been
+              deprecated; it is ignored by Android version 2.1 and later. Declaring android:maxSdkVersion is not
+              recommended. </p>
+            <p>If your app fails this test, remove the android:maxSdkVersion attribute from the &lt;uses-sdk> element in
+              your app's Android manifest file. </p>
+          </dd>
+        </dlentry>
+        
+      </dl>
+    </section>
+    <section>
+      <title>Device Compatibility Checker</title>
+      <p>Checker ID: <b>deviceCompatibility</b></p>
+      <p>The App Validator maintains a set of specifications for various Android-powered Motorola devices. The Device
+        Compatibility checker compares the requirements listed in the app's Android manifest file against these device
+        specifications, noting those devices with which the app is incompatible.</p>
+      <p>Note that you can get a list of the device specifications by issuing the <b>appValidator</b> command (on the
+        command line) with the <b>-list-devices</b> option. To see the specifications for a given device, use the <b
+          >-describe-device</b> option.</p>
+      <dl>
+        <dlentry>
+          <dt>Condition: smallScreenSupport</dt>
+          <dd>
+            <p>Checks for a lack of support for small screen devices by examining the android:smallScreens attribute
+              within the &lt;supports-screens> element in the app's Android manifest file. Note that if the
+              &lt;uses-sdk> element has both its android:minSdkVersion and android:targetSdkVersion attributes set to 3
+              or less (or are omitted, which implies a value of 1), android:smallScreens is defined to be <b>false</b>.
+              Either or both of these values must be 4 or higher in order for your app to be able to target small screen
+              devices.</p>
+            <p>A small screen is defined as one with a smaller aspect ratio than the "normal" screen. An example of a
+              small screen device is the <xref href="http://developer.motorola.com/products/charm-mb502/" format="html"
+                scope="external">Motorola CHARM™</xref>.</p>
+            <p>This condition is not checked if android:smallScreens is explictly set to <b>false</b>.</p>
+            <p>If your app fails this test and you want it to be available in Google Play for small screen devices,
+              ensure that the android:minSdkVersion and android:targetSdkVersion attributes in the &lt;uses-sdk> element
+              are set to 4 or higher, and set android:smallScreens (an attribute of the &lt;supports-screens> element)
+              to <b>true</b>.</p>
+          </dd>
+        </dlentry>
+        <dlentry>
+          <dt>Condition: xlargeScreenSupport</dt>
+          <dd>
+            <p>Checks for extra large screen support. Unless the app has explicitly indicated a lack of extra large
+              screen support (with &lt;supports-screens android:xlargeScreens="false"&gt; or extra large screens not
+              listed in the &lt;compatible-screens> element within the manifest file), the checker looks to see if
+              either targetSdk or minSdk are less than 4.</p>
+            <p>If your app fails this test, either change your target API level to 4 or higher (if you intend for your
+              app to support extra large screens) or indicate that your app does not support extra large screens by both
+              adding &lt;supports-screens android:xlargeScreens="false"&gt; to your app's manifest file and ensuring
+              that the &lt;compatible-screens> element, if present, does not mention xlarge screens.</p>
+          </dd>
+        </dlentry>
+        <dlentry>
+          <dt>Condition: unsupportedFeatures</dt>
+          <dd>
+            <p>Compares the permissions and features required by the application (as declared in the application's
+              Android Manifest file) against the device specifications to see if the device has all of the required
+              features. The app will not appear in Google Play on a device that does not have all of the required
+              features (including those that may be implied by required permissions). </p>
+            <p>If your app fails this test, ensure that the noted permission or feature truly is required by your
+              application. Consider adding <b>android:required="false"</b> to the feature declaration if the feature is
+              optional, and not strictly required. Note that if the feature is optional your app can use <b
+                >getSystemAvailableFeatures()</b> to check for the presence of the feature at run time.</p>
+          </dd>
+        </dlentry>
+      </dl>
+    </section>
+    <section>
+      <title>Localization Strings Checker</title>
+      <p>Checker ID: <b>localizationStrings</b></p>
+      <p>The Localization Strings checker attempts to verify that the application is correctly localized, specifically
+        by checking if all values are translated to all languages.</p>
+      <p>This checker only validates applications that have at least one language-specific resource.</p>
+      <dl>
+        <dlentry>
+          <dt>Condition: missingDefaultLanguageKey</dt>
+          <dd>
+            <p>The <b>missingDefaultLanguageKey</b> condition verifies that the default strings file
+              (res/values/strings.xml) is present and that it contains a default string value for each key. If this
+              default strings file is absent, or is missing a string that your application needs, your application will
+              Force Close and present the user with an error message. </p>
+            <p>If your app fails this test, ensure that res/values/strings.xml exists. Within it, supply default text
+              strings for any keys that don't already have them. </p>
+            <p>Note that this situation applies to all types of resources, not just strings: you should create a set of
+              default resource files containing all of the layouts, drawables, animations, and other resources that your
+              application relies upon. For information about localization in Android, see <xref
+                href="http://developer.android.com/guide/topics/resources/localization.html" format="html"
+                scope="external">the Localization topic within the Android Dev Guide</xref>.</p>
+          </dd>
+        </dlentry>
+        <dlentry>
+          <dt>Condition: missingLanguageKey</dt>
+          <dd>
+            <p>Examines non-default text strings files for missing keys: keys that are present in the default strings
+              file (res/values/strings.xml) but not in the locale-specific text strings file. This lack of a translation
+              for a specific key can represent a failure in the translation process. </p>
+            <p>If your app fails this test, ensure that it is OK for your app to fall back to the default string values.
+              If not, add the missing keys to the non-default text strings file and supply localized string values.</p>
+          </dd>
+        </dlentry>
+        <dlentry>
+          <dt>Condition: missingValue</dt>
+          <dd>
+            <p>Checks for keys that do not have a value defined in either the default language or in other languages. If
+              the default string is empty, nothing is displayed on screen, which is probably not what you intend. If a
+              locale-specific key has the empty string for a value, it prevents a fallback to the default value, which
+              is also probably not what you intend. </p>
+            <p>If your app fails this test, and the key with the missing value is in the default text strings file
+              (res/values/strings.xml), supply the missing value. If the missing value is in a locale-specific text
+              strings file, do one of the following:<ul>
+                <li>supply a localized value for the key if there should be one</li>
+                <li>remove the key from the file if the value from the default strings file should be used</li>
+                <li>leave the value empty if the empty string is the correct value for the key in that locale</li>
+              </ul></p>
+          </dd>
+        </dlentry>
+      </dl>
+    </section>
+    <section>
+      <title>Missing Drawable Resources Checker</title>
+      <p>Checker ID: <b>missingDrawableResources</b>
+      </p>
+      <p>Checks your application's drawable resources, looking to see if your app has properly-sized images for every
+        supported screen size and density. </p>
+      <p>This checker only runs if the android:anyDensity attribute of the &lt;supports-screens> element in your app's
+        Android manifest file is set to <b>true</b> and the target SDK is higher than 3. Note that during app packaging
+        AAPT automatically overrides the android:anyDensity value and forces it to <b>false</b> if there are missing
+        drawables. Because of this, this checker does not generate results when you supply an APK to the MOTODEV App
+        Validator.</p>
+      <dl>
+        <dlentry>
+          <dt>Condition: unsupportedDensity</dt>
+          <dd>
+            <p>Checks for the existence of a drawable-xdpi folder when the application's API level is lower than 8. An
+              API level of 7 or lower will cause the drawable-xdpi folder to be ignored, thus the existence of this
+              particular condition. </p>
+            <p>If your app fails this test, consider increasing the app's API level to 8 or above (and then verifying
+              that your app properly supports extra-high-density screens). Alternatively, you can remove the
+              drawable-xdpi folder, since it will be ignored and its contents simply take up unnecessary space in the
+              application package. </p>
+            <p>For more information on screen sizes and supporting the wide variety of Android devices on the market
+              today, see <xref href="http://developer.android.com/guide/practices/screens_support.html" format="html"
+                scope="external">Supporting Multiple Screens in the Android Dev Guide</xref>.</p>
+          </dd>
+        </dlentry>
+        <dlentry>
+          <dt>Condition: missingDrawables</dt>
+          <dd>
+            <p>Examines each of the drawable folders to ensure that they all contain the same set of images. Images that
+              appear in one drawable folder but not in another have not been properly customized for every supported
+              screen size and density. Although Android will fall back on the default in this case, scaling the
+              corresponding default image as necessary, this may result in a less-than-optimal image. For the best
+              results you should supply a full set of images corresponding to each drawable folder. </p>
+            <p>If your app fails this test, consider supplying the missing images, properly sized and scaled as
+              appropriate for the enclosing drawable folder. </p>
+            <p>For more information on screen sizes and supporting the wide variety of Android devices on the market
+              today, see <xref href="http://developer.android.com/guide/practices/screens_support.html" format="html"
+                scope="external">Supporting Multiple Screens in the Android Dev Guide</xref>.</p>
+          </dd>
+        </dlentry>
+        <dlentry>
+          <dt>Condition: missingDrawableFolders</dt>
+          <dd>
+            <p>Verifies that separate drawable folders exist for the four supported densities: low, medium, high, and
+              extra-high. Although Android can automatically scale a default drawable to make up for a missing density,
+              for best results you should supply a full set of images for each supported density. </p>
+            <p>If your app fails this test, consider adding folders for the missing density, complete with a full set of
+              drawables scaled properly for that density. </p>
+            <p>For more information on screen sizes and supporting the wide variety of Android devices on the market
+              today, see <xref href="http://developer.android.com/guide/practices/screens_support.html" format="html"
+                scope="external">Supporting Multiple Screens in the Android Dev Guide</xref>.</p>
+          </dd>
+        </dlentry>
+      </dl>
+    </section>
+    <section>
+      <title>Layout Checker</title>
+      <p>Checker ID: <b>layout</b>
+      </p>
+      <p>Check the application layout files for problems within their definitions and inconsistencies among the layouts
+        for different configurations.</p>
+      <dl>
+        <dlentry>
+          <dt>Condition: missingId</dt>
+          <dd>
+            <p>Compares corresponding layouts to ensure that they each have the same set of IDs. If two corresponding
+              layouts define different IDs for the same UI element, the resulting R.java file will have definitions for
+              both, and any code that references either (or both) will compile. However, the app will force close at run
+              time if the particular layout being shown does not contain the ID being referenced. </p>
+            <p>If your app fails this test, update the named layouts so that they properly declare the noted IDs.</p>
+          </dd>
+        </dlentry>
+        <dlentry>
+          <dt>Condition: repeatedId</dt>
+          <dd>
+            <p>Scans through your layout files, looking for duplicate IDs. Two or more widgets that share an ID can
+              cause problems if your code references one of those widgets by ID: the wrong widget might be referenced,
+              causing unexpected behavior.</p>
+            <p>If your app fails this test, update the widgets containing the listed IDs so that they no longer share a
+              common ID value.</p>
+          </dd>
+        </dlentry>
+        <dlentry>
+          <dt>Condition: viewTypeIds</dt>
+          <dd>
+            <p>Verifies that a given ID is always used by the same kind of view when that ID appears in multiple layout
+              configurations. This condition arises, for example, when you have both portrait and landscape
+              configurations of your layout in which a given ID is used for one widget type (a TextView, say) in one
+              configuration and an entirely different widget type (a Button, say) in the other. A situation such as this
+              can result in a class cast exception: a call to findViewById(), for instance will succeed or fail
+              depending upon the device's current orientation.</p>
+            <p>If your app fails this test, examine those layout configurations that use the listed ID and update them
+              as needed to ensure that different widget types used different IDs.</p>
+          </dd>
+        </dlentry>
+        <dlentry>
+          <dt>Condition: xlargeLayouts</dt>
+          <dd>
+            <p>Examines your project to see if it contains layouts within the res/layout-xlarge folder.</p>
+            <p>If your application fails this test and you intend for it to run on a device with an extra large screen
+              (such as a 10" tablet), be sure that it runs with the look and feel you expect. Most applications will
+              need layouts designed specifically for extra large screens. If your app is not intended to be run on a
+              device with an extra large screen, add &lt;supports-screens android:xlargeScreens="false"&gt; to your
+              AndroidManifest.xml file.</p>
+          </dd>
+        </dlentry>
+      </dl>
+    </section>
+    <section>
+      <title>Single Main Activity Checker</title>
+      <p>Checker ID: <b>singleMainActivity</b>
+      </p>
+      <p>Checks the number of activities set as "main". Although some applications can have more than one (or zero)
+        entry points, most applications have only one.</p>
+      <dl>
+        <dlentry>
+          <dt>Condition: exactlyOne</dt>
+          <dd>
+            <p>Checks for the presence of exactly one activity set as "main", indicating that the app has a single
+              activity that initiates the application. Although having more (or less) than one main activity is not
+              wrong, it is rare enough to warrant a condition check. </p>
+            <p>If your app fails this test, and you intend for it to only have a single main entry point, examine your
+              app's Android manifest file and ensure that only a single activity has an intent filter with the following
+              action: </p>
+            <codeblock>&lt;action android:name="code android.intent.action.MAIN"/></codeblock>
+          </dd>
+        </dlentry>
+      </dl>
+    </section>
+    <section>
+      <title>Code Checker</title>
+      <p>Checker ID: <b>codeChecker</b></p>
+      <p>Looks for possible issues with Java code.</p>
+      <dl>
+        <dlentry>
+          <dt>Condition: openedCursors</dt>
+          <dd>
+            <p>Looks for methods that don't seem to properly close their cursors. Note that this checker can report a
+              problem when none exists, if the cursor is closed in a non-obvious way. Also note that managed cursors
+              don't need to be closed by your app.</p>
+            <p>If your app fails this test, verify that all cursors are properly closed.</p>
+          </dd>
+        </dlentry>
+      </dl>
+    </section>
+    <section>
+      <title>Widget Preview Checker</title>
+      <p>Checker ID: <b>widgetPreview</b></p>
+      <p>Examines widget projects to see if they support the preview feature.</p>
+      <dl>
+        <dlentry>
+          <dt>Condition: missingWidgetPreview</dt>
+          <dd>
+            <p>Warns you if your widget project does not appear to contain a preview of what the AppWidget will look
+              like after it's configured. A widget project that doesn't include a preview image will initially be
+              displayed to the user as the AppWidget's icon. </p>
+            <p>This condition is only valid for Android 3.1 or higher.</p>
+            <p>If you receive this warning, consider whether your widget project should contain a preview image. If so,
+              add the image to your project and then add the the android:previewImage attribute to the &lt;receiver&gt;
+              element in your AndroidManifest.xml file.</p>
+          </dd>
+        </dlentry>
+      </dl>
+    </section>
+    <section>
+      <title>Building Blocks Declaration Checker</title>
+      <p>Checker ID: <b>buildingBlocksDeclaration</b></p>
+      <p>Looks for inconsistencies within the Android components—such as Activities, Services, Content providers, and
+        Broadcast receivers—declared in your AndroidManifest.xml file.</p>
+      <dl>
+        <dlentry>
+          <dt>Condition: buildingBlockMissDeclaration</dt>
+          <dd>
+            <p>Verifies that the Android components declared in your project's AndroidManifest.xml file extend the
+              classes from which they should inherit. If your app fails this test, verify that the indicated building
+              block extends the listed class. If it does not, your app may crash.<note type="note">A class that
+                indirectly inherits from an Android building block will be flagged as a possible problem, even though it
+                is not.</note></p>
+          </dd>
+        </dlentry>
+      </dl>
+    </section>
+  </conbody>
+</concept>

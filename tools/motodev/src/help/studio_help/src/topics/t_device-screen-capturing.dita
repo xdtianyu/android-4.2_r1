@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "../dtd/task.dtd">
+<task id="t_device-screen-capturing" xml:lang="en-us">
+  <title>Capturing the device screen</title>
+  <shortdesc>MOTODEV Studio allows you to easily capture an image of the screen on a real or emulated device.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <prereq>If capturing the screen on a physical device, that device must be connected to your development computer and
+      listed in MOTODEV Studio's Device Management view (under <uicontrol>Android Handset</uicontrol>). If capturing the
+      screen of an emulated device, the AVD must be running and listed in the Device Management view under <uicontrol
+        >Android Virtual Device</uicontrol>. </prereq>
+    <steps>
+      <step>
+        <cmd>Right-click the device in the Device Management view and select <uicontrol>Take Screenshot</uicontrol>.</cmd>
+        <stepresult>The Device Screen Capture dialog opens, showing the snapshot.</stepresult>
+      </step>
+      <step>
+        <cmd>To save the captured image as a PNG file, click <uicontrol>Save</uicontrol>. To copy the captured image to
+          your computer's clipboard, click <uicontrol>Copy</uicontrol>. </cmd>
+      </step>
+      <step>
+        <cmd>Click <uicontrol>Done</uicontrol> or simply close the Device Screen Capture dialog when done.</cmd>
+      </step>
+    </steps>
+    <postreq>To capture a different screen while the Device Screen Capture dialog is open, manipulate the device to
+      display the screen you want to capture, and then click <uicontrol>Refresh</uicontrol>. </postreq>
+  </taskbody>
+</task>

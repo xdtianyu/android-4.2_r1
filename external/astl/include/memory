@@ -1,0 +1,184 @@
+/* -*- c++ -*- */
+/*
+ * Copyright (C) 2009 The Android Open Source Project
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *  * Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ *  * Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in
+ *    the documentation and/or other materials provided with the
+ *    distribution.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+ * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+ * COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+ * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+ * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS
+ * OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
+ * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+ * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+ * OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ * SUCH DAMAGE.
+ */
+
+#ifndef ANDROID_ASTL_MEMORY__
+#define ANDROID_ASTL_MEMORY__
+
+#include "type_traits.h"
+#include <new>  // for placement new
+#include <cstring>
+#include <algorithm>
+#include <iterator>
+#include <limits>
+
+#if defined(_InputIterator) || defined(_ForwardIterator)
+#error "_InputIterator or _ForwardIterator are already defined."
+#endif
+
+namespace std {
+
+// uninitialized_copy is used when memory allocation and object
+// construction need to happen in separate steps. For each instance in
+// the input range a copy is created and placed in the corresponding
+// memory pointed by dest.
+// If the input range is made of pod instances AND both input and
+// destination iterators are random access ones, uninitialized_copy
+// degrades to a memmove call.
+// Returns an iterator pass the end of the destination range.
+
+// Default implementation used when iterators are not random access
+// and the value type are not both POD.
+template<bool, typename _InputIteratorTag, typename _ForwardIteratorTag>
+struct __uninitialized_copy
+{
+    template<typename _InputIterator, typename _ForwardIterator>
+    static _ForwardIterator uninitialized_copy(_InputIterator begin,
+                                               _InputIterator end,
+                                               _ForwardIterator dest) {
+        typedef typename iterator_traits<_ForwardIterator>::
+                value_type value_type;
+        for (; begin != end; ++begin, ++dest) {
+            new (static_cast<void*>(&*dest)) value_type(*begin);
+        }
+        return dest;
+    }
+};
+
+// Full specialization when the src and dest types are pod && both
+// iterators are random access.
+template<>
+struct __uninitialized_copy<true,
+                            random_access_iterator_tag,
+                            random_access_iterator_tag>
+{
+    template<typename _InputIterator, typename _ForwardIterator>
+    static _ForwardIterator uninitialized_copy(_InputIterator begin,
+                                               _InputIterator end,
+                                               _ForwardIterator dest)
+    {
+        typedef typename iterator_traits<_InputIterator>::
+                difference_type difference_type;
+        const difference_type len = std::distance(begin, end);
+        const difference_type kMaxSize =
+                std::numeric_limits<difference_type>::max();
+
+        typedef typename iterator_traits<_ForwardIterator>::
+                value_type value_type;
+        const size_t kSize = sizeof(value_type);
+
+        if (len > 0 &&
+            static_cast<size_t>(kMaxSize) / kSize > static_cast<size_t>(len)) {
+            std::memmove(static_cast<void*>(&*dest),
+                         static_cast<const void*>(&*begin), kSize * len);
+            return dest + len;
+        } else {
+            return dest;
+        }
+    }
+};
+
+// TODO: If placement new degrades to assignement for POD, we can get
+// rid of this one.
+// Bothe pod but not both random access
+template<> struct __uninitialized_copy<true,
+                                       input_iterator_tag,
+                                       forward_iterator_tag>
+{
+    template<typename _InputIterator, typename _ForwardIterator>
+    static _ForwardIterator uninitialized_copy(_InputIterator begin,
+                                               _InputIterator end,
+                                               _ForwardIterator dest) {
+        for (; begin != end; ++begin, ++dest) {
+            *dest = *begin;
+        }
+        return dest;
+    }
+};
+
+
+template<typename _InputIterator, typename _ForwardIterator>
+inline _ForwardIterator uninitialized_copy(_InputIterator begin,
+                                           _InputIterator end,
+                                           _ForwardIterator dest)
+{
+    typedef typename iterator_traits<_InputIterator>::value_type _ValueType1;
+    typedef typename iterator_traits<_ForwardIterator>::value_type _ValueType2;
+
+    const bool both_pod =
+            is_pod<_ValueType1>::value && is_pod<_ValueType2>::value;
+
+    return __uninitialized_copy<both_pod,
+            typename iterator_traits<_InputIterator>::iterator_category,
+            typename iterator_traits<_ForwardIterator>::iterator_category>::
+            uninitialized_copy(begin, end, dest);
+}
+
+// TODO: replace pointers with iterator below.
+
+// uninitialized_fill is used when memory allocation and object
+// construction need to happen in separate steps. uninitialized_fill
+// creates a copy of 'obj' in the location pointed by the interator,
+// using the object's class copy constructor.
+
+template<bool> struct __uninitialized_fill
+{
+    template<typename _ForwardIterator, typename _T>
+    static void uninitialized_fill(_ForwardIterator *begin,
+                                   _ForwardIterator *end,
+                                   const _T& val)
+    {
+        for (; begin < end; ++begin)
+            new (static_cast<void*>(&*begin)) _ForwardIterator(val);
+    }
+};
+
+template<> struct __uninitialized_fill<true>
+{
+    template<typename _ForwardIterator, typename _T>
+    static void uninitialized_fill(_ForwardIterator *begin,
+                                   _ForwardIterator *end,
+                                   const _T& val)
+    {
+        std::fill(begin, end, val);
+    }
+};
+
+// The real STL takes iterators, we take pointers for now.
+template<typename _ForwardIterator, typename _T>
+inline void uninitialized_fill(_ForwardIterator *begin,
+                               _ForwardIterator *end,
+                               const _T& val)
+{
+    const bool pod = is_pod<_ForwardIterator>::value;
+    return __uninitialized_fill<pod>::uninitialized_fill(begin, end, val);
+}
+
+}  // namespace std
+
+#endif  // ANDROID_ASTL_MEMORY__

@@ -1,0 +1,5 @@
+#Fri Dec 02 12:58:10 PST 2011
+eclipse.preferences.version=1
+org.moreunit.prefixes=
+org.moreunit.unitsourcefolder=lint_check-tests\:src\:lint-api\:src\#lint_check-tests\:src\:lint-checks\:src\#lint_check-tests\:src\:lint-cli\:src
+org.moreunit.useprojectsettings=true

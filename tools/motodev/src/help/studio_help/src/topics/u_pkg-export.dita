@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference id="u_pkg-export" xml:lang="en-us">
+  <title>Export Android Package Files dialog</title>
+  <shortdesc>Creates an Android Package file (.apk) for each APK configuration of each selected project. This dialog
+    appears when you select <uicontrol>Export</uicontrol> from the <uicontrol>File</uicontrol> menu, and then select <menucascade>
+      <uicontrol>Android</uicontrol>
+      <uicontrol>Export Android Application using MOTODEV Studio for Android</uicontrol>
+    </menucascade> from the list of export destinations.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <simpletable>
+        <strow>
+          <stentry>Package list</stentry>
+          <stentry>Lists all of the projects in the current workspace. Specify at least one project to be
+          exported.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Use default destination</uicontrol></stentry>
+          <stentry>If selected, the Android Package file for each project is placed within that project's <codeph
+            >dist</codeph> directory. If this option is not selected, the Android Package files are all placed in the
+            directory indicated by the <uicontrol>Destination</uicontrol> field. This option is selected by
+          default.</stentry>
+        </strow>
+        <strow>
+          <stentry>
+            <uicontrol>Destination</uicontrol>
+          </stentry>
+          <stentry>Specifies the directory into which the Android Package files are stored. This field is only valid if
+              <uicontrol>Use default destination</uicontrol> is not selected.</stentry>
+        </strow>
+        <strow>
+          <stentry>
+            <uicontrol>Sign the package</uicontrol>
+          </stentry>
+          <stentry>If selected, the exported Android Packages are signed according to the remaining fields in this
+            section. Note that if you do not sign the Android Package when you export it, you can later sign it by
+            right-clicking it in the Package Explorer view and selecting <uicontrol>Sign Android Package</uicontrol>
+            from the <uicontrol>MOTODEV Studio for Android</uicontrol> menu.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Keystore</uicontrol></stentry>
+          <stentry>Specify the keystore that contains the key to be used during the signing process. If the keystore is
+            already known to (and listed in) the Signing and Keys view, select it from the drop-down list. Otherwise,
+            click <uicontrol>Use existing</uicontrol> to specify an existing keystore that is not yet known to the
+            Signing and Keys view, or <uicontrol>Add new</uicontrol> to create and use a new keystore.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Key</uicontrol></stentry>
+          <stentry>Specify the key within the chosen keystore to be used for signing. Select an existing key from the
+            drop-down list, or create a new key in the keystore by selecting <uicontrol>Add</uicontrol>.</stentry>
+        </strow>
+      </simpletable>
+    </section>
+  </refbody>
+</reference>

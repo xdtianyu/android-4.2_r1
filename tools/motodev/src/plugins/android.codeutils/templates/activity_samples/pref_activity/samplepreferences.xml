@@ -1,0 +1,27 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+	<PreferenceCategory android:title="@string/sample_pref_categ_1">
+		<CheckBoxPreference android:key="checkbox"
+							android:title="@string/sample_pref_ckb" 
+							android:summary="@string/sample_pref_check_it" />		
+	</PreferenceCategory>
+	<PreferenceCategory android:title="@string/sample_pref_categ_2">
+		<PreferenceScreen android:key="detail" 
+						  android:title="@string/sample_pref_other_screen"
+						  android:summary="@string/sample_pref_add_prefs">
+			<CheckBoxPreference android:key="checkbox2"				
+							    android:title="@string/sample_pref_other_ckb" />
+		</PreferenceScreen>
+	</PreferenceCategory>
+	<PreferenceCategory android:title="@string/sample_pref_categ_3">
+		<EditTextPreference android:key="text"
+							android:title="@string/sample_pref_txt_dialog" 							
+							android:dialogTitle="@string/sample_pref_enter_txt" />
+							android:summary="Preference Summary"/>
+		<ListPreference android:key="list"
+						android:title="@string/sample_pref_sel_dialog" 
+						android:summary="@string/sample_pref_click_pop_up"
+						android:entries="@array/numbernames"
+						android:entryValues="@array/numbers"
+						android:dialogTitle="@string/sample_pref_choose_number" />
+	</PreferenceCategory>
+</PreferenceScreen>

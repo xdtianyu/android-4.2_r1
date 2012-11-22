@@ -1,0 +1,870 @@
+/*
+ * Copyright (C) 2012 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+ 
+[14:02:28] EAS Parser| <FolderSync>
+[14:02:28] EAS Parser| <FolderStatus>
+[14:02:28] EAS Parser| FolderStatus: 1
+[14:02:28] EAS Parser| </FolderStatus>
+[14:02:28] EAS Parser| <FolderSyncKey>
+[14:02:28] EAS Parser| FolderSyncKey: 1
+[14:02:28] EAS Parser| </FolderSyncKey>
+[14:02:28] EAS Parser| <Changes>
+[14:02:28] EAS Parser| <Count>
+[14:02:28] EAS Parser| Count: 60
+[14:02:28] EAS Parser| </Count>
+[14:02:28] EAS Parser| <FolderAdd>
+[14:02:28] EAS Parser| <FolderServerId>
+[14:02:28] EAS Parser| FolderServerId: 1
+[14:02:28] EAS Parser| </FolderServerId>
+[14:02:28] EAS Parser| <FolderParentId>
+[14:02:28] EAS Parser| FolderParentId: 0
+[14:02:28] EAS Parser| </FolderParentId>
+[14:02:28] EAS Parser| <FolderDisplayName>
+[14:02:28] EAS Parser| FolderDisplayName: Calendar
+[14:02:28] EAS Parser| </FolderDisplayName>
+[14:02:28] EAS Parser| <Type>
+[14:02:28] EAS Parser| Type: 8
+[14:02:28] EAS Parser| </Type>
+[14:02:28] EAS Parser| </FolderAdd>
+[14:02:28] EAS Parser| <FolderAdd>
+[14:02:28] EAS Parser| <FolderServerId>
+[14:02:28] EAS Parser| FolderServerId: 2
+[14:02:28] EAS Parser| </FolderServerId>
+[14:02:28] EAS Parser| <FolderParentId>
+[14:02:28] EAS Parser| FolderParentId: 1
+[14:02:28] EAS Parser| </FolderParentId>
+[14:02:28] EAS Parser| <FolderDisplayName>
+[14:02:28] EAS Parser| FolderDisplayName: calendar_export.ics
+[14:02:28] EAS Parser| </FolderDisplayName>
+[14:02:28] EAS Parser| <Type>
+[14:02:28] EAS Parser| Type: 13
+[14:02:28] EAS Parser| </Type>
+[14:02:28] EAS Parser| </FolderAdd>
+[14:02:28] EAS Parser| <FolderAdd>
+[14:02:28] EAS Parser| <FolderServerId>
+[14:02:28] EAS Parser| FolderServerId: 3
+[14:02:28] EAS Parser| </FolderServerId>
+[14:02:28] EAS Parser| <FolderParentId>
+[14:02:28] EAS Parser| FolderParentId: 0
+[14:02:28] EAS Parser| </FolderParentId>
+[14:02:28] EAS Parser| <FolderDisplayName>
+[14:02:28] EAS Parser| FolderDisplayName: Contacts
+[14:02:28] EAS Parser| </FolderDisplayName>
+[14:02:28] EAS Parser| <Type>
+[14:02:28] EAS Parser| Type: 9
+[14:02:28] EAS Parser| </Type>
+[14:02:28] EAS Parser| </FolderAdd>
+[14:02:28] EAS Parser| <FolderAdd>
+[14:02:28] EAS Parser| <FolderServerId>
+[14:02:28] EAS Parser| FolderServerId: 4
+[14:02:28] EAS Parser| </FolderServerId>
+[14:02:28] EAS Parser| <FolderParentId>
+[14:02:28] EAS Parser| FolderParentId: 3
+[14:02:28] EAS Parser| </FolderParentId>
+[14:02:28] EAS Parser| <FolderDisplayName>
+[14:02:28] EAS Parser| FolderDisplayName: Play
+[14:02:28] EAS Parser| </FolderDisplayName>
+[14:02:28] EAS Parser| <Type>
+[14:02:28] EAS Parser| Type: 14
+[14:02:28] EAS Parser| </Type>
+[14:02:28] EAS Parser| </FolderAdd>
+[14:02:28] EAS Parser| <FolderAdd>
+[14:02:28] EAS Parser| <FolderServerId>
+[14:02:28] EAS Parser| FolderServerId: 5
+[14:02:28] EAS Parser| </FolderServerId>
+[14:02:28] EAS Parser| <FolderParentId>
+[14:02:28] EAS Parser| FolderParentId: 3
+[14:02:28] EAS Parser| </FolderParentId>
+[14:02:28] EAS Parser| <FolderDisplayName>
+[14:02:28] EAS Parser| FolderDisplayName: Sox
+[14:02:28] EAS Parser| </FolderDisplayName>
+[14:02:28] EAS Parser| <Type>
+[14:02:28] EAS Parser| Type: 14
+[14:02:28] EAS Parser| </Type>
+[14:02:28] EAS Parser| </FolderAdd>
+[14:02:28] EAS Parser| <FolderAdd>
+[14:02:28] EAS Parser| <FolderServerId>
+[14:02:28] EAS Parser| FolderServerId: 6
+[14:02:28] EAS Parser| </FolderServerId>
+[14:02:28] EAS Parser| <FolderParentId>
+[14:02:28] EAS Parser| FolderParentId: 3
+[14:02:28] EAS Parser| </FolderParentId>
+[14:02:28] EAS Parser| <FolderDisplayName>
+[14:02:28] EAS Parser| FolderDisplayName: Wed
+[14:02:28] EAS Parser| </FolderDisplayName>
+[14:02:28] EAS Parser| <Type>
+[14:02:28] EAS Parser| Type: 14
+[14:02:28] EAS Parser| </Type>
+[14:02:28] EAS Parser| </FolderAdd>
+[14:02:28] EAS Parser| <FolderAdd>
+[14:02:28] EAS Parser| <FolderServerId>
+[14:02:28] EAS Parser| FolderServerId: 7
+[14:02:28] EAS Parser| </FolderServerId>
+[14:02:28] EAS Parser| <FolderParentId>
+[14:02:28] EAS Parser| FolderParentId: 0
+[14:02:28] EAS Parser| </FolderParentId>
+[14:02:28] EAS Parser| <FolderDisplayName>
+[14:02:28] EAS Parser| FolderDisplayName: Deleted Items
+[14:02:28] EAS Parser| </FolderDisplayName>
+[14:02:28] EAS Parser| <Type>
+[14:02:28] EAS Parser| Type: 4
+[14:02:28] EAS Parser| </Type>
+[14:02:28] EAS Parser| </FolderAdd>
+[14:02:28] EAS Parser| <FolderAdd>
+[14:02:28] EAS Parser| <FolderServerId>
+[14:02:28] EAS Parser| FolderServerId: 25
+[14:02:28] EAS Parser| </FolderServerId>
+[14:02:28] EAS Parser| <FolderParentId>
+[14:02:28] EAS Parser| FolderParentId: 7
+[14:02:28] EAS Parser| </FolderParentId>
+[14:02:28] EAS Parser| <FolderDisplayName>
+[14:02:28] EAS Parser| FolderDisplayName: aFamily_old
+[14:02:28] EAS Parser| </FolderDisplayName>
+[14:02:28] EAS Parser| <Type>
+[14:02:28] EAS Parser| Type: 1
+[14:02:28] EAS Parser| </Type>
+[14:02:28] EAS Parser| </FolderAdd>
+[14:02:28] EAS Parser| <FolderAdd>
+[14:02:28] EAS Parser| <FolderServerId>
+[14:02:28] EAS Parser| FolderServerId: 8
+[14:02:28] EAS Parser| </FolderServerId>
+[14:02:28] EAS Parser| <FolderParentId>
+[14:02:28] EAS Parser| FolderParentId: 0
+[14:02:28] EAS Parser| </FolderParentId>
+[14:02:28] EAS Parser| <FolderDisplayName>
+[14:02:28] EAS Parser| FolderDisplayName: Drafts
+[14:02:28] EAS Parser| </FolderDisplayName>
+[14:02:28] EAS Parser| <Type>
+[14:02:28] EAS Parser| Type: 3
+[14:02:28] EAS Parser| </Type>
+[14:02:28] EAS Parser| </FolderAdd>
+[14:02:28] EAS Parser| <FolderAdd>
+[14:02:28] EAS Parser| <FolderServerId>
+[14:02:28] EAS Parser| FolderServerId: 9
+[14:02:28] EAS Parser| </FolderServerId>
+[14:02:28] EAS Parser| <FolderParentId>
+[14:02:28] EAS Parser| FolderParentId: 0
+[14:02:28] EAS Parser| </FolderParentId>
+[14:02:28] EAS Parser| <FolderDisplayName>
+[14:02:28] EAS Parser| FolderDisplayName: Inbox
+[14:02:28] EAS Parser| </FolderDisplayName>
+[14:02:28] EAS Parser| <Type>
+[14:02:28] EAS Parser| Type: 2
+[14:02:28] EAS Parser| </Type>
+[14:02:28] EAS Parser| </FolderAdd>
+[14:02:28] EAS Parser| <FolderAdd>
+[14:02:28] EAS Parser| <FolderServerId>
+[14:02:28] EAS Parser| FolderServerId: 10
+[14:02:28] EAS Parser| </FolderServerId>
+[14:02:28] EAS Parser| <FolderParentId>
+[14:02:28] EAS Parser| FolderParentId: 9
+[14:02:28] EAS Parser| </FolderParentId>
+[14:02:28] EAS Parser| <FolderDisplayName>
+[14:02:28] EAS Parser| FolderDisplayName: Gecko
+[14:02:28] EAS Parser| </FolderDisplayName>
+[14:02:28] EAS Parser| <Type>
+[14:02:28] EAS Parser| Type: 1
+[14:02:28] EAS Parser| </Type>
+[14:02:28] EAS Parser| </FolderAdd>
+[14:02:28] EAS Parser| <FolderAdd>
+[14:02:28] EAS Parser| <FolderServerId>
+[14:02:28] EAS Parser| FolderServerId: 11
+[14:02:28] EAS Parser| </FolderServerId>
+[14:02:28] EAS Parser| <FolderParentId>
+[14:02:28] EAS Parser| FolderParentId: 9
+[14:02:28] EAS Parser| </FolderParentId>
+[14:02:28] EAS Parser| <FolderDisplayName>
+[14:02:28] EAS Parser| FolderDisplayName: Wombat
+[14:02:28] EAS Parser| </FolderDisplayName>
+[14:02:28] EAS Parser| <Type>
+[14:02:28] EAS Parser| Type: 12
+[14:02:28] EAS Parser| </Type>
+[14:02:28] EAS Parser| </FolderAdd>
+[14:02:28] EAS Parser| <FolderAdd>
+[14:02:28] EAS Parser| <FolderServerId>
+[14:02:28] EAS Parser| FolderServerId: 12
+[14:02:28] EAS Parser| </FolderServerId>
+[14:02:28] EAS Parser| <FolderParentId>
+[14:02:28] EAS Parser| FolderParentId: 9
+[14:02:28] EAS Parser| </FolderParentId>
+[14:02:28] EAS Parser| <FolderDisplayName>
+[14:02:28] EAS Parser| FolderDisplayName: Laslo
+[14:02:28] EAS Parser| </FolderDisplayName>
+[14:02:28] EAS Parser| <Type>
+[14:02:28] EAS Parser| Type: 1
+[14:02:28] EAS Parser| </Type>
+[14:02:28] EAS Parser| </FolderAdd>
+[14:02:28] EAS Parser| <FolderAdd>
+[14:02:28] EAS Parser| <FolderServerId>
+[14:02:28] EAS Parser| FolderServerId: 13
+[14:02:28] EAS Parser| </FolderServerId>
+[14:02:28] EAS Parser| <FolderParentId>
+[14:02:28] EAS Parser| FolderParentId: 12
+[14:02:28] EAS Parser| </FolderParentId>
+[14:02:28] EAS Parser| <FolderDisplayName>
+[14:02:28] EAS Parser| FolderDisplayName: Lego
+[14:02:28] EAS Parser| </FolderDisplayName>
+[14:02:28] EAS Parser| <Type>
+[14:02:28] EAS Parser| Type: 12
+[14:02:28] EAS Parser| </Type>
+[14:02:28] EAS Parser| </FolderAdd>
+[14:02:28] EAS Parser| <FolderAdd>
+[14:02:28] EAS Parser| <FolderServerId>
+[14:02:28] EAS Parser| FolderServerId: 14
+[14:02:28] EAS Parser| </FolderServerId>
+[14:02:28] EAS Parser| <FolderParentId>
+[14:02:28] EAS Parser| FolderParentId: 9
+[14:02:28] EAS Parser| </FolderParentId>
+[14:02:28] EAS Parser| <FolderDisplayName>
+[14:02:28] EAS Parser| FolderDisplayName: Tomorrow
+[14:02:28] EAS Parser| </FolderDisplayName>
+[14:02:28] EAS Parser| <Type>
+[14:02:28] EAS Parser| Type: 1
+[14:02:28] EAS Parser| </Type>
+[14:02:28] EAS Parser| </FolderAdd>
+[14:02:28] EAS Parser| <FolderAdd>
+[14:02:28] EAS Parser| <FolderServerId>
+[14:02:28] EAS Parser| FolderServerId: 15
+[14:02:28] EAS Parser| </FolderServerId>
+[14:02:28] EAS Parser| <FolderParentId>
+[14:02:28] EAS Parser| FolderParentId: 14
+[14:02:28] EAS Parser| </FolderParentId>
+[14:02:28] EAS Parser| <FolderDisplayName>
+[14:02:28] EAS Parser| FolderDisplayName: HomeRun
+[14:02:28] EAS Parser| </FolderDisplayName>
+[14:02:28] EAS Parser| <Type>
+[14:02:28] EAS Parser| Type: 1
+[14:02:28] EAS Parser| </Type>
+[14:02:28] EAS Parser| </FolderAdd>
+[14:02:28] EAS Parser| <FolderAdd>
+[14:02:28] EAS Parser| <FolderServerId>
+[14:02:28] EAS Parser| FolderServerId: 16
+[14:02:28] EAS Parser| </FolderServerId>
+[14:02:28] EAS Parser| <FolderParentId>
+[14:02:28] EAS Parser| FolderParentId: 15
+[14:02:28] EAS Parser| </FolderParentId>
+[14:02:28] EAS Parser| <FolderDisplayName>
+[14:02:28] EAS Parser| FolderDisplayName: Review
+[14:02:28] EAS Parser| </FolderDisplayName>
+[14:02:28] EAS Parser| <Type>
+[14:02:28] EAS Parser| Type: 12
+[14:02:28] EAS Parser| </Type>
+[14:02:28] EAS Parser| </FolderAdd>
+[14:02:28] EAS Parser| <FolderAdd>
+[14:02:28] EAS Parser| <FolderServerId>
+[14:02:28] EAS Parser| FolderServerId: 17
+[14:02:28] EAS Parser| </FolderServerId>
+[14:02:28] EAS Parser| <FolderParentId>
+[14:02:28] EAS Parser| FolderParentId: 14
+[14:02:28] EAS Parser| </FolderParentId>
+[14:02:28] EAS Parser| <FolderDisplayName>
+[14:02:28] EAS Parser| FolderDisplayName: Services
+[14:02:28] EAS Parser| </FolderDisplayName>
+[14:02:28] EAS Parser| <Type>
+[14:02:28] EAS Parser| Type: 1
+[14:02:28] EAS Parser| </Type>
+[14:02:28] EAS Parser| </FolderAdd>
+[14:02:28] EAS Parser| <FolderAdd>
+[14:02:28] EAS Parser| <FolderServerId>
+[14:02:28] EAS Parser| FolderServerId: 18
+[14:02:28] EAS Parser| </FolderServerId>
+[14:02:28] EAS Parser| <FolderParentId>
+[14:02:28] EAS Parser| FolderParentId: 9
+[14:02:28] EAS Parser| </FolderParentId>
+[14:02:28] EAS Parser| <FolderDisplayName>
+[14:02:28] EAS Parser| FolderDisplayName: Vader
+[14:02:28] EAS Parser| </FolderDisplayName>
+[14:02:28] EAS Parser| <Type>
+[14:02:28] EAS Parser| Type: 12
+[14:02:28] EAS Parser| </Type>
+[14:02:28] EAS Parser| </FolderAdd>
+[14:02:28] EAS Parser| <FolderAdd>
+[14:02:28] EAS Parser| <FolderServerId>
+[14:02:28] EAS Parser| FolderServerId: 19
+[14:02:28] EAS Parser| </FolderServerId>
+[14:02:28] EAS Parser| <FolderParentId>
+[14:02:28] EAS Parser| FolderParentId: 18
+[14:02:28] EAS Parser| </FolderParentId>
+[14:02:28] EAS Parser| <FolderDisplayName>
+[14:02:28] EAS Parser| FolderDisplayName: Max
+[14:02:28] EAS Parser| </FolderDisplayName>
+[14:02:28] EAS Parser| <Type>
+[14:02:28] EAS Parser| Type: 12
+[14:02:28] EAS Parser| </Type>
+[14:02:28] EAS Parser| </FolderAdd>
+[14:02:28] EAS Parser| <FolderAdd>
+[14:02:28] EAS Parser| <FolderServerId>
+[14:02:28] EAS Parser| FolderServerId: 20
+[14:02:28] EAS Parser| </FolderServerId>
+[14:02:28] EAS Parser| <FolderParentId>
+[14:02:28] EAS Parser| FolderParentId: 19
+[14:02:28] EAS Parser| </FolderParentId>
+[14:02:28] EAS Parser| <FolderDisplayName>
+[14:02:28] EAS Parser| FolderDisplayName: Thomas
+[14:02:28] EAS Parser| </FolderDisplayName>
+[14:02:28] EAS Parser| <Type>
+[14:02:28] EAS Parser| Type: 12
+[14:02:28] EAS Parser| </Type>
+[14:02:28] EAS Parser| </FolderAdd>
+[14:02:28] EAS Parser| <FolderAdd>
+[14:02:28] EAS Parser| <FolderServerId>
+[14:02:28] EAS Parser| FolderServerId: 21
+[14:02:28] EAS Parser| </FolderServerId>
+[14:02:28] EAS Parser| <FolderParentId>
+[14:02:28] EAS Parser| FolderParentId: 18
+[14:02:28] EAS Parser| </FolderParentId>
+[14:02:28] EAS Parser| <FolderDisplayName>
+[14:02:28] EAS Parser| FolderDisplayName: Parser
+[14:02:28] EAS Parser| </FolderDisplayName>
+[14:02:28] EAS Parser| <Type>
+[14:02:28] EAS Parser| Type: 12
+[14:02:28] EAS Parser| </Type>
+[14:02:28] EAS Parser| </FolderAdd>
+[14:02:28] EAS Parser| <FolderAdd>
+[14:02:28] EAS Parser| <FolderServerId>
+[14:02:28] EAS Parser| FolderServerId: 22
+[14:02:28] EAS Parser| </FolderServerId>
+[14:02:28] EAS Parser| <FolderParentId>
+[14:02:28] EAS Parser| FolderParentId: 18
+[14:02:28] EAS Parser| </FolderParentId>
+[14:02:28] EAS Parser| <FolderDisplayName>
+[14:02:28] EAS Parser| FolderDisplayName: Scott
+[14:02:28] EAS Parser| </FolderDisplayName>
+[14:02:28] EAS Parser| <Type>
+[14:02:28] EAS Parser| Type: 12
+[14:02:28] EAS Parser| </Type>
+[14:02:28] EAS Parser| </FolderAdd>
+[14:02:28] EAS Parser| <FolderAdd>
+[14:02:28] EAS Parser| <FolderServerId>
+[14:02:28] EAS Parser| FolderServerId: 23
+[14:02:28] EAS Parser| </FolderServerId>
+[14:02:28] EAS Parser| <FolderParentId>
+[14:02:28] EAS Parser| FolderParentId: 18
+[14:02:28] EAS Parser| </FolderParentId>
+[14:02:28] EAS Parser| <FolderDisplayName>
+[14:02:28] EAS Parser| FolderDisplayName: Surfing
+[14:02:28] EAS Parser| </FolderDisplayName>
+[14:02:28] EAS Parser| <Type>
+[14:02:28] EAS Parser| Type: 12
+[14:02:28] EAS Parser| </Type>
+[14:02:28] EAS Parser| </FolderAdd>
+[14:02:28] EAS Parser| <FolderAdd>
+[14:02:29] EAS Parser| <FolderServerId>
+[14:02:29] EAS Parser| FolderServerId: 24
+[14:02:29] EAS Parser| </FolderServerId>
+[14:02:29] EAS Parser| <FolderParentId>
+[14:02:29] EAS Parser| FolderParentId: 9
+[14:02:29] EAS Parser| </FolderParentId>
+[14:02:29] EAS Parser| <FolderDisplayName>
+[14:02:29] EAS Parser| FolderDisplayName: Personal
+[14:02:29] EAS Parser| </FolderDisplayName>
+[14:02:29] EAS Parser| <Type>
+[14:02:29] EAS Parser| Type: 12
+[14:02:29] EAS Parser| </Type>
+[14:02:29] EAS Parser| </FolderAdd>
+[14:02:29] EAS Parser| <FolderAdd>
+[14:02:29] EAS Parser| <FolderServerId>
+[14:02:29] EAS Parser| FolderServerId: 59
+[14:02:29] EAS Parser| </FolderServerId>
+[14:02:29] EAS Parser| <FolderParentId>
+[14:02:29] EAS Parser| FolderParentId: 24
+[14:02:29] EAS Parser| </FolderParentId>
+[14:02:29] EAS Parser| <FolderDisplayName>
+[14:02:29] EAS Parser| FolderDisplayName: Famine
+[14:02:29] EAS Parser| </FolderDisplayName>
+[14:02:29] EAS Parser| <Type>
+[14:02:29] EAS Parser| Type: 12
+[14:02:29] EAS Parser| </Type>
+[14:02:29] EAS Parser| </FolderAdd>
+[14:02:29] EAS Parser| <FolderAdd>
+[14:02:29] EAS Parser| <FolderServerId>
+[14:02:29] EAS Parser| FolderServerId: 26
+[14:02:29] EAS Parser| </FolderServerId>
+[14:02:29] EAS Parser| <FolderParentId>
+[14:02:29] EAS Parser| FolderParentId: 59
+[14:02:29] EAS Parser| </FolderParentId>
+[14:02:29] EAS Parser| <FolderDisplayName>
+[14:02:29] EAS Parser| FolderDisplayName: Buffalo
+[14:02:29] EAS Parser| </FolderDisplayName>
+[14:02:29] EAS Parser| <Type>
+[14:02:29] EAS Parser| Type: 1
+[14:02:29] EAS Parser| </Type>
+[14:02:29] EAS Parser| </FolderAdd>
+[14:02:29] EAS Parser| <FolderAdd>
+[14:02:29] EAS Parser| <FolderServerId>
+[14:02:29] EAS Parser| FolderServerId: 27
+[14:02:29] EAS Parser| </FolderServerId>
+[14:02:29] EAS Parser| <FolderParentId>
+[14:02:29] EAS Parser| FolderParentId: 59
+[14:02:29] EAS Parser| </FolderParentId>
+[14:02:29] EAS Parser| <FolderDisplayName>
+[14:02:29] EAS Parser| FolderDisplayName: CornedBeef
+[14:02:29] EAS Parser| </FolderDisplayName>
+[14:02:29] EAS Parser| <Type>
+[14:02:29] EAS Parser| Type: 1
+[14:02:29] EAS Parser| </Type>
+[14:02:29] EAS Parser| </FolderAdd>
+[14:02:29] EAS Parser| <FolderAdd>
+[14:02:29] EAS Parser| <FolderServerId>
+[14:02:29] EAS Parser| FolderServerId: 28
+[14:02:29] EAS Parser| </FolderServerId>
+[14:02:29] EAS Parser| <FolderParentId>
+[14:02:29] EAS Parser| FolderParentId: 24
+[14:02:29] EAS Parser| </FolderParentId>
+[14:02:29] EAS Parser| <FolderDisplayName>
+[14:02:29] EAS Parser| FolderDisplayName: Bar
+[14:02:29] EAS Parser| </FolderDisplayName>
+[14:02:29] EAS Parser| <Type>
+[14:02:29] EAS Parser| Type: 12
+[14:02:29] EAS Parser| </Type>
+[14:02:29] EAS Parser| </FolderAdd>
+[14:02:29] EAS Parser| <FolderAdd>
+[14:02:29] EAS Parser| <FolderServerId>
+[14:02:29] EAS Parser| FolderServerId: 29
+[14:02:29] EAS Parser| </FolderServerId>
+[14:02:29] EAS Parser| <FolderParentId>
+[14:02:29] EAS Parser| FolderParentId: 28
+[14:02:29] EAS Parser| </FolderParentId>
+[14:02:29] EAS Parser| <FolderDisplayName>
+[14:02:29] EAS Parser| FolderDisplayName: Daylight
+[14:02:29] EAS Parser| </FolderDisplayName>
+[14:02:29] EAS Parser| <Type>
+[14:02:29] EAS Parser| Type: 12
+[14:02:29] EAS Parser| </Type>
+[14:02:29] EAS Parser| </FolderAdd>
+[14:02:29] EAS Parser| <FolderAdd>
+[14:02:29] EAS Parser| <FolderServerId>
+[14:02:29] EAS Parser| FolderServerId: 30
+[14:02:29] EAS Parser| </FolderServerId>
+[14:02:29] EAS Parser| <FolderParentId>
+[14:02:29] EAS Parser| FolderParentId: 24
+[14:02:29] EAS Parser| </FolderParentId>
+[14:02:29] EAS Parser| <FolderDisplayName>
+[14:02:29] EAS Parser| FolderDisplayName: Bill
+[14:02:29] EAS Parser| </FolderDisplayName>
+[14:02:29] EAS Parser| <Type>
+[14:02:29] EAS Parser| Type: 12
+[14:02:29] EAS Parser| </Type>
+[14:02:29] EAS Parser| </FolderAdd>
+[14:02:29] EAS Parser| <FolderAdd>
+[14:02:29] EAS Parser| <FolderServerId>
+[14:02:29] EAS Parser| FolderServerId: 31
+[14:02:29] EAS Parser| </FolderServerId>
+[14:02:29] EAS Parser| <FolderParentId>
+[14:02:29] EAS Parser| FolderParentId: 24
+[14:02:29] EAS Parser| </FolderParentId>
+[14:02:29] EAS Parser| <FolderDisplayName>
+[14:02:29] EAS Parser| FolderDisplayName: Boss
+[14:02:29] EAS Parser| </FolderDisplayName>
+[14:02:29] EAS Parser| <Type>
+[14:02:29] EAS Parser| Type: 1
+[14:02:29] EAS Parser| </Type>
+[14:02:29] EAS Parser| </FolderAdd>
+[14:02:29] EAS Parser| <FolderAdd>
+[14:02:29] EAS Parser| <FolderServerId>
+[14:02:29] EAS Parser| FolderServerId: 32
+[14:02:29] EAS Parser| </FolderServerId>
+[14:02:29] EAS Parser| <FolderParentId>
+[14:02:29] EAS Parser| FolderParentId: 24
+[14:02:29] EAS Parser| </FolderParentId>
+[14:02:29] EAS Parser| <FolderDisplayName>
+[14:02:29] EAS Parser| FolderDisplayName: Houston
+[14:02:29] EAS Parser| </FolderDisplayName>
+[14:02:29] EAS Parser| <Type>
+[14:02:29] EAS Parser| Type: 1
+[14:02:29] EAS Parser| </Type>
+[14:02:29] EAS Parser| </FolderAdd>
+[14:02:29] EAS Parser| <FolderAdd>
+[14:02:29] EAS Parser| <FolderServerId>
+[14:02:29] EAS Parser| FolderServerId: 33
+[14:02:29] EAS Parser| </FolderServerId>
+[14:02:29] EAS Parser| <FolderParentId>
+[14:02:29] EAS Parser| FolderParentId: 32
+[14:02:29] EAS Parser| </FolderParentId>
+[14:02:29] EAS Parser| <FolderDisplayName>
+[14:02:29] EAS Parser| FolderDisplayName: Rebar
+[14:02:29] EAS Parser| </FolderDisplayName>
+[14:02:29] EAS Parser| <Type>
+[14:02:29] EAS Parser| Type: 12
+[14:02:29] EAS Parser| </Type>
+[14:02:29] EAS Parser| </FolderAdd>
+[14:02:29] EAS Parser| <FolderAdd>
+[14:02:29] EAS Parser| <FolderServerId>
+[14:02:29] EAS Parser| FolderServerId: 34
+[14:02:29] EAS Parser| </FolderServerId>
+[14:02:29] EAS Parser| <FolderParentId>
+[14:02:29] EAS Parser| FolderParentId: 24
+[14:02:29] EAS Parser| </FolderParentId>
+[14:02:29] EAS Parser| <FolderDisplayName>
+[14:02:29] EAS Parser| FolderDisplayName: Mistake
+[14:02:29] EAS Parser| </FolderDisplayName>
+[14:02:29] EAS Parser| <Type>
+[14:02:29] EAS Parser| Type: 1
+[14:02:29] EAS Parser| </Type>
+[14:02:29] EAS Parser| </FolderAdd>
+[14:02:29] EAS Parser| <FolderAdd>
+[14:02:29] EAS Parser| <FolderServerId>
+[14:02:29] EAS Parser| FolderServerId: 35
+[14:02:29] EAS Parser| </FolderServerId>
+[14:02:29] EAS Parser| <FolderParentId>
+[14:02:29] EAS Parser| FolderParentId: 34
+[14:02:29] EAS Parser| </FolderParentId>
+[14:02:29] EAS Parser| <FolderDisplayName>
+[14:02:29] EAS Parser| FolderDisplayName: Intro
+[14:02:29] EAS Parser| </FolderDisplayName>
+[14:02:29] EAS Parser| <Type>
+[14:02:29] EAS Parser| Type: 12
+[14:02:29] EAS Parser| </Type>
+[14:02:29] EAS Parser| </FolderAdd>
+[14:02:29] EAS Parser| <FolderAdd>
+[14:02:29] EAS Parser| <FolderServerId>
+[14:02:29] EAS Parser| FolderServerId: 36
+[14:02:29] EAS Parser| </FolderServerId>
+[14:02:29] EAS Parser| <FolderParentId>
+[14:02:29] EAS Parser| FolderParentId: 24
+[14:02:29] EAS Parser| </FolderParentId>
+[14:02:29] EAS Parser| <FolderDisplayName>
+[14:02:29] EAS Parser| FolderDisplayName: Online
+[14:02:29] EAS Parser| </FolderDisplayName>
+[14:02:29] EAS Parser| <Type>
+[14:02:29] EAS Parser| Type: 12
+[14:02:29] EAS Parser| </Type>
+[14:02:29] EAS Parser| </FolderAdd>
+[14:02:29] EAS Parser| <FolderAdd>
+[14:02:29] EAS Parser| <FolderServerId>
+[14:02:29] EAS Parser| FolderServerId: 37
+[14:02:29] EAS Parser| </FolderServerId>
+[14:02:29] EAS Parser| <FolderParentId>
+[14:02:29] EAS Parser| FolderParentId: 24
+[14:02:29] EAS Parser| </FolderParentId>
+[14:02:29] EAS Parser| <FolderDisplayName>
+[14:02:29] EAS Parser| FolderDisplayName: Sports
+[14:02:29] EAS Parser| </FolderDisplayName>
+[14:02:29] EAS Parser| <Type>
+[14:02:29] EAS Parser| Type: 1
+[14:02:29] EAS Parser| </Type>
+[14:02:29] EAS Parser| </FolderAdd>
+[14:02:29] EAS Parser| <FolderAdd>
+[14:02:29] EAS Parser| <FolderServerId>
+[14:02:29] EAS Parser| FolderServerId: 38
+[14:02:29] EAS Parser| </FolderServerId>
+[14:02:29] EAS Parser| <FolderParentId>
+[14:02:29] EAS Parser| FolderParentId: 0
+[14:02:29] EAS Parser| </FolderParentId>
+[14:02:29] EAS Parser| <FolderDisplayName>
+[14:02:29] EAS Parser| FolderDisplayName: Journal
+[14:02:29] EAS Parser| </FolderDisplayName>
+[14:02:29] EAS Parser| <Type>
+[14:02:29] EAS Parser| Type: 11
+[14:02:29] EAS Parser| </Type>
+[14:02:29] EAS Parser| </FolderAdd>
+[14:02:29] EAS Parser| <FolderAdd>
+[14:02:29] EAS Parser| <FolderServerId>
+[14:02:29] EAS Parser| FolderServerId: 39
+[14:02:29] EAS Parser| </FolderServerId>
+[14:02:29] EAS Parser| <FolderParentId>
+[14:02:29] EAS Parser| FolderParentId: 0
+[14:02:29] EAS Parser| </FolderParentId>
+[14:02:29] EAS Parser| <FolderDisplayName>
+[14:02:29] EAS Parser| FolderDisplayName: Junk E-mail
+[14:02:29] EAS Parser| </FolderDisplayName>
+[14:02:29] EAS Parser| <Type>
+[14:02:29] EAS Parser| Type: 12
+[14:02:29] EAS Parser| </Type>
+[14:02:29] EAS Parser| </FolderAdd>
+[14:02:29] EAS Parser| <FolderAdd>
+[14:02:29] EAS Parser| <FolderServerId>
+[14:02:29] EAS Parser| FolderServerId: 40
+[14:02:29] EAS Parser| </FolderServerId>
+[14:02:29] EAS Parser| <FolderParentId>
+[14:02:29] EAS Parser| FolderParentId: 0
+[14:02:29] EAS Parser| </FolderParentId>
+[14:02:29] EAS Parser| <FolderDisplayName>
+[14:02:29] EAS Parser| FolderDisplayName: Notes
+[14:02:29] EAS Parser| </FolderDisplayName>
+[14:02:29] EAS Parser| <Type>
+[14:02:29] EAS Parser| Type: 10
+[14:02:29] EAS Parser| </Type>
+[14:02:29] EAS Parser| </FolderAdd>
+[14:02:29] EAS Parser| <FolderAdd>
+[14:02:29] EAS Parser| <FolderServerId>
+[14:02:29] EAS Parser| FolderServerId: 41
+[14:02:29] EAS Parser| </FolderServerId>
+[14:02:29] EAS Parser| <FolderParentId>
+[14:02:29] EAS Parser| FolderParentId: 0
+[14:02:29] EAS Parser| </FolderParentId>
+[14:02:29] EAS Parser| <FolderDisplayName>
+[14:02:29] EAS Parser| FolderDisplayName: Outbox
+[14:02:29] EAS Parser| </FolderDisplayName>
+[14:02:29] EAS Parser| <Type>
+[14:02:29] EAS Parser| Type: 6
+[14:02:29] EAS Parser| </Type>
+[14:02:29] EAS Parser| </FolderAdd>
+[14:02:29] EAS Parser| <FolderAdd>
+[14:02:29] EAS Parser| <FolderServerId>
+[14:02:29] EAS Parser| FolderServerId: 42
+[14:02:29] EAS Parser| </FolderServerId>
+[14:02:29] EAS Parser| <FolderParentId>
+[14:02:29] EAS Parser| FolderParentId: 0
+[14:02:29] EAS Parser| </FolderParentId>
+[14:02:29] EAS Parser| <FolderDisplayName>
+[14:02:29] EAS Parser| FolderDisplayName: RSS Feeds
+[14:02:29] EAS Parser| </FolderDisplayName>
+[14:02:29] EAS Parser| <Type>
+[14:02:29] EAS Parser| Type: 12
+[14:02:29] EAS Parser| </Type>
+[14:02:29] EAS Parser| </FolderAdd>
+[14:02:29] EAS Parser| <FolderAdd>
+[14:02:29] EAS Parser| <FolderServerId>
+[14:02:29] EAS Parser| FolderServerId: 43
+[14:02:29] EAS Parser| </FolderServerId>
+[14:02:29] EAS Parser| <FolderParentId>
+[14:02:29] EAS Parser| FolderParentId: 42
+[14:02:29] EAS Parser| </FolderParentId>
+[14:02:29] EAS Parser| <FolderDisplayName>
+[14:02:29] EAS Parser| FolderDisplayName: aTwitRob
+[14:02:29] EAS Parser| </FolderDisplayName>
+[14:02:29] EAS Parser| <Type>
+[14:02:29] EAS Parser| Type: 12
+[14:02:29] EAS Parser| </Type>
+[14:02:29] EAS Parser| </FolderAdd>
+[14:02:29] EAS Parser| <FolderAdd>
+[14:02:29] EAS Parser| <FolderServerId>
+[14:02:29] EAS Parser| FolderServerId: 44
+[14:02:29] EAS Parser| </FolderServerId>
+[14:02:29] EAS Parser| <FolderParentId>
+[14:02:29] EAS Parser| FolderParentId: 42
+[14:02:29] EAS Parser| </FolderParentId>
+[14:02:29] EAS Parser| <FolderDisplayName>
+[14:02:29] EAS Parser| FolderDisplayName: Cheris
+[14:02:29] EAS Parser| </FolderDisplayName>
+[14:02:29] EAS Parser| <Type>
+[14:02:29] EAS Parser| Type: 12
+[14:02:29] EAS Parser| </Type>
+[14:02:29] EAS Parser| </FolderAdd>
+[14:02:29] EAS Parser| <FolderAdd>
+[14:02:29] EAS Parser| <FolderServerId>
+[14:02:29] EAS Parser| FolderServerId: 45
+[14:02:29] EAS Parser| </FolderServerId>
+[14:02:29] EAS Parser| <FolderParentId>
+[14:02:29] EAS Parser| FolderParentId: 0
+[14:02:29] EAS Parser| </FolderParentId>
+[14:02:29] EAS Parser| <FolderDisplayName>
+[14:02:29] EAS Parser| FolderDisplayName: Sent Items
+[14:02:29] EAS Parser| </FolderDisplayName>
+[14:02:29] EAS Parser| <Type>
+[14:02:29] EAS Parser| Type: 5
+[14:02:29] EAS Parser| </Type>
+[14:02:29] EAS Parser| </FolderAdd>
+[14:02:29] EAS Parser| <FolderAdd>
+[14:02:29] EAS Parser| <FolderServerId>
+[14:02:29] EAS Parser| FolderServerId: 46
+[14:02:29] EAS Parser| </FolderServerId>
+[14:02:29] EAS Parser| <FolderParentId>
+[14:02:29] EAS Parser| FolderParentId: 0
+[14:02:29] EAS Parser| </FolderParentId>
+[14:02:29] EAS Parser| <FolderDisplayName>
+[14:02:29] EAS Parser| FolderDisplayName: Suggested Contacts
+[14:02:29] EAS Parser| </FolderDisplayName>
+[14:02:29] EAS Parser| <Type>
+[14:02:29] EAS Parser| Type: 14
+[14:02:29] EAS Parser| </Type>
+[14:02:29] EAS Parser| </FolderAdd>
+[14:02:29] EAS Parser| <FolderAdd>
+[14:02:29] EAS Parser| <FolderServerId>
+[14:02:29] EAS Parser| FolderServerId: 47
+[14:02:29] EAS Parser| </FolderServerId>
+[14:02:29] EAS Parser| <FolderParentId>
+[14:02:29] EAS Parser| FolderParentId: 0
+[14:02:29] EAS Parser| </FolderParentId>
+[14:02:29] EAS Parser| <FolderDisplayName>
+[14:02:29] EAS Parser| FolderDisplayName: Sync Issues
+[14:02:29] EAS Parser| </FolderDisplayName>
+[14:02:29] EAS Parser| <Type>
+[14:02:29] EAS Parser| Type: 12
+[14:02:29] EAS Parser| </Type>
+[14:02:29] EAS Parser| </FolderAdd>
+[14:02:29] EAS Parser| <FolderAdd>
+[14:02:29] EAS Parser| <FolderServerId>
+[14:02:29] EAS Parser| FolderServerId: 48
+[14:02:29] EAS Parser| </FolderServerId>
+[14:02:29] EAS Parser| <FolderParentId>
+[14:02:29] EAS Parser| FolderParentId: 47
+[14:02:29] EAS Parser| </FolderParentId>
+[14:02:29] EAS Parser| <FolderDisplayName>
+[14:02:29] EAS Parser| FolderDisplayName: Conflicts
+[14:02:29] EAS Parser| </FolderDisplayName>
+[14:02:29] EAS Parser| <Type>
+[14:02:29] EAS Parser| Type: 12
+[14:02:29] EAS Parser| </Type>
+[14:02:29] EAS Parser| </FolderAdd>
+[14:02:29] EAS Parser| <FolderAdd>
+[14:02:29] EAS Parser| <FolderServerId>
+[14:02:29] EAS Parser| FolderServerId: 49
+[14:02:29] EAS Parser| </FolderServerId>
+[14:02:29] EAS Parser| <FolderParentId>
+[14:02:29] EAS Parser| FolderParentId: 47
+[14:02:29] EAS Parser| </FolderParentId>
+[14:02:29] EAS Parser| <FolderDisplayName>
+[14:02:29] EAS Parser| FolderDisplayName: Local Failures
+[14:02:29] EAS Parser| </FolderDisplayName>
+[14:02:29] EAS Parser| <Type>
+[14:02:29] EAS Parser| Type: 12
+[14:02:29] EAS Parser| </Type>
+[14:02:29] EAS Parser| </FolderAdd>
+[14:02:29] EAS Parser| <FolderAdd>
+[14:02:29] EAS Parser| <FolderServerId>
+[14:02:29] EAS Parser| FolderServerId: 50
+[14:02:29] EAS Parser| </FolderServerId>
+[14:02:29] EAS Parser| <FolderParentId>
+[14:02:29] EAS Parser| FolderParentId: 47
+[14:02:29] EAS Parser| </FolderParentId>
+[14:02:29] EAS Parser| <FolderDisplayName>
+[14:02:29] EAS Parser| FolderDisplayName: Server Failures
+[14:02:29] EAS Parser| </FolderDisplayName>
+[14:02:29] EAS Parser| <Type>
+[14:02:29] EAS Parser| Type: 12
+[14:02:29] EAS Parser| </Type>
+[14:02:29] EAS Parser| </FolderAdd>
+[14:02:29] EAS Parser| <FolderAdd>
+[14:02:29] EAS Parser| <FolderServerId>
+[14:02:29] EAS Parser| FolderServerId: 51
+[14:02:29] EAS Parser| </FolderServerId>
+[14:02:29] EAS Parser| <FolderParentId>
+[14:02:29] EAS Parser| FolderParentId: 0
+[14:02:29] EAS Parser| </FolderParentId>
+[14:02:29] EAS Parser| <FolderDisplayName>
+[14:02:29] EAS Parser| FolderDisplayName: Tasks
+[14:02:29] EAS Parser| </FolderDisplayName>
+[14:02:29] EAS Parser| <Type>
+[14:02:29] EAS Parser| Type: 7
+[14:02:29] EAS Parser| </Type>
+[14:02:29] EAS Parser| </FolderAdd>
+[14:02:29] EAS Parser| <FolderAdd>
+[14:02:29] EAS Parser| <FolderServerId>
+[14:02:29] EAS Parser| FolderServerId: 52
+[14:02:29] EAS Parser| </FolderServerId>
+[14:02:29] EAS Parser| <FolderParentId>
+[14:02:29] EAS Parser| FolderParentId: 51
+[14:02:29] EAS Parser| </FolderParentId>
+[14:02:29] EAS Parser| <FolderDisplayName>
+[14:02:29] EAS Parser| FolderDisplayName: ForRoom
+[14:02:29] EAS Parser| </FolderDisplayName>
+[14:02:29] EAS Parser| <Type>
+[14:02:29] EAS Parser| Type: 15
+[14:02:29] EAS Parser| </Type>
+[14:02:29] EAS Parser| </FolderAdd>
+[14:02:29] EAS Parser| <FolderAdd>
+[14:02:29] EAS Parser| <FolderServerId>
+[14:02:29] EAS Parser| FolderServerId: 53
+[14:02:29] EAS Parser| </FolderServerId>
+[14:02:29] EAS Parser| <FolderParentId>
+[14:02:29] EAS Parser| FolderParentId: 51
+[14:02:29] EAS Parser| </FolderParentId>
+[14:02:29] EAS Parser| <FolderDisplayName>
+[14:02:29] EAS Parser| FolderDisplayName: Nazgul
+[14:02:29] EAS Parser| </FolderDisplayName>
+[14:02:29] EAS Parser| <Type>
+[14:02:29] EAS Parser| Type: 15
+[14:02:29] EAS Parser| </Type>
+[14:02:29] EAS Parser| </FolderAdd>
+[14:02:29] EAS Parser| <FolderAdd>
+[14:02:29] EAS Parser| <FolderServerId>
+[14:02:29] EAS Parser| FolderServerId: 54
+[14:02:29] EAS Parser| </FolderServerId>
+[14:02:29] EAS Parser| <FolderParentId>
+[14:02:29] EAS Parser| FolderParentId: 51
+[14:02:29] EAS Parser| </FolderParentId>
+[14:02:29] EAS Parser| <FolderDisplayName>
+[14:02:29] EAS Parser| FolderDisplayName: Sort by Priority
+[14:02:29] EAS Parser| </FolderDisplayName>
+[14:02:29] EAS Parser| <Type>
+[14:02:29] EAS Parser| Type: 15
+[14:02:29] EAS Parser| </Type>
+[14:02:29] EAS Parser| </FolderAdd>
+[14:02:29] EAS Parser| <FolderAdd>
+[14:02:29] EAS Parser| <FolderServerId>
+[14:02:29] EAS Parser| FolderServerId: 55
+[14:02:29] EAS Parser| </FolderServerId>
+[14:02:29] EAS Parser| <FolderParentId>
+[14:02:29] EAS Parser| FolderParentId: 51
+[14:02:29] EAS Parser| </FolderParentId>
+[14:02:29] EAS Parser| <FolderDisplayName>
+[14:02:29] EAS Parser| FolderDisplayName: ToArrange
+[14:02:29] EAS Parser| </FolderDisplayName>
+[14:02:29] EAS Parser| <Type>
+[14:02:29] EAS Parser| Type: 15
+[14:02:29] EAS Parser| </Type>
+[14:02:29] EAS Parser| </FolderAdd>
+[14:02:29] EAS Parser| <FolderAdd>
+[14:02:29] EAS Parser| <FolderServerId>
+[14:02:29] EAS Parser| FolderServerId: 56
+[14:02:29] EAS Parser| </FolderServerId>
+[14:02:29] EAS Parser| <FolderParentId>
+[14:02:29] EAS Parser| FolderParentId: 51
+[14:02:29] EAS Parser| </FolderParentId>
+[14:02:29] EAS Parser| <FolderDisplayName>
+[14:02:29] EAS Parser| FolderDisplayName: ToBuy
+[14:02:29] EAS Parser| </FolderDisplayName>
+[14:02:29] EAS Parser| <Type>
+[14:02:29] EAS Parser| Type: 15
+[14:02:29] EAS Parser| </Type>
+[14:02:29] EAS Parser| </FolderAdd>
+[14:02:29] EAS Parser| <FolderAdd>
+[14:02:29] EAS Parser| <FolderServerId>
+[14:02:29] EAS Parser| FolderServerId: 57
+[14:02:29] EAS Parser| </FolderServerId>
+[14:02:29] EAS Parser| <FolderParentId>
+[14:02:29] EAS Parser| FolderParentId: 51
+[14:02:29] EAS Parser| </FolderParentId>
+[14:02:29] EAS Parser| <FolderDisplayName>
+[14:02:29] EAS Parser| FolderDisplayName: ToCall
+[14:02:29] EAS Parser| </FolderDisplayName>
+[14:02:29] EAS Parser| <Type>
+[14:02:29] EAS Parser| Type: 15
+[14:02:29] EAS Parser| </Type>
+[14:02:29] EAS Parser| </FolderAdd>
+[14:02:29] EAS Parser| <FolderAdd>
+[14:02:29] EAS Parser| <FolderServerId>
+[14:02:29] EAS Parser| FolderServerId: 58
+[14:02:29] EAS Parser| </FolderServerId>
+[14:02:29] EAS Parser| <FolderParentId>
+[14:02:29] EAS Parser| FolderParentId: 51
+[14:02:29] EAS Parser| </FolderParentId>
+[14:02:29] EAS Parser| <FolderDisplayName>
+[14:02:29] EAS Parser| FolderDisplayName: ToRead
+[14:02:29] EAS Parser| </FolderDisplayName>
+[14:02:29] EAS Parser| <Type>
+[14:02:29] EAS Parser| Type: 15
+[14:02:29] EAS Parser| </Type>
+[14:02:29] EAS Parser| </FolderAdd>
+[14:02:29] EAS Parser| <FolderAdd>
+[14:02:29] EAS Parser| <FolderServerId>
+[14:02:29] EAS Parser| FolderServerId: RI
+[14:02:29] EAS Parser| </FolderServerId>
+[14:02:29] EAS Parser| <FolderParentId>
+[14:02:29] EAS Parser| FolderParentId: 0
+[14:02:29] EAS Parser| </FolderParentId>
+[14:02:29] EAS Parser| <FolderDisplayName>
+[14:02:29] EAS Parser| FolderDisplayName: RecipientInfo
+[14:02:29] EAS Parser| </FolderDisplayName>
+[14:02:29] EAS Parser| <Type>
+[14:02:29] EAS Parser| Type: 19
+[14:02:29] EAS Parser| </Type>
+[14:02:29] EAS Parser| </FolderAdd>
+[14:02:29] EAS Parser| </Changes>
+[14:02:29] EAS Parser| </FolderSync>
+

@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  Copyright (C) 2006 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+ -->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="launcherDialer" msgid="8636288196618486553">"Simu"</string>
+    <string name="people" msgid="1048457247435785074">"Watu"</string>
+    <string name="contactsList" msgid="8661624236494819731">"Anwani"</string>
+    <string name="shortcutContact" msgid="749243779392912958">"Anwani"</string>
+    <string name="shortcutDialContact" msgid="746622101599186779">"Upigaji wa moja kwa moja"</string>
+    <string name="shortcutMessageContact" msgid="2460337253595976198">"Ujumbe wa moja kwa moja"</string>
+    <string name="shortcutActivityTitle" msgid="6642877210643565436">"Chagua njia ya mkato ya anwani"</string>
+    <string name="callShortcutActivityTitle" msgid="6065749861423648991">"Chagua nambari ya kupiga"</string>
+    <string name="messageShortcutActivityTitle" msgid="3084542316620335911">"Chagua nambari ya kutumia ujumbe"</string>
+    <string name="contactPickerActivityTitle" msgid="4301062192337417640">"Chagua mwasiliani"</string>
+    <string name="starredList" msgid="4817256136413959463">"Zenye nyota"</string>
+    <string name="frequentList" msgid="7154768136473953056">"Mara kwa mara"</string>
+    <string name="strequentList" msgid="5640192862059373511">"Vipendwa"</string>
+    <string name="viewContactTitle" msgid="7989394521836644384">"Maelezo ya anwani"</string>
+    <string name="viewContactDesription" msgid="214186610887547860">"Angalia anwani"</string>
+    <string name="editContactDescription" msgid="2947202828256214947">"Hariri anwani"</string>
+    <string name="insertContactDescription" msgid="4709878105452681987">"Unda anwani"</string>
+    <string name="editGroupDescription" msgid="6321161304201540561">"Hariri kikundi"</string>
+    <string name="insertGroupDescription" msgid="5658512271662210139">"Unda kikundi"</string>
+    <string name="contactDetailAbout" msgid="5430408883907061400">"Kuhusu"</string>
+    <string name="contactDetailUpdates" msgid="3780588624763446941">"Visasisho"</string>
+    <string name="searchHint" msgid="8482945356247760701">"Tafuta anwani"</string>
+    <string name="menu_search" msgid="9147752853603483719">"Tafuta"</string>
+    <string name="menu_newContact" msgid="1209922412763274638">"Anwani mpya"</string>
+    <string name="menu_viewContact" msgid="2795575601596468581">"Tazama anwani"</string>
+    <string name="menu_callNumber" msgid="997146291983360266">"Piga simu <xliff:g id="NUMBER">%s</xliff:g>"</string>
+    <string name="menu_addStar" msgid="2908478235715404876">"Ongeza kwa vipendwa"</string>
+    <string name="menu_removeStar" msgid="5844227078364227030">"Ondoa kutoka kwa vipendwa vyako"</string>
+    <string name="menu_editContact" msgid="9042415603857662633">"Hariri"</string>
+    <string name="menu_deleteContact" msgid="6788644058868189393">"Futa"</string>
+    <string name="menu_copy" msgid="6108677035381940698">"Nakili"</string>
+    <string name="menu_create_contact_shortcut" msgid="1217971915748509640">"Weka kwenye skrini ya Nyumbani"</string>
+    <string name="menu_call" msgid="3992595586042260618">"Mpigie"</string>
+    <string name="menu_sendSMS" msgid="5535886767547006515">"Tuma ujumbe kwa anwani"</string>
+    <string name="menu_splitAggregate" msgid="8368636463748691868">"Kando"</string>
+    <string name="menu_editGroup" msgid="5062005185370983720">"Hariri"</string>
+    <string name="menu_deleteGroup" msgid="3486380004411482874">"Futa"</string>
+    <string name="menu_new_contact_action_bar" msgid="8887818026717394343">"Mpya"</string>
+    <string name="menu_new_group_action_bar" msgid="5055346725617932394">"Mpya"</string>
+    <string name="splitConfirmation_title" msgid="633640935430370530">"Tenganisha anwani?"</string>
+    <string name="splitConfirmation" msgid="740190210499587175">"Mwasiliani atatenganishwa kwa anwani kadha."</string>
+    <string name="menu_joinAggregate" msgid="5027981918265667970">"Jiunge"</string>
+    <string name="titleJoinContactDataWith" msgid="7684875775798635354">"Unganisha anwani"</string>
+    <string name="blurbJoinContactDataWith" msgid="8736488417422708236">"Chagua mwasiliani unayetaka kuugana naye kwa <xliff:g id="NAME">%s</xliff:g>:"</string>
+    <string name="showAllContactsJoinItem" msgid="2189695051430392383">"Onyesha anwani zote"</string>
+    <string name="separatorJoinAggregateSuggestions" msgid="2831414448851313345">"Anwani zilizopendekezwa"</string>
+    <string name="separatorJoinAggregateAll" msgid="7939932265026181043">"Anwani zote"</string>
+    <string name="contactsJoinedMessage" msgid="7208148163607047389">"Anwani zimeunganishwa"</string>
+    <string name="menu_set_ring_tone" msgid="8728345772068064946">"Weka mlio wa simu"</string>
+    <string name="menu_redirect_calls_to_vm" msgid="4181789196416396656">"Simu zote kwa barua ya sauti"</string>
+    <string name="readOnlyContactWarning" msgid="7808825687289848259">"Huwezi kufuta anwani kutoka kwa akaunti ya kusoma-tu, lakini unaweza kuzificha katika orodha zako za anwani."</string>
+    <string name="readOnlyContactDeleteConfirmation" msgid="2137170726670196909">"Anwani hii ina maelezo kutoka kwa akaunti nyingi. Maelezo kutoka kwa akaunti za soma-tu zitafichwa katika orodha zako za anwani, sio kufutwa."</string>
+    <string name="multipleContactDeleteConfirmation" msgid="938900978442960800">"Kufuta anwani hii kutafuta maelezo kutoka kwa akaunti nyingi."</string>
+    <string name="deleteConfirmation" msgid="811706994761610640">"Mwasiliani huyu atafutwa."</string>
+    <string name="menu_done" msgid="796017761764190697">"Kwisha"</string>
+    <string name="menu_doNotSave" msgid="58593876893538465">"Ghairi"</string>
+    <string name="menu_discard" msgid="6456087569315685632">"Tupa"</string>
+    <string name="label_notes" msgid="8337354953278341042">"Hati"</string>
+    <string name="label_sip_address" msgid="124073911714324974">"Simu ya wavuti"</string>
+    <string name="ghostData_company" msgid="5414421120553765775">"Kampuni"</string>
+    <string name="ghostData_title" msgid="7496735200318496110">"Jina la heshima"</string>
+    <string name="invalidContactMessage" msgid="8215051456181842274">"Mwasiliani hayupo."</string>
+    <string name="createContactShortcutSuccessful" msgid="7874133287558150877">"Wijeti ya mawasiliano imeongezwa kwenye skrini ya Nyumbani."</string>
+    <string name="pickerNewContactHeader" msgid="7750705279843568147">"Weka anwani mpya"</string>
+    <string name="pickerNewContactText" msgid="6166997164401048211">"Anzisha mwasiliani mpya"</string>
+    <string name="phoneLabelsGroup" msgid="6468091477851199285">"Simu"</string>
+    <string name="emailLabelsGroup" msgid="8389931313045344406">"Barua pepe"</string>
+    <string name="imLabelsGroup" msgid="3898238486262614027">"Ujumbe wa Papo Hapo"</string>
+    <string name="postalLabelsGroup" msgid="3487738141112589324">"Anwani"</string>
+  <string-array name="otherLabels">
+    <item msgid="8287841928119937597">"Shirika"</item>
+    <item msgid="7196592230748086755">"Hati"</item>
+  </string-array>
+    <string name="photoPickerNotFoundText" product="tablet" msgid="6247290728908599701">"Hakuna picha inayopatikana kwenye kompyuta ndogo."</string>
+    <string name="photoPickerNotFoundText" product="default" msgid="431331662154342581">"Hakuna picha zinazopatikana kwenye simu."</string>
+    <string name="attach_photo_dialog_title" msgid="5599827035558557169">"Picha ya anwani"</string>
+    <string name="customLabelPickerTitle" msgid="1081475101983255212">"Jina maalum la lebo"</string>
+    <string name="send_to_voicemail_checkbox" msgid="9001686764070676353">"Tuma simu moja kwa moja kwa barua ya sauti"</string>
+    <string name="removePhoto" msgid="4898105274130284565">"Ondoa picha"</string>
+    <string name="noContacts" msgid="8579310973261953559">"Hakuna anwani."</string>
+    <string name="noGroups" msgid="8614664663561385253">"Hakuna vikundi."</string>
+    <string name="noAccounts" msgid="7768267764545265909">"Ili kuunda vikundi unahitaji akaunti"</string>
+    <string name="noMatchingContacts" msgid="4266283206853990471">"Hakuna anwani zinazolingana zilizopatikana."</string>
+    <string name="noContactsWithPhoneNumbers" msgid="1605457050218824269">"Hakuna anwani zilizo na nambari za simu."</string>
+    <string name="emptyGroup" msgid="7502116218697177370">"Hakuna watu katika kikundi hiki."</string>
+    <string name="addPeopleToGroup" msgid="7879585947222263516">"Kuongeza baadhi, hariri kikundi."</string>
+    <string name="savingContact" msgid="4075751076741924939">"Inahifadhi anwani..."</string>
+    <string name="savingDisplayGroups" msgid="2133152192716475939">"Inahifadhi chaguo za mwonyesho.."</string>
+    <string name="contactSavedToast" msgid="7152589189385441091">"Anwani imehifadhiwa"</string>
+    <string name="contactSavedErrorToast" msgid="3207250533172944892">"Haikuweza kuhifadhi mabadiliko ya mwasiliani."</string>
+    <string name="groupSavedToast" msgid="1168756874239833756">"Kikundi kimehifadhiwa."</string>
+    <string name="groupSavedErrorToast" msgid="7984466936615304740">"Haikuweza kuhifadhi mabadiliko  ya kikundi."</string>
+  <plurals name="listTotalPhoneContacts">
+    <item quantity="one" msgid="3015357862286673986">"Anwani 1 yenye namba ya simu"</item>
+    <item quantity="other" msgid="3299954047880968205">"Anwani <xliff:g id="COUNT">%d</xliff:g> zilizo na nambari ya simu"</item>
+  </plurals>
+    <string name="listTotalPhoneContactsZero" msgid="6968813857632984319">"Hakuna anwani zilizo na nambari za simu"</string>
+  <plurals name="listTotalAllContacts">
+    <item quantity="one" msgid="3405747744700823280">"Anwani 1"</item>
+    <item quantity="other" msgid="3578469907265375314">"Anwani <xliff:g id="COUNT">%d</xliff:g>"</item>
+  </plurals>
+    <string name="listTotalAllContactsZero" msgid="5513001821794568211">"Hakuna wawasiliani."</string>
+    <string name="listTotalAllContactsZeroCustom" msgid="5004974705699445044">"Hakuna anwani zinazoonekana"</string>
+    <string name="listTotalAllContactsZeroStarred" msgid="3173820905501592808">"Hakuna Vipendwa."</string>
+    <string name="listTotalAllContactsZeroGroup" msgid="5448979458248027615">"Hakuna anwani kwenye <xliff:g id="NAME">%s</xliff:g>"</string>
+    <string name="listAllContactsInAccount" msgid="7496143179265311758">"Anwani kwenye <xliff:g id="NAME">%s</xliff:g>"</string>
+    <string name="listSingleContact" msgid="6067813698903535563">"Mhusika mmoja"</string>
+    <string name="listCustomView" msgid="6950713892532194050">"Mawasiliano katika mwoneko maalum"</string>
+  <plurals name="listFoundAllContacts">
+    <item quantity="one" msgid="5517063038754171134">"Imepatikana 1"</item>
+    <item quantity="other" msgid="3852668542926965042">"Patikana <xliff:g id="COUNT">%d</xliff:g>"</item>
+  </plurals>
+    <string name="foundTooManyContacts" msgid="5163335650920020220">"zaidi ya <xliff:g id="COUNT">%d</xliff:g> zimepatikana."</string>
+    <string name="listFoundAllContactsZero" msgid="922980883593159444">"Hakuna anwani"</string>
+  <plurals name="searchFoundContacts">
+    <item quantity="one" msgid="4826918429708286628">"Patikana 1"</item>
+    <item quantity="other" msgid="7988132539476575389">"<xliff:g id="COUNT">%d</xliff:g> zimepatikana"</item>
+  </plurals>
+    <string name="contactsAllLabel" msgid="6479708629170672169">"Anwani zote"</string>
+    <string name="contactsGroupsLabel" msgid="2841971472518003524">"Vikundi"</string>
+    <string name="contactsFavoritesLabel" msgid="8417039765586853670">"Vipendwa"</string>
+    <string name="dialerIconLabel" msgid="6500826552823403796">"Simu"</string>
+    <string name="recentCallsIconLabel" msgid="1419116422359067949">"Logi ya orodha ya kupiga simu"</string>
+    <string name="menu_sendTextMessage" msgid="6937343460284499306">"Tuma ujumbe wa maandishi"</string>
+    <string name="recentCalls_callNumber" msgid="1756372533999226126">"Pigia <xliff:g id="NAME">%s</xliff:g>"</string>
+    <string name="recentCalls_editNumberBeforeCall" msgid="7756171675833267857">"Hariri nambari kabla ya kupiga"</string>
+    <string name="recentCalls_addToContact" msgid="1429899535546487008">"Ongeza kwa anwani"</string>
+    <string name="recentCalls_removeFromRecentList" msgid="401662244636511330">"Toa kwa orodha ya simu zilizopigwa"</string>
+    <string name="recentCalls_deleteAll" msgid="6352364392762163704">"Futa rekodi ya simu"</string>
+    <string name="recentCalls_trashVoicemail" msgid="7604696960787435655">"Futa barua ya sauti"</string>
+    <string name="recentCalls_shareVoicemail" msgid="1416112847592942840">"Shiriki barua ya sauti"</string>
+    <string name="recentCalls_empty" msgid="247053222448663107">"Orodha ya kupiga simu ni tupu."</string>
+    <string name="clearCallLogConfirmation_title" msgid="6427524640461816332">"Futa rekodi ya simu?"</string>
+    <string name="clearCallLogConfirmation" msgid="5043563133171583152">"Kumbukumbu zako zote za simu zitafutwa."</string>
+    <string name="clearCallLogProgress_title" msgid="8365943000154295771">"Inafuta rekodi ya simu ..."</string>
+    <string name="clearFrequentsConfirmation_title" msgid="766292372438450432">"Futa uliowasiliana nao mara kwa mara?"</string>
+    <string name="clearFrequentsConfirmation" msgid="3254215748990281318">"Utafuta orodha ya unaowasiliana nao mara kwa mara katika programu ya Watu na Simu, na ulazimishe programu za barua pepe kujifunza mapendeleo yako ya anwani kutoka mwanzo."</string>
+    <string name="clearFrequentsProgress_title" msgid="5157001637482794212">"Inafuta uliowasiliana nao mara kwa mara..."</string>
+    <string name="imei" msgid="3045126336951684285">"IMEI"</string>
+    <string name="meid" msgid="6210568493746275750">"MEID"</string>
+    <string name="voicemail" msgid="3851469869202611441">"Barua ya sauti"</string>
+    <string name="unknown" msgid="740067747858270469">"Haijulikani"</string>
+    <string name="private_num" msgid="6374339738119166953">" Nambari isiyojulikana"</string>
+    <string name="payphone" msgid="4864313342828942922">"Simu ya kulipia"</string>
+    <string name="dialerKeyboardHintText" msgid="5401660096579787344">"Tumia kibodi kubonyeza"</string>
+    <string name="dialerDialpadHintText" msgid="5824490365898349041">"Piga ili kuongeza simu"</string>
+    <string name="simContacts_emptyLoading" msgid="6700035985448642408">"Inapakia kutoka SIM kadi..."</string>
+    <string name="simContacts_title" msgid="27341688347689769">"Anwani za SIM kadi"</string>
+    <string name="noContactsHelpTextWithSyncForCreateShortcut" msgid="801504710275614594">"Huna anwani zozote ya kuonyesha. (Ikiwa umeongeza tu akaunti, inaweza kuchukua dakika chache ili kusawazisha anwani.)"</string>
+    <string name="noContactsHelpTextForCreateShortcut" msgid="3081286388667108335">"Hauna anwani zozote za kuonyesha."</string>
+    <string name="noContactsHelpText" product="tablet" msgid="6226271923423236696">"Hauna anwani zozote za kuonyesha."\n\n"Kuongeza anwani, gusa "<font fgcolor="#ffffffff"><b>"Menyu "</b></font>", , kisha uguse: "\n" "\n<li><font fgcolor="#ffffffff"><b>"Akaunti "</b></font>" kuongeza au kuanzisha akaunti yenye anwani unazoweza kulandanisha kwa kompyuta ndogo "\n</li>" "\n<li><font fgcolor="#ffffffff"><b>" Anwani Mpya "</b></font>" ili kuanzisha anwani mpya kutoka mwanzo {"\n</li>" "\n<li><font fgcolor="#ffffffff"><b>"Leta/Hamisha"</b></font>" ili kuhamisha anwani kutoka kwa kadi yako ya SD"\n</li></string>
+    <string name="noContactsHelpText" product="default" msgid="4405064135698982080">"Hauna anwani zozote za kuonyesha."\n\n"Ili kuongeza anwani, gusa "<font fgcolor="#ffffffff"><b>" Menyu"</b></font>", kisha uguse: "\n" "\n<li><font fgcolor="#ffffffff"><b>"Akaunti"</b></font>" ili kuongeza au kusanidi akaunti yenye anwani unazoweza kulandanisha na simu {"\n</li>" "\n<li><font fgcolor="#ffffffff"><b>" Anwani mpya"</b></font>" kuunda anwani mpya kutoka mwanzo "\n</li>" "\n<li><font fgcolor="#ffffffff"><b>" Leta/Hamisha "</b></font>" ili kuleta anwani kutoka kwa kadi yako wa SIM au ya SD"\n</li></string>
+    <string name="noContactsHelpTextWithSync" product="tablet" msgid="6773195806404659174">"Hauna anwani zozote za kuonyesha. (Kama umeongeza akaunti saas hivi, inaweza kuchukua dakika chache kulandanisha anwani.)"\n\n"Kuongeza anwani, gusa "<font fgcolor="#ffffffff"><b>"Menyu"</b></font>",kisha uguse:{"\n" "\n<li><font fgcolor="#ffffffff"><b>"Akaunti"</b></font>" ili kuongeza au kuanzisha akaunti yenye anwani unazoweza kulandanisha kwenye kompyuta ndogo"\n</li>" "\n<li><font fgcolor="#ffffffff"><b>"Onyesha chaguo"</b></font>" ili kubadilisha anwani zinazoonekana"\n</li>" "\n<li><font fgcolor="#ffffffff"><b>"Anwani mpya"</b></font>"ili kuunda anwani mpya kutoka mwanzo"\n</li>\n<li><font fgcolor="#ffffffff"><b>"Leta/Hamisha"</b></font>" ili kuleta anwani kutoka kwa kadi yako ya SD"\n</li></string>
+    <string name="noContactsHelpTextWithSync" product="default" msgid="7016825676090327312">"Hauna anwani zozote za kuonyesha. (Kama umeongeza akaunti sasa hivi, inaweza kuchukua dakika chache kulandanisha anwani.)"\n\n"Kuongeza anwani, gusa "<font fgcolor="#ffffffff"><b>"Menyu"</b></font>",kisha uguse:{"\n" "\n<li><font fgcolor="#ffffffff"><b>"Akaunti"</b></font>" ili kuongeza au kuanzisha akaunti yenye anwani unazoweza kulandanisha kwenye simu"\n</li>" "\n<li><font fgcolor="#ffffffff"><b>"Onyesha uchaguzi"</b></font>" ili kubadilisha anwani gani zinazoonekana"\n</li>" "\n<li><font fgcolor="#ffffffff"><b>"Anwani mpya"</b></font>"ili kuunda anwani mpya kutoka mwanzo"\n</li>\n<li><font fgcolor="#ffffffff"><b>"Leta/Hamisha"</b></font>" ili kuleta anwani kutoka kwa kadi yako ya SD"\n</li></string>
+    <string name="noContactsNoSimHelpText" product="tablet" msgid="7823757505923033456">"Hauna anwani zozote za kuonyesha."\n\n"Ili kuongeza anwani, gusa "<font fgcolor="#ffffffff"><b>" Menyu "</b></font>", kisha uguse: "\n" "\n<li><font fgcolor="#ffffffff"><b>"Akaunti"</b></font>" kuongeza au kuanzisha akaunti yenye anwani unazoweza kulandanisha na kompyuta ndogo"\n</li>" "\n<li><font fgcolor="#ffffffff"><b>"Anwani mpya"</b></font>" kuanzisha anwani mpya kutoka mwanzo "\n</li>" "\n<li><font fgcolor="#ffffffff"><b>" Leta/ Hamisha "</b></font>" ili kuhamisha anwani kutoka kwa kadi yako ya SD"\n</li></string>
+    <string name="noContactsNoSimHelpText" product="default" msgid="6224952277619986841">"Hauna anwani zozote za kuonyesha."\n\n"Ili kuongeza anwani, gusa "<font fgcolor="#ffffffff"><b>" Menyu "</b></font>", kisha uguse: "\n" "\n<li><font fgcolor="#ffffffff"><b>"Akaunti"</b></font>" kuongeza au kusanidi akaunti yenye anwani unazoweza kulandanisha kwa simu "\n</li>" "\n<li><font fgcolor="#ffffffff"><b>"Anwani mpya"</b></font>" Ili kuunda anwani mpya kutoka mwanzo "\n</li>" "\n<li><font fgcolor="#ffffffff"><b>" Leta/Hamisha "</b></font>" ili kuhamisha anwani kutoka kwa kadi yako ya SD"\n</li></string>
+    <string name="noContactsNoSimHelpTextWithSync" product="tablet" msgid="5415762667445638265">"Hauna anwani zozote za kuonyesha. (Kama umeongeza akaunti sasa hivi tu, inaweza kuchukua dakika chache kulandanisha anwani.)"\n\n"Ili kuongeza anwani, gusa "<font fgcolor="#ffffffff"><b>"Menyu"</b></font>",kisha uguse:"\n" "\n<li><font fgcolor="#ffffffff"><b>"Akaunti"</b></font>" ili kuongeza au kusanidi akaunti na anwani unazoweza kulandanisha kwenye kompyuta ndogo"\n</li>" "\n<li><font fgcolor="#ffffffff"><b>"Onyesha chaguo"</b></font>" ili kubadilisha anwani zinazoonekana"\n</li>" "\n<li><font fgcolor="#ffffffff"><b>"Anwani mpya"</b></font>" ili kuunda anwani mpya kutoka mwanzo"\n</li>" "\n<li><font fgcolor="#ffffffff"><b>"Leta/Hamisha"</b></font>" ili kuleta anwani kutoka kwa kadi yako ya SD"\n</li></string>
+    <string name="noContactsNoSimHelpTextWithSync" product="default" msgid="7443705129830284440">"Hauna anwani zozote za kuonyesha. (Kama umeongeza akaunti sasa hivi, inaweza kuchukua dakika chache kulandanisha anwani.)"\n\n"Kuongeza anwani, gusa "<font fgcolor="#ffffffff"><b>"Menyu"</b></font>",kisha uguse:{"\n" "\n<li><font fgcolor="#ffffffff"><b>"Akaunti"</b></font>" ili kuongeza au kuanzisha akaunti yenye anwani unazoweza kulandanisha kwenye simu"\n</li>" "\n<li><font fgcolor="#ffffffff"><b>"Onyesha uchaguzi"</b></font>" kwa kubadilisha anwani gani zinazoonekana"\n</li>" "\n<li><font fgcolor="#ffffffff"><b>"Anwani mpya"</b></font>"ili kuunda anwani mpya kutoka mwanzo"\n</li>\n<li><font fgcolor="#ffffffff"><b>"Leta/Hamisha"</b></font>" ili kuleta anwani kutoka kwa kadi yako ya SD"\n</li></string>
+    <string name="noFavoritesHelpText" msgid="3744655776704833277">"Huna vipendwa vyovyote."\n\n" Ili kuongeza anwani kwenye orodha yako ya vipendwa:"\n\n" "<li>"Gusa kichupo cha "<b>"Anwani"</b>\n</li>\n<li>"2Gusa anwani unayotaka kuiongeza kwenye vipendwa vyako"\n</li>" "\n<li>"Gusa nyota iliyo kando ya jina la anwani hiyo"\n</li></string>
+    <string name="dialer_useDtmfDialpad" msgid="1707548397435075040">"Tumia kibao cha kuchapa cha sauti na kugusa"</string>
+    <string name="dialer_returnToInCallScreen" msgid="3719386377550913067">"Rudi kwa simu inayoendelea"</string>
+    <string name="dialer_addAnotherCall" msgid="4205688819890074468">"Ongeza simu"</string>
+    <string name="callDetailTitle" msgid="5340227785196217938">"Maelezo ya simu"</string>
+    <string name="toast_call_detail_error" msgid="7200975244804730096">"Haikuweza kusoma maelezo ya simu iliyoombwa."</string>
+    <string name="type_incoming" msgid="6502076603836088532">"Simu inayoingia"</string>
+    <string name="type_outgoing" msgid="343108709599392641">"Simu inayotoka"</string>
+    <string name="type_missed" msgid="2720502601640509542">"Simu isiyojibiwa"</string>
+    <string name="type_voicemail" msgid="5153139450668549908">"Barua za sauti"</string>
+    <string name="actionIncomingCall" msgid="6028930669817038600">"Simu zinazoingia"</string>
+    <string name="callBack" msgid="5498224409038809224">"Mpigie"</string>
+    <string name="callAgain" msgid="3197312117049874778">"Piga simu tena"</string>
+    <string name="returnCall" msgid="8171961914203617813">"Mpigie"</string>
+    <string name="callDetailsDurationFormat" msgid="8157706382818184268">"Dakika <xliff:g id="MINUTES">%s</xliff:g> sekunde <xliff:g id="SECONDS">%s</xliff:g>"</string>
+    <string name="favoritesFrequentContacted" msgid="6184232487472425690">"Unaowasiliana nao zaidi"</string>
+    <string name="favoritesFrequentCalled" msgid="6128306889600696124">"Zinazopigwa mara kwa mara"</string>
+    <string name="add_contact_dlg_message_fmt" msgid="7986472669444326576">"Ongeza \"<xliff:g id="EMAIL">%s</xliff:g>\" kwa anwani?"</string>
+    <string name="description_image_button_one" msgid="1740638037139856139">"moja"</string>
+    <string name="description_image_button_two" msgid="5882638439003731308">"mbili"</string>
+    <string name="description_image_button_three" msgid="8709731759376015180">"tatu"</string>
+    <string name="description_image_button_four" msgid="3530239685642246130">"nne"</string>
+    <string name="description_image_button_five" msgid="1182465427501188413">"tano"</string>
+    <string name="description_image_button_six" msgid="2093656269261415475">"sita"</string>
+    <string name="description_image_button_seven" msgid="2450357020447676481">"saba"</string>
+    <string name="description_image_button_eight" msgid="6969435115163287801">"nane"</string>
+    <string name="description_image_button_nine" msgid="7857248695662558323">"tisa"</string>
+    <string name="description_image_button_star" msgid="3365919907520767866">"nyota"</string>
+    <string name="description_image_button_zero" msgid="4133108949401820710">"sufuri"</string>
+    <string name="description_image_button_pound" msgid="3039765597595889230">"Pauni"</string>
+    <string name="description_voicemail_button" msgid="3402506823655455591">"Barua ya sauti"</string>
+    <string name="description_search_button" msgid="3660807558587384889">"tafuta"</string>
+    <string name="description_dial_button" msgid="1274091017188142646">"piga simu"</string>
+    <string name="description_delete_button" msgid="6263102114033407382">"futa"</string>
+    <string name="description_digits_edittext" msgid="8760207516497016437">"nambari ya kupiga"</string>
+    <string name="description_contact_photo" msgid="3387458082667894062">"picha ya anwani"</string>
+    <string name="description_minus_button" msgid="6908099247930477551">"futa"</string>
+    <string name="description_plus_button" msgid="515164827856229880">"jumlisha"</string>
+    <string name="description_view_contact_detail" msgid="9133251213656414807">"Angalia anwani"</string>
+    <string name="no_sdcard_message" product="nosdcard" msgid="5242558018442357189">"Hakuna hifadhi iliyopatikana."</string>
+    <string name="no_sdcard_message" product="default" msgid="3357810406684913482">"Hakuna kadi ya SD iliyopatikana."</string>
+    <string name="import_from_sim" msgid="3859272228033941659">"Ingiza kutoka kwa SIM kadi"</string>
+    <string name="import_from_sdcard" product="default" msgid="8668347930577565175">"Leta kutoka kwa hifadhi"</string>
+    <string name="export_to_sdcard" product="default" msgid="6092815580965201089">"Hamisha kwa hifadhi"</string>
+    <string name="share_visible_contacts" msgid="890150378880783797">"Shiriki anwani zinazoonekana"</string>
+    <string name="import_one_vcard_string" msgid="9059163467020328433">"Ingiza faili moja ya vKadi"</string>
+    <string name="import_multiple_vcard_string" msgid="3810226492811062392">"Ingiza faili anuwai za vCard"</string>
+    <string name="import_all_vcard_string" msgid="5518136113853448474">"Ingiza faili zote za vKadi"</string>
+    <string name="searching_vcard_message" product="nosdcard" msgid="557077639409584945">"Inatafuta data ya vCard katika hifadhi..."</string>
+    <string name="searching_vcard_message" product="default" msgid="3962269894118092049">"Inatafuta data ya vKadi kwenye kadi ya SD"</string>
+    <string name="scanning_sdcard_failed_message" product="nosdcard" msgid="7221682312959229201">"Hifadhi haiku tambazwa. (Sababu: \"<xliff:g id="FAIL_REASON">%s</xliff:g>\")"</string>
+    <string name="scanning_sdcard_failed_message" product="default" msgid="189023067829510792">"Kadi ya SD haikutambazwa.(Sababu: \" <xliff:g id="FAIL_REASON">%s</xliff:g> \")"</string>
+    <string name="fail_reason_io_error" msgid="6748358842976073255">"Hitilafu ya I/O"</string>
+    <string name="fail_reason_low_memory_during_import" msgid="875222757734882898">"Hakuna kumbukumbu ya kutosha. Faili inaweza kuwa kubwa mno."</string>
+    <string name="fail_reason_vcard_parse_error" msgid="888263542360355784">"Haikuweza kuchanganua vCard kwa sababu isiyotarajiwa."</string>
+    <string name="fail_reason_not_supported" msgid="8219562769267148825">"Fomati haiauniwi"</string>
+    <string name="vcard_import_failed" msgid="5223531255894842406">"Haikuweza kuleta vCard."</string>
+    <string name="import_failure_no_vcard_file" product="nosdcard" msgid="2071820850017305867">"Hakuna faili ya vCard iliyopatikana katika hifadhi."</string>
+    <string name="import_failure_no_vcard_file" product="default" msgid="1754014167874286173">"Hakuna faili ya vCard iliyopatikana kwenye kadi ya SD."</string>
+    <string name="fail_reason_failed_to_collect_vcard_meta_info" msgid="6427931733267328564">"Haikuweza kukusanya maelezo meta ya faili zilizopeanwa za vCard."</string>
+    <!-- String.format failed for translation -->
+    <!-- no translation found for fail_reason_failed_to_read_files (5823434810622484922) -->
+    <skip />
+    <string name="fail_reason_unknown" msgid="1714092345030570863">"Hitilafu isiyojulikana."</string>
+    <string name="select_vcard_title" msgid="7791371083694672861">"Chagua faili ya vCard"</string>
+    <string name="caching_vcard_title" msgid="1226272312940516605">"Inaakibisha..."</string>
+    <string name="caching_vcard_message" msgid="4926308675041506756">"Vcard Inaakibisha ndani ya hifadhi ya muda mfupi. Uhamisho halisi utaanza hivi karibuni."</string>
+    <string name="progress_notifier_message" msgid="2311011466908220528">"Inaingiza <xliff:g id="CURRENT_NUMBER">%s</xliff:g>/<xliff:g id="TOTAL_NUMBER">%s</xliff:g>: <xliff:g id="NAME">%s</xliff:g>"</string>
+    <string name="importing_vcard_description" msgid="4245275224298571351">"Inaingiza <xliff:g id="NAME">%s</xliff:g>"</string>
+    <string name="reading_vcard_failed_title" msgid="4251647443358422855">"Haikuweza kusoma data ya vKadi"</string>
+    <string name="reading_vcard_canceled_title" msgid="1925216585981542019">"Kusoma data ya VCard kumeghairiwa"</string>
+    <string name="importing_vcard_finished_title" msgid="3341541727268747967">"Imemaliza kuleta vCard <xliff:g id="FILENAME">%s</xliff:g>"</string>
+    <string name="importing_vcard_canceled_title" msgid="2147475978165599336">"Kuleta <xliff:g id="FILENAME">%s</xliff:g> kumeghairiwa"</string>
+    <string name="vcard_import_will_start_message" msgid="2804911199145873396">"<xliff:g id="FILENAME">%s</xliff:g> italetwa hivi karibuni."</string>
+    <string name="vcard_import_will_start_message_with_default_name" msgid="1022969530654129470">"Faili italetwa hivi karibuni."</string>
+    <string name="vcard_import_request_rejected_message" msgid="2890471184508516011">"Ombi la kuleta vCard limekataliwa. Tafadhali jaribu baadaye."</string>
+    <string name="vcard_export_will_start_message" msgid="2210241345252081463">"<xliff:g id="FILENAME">%s</xliff:g> itahamishwa hivi karibuni."</string>
+    <string name="vcard_export_request_rejected_message" msgid="2844874826431327531">"Ombi la kuhamishwa kwa vCard limekataliwa. Jaribu tena baadaye."</string>
+    <string name="vcard_unknown_filename" msgid="7171709890959915954">"anwani"</string>
+    <string name="percentage" msgid="1044592438199055502">"<xliff:g id="PERCENTAGE">%s</xliff:g><xliff:g id="PERCENTSIGN">%%</xliff:g>"</string>
+    <string name="confirm_export_title" msgid="6834385377255286349">"Hamisha anwani?"</string>
+    <string name="confirm_export_message" msgid="2423421354816428708">"Orodha yako ya anwani itahamishwa kwa faili: <xliff:g id="VCARD_FILENAME">%s</xliff:g>."</string>
+    <string name="exporting_contact_failed_title" msgid="4892358112409576342">"Imeshindwa kuhamisha"</string>
+    <string name="exporting_contact_failed_message" msgid="4938527850142003141">"Data ya mwasiliani haikuhamishwa."\n"Sababu: \"<xliff:g id="FAIL_REASON">%s</xliff:g>\""</string>
+    <string name="fail_reason_no_exportable_contact" msgid="8728506011371262065">"Hakuna anwani inayoweza kuhamishwa."</string>
+    <string name="fail_reason_too_many_vcard" product="nosdcard" msgid="590645599157376285">"Faili nyingi mno za vCard  ziko katika hifadhi."</string>
+    <string name="fail_reason_too_many_vcard" product="default" msgid="4887177369627277474">"Faili nyingi mno za Vcard ziko kwa kadi ya SD."</string>
+    <string name="fail_reason_too_long_filename" msgid="3393764245254738333">"Jina la faili linalohitajika ni refu sana (\"<xliff:g id="FILENAME">%s</xliff:g>\")."</string>
+    <string name="exporting_vcard_finished_title" msgid="4767045779458185251">"Imemaliza kuhamisha <xliff:g id="FILENAME">%s</xliff:g>"</string>
+    <string name="exporting_vcard_canceled_title" msgid="2652222370493306887">"Kuhamisha <xliff:g id="FILENAME">%s</xliff:g> kumeghairiwa"</string>
+    <string name="exporting_contact_list_title" msgid="9072240631534457415">"Inahamisha data ya anwani"</string>
+    <string name="exporting_contact_list_message" msgid="7181663157672374569">"Data ya mwasiliani wako inahamishwa kwa <xliff:g id="FILE_NAME">%s</xliff:g>."</string>
+    <string name="fail_reason_could_not_initialize_exporter" msgid="707260459259688510">"Haikuweza kuanzisha kihamishaji: \"<xliff:g id="EXACT_REASON">%s</xliff:g>\"."</string>
+    <string name="fail_reason_error_occurred_during_export" msgid="3018855323913649063">"Hitilafu imetokea wakati wa uhamisho: \"<xliff:g id="EXACT_REASON">%s</xliff:g>\"."</string>
+    <string name="composer_failed_to_get_database_infomation" msgid="1765944280846236723">"Haikupata maelezo ya hifadhidata."</string>
+    <string name="composer_has_no_exportable_contact" product="tablet" msgid="6991449891825077743">"Hakuna anwani za kuhamishwa. Ikiwa una anwani kwenye kompyuta yako ndogo baadhi ya watoa huduma za data wanaweza kosa kuruhusu anwani kuhamishwa kutoka kwa kompyuta ndogo."</string>
+    <string name="composer_has_no_exportable_contact" product="default" msgid="3296493229040294335">"Hakuna anwani za kuhamishwa. Kama una anwani kwenye simu yako, baadhi ya wahudumu wa data wanaweza kosa kuruhusu anwani kuhamishwa kutoka kwa simu."</string>
+    <string name="composer_not_initialized" msgid="2321648986367005254">"Kitunzi cha vCard hakikuanza vizuri."</string>
+    <string name="fail_reason_could_not_open_file" msgid="2067725459821997463">"Haikuweza kufungua \"{<xliff:g id="FILE_NAME">%s</xliff:g>\": <xliff:g id="EXACT_REASON">%s</xliff:g>."</string>
+    <string name="exporting_contact_list_progress" msgid="560522409559101193">"<xliff:g id="CURRENT_NUMBER">%s</xliff:g> ya anwani <xliff:g id="TOTAL_NUMBER">%s</xliff:g>"</string>
+    <string name="cancel_import_confirmation_message" msgid="3929951040347726757">"Ghairi kuletwa kwa <xliff:g id="FILENAME">%s</xliff:g>?"</string>
+    <string name="cancel_export_confirmation_message" msgid="1995462401949262638">"Ghairi kuhamishwa kwa <xliff:g id="FILENAME">%s</xliff:g>?"</string>
+    <string name="cancel_vcard_import_or_export_failed" msgid="6139900383366166706">"Haikuweza kughairiwa kuleta/kuhamisha vCard"</string>
+    <string name="search_settings_description" msgid="2675223022992445813">"Majina ya anwani zako"</string>
+    <string name="add_2sec_pause" msgid="9214012315201040129">"Ongeza usitishaji wa sekunde 2"</string>
+    <string name="add_wait" msgid="3360818652790319634">"Ongeza kusubiri"</string>
+    <string name="call_disambig_title" msgid="4392886850104795739">"Chagua nambari"</string>
+    <string name="call_settings" msgid="7666474782093693667">"Mipangilio"</string>
+    <string name="sms_disambig_title" msgid="5846266399240630846">"Chagua nambari"</string>
+    <string name="make_primary" msgid="5829291915305113983">"Kumbuka chaguo hili"</string>
+    <string name="quickcontact_missing_app" msgid="358168575340921552">"Hakuna programu iliyopatikana ya kushughulikia tendo hili."</string>
+    <string name="missing_name" msgid="8745511583852904385">"(Hakuna jina)"</string>
+    <string name="menu_accounts" msgid="8499114602017077970">"Akaunti"</string>
+    <string name="menu_clear_frequents" msgid="7688250191932838833">"Futa idadi ya mara ambazo unawasiliana nao"</string>
+    <string name="menu_contacts_filter" msgid="2165153460860262501">"Anwani za kuonyesha"</string>
+    <string name="menu_import_export" msgid="26217871113229507">"Leta/hamisha"</string>
+    <string name="dialog_import_export" msgid="4360648034889921624">"Leta/Hamisha wawasiliani"</string>
+    <string name="dialog_import" msgid="2431698729761448759">"Ingiza wasiliani"</string>
+    <string name="menu_share" msgid="943789700636542260">"Shiriki"</string>
+    <string name="share_via" msgid="563121028023030093">"Shiriki anwani kupitia"</string>
+    <string name="share_error" msgid="948429331673358107">"Mwasiliani huyu hawezi kushirikishwa."</string>
+    <string name="nameLabelsGroup" msgid="2034640839640477827">"Jina"</string>
+    <string name="nicknameLabelsGroup" msgid="2891682101053358010">"Jina la utani"</string>
+    <string name="organizationLabelsGroup" msgid="2478611760751832035">"Shirika"</string>
+    <string name="websiteLabelsGroup" msgid="4202998982804009261">"Tovuti"</string>
+    <string name="eventLabelsGroup" msgid="3695433812142818803">"Matukio"</string>
+    <string name="relationLabelsGroup" msgid="1854373894284572781">"Uhusiano"</string>
+    <string name="groupsLabel" msgid="8573535366319059326">"Vikundi"</string>
+    <string name="dialog_new_contact_account" msgid="9044704073286262197">"Weka anwani chini ya akaunti"</string>
+    <string name="dialog_new_group_account" msgid="2318032089273496830">"Buni kikundi chini ya akaunti"</string>
+    <string name="menu_sync_remove" msgid="3266725887008450161">"Ondoa kikundi cha usawazishaji"</string>
+    <string name="dialog_sync_add" msgid="8267045393119375803">"Ongeza kikundi cha usawazishaji"</string>
+    <string name="display_more_groups" msgid="2682547080423434170">"Vikundi zaidi..."</string>
+    <string name="display_ungrouped" msgid="6885954210243119591">"Anwani Zingine Zote"</string>
+    <string name="display_all_contacts" msgid="2031647544742889505">"Wawasiliani wote"</string>
+    <string name="display_warn_remove_ungrouped" msgid="8872290721676651414">"Kuondoa \"<xliff:g id="GROUP">%s</xliff:g>\" \"kutoka ulandanishi pia kutaondoa anwani zisizo kwenye kikundi kutoka kwa ulandanishi."</string>
+    <string name="account_phone" product="tablet" msgid="7946049152658522054">"Kompyuta ndogo tu, haijasawazishwa"</string>
+    <string name="account_phone" product="default" msgid="3682950835276226870">"Simu tu, haijasawazishwa"</string>
+    <string name="call_custom" msgid="7756571794763171802">"Mpigie <xliff:g id="CUSTOM">%s</xliff:g>"</string>
+    <string name="call_home" msgid="1990519474420545392">"Piga simu nyumbani"</string>
+    <string name="call_mobile" msgid="7502236805487609178">"Pigia simu ya mkononi"</string>
+    <string name="call_work" msgid="5328785911463744028">"Piga simu kazini"</string>
+    <string name="call_fax_work" msgid="7467763592359059243">"Piga simu kwa pepesi ya kazini"</string>
+    <string name="call_fax_home" msgid="8342175628887571876">"Piga simu kwa pepesi ya nyumbani"</string>
+    <string name="call_pager" msgid="9003902812293983281">"Piga simu kwa peja"</string>
+    <string name="call_other" msgid="8563753966926932052">"Piga simu"</string>
+    <string name="call_callback" msgid="1910165691349426858">"Mpigie"</string>
+    <string name="call_car" msgid="3280537320306436445">"Piga simu kwa gari"</string>
+    <string name="call_company_main" msgid="6105120947138711257">"Pigia nambari kuu ya simu ya kampuni"</string>
+    <string name="call_isdn" msgid="1541590690193403411">"Piga simu kwa ISDN"</string>
+    <string name="call_main" msgid="6082900571803441339">"Piga simu kuu"</string>
+    <string name="call_other_fax" msgid="5745314124619636674">"Piga simu ya faksi"</string>
+    <string name="call_radio" msgid="8296755876398357063">"Piga simu kwa redio"</string>
+    <string name="call_telex" msgid="2223170774548648114">"Piga simu kwa telex"</string>
+    <string name="call_tty_tdd" msgid="8951266948204379604">"Pigia TTY/TDD"</string>
+    <string name="call_work_mobile" msgid="8707874281430105394">"Piga simu kwa simu ya mkononi ya kazini"</string>
+    <string name="call_work_pager" msgid="3419348514157949008">"Piga simu kwa peja"</string>
+    <string name="call_assistant" msgid="2141641383068514308">"Piga simu <xliff:g id="ASSISTANT">%s</xliff:g>"</string>
+    <string name="call_mms" msgid="6274041545876221437">"Piga simu kwa MMS"</string>
+    <string name="sms_custom" msgid="5932736853732191825">"Tuma ujumbe kwa <xliff:g id="CUSTOM">%s</xliff:g>"</string>
+    <string name="sms_home" msgid="7524332261493162995">"Tuma ujumbe kwa simu ya nyumbani"</string>
+    <string name="sms_mobile" msgid="5200107250451030769">"Tuma ujumbe wa maandishi kwa simu ya mkononi"</string>
+    <string name="sms_work" msgid="2269624156655267740">"Tuma ujumbe kazini"</string>
+    <string name="sms_fax_work" msgid="8028189067816907075">"Tuma maandishi kwa faksi ya kazini"</string>
+    <string name="sms_fax_home" msgid="9204042076306809634">"Tuma ujumbe kwa pepesi ya nyumbani"</string>
+    <string name="sms_pager" msgid="7730404569637015192">"Tuma ujumbe kwa peja"</string>
+    <string name="sms_other" msgid="806127844607642331">"Matini"</string>
+    <string name="sms_callback" msgid="5004824430094288752">"Piga simu tena kwa kutumia maandishi"</string>
+    <string name="sms_car" msgid="7444227058437359641">"Tuma ujumbe kwa gari"</string>
+    <string name="sms_company_main" msgid="118970873419678087">"Kampuni kuu ya maandishi"</string>
+    <string name="sms_isdn" msgid="8153785037515047845">"Tuma ujumbe kwa ISDN"</string>
+    <string name="sms_main" msgid="8621625784504541679">"Tuma ujumbe wa simu kuu"</string>
+    <string name="sms_other_fax" msgid="3888842199855843152">"Faksi ya maandishi"</string>
+    <string name="sms_radio" msgid="3329166673433967820">"Tuma ujumbe kwa redio"</string>
+    <string name="sms_telex" msgid="9034802430065267848">"Tuma ujumbe kwa teleksi"</string>
+    <string name="sms_tty_tdd" msgid="6782284969132531532">"Tuma ujumbe kwa TTY/TDD"</string>
+    <string name="sms_work_mobile" msgid="2459939960512702560">"Tuma ujumbe kwa simu ya mkononi ya kazini"</string>
+    <string name="sms_work_pager" msgid="5566924423316960597">"Tuma ujumbe kwa peja ya kazini"</string>
+    <string name="sms_assistant" msgid="2773424339923116234">"Tuma ujumbe kwa <xliff:g id="ASSISTANT">%s</xliff:g>"</string>
+    <string name="sms_mms" msgid="4069352461380762677">"Tuma maandishi ya MMS"</string>
+    <string name="sms" msgid="1756857139634224222">"Ujumbe wa maandishi"</string>
+    <string name="email_home" msgid="8573740658148184279">"Nyumbani mwa barua pepe"</string>
+    <string name="email_mobile" msgid="2042889209787989814">"Tuma barua pepe kwa simu ya mkononi"</string>
+    <string name="email_work" msgid="2807430017302722689">"Tuma barua pepe kazini"</string>
+    <string name="email_other" msgid="3454004077967657109">"Barua pepe"</string>
+    <string name="email_custom" msgid="7548003991586214105">"Barua pepe <xliff:g id="CUSTOM">%s</xliff:g>"</string>
+    <string name="email" msgid="5668400997660065897">"Barua pepe"</string>
+    <string name="map_home" msgid="1243547733423343982">"Angalia anwani ya nyumbani"</string>
+    <string name="map_work" msgid="1360474076921878088">"Angalia anwani ya kazini"</string>
+    <string name="map_other" msgid="3817820803587012641">"Tazama anwani"</string>
+    <string name="map_custom" msgid="6184363799976265281">"Angalia anwani <xliff:g id="CUSTOM">%s</xliff:g>"</string>
+    <string name="chat_aim" msgid="2588492205291249142">"Piga gumzo kwa kutumia AIM"</string>
+    <string name="chat_msn" msgid="8041633440091073484">"Piga gumzo kwa kutumia Windows Live"</string>
+    <string name="chat_yahoo" msgid="6629211142719943666">"Piga gumzo kwa kutumia Yahoo"</string>
+    <string name="chat_skype" msgid="1210045020427480566">"Piga gumzo kwa kutumia Skype"</string>
+    <string name="chat_qq" msgid="4294637812847719693">"Piga gumzo kwa kutumia QQ"</string>
+    <string name="chat_gtalk" msgid="981575737258117697">"Piga gumzo kwa kutumia Google Talk"</string>
+    <string name="chat_icq" msgid="8438405386153745775">"Piga gumzo kwa kutumia ICQ"</string>
+    <string name="chat_jabber" msgid="7561444230307829609">"Piga gumzo kwa kutumia Jabber"</string>
+    <string name="chat" msgid="9025361898797412245">"Gumzo"</string>
+    <string name="audio_chat" msgid="2535716629358298691">"Gumzo la sauti"</string>
+    <string name="video_chat" msgid="1872255818640336072">"Piga gumzo la video"</string>
+    <string name="postal_address" msgid="8765560217149624536">"Anwani"</string>
+    <string name="postal_street" msgid="8133143961580058972">"Barabara"</string>
+    <string name="postal_pobox" msgid="4431938829180269821">"Sanduku la posta"</string>
+    <string name="postal_neighborhood" msgid="1450783874558956739">"Mtaa"</string>
+    <string name="postal_city" msgid="6597491300084895548">"Jiji"</string>
+    <string name="postal_region" msgid="6045263193478437672">"Jimbo"</string>
+    <string name="postal_postcode" msgid="572136414136673751">"Msimbo wa posta"</string>
+    <string name="postal_country" msgid="7638264508416368690">"Nchi"</string>
+    <string name="full_name" msgid="6602579550613988977">"Jina"</string>
+    <string name="name_given" msgid="1687286314106019813">"Jina la kupewa"</string>
+    <string name="name_family" msgid="3416695586119999058">"Jina la familia"</string>
+    <string name="name_prefix" msgid="59756378548779822">"Kiambishi awali cha jina"</string>
+    <string name="name_middle" msgid="8467433655992690326">"Jina la kati"</string>
+    <string name="name_suffix" msgid="3855278445375651441">"Kiambishi awali cha jina"</string>
+    <string name="name_phonetic_given" msgid="6853570431394449191">"Jina lililotolewa la fonetiki"</string>
+    <string name="name_phonetic_middle" msgid="8643721493320405200">"Jina la katikati la kifonetiki"</string>
+    <string name="name_phonetic_family" msgid="462095502140180305">"Jina la kifonetiki la familia"</string>
+    <string name="name_phonetic" msgid="4259595234312430484">"Jina la kifonetiki"</string>
+    <string name="connections" msgid="8098440723172028350">"Miunganisho"</string>
+    <string name="add_connection_button" msgid="4861308615789601727">"Ongeza muunganisho"</string>
+    <string name="recent" msgid="2659189233141493004">"Hivi karibuni"</string>
+    <string name="recent_updates" msgid="4267258535615860710">"Visasisho vya hivi karibuni"</string>
+    <string name="account_type_format" msgid="718948015590343010">"Anwani <xliff:g id="SOURCE">%1$s</xliff:g>"</string>
+    <!-- no translation found for from_account_format (4469138575127580203) -->
+    <skip />
+    <string name="use_photo_as_primary" msgid="8807110122951157246">"Tumia picha hii"</string>
+    <string name="contact_read_only" msgid="7421346527289472273">"Haiwezi kuhaririwa kutoka kwa programu hii."</string>
+    <string name="no_contact_details" msgid="6636856378019344497">"Hakuna maelezo ya ziada ya mwasiliani huyu."</string>
+    <string name="group_read_only" msgid="1061762906115697637">"Haiwezi kuhaririwa kwenye kifaa hiki"</string>
+    <string name="display_options_sort_list_by" msgid="6080091755852211076">"Panga orodha kwa"</string>
+    <string name="display_options_sort_by_given_name" msgid="184916793466387067">"Jina la kwanza"</string>
+    <string name="display_options_sort_by_family_name" msgid="7857986975275712622">"Jila la familia"</string>
+    <string name="display_options_view_names_as" msgid="18022868169627979">"Tazama majina ya anwani kama"</string>
+    <string name="display_options_view_given_name_first" msgid="6968288511197363292">"Jina ulilopewa kwanza"</string>
+    <string name="display_options_view_family_name_first" msgid="1447288164951453714">"Jina la familia kwanza"</string>
+    <string name="take_photo" msgid="7496128293167402354">"Piga picha"</string>
+    <string name="take_new_photo" msgid="7341354729436576304">"Piga picha mpya"</string>
+    <string name="pick_photo" msgid="3746334626214970837">"Chagua picha kutoka kwa Ghala"</string>
+    <string name="pick_new_photo" msgid="7962368009197147617">"Chagua picha mpya kutoka kwa Matunzio"</string>
+    <string name="locale_change_in_progress" msgid="7583992153091537467">"Orodha ya anwani inasasishwa ili kuangazia mabadiliko ya lugha."</string>
+    <string name="upgrade_in_progress" msgid="474511436863451061">"Orodha ya anwani inasasishwa."</string>
+    <string name="upgrade_out_of_memory" msgid="1209994418877625940">"Anwani ziko katika harakati ya kupandishwa gredi. "\n\n"Mchakato wa kupandisha gredi unahitaji takriban MB <xliff:g id="SIZE_IN_MEGABYTES">%s</xliff:g> za hifadhi ya ndani."\n\n"Chagua mojawapo ya chaguo zifwatazo:"</string>
+    <string name="upgrade_out_of_memory_uninstall" msgid="1721798828992091432">"Ondoa baadhi ya programu"</string>
+    <string name="upgrade_out_of_memory_retry" msgid="8431289830472724609">"Jaribu kupandisha gredi tena"</string>
+    <string name="search_results_searching" msgid="3984833028938569930">"Inatafuta…"</string>
+    <string name="menu_display_selected" msgid="6470001164297969034">"Onyesha iliyochaguliwa"</string>
+    <string name="menu_display_all" msgid="8887488642609786198">"Onyesha zote"</string>
+    <string name="menu_select_all" msgid="621719255150713545">"Chagua zote"</string>
+    <string name="menu_select_none" msgid="7093222469852132345">"Usichague zozote"</string>
+    <string name="no_contacts_selected" msgid="5877803471037324613">"Hakuna anwani zilizochaguliwa."</string>
+    <string name="add_field" msgid="2384260056674995230">"Ongeza uga nyingine"</string>
+    <string name="add_new_entry_for_section" msgid="5223080690667565044">"Ongeza mpya"</string>
+    <string name="add_organization" msgid="7311893231158291197">"Ongeza shirikisho"</string>
+    <string name="event_edit_field_hint_text" msgid="5794424930242630477">"Tarehe"</string>
+    <string name="group_edit_field_hint_text" msgid="3966441850870457808">"Jina la kikundi"</string>
+    <string name="contact_status_update_attribution" msgid="752179367353018597">"kupitia <xliff:g id="SOURCE">%1$s</xliff:g>"</string>
+    <string name="contact_status_update_attribution_with_date" msgid="7358045508107825068">"<xliff:g id="DATE">%1$s</xliff:g> kupitia <xliff:g id="SOURCE">%2$s</xliff:g>"</string>
+    <string name="description_star" msgid="2605854427360036550">"kipendwa"</string>
+    <string name="edit_contact" msgid="7529281274005689512">"Hariri anwani"</string>
+  <plurals name="merge_info">
+    <item quantity="one" msgid="148365587896371969">"haijaunganishwa"</item>
+    <item quantity="other" msgid="425683718017380845">"Zimeunganishwa kutoka kwa nyenzo <xliff:g id="COUNT">%0$d</xliff:g>"</item>
+  </plurals>
+    <string name="local_invisible_directory" msgid="6046691709127661065">"Nyingineyo"</string>
+    <string name="aggregation_suggestion_join_dialog_message" msgid="3842757977671434836">"Unganisha anwani ya sasa na anwani iliyochaguliwa?"</string>
+    <string name="aggregation_suggestion_edit_dialog_message" msgid="6549585283910518095">"Badilisha kwa hariri anwani iliyochaguliwa? Maelezo uliyoyaingiza hadi sasa yatanakiliwa."</string>
+    <string name="menu_copyContact" msgid="1573960845106822639">"Nakili kwa Anwani Zangu"</string>
+    <string name="add_to_my_contacts" msgid="1068274916793627723">"Ongeza kwa Anwani Zangu"</string>
+    <string name="contact_directory_description" msgid="683398073603909119">"Saraka <xliff:g id="TYPE">%1$s</xliff:g>"</string>
+    <string name="directory_search_label" msgid="1887759056597975053">"Saraka"</string>
+    <string name="local_search_label" msgid="2551177578246113614">"Anwani zote"</string>
+    <string name="toast_making_personal_copy" msgid="288549957278065542">"Inaunda nakala ya kibinafsi..."</string>
+    <string name="list_filter_all_accounts" msgid="8908683398914322369">"Anwani zote"</string>
+    <string name="list_filter_all_starred" msgid="5031734941601931356">"Zenye Nyota"</string>
+    <string name="list_filter_custom" msgid="8910173055702057002">"Maalum"</string>
+    <string name="list_filter_customize" msgid="4789963356004169321">"Geuza kukufaa"</string>
+    <string name="list_filter_phones" msgid="735313795643493365">"Wasiliani wote walio na nambari ya simu"</string>
+    <string name="list_filter_single" msgid="5871400283515893087">"Anwani"</string>
+    <string name="custom_list_filter" msgid="7836035257402013957">"Bainisha mwonekano maalum"</string>
+    <string name="contact_list_loading" msgid="5488620820563977329">"Inapakia…"</string>
+    <string name="activity_title_settings" msgid="5464130076132770781">"Mipangilio"</string>
+    <string name="activity_title_contacts_filter" msgid="8275542497615516969">"Anwani za uonyesha"</string>
+    <string name="menu_settings" msgid="377929915873428211">"Mipangilio"</string>
+    <string name="menu_help" msgid="5123887102216637725">"Usaidizi"</string>
+    <string name="preference_displayOptions" msgid="1341720270148252393">"Onyesha machaguo"</string>
+    <string name="organization_company_and_title" msgid="6718207751363732025">"<xliff:g id="COMPANY_0">%2$s</xliff:g>, <xliff:g id="COMPANY_1">%1$s</xliff:g>"</string>
+    <string name="hint_findContacts" msgid="1808681193458772072">"Tafuta anwani"</string>
+    <string name="non_phone_caption" msgid="1541655052330027380">"Nambari ya simu"</string>
+    <string name="non_phone_add_to_contacts" msgid="6590985286250471169">"Ongeza kwa anwani"</string>
+    <string name="activity_title_confirm_add_detail" msgid="4065089866210730616">"Ongeza kwa anwani"</string>
+    <string name="non_phone_close" msgid="7608506439725515667">"Funga"</string>
+    <string name="widget_name_and_phonetic" msgid="8739586586600099979">"<xliff:g id="DISPLAY_NAME">%1$s</xliff:g> (<xliff:g id="PHONETIC_NAME">%2$s</xliff:g>)"</string>
+    <string name="date_year_toggle" msgid="7356532842767854606">"Bainisha mwaka"</string>
+    <string name="social_widget_label" msgid="6378905543028924592">"Anwani"</string>
+    <string name="social_widget_loading" msgid="5327336597364074608">"Inapakia…"</string>
+    <string name="contacts_unavailable_create_contact" msgid="7014525713871959208">"Fungua akaunti mpya"</string>
+    <string name="contacts_unavailable_add_account" msgid="7911101713860139754">"Ingia katika akaunti"</string>
+    <string name="contacts_unavailable_import_contacts" msgid="4957393255392437529">"Ingiza wasiliani"</string>
+    <string name="create_group_dialog_title" msgid="6874527142828424475">"Unda kikundi kipya"</string>
+    <string name="create_group_item_label" msgid="4411981763169654825">"Unda kikundi kipya"</string>
+  <plurals name="num_groups_in_account">
+    <item quantity="one" msgid="2944819210288517794">"Kikundi 1"</item>
+    <item quantity="other" msgid="1276758425904917367">"Vikundi <xliff:g id="COUNT">%0$d</xliff:g>"</item>
+  </plurals>
+    <string name="delete_group_dialog_message" msgid="7586856514337560529">"Futa kikundi \"<xliff:g id="GROUP_LABEL">%1$s</xliff:g>\"? (Anwani zenyewe hazitafutwa.)"</string>
+  <plurals name="num_contacts_in_group">
+    <item quantity="one" msgid="1352418549951013448">"Mtu<xliff:g id="COUNT_0">%1$d</xliff:g> kutoka <xliff:g id="ACCOUNT_TYPE">%2$s</xliff:g>"</item>
+    <item quantity="other" msgid="8146027769011086349">"Watu <xliff:g id="COUNT_0">%1$d</xliff:g>  kutoka<xliff:g id="ACCOUNT_TYPE">%2$s</xliff:g>"</item>
+  </plurals>
+  <plurals name="group_list_num_contacts_in_group">
+    <item quantity="one" msgid="3323065321661972446">"Mtu <xliff:g id="COUNT">%1$d</xliff:g>"</item>
+    <item quantity="other" msgid="6251996206137048525">"Watu <xliff:g id="COUNT">%1$d</xliff:g>"</item>
+  </plurals>
+    <string name="toast_join_with_empty_contact" msgid="2238581529864542985">"Andika jina ya mwasiliani kabla ya kumuunganisha na mwingine."</string>
+    <string name="copy_text" msgid="3257145021583508761">"Nakili kwenye ubao wa klipu"</string>
+    <string name="set_default" msgid="4417505153468300351">"Weka chaguo-msingi"</string>
+    <string name="clear_default" msgid="7193185801596678067">"Ondoa chaguo-msingi"</string>
+    <string name="toast_text_copied" msgid="5143776250008541719">"Maandishi yamenakiliwa"</string>
+    <string name="cancel_confirmation_dialog_message" msgid="5885724679874403115">"Tupa mabadiliko yako?"</string>
+    <string name="call_type_and_date" msgid="747163730039311423">"<xliff:g id="CALL_TYPE">%1$s</xliff:g> <xliff:g id="CALL_SHORT_DATE">%2$s</xliff:g>"</string>
+    <string name="profile_display_name" msgid="4127389543625918771">"Unda wasifu wangu"</string>
+    <string name="enter_contact_name" msgid="1738391320566349924">"Charaza jina la mtu"</string>
+    <string name="view_updates_from_group" msgid="1782685984905600034">"Tazama visasisho"</string>
+  <plurals name="notification_voicemail_title">
+    <item quantity="one" msgid="1746619685488504230">"Barua ya sauti"</item>
+    <item quantity="other" msgid="5513481419205061254">"Barua za sauti <xliff:g id="COUNT">%1$d</xliff:g>"</item>
+  </plurals>
+    <string name="notification_action_voicemail_play" msgid="6113133136977996863">"Cheza"</string>
+    <string name="notification_voicemail_callers_list" msgid="1153954809339404149">"<xliff:g id="NEWER_CALLERS">%1$s</xliff:g>, <xliff:g id="OLDER_CALLER">%2$s</xliff:g>"</string>
+    <string name="notification_new_voicemail_ticker" msgid="895342132049452081">"Barua mpya ya sauti kutoka <xliff:g id="CALLER">%1$s</xliff:g>"</string>
+    <string name="voicemail_playback_error" msgid="1811242131549854624">"Haikuweza kucheza barua ya sauti."</string>
+    <string name="voicemail_buffering" msgid="738287747618697097">"Inaakibisha…"</string>
+    <string name="voicemail_fetching_content" msgid="877911315738258780">"Inaleta barua ya sauti…"</string>
+    <string name="voicemail_fetching_timout" msgid="6691792377574905201">"Haikuweza kuleta barua ya sauti."</string>
+    <string name="call_log_new_header" msgid="846546437517724715">"Mpya"</string>
+    <string name="call_log_old_header" msgid="6262205894314263629">"Nzee zaidi"</string>
+    <string name="call_log_voicemail_header" msgid="3945407886667089173">"Simu zilizo na ujumbe wa sauti tu"</string>
+    <string name="call_log_incoming_header" msgid="2787722299753674684">"Simu zinazoingia tu"</string>
+    <string name="call_log_outgoing_header" msgid="761009180766735769">"Simu zinazotoka tu"</string>
+    <string name="call_log_missed_header" msgid="8017148056610855956">"Simu zisizojibiwa tu"</string>
+    <string name="voicemail_status_voicemail_not_available" msgid="3021980206152528883">"Haiwezi kuunganisha kwa seva ya ujumbe wa sauti."</string>
+    <string name="voicemail_status_messages_waiting" msgid="7113421459602803605">"Haiwezi kuunganishwa kwenye seva ya ujumbe wa sauti. Jumbe mpya za sauti zinasubiri."</string>
+    <string name="voicemail_status_configure_voicemail" msgid="3738537770636895689">"Sanidi ujumbe wako wa sauti."</string>
+    <string name="voicemail_status_audio_not_available" msgid="3369618334553341626">"Sauti haipatikani."</string>
+    <string name="voicemail_status_action_configure" msgid="8671796489912239589">"Sanidi"</string>
+    <string name="voicemail_status_action_call_server" msgid="1824816252288551794">"Pigia barua sauti"</string>
+    <string name="voicemail_speed_slowest" msgid="1733460666177707312">"Kasi ya taratibu zaidi"</string>
+    <string name="voicemail_speed_slower" msgid="1508601287347216244">"Kasi ya taratibu"</string>
+    <string name="voicemail_speed_normal" msgid="9033988544627228892">"Kasi ya kawaida"</string>
+    <string name="voicemail_speed_faster" msgid="2019965121475935488">"Kasi ya haraka"</string>
+    <string name="voicemail_speed_fastest" msgid="5758712343491183292">"Kasi ya haraka zaidi"</string>
+    <string name="call_log_item_count_and_date" msgid="7641933305703520787">"( <xliff:g id="COUNT">%1$d</xliff:g> ) <xliff:g id="DATE">%2$s</xliff:g>"</string>
+    <string name="group_name_hint" msgid="238359485263401293">"Jina la kikundi"</string>
+    <string name="nfc_vcard_file_name" msgid="2823095213265993609">"Anwani imepokewa kupitia NFC"</string>
+    <string name="menu_show_outgoing_only" msgid="1965570298133301970">"Onyesha zinazotoka pekee"</string>
+    <string name="menu_show_incoming_only" msgid="7534206815238877417">"Onyesha zinazoingia pekee"</string>
+    <string name="menu_show_missed_only" msgid="154473166059743996">"Onyesha zilizokosa kupokewa pekee"</string>
+    <string name="menu_show_voicemails_only" msgid="1898421289561435703">"Onyesha barua za sauti pekee"</string>
+    <string name="menu_show_all_calls" msgid="7560347482073345885">"Onyesha simu zote"</string>
+    <string name="status_available" msgid="5586870015822828392">"Nipo"</string>
+    <string name="status_away" msgid="1838861100379804730">"Mbali"</string>
+    <string name="status_busy" msgid="9147992455450257136">"Ana shughuli"</string>
+    <string name="description_call_log_play_button" msgid="651182125650429846">"Cheza barua ya sauti"</string>
+    <string name="description_call_log_incoming_call" msgid="4485427487637250143">"Simu inayoingia"</string>
+    <string name="description_call_log_outgoing_call" msgid="604831756853471658">"Simu inayotoka"</string>
+    <string name="description_call_log_missed_call" msgid="2242805209983708825">"Simu isiyojibiwa"</string>
+    <string name="description_call_log_voicemail" msgid="4600798771975158948">"Barua za sauti"</string>
+    <string name="description_add_contact" msgid="3103414772502485851">"Ongeza anwani"</string>
+    <string name="description_view_contact" msgid="5205669345700598415">"Angalia anwani <xliff:g id="NAME">%1$s</xliff:g>"</string>
+    <string name="description_call" msgid="3443678121983852666">"Piga <xliff:g id="NAME">%1$s</xliff:g>"</string>
+    <string name="description_send_text_message" msgid="7803126439934046891">"Tuma ujumbe wa maandishi kwa <xliff:g id="NAME">%1$s</xliff:g>"</string>
+    <string name="description_call_log_unheard_voicemail" msgid="118101684236996786">"Barua sauti ambayo haijasikizwa"</string>
+    <string name="description_send_message" msgid="6046623392322890962">"Tuma ujumba kwa <xliff:g id="NAME">%1$s</xliff:g>"</string>
+    <string name="description_dial_phone_number" msgid="8831647331642648637">"Piga simu <xliff:g id="NAME">%1$s</xliff:g>"</string>
+    <string name="description_quick_contact_for" msgid="6737516415168327789">"Mwasiliani wa haraka wa <xliff:g id="NAME">%1$s</xliff:g>"</string>
+    <string name="call_log_empty_gecode" msgid="5588904744812100846">"-"</string>
+    <string name="user_profile_contacts_list_header" msgid="5582421742835006940">"Mimi"</string>
+    <string name="local_profile_title" msgid="2021416826991393684">"Wasifu wangu wa ndani."</string>
+    <string name="external_profile_title" msgid="8034998767621359438">"Wasifu wangu wa <xliff:g id="EXTERNAL_SOURCE">%1$s</xliff:g>"</string>
+    <string name="toast_displaying_all_contacts" msgid="2737388783898593875">"Inaonyesha anwani zote"</string>
+    <string name="no_account_prompt" msgid="7061052512446855192">"Watu wanafanya kazi vizuri wakiwa na Akaunti ya Google. "\n" "\n" • Iangalie kwa kutumia kivinjari chochote. "\n" • Tunza mawasiliano yako kwa usalama."</string>
+    <string name="generic_no_account_prompt" msgid="7218827704367325460">"Weka wasiliani wako salama hata ukipoteza simu yako: landanisha na huduma ya tovuti."</string>
+    <string name="generic_no_account_prompt_title" msgid="753783911899054860">"Ongeza akaunti"</string>
+    <string name="contact_editor_prompt_zero_accounts" msgid="1785345895691886499">"Mwasiliani wako mpya hatahifadhiwa. Ongeza akaunti ambayo inahifadhi wasiliani katika mtandao?"</string>
+    <string name="contact_editor_prompt_one_account" msgid="8669032699767375976">"Mwasiliani wako mpya atalandanishwa na <xliff:g id="ACCOUNT_NAME">%1$s</xliff:g>."</string>
+    <string name="contact_editor_prompt_multiple_accounts" msgid="611828200100438242">"Unaweza kulandanisha mwasiliani mpya aliye na moja ya zifuatazo. Ni gani ambayo unataka kutumia?"</string>
+    <string name="keep_local" msgid="1258761699192993322">"Weka karibu"</string>
+    <string name="add_account" msgid="8201790677994503186">"Ongeza akaunti"</string>
+    <string name="add_new_account" msgid="5748627740680940264">"Ongeza akaunti mpya"</string>
+    <string name="dialog_phone_call_prohibited_message" msgid="6554711866586660441">"Simu haijatumwa"</string>
+    <string name="dialog_voicemail_not_ready_message" msgid="4384716252789515378">"Ili kusanidi ujumbe wa sauti, nenda kwa Menyu &gt; Mipangilio."</string>
+    <string name="dialog_voicemail_airplane_mode_message" msgid="530922773669546093">"Kupigia simu ujumbe wa sauti, kwanza zima hali ya ndege."</string>
+    <string name="menu_export_database" msgid="2659719297530170820">"Hamisha faili za hifadhidata"</string>
+    <string name="action_menu_overflow_description" msgid="2303272250613084574">"Chaguo zaidi"</string>
+</resources>

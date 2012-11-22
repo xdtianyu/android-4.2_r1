@@ -1,0 +1,18 @@
+This folder contains the dexmaker library.
+
+The latest version of dexmaker can be found at this url:
+    http://code.google.com/p/dexmaker/
+
+Version: b4fdb175545f
+License: Apache 2.0
+
+Description:
+A Java-language API for doing compile time or runtime code generation targeting the Dalvik VM. Unlike cglib or ASM, this library creates Dalvik .dex files instead of Java .class files.
+
+It has a small, close-to-the-metal API. This API mirrors the Dalvik bytecode specification giving you tight control over the bytecode emitted. Code is generated instruction-by-instruction; you bring your own abstract syntax tree if you need one. And since it uses Dalvik's dx tool as a backend, you get efficient register allocation and regular/wide instruction selection for free.
+
+It includes a stock code generator for class proxies. If you just want to do AOP or class mocking, you don't need to mess around with bytecodes.
+
+Local Modifications:
+No modifications.
+

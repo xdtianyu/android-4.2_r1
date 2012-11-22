@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sample_radio_1">Option 1</string>
+    <string name="sample_radio_2">Option 2</string>
+    <string name="sample_radio_3">Option 3</string>
+    <string name="sample_radio_btn_selected">You selected: </string>
+    <string name="sample_radio_btn_none">none</string>
+</resources>

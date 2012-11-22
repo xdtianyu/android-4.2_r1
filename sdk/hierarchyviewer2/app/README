@@ -1,0 +1,69 @@
+Using the Eclipse project HierarchyViewer
+-----------------------------------------
+
+HierarchyViewer requires some external libraries to compile.
+If you build HierarchyViewer using the makefile, you have nothing
+to configure. However if you want to develop on HierarchyViewer
+using Eclipse, you need to perform the following configuration.
+
+
+-------
+1- Projects required in Eclipse
+-------
+
+To run HierarchyViewer from Eclipse, you need to import the following 5 projects:
+
+  - sdk/hierarchyviewer2/app
+  - sdk/hierarchyviewer2/libs/hierarchyviewerlib/
+  - sdk/ddms/libs/ddmlib
+  - sdk/ddms/libs/ddmuilib
+  - sdk/sdkmanager/libs/sdklib
+
+
+-------
+2- HierarchyViewer requires some SWT JARs to compile.
+-------
+
+SWT is available in the tree under prebuild/<platform>/swt
+
+Because the build path cannot contain relative path that are not inside
+the project directory, the .classpath file references a user library
+called ANDROID_SWT.
+
+In order to compile the project:
+- Open Preferences > Java > Build Path > User Libraries
+
+- Create a new user library named ANDROID_SWT
+- Add the following 4 JAR files:
+
+  - prebuilt/<platform>/swt/swt.jar
+  - prebuilt/common/eclipse/org.eclipse.core.commands_3.*.jar
+  - prebuilt/common/eclipse/org.eclipse.equinox.common_3.*.jar
+  - prebuilt/common/eclipse/org.eclipse.jface_3.*.jar
+
+
+-------
+3- HierarchyViewer also requires the compiled SwtMenuBar library.
+-------
+
+Build the swtmenubar library:
+$ cd $TOP (top of Android tree)
+$ . build/envsetup.sh && lunch sdk-eng
+$ sdk/eclipse/scripts/create_sdkman_symlinks.sh
+
+Define a classpath variable in Eclipse:
+- Open Preferences > Java > Build Path > Classpath Variables
+- Create a new classpath variable named ANDROID_OUT_FRAMEWORK
+- Set its folder value to <Android tree>/out/host/<platform>/framework
+- Create a new classpath variable named ANDROID_SRC
+- Set its folder value to <Android tree>
+
+You might need to clean the ddms project (Project > Clean...) after
+you add the new classpath variable, otherwise previous errors might not
+go away automatically.
+
+The ANDROID_SRC part should be optional. It allows you to have access to
+the SwtMenuBar generic parts from the Java editor.
+
+--
+EOF

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "../dtd/task.dtd">
+<task id="t_db-table-creating" xml:lang="en-us">
+  <title>Creating a database table</title>
+  <shortdesc>From the MOTODEV Database Explorer view you can create new tables within SQLite databases.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <prereq>You perform this task from within the MOTODEV Database Explorer view. This view is part of the MOTODEV
+      Database perspective; switch to this perspective when working with Android databases.</prereq>
+    <steps>
+      <step>
+        <cmd>Ensure that you are connected to the database.</cmd>
+      </step>
+      <step>
+        <cmd>Right-click the connected database file and select <uicontrol>Create Table</uicontrol> from the menu that
+          appears.</cmd>
+        <stepresult>The Create New Table dialog appears.</stepresult>
+      </step>
+      <step>
+        <cmd>Supply a name for the new table using the <uicontrol>Table Name</uicontrol> field.</cmd>
+      </step>
+      <step>
+        <cmd>Add columns to your table (you must create at least one). For each:</cmd>
+        <substeps>
+          <substep>
+            <cmd>Click <uicontrol>Add</uicontrol>.</cmd>
+            <stepresult>The Add/Edit Field dialog appears</stepresult>
+          </substep>
+          <substep>
+            <cmd>Supply a name for the table column using the <uicontrol>Name</uicontrol> field.</cmd>
+          </substep>
+          <substep>
+            <cmd>If the column will contain a primary key, select <uicontrol>Primary key</uicontrol> and specify any
+              automatic key behavior. </cmd>
+          </substep>
+          <substep>
+            <cmd>Ensure that the column type is correct. If necessary, select a different type.</cmd>
+          </substep>
+          <substep>
+            <cmd>If the table column should have a default value, specify it using the <uicontrol>Default
+              Value</uicontrol> field.</cmd>
+          </substep>
+        </substeps>
+      </step>
+      <step>
+        <cmd>Once you have specified all of the needed table columns, click <uicontrol>Finish</uicontrol> in the Create
+          New Table dialog.</cmd>
+      </step>
+    </steps>
+    <result> The table is created and added to the database. </result>
+    <postreq>
+      <note type="important">If you create the new table within a database on a connected device or running emulator,
+        you may need to refresh the database (press F5, or right-click the database and select <uicontrol
+        >Refresh</uicontrol>) in order for the change to be reflected on the device.</note>
+    </postreq>
+  </taskbody>
+</task>

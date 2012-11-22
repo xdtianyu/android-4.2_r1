@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task
+  PUBLIC "-//OASIS//DTD DITA Task//EN" "../dtd/task.dtd">
+<task xml:lang="en-us" id="t_config-for-native">
+  <title>Configuring your development environment for native development</title>
+  <shortdesc>After installing the Android NDK and a few other needed components, Eclipse can be configured to let you
+    develop Android applications that include native (C/C++) code.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <prereq>Native support requires that the following be installed:<ul>
+        <li>The Eclipse CDT plugin (version 7 or later)</li>
+        <li>The Sequoyah Android feature</li>
+        <li>Android NDK</li>
+        <li>Cygwin (only on systems running Microsoft Windows)</li>
+        <li>The Java JDK (the JRE is not sufficient; you need the full JDK)</li>
+      </ul><p>Your development computer's system path (not the Eclipse path) should include the directory containing the
+        Android NDK, and, on Microsoft Windows, the directory containing the Cygwin binaries.</p><p>For instructions on
+        locating and installing the above components, and on setting your computer's system path, see the <i>MOTODEV
+          Studio for Android Installation Guide</i>.</p></prereq>
+    <context/>
+    <steps>
+      <step>
+        <cmd>Specify the location of the NDK from within your development environment: navigate to the <menucascade
+              ><uicontrol>Android</uicontrol><uicontrol>Android NDK</uicontrol></menucascade> preferences page and
+          specify the path to the directory containing the NDK using the <uicontrol>NDK Location</uicontrol>
+        field.</cmd>
+      </step>
+    </steps>
+    <postreq>Now that you have configured your development environment to enable native development, enable it in those
+      Android projects that have (or will have) native code.</postreq>
+  </taskbody>
+</task>

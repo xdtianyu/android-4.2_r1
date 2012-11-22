@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<!-- get to this dialog by clicking Browse next to Activity in the Run Configurations dialog (Main tab) -->
+<reference id="u_select-activity" xml:lang="en-us">
+  <title>Activity Selection dialog</title>
+  <shortdesc>Allows you to select the activity within the specified Android project that is to be launched. This dialog
+    appears when you click <uicontrol>Browse</uicontrol> next to the <uicontrol>Activity</uicontrol> field on the Main
+    tab of an <uicontrol>Android Application using Studio for Android</uicontrol> run configuration.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <p>This dialog displays the set of activities encapsulated within the current project. Select the desired activity
+        and click <uicontrol>OK</uicontrol>. Note that if the <uicontrol>Default activity</uicontrol> option is selected
+        on the <uicontrol>Main</uicontrol> tab of the Run Configurations dialog, the <uicontrol>Activity</uicontrol>
+        field is ignored and thus you cannot reach this dialog.</p>
+    </section>
+  </refbody>
+</reference>

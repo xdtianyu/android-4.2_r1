@@ -1,0 +1,30 @@
+# network manager
+type netd, domain;
+type netd_exec, exec_type, file_type;
+
+init_daemon_domain(netd)
+typeattribute netd mlstrustedsubject;
+allow netd self:capability { net_admin net_raw sys_module };
+allow netd self:netlink_kobject_uevent_socket *;
+allow netd self:netlink_route_socket *;
+allow netd self:netlink_nflog_socket *;
+allow netd self:rawip_socket *;
+allow netd self:udp_socket *;
+allow netd node:udp_socket node_bind;
+allow netd port:udp_socket name_bind;
+allow netd self:unix_stream_socket *;
+allow netd shell_exec:file rx_file_perms;
+allow netd system_file:file x_file_perms;
+allow netd devpts:chr_file rw_file_perms;
+
+# For /proc/sys/net/ipv[46]/route/flush.
+# XXX Split /proc/sys/net into its own type.
+allow netd proc:file write;
+
+# For /sys/modules/bcmdhd/parameters/firmware_path
+# XXX Split into its own type.
+allow netd sysfs:file write;
+
+# Network driver loading.
+allow netd kernel:system module_request;
+

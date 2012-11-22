@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?pde version="3.5"?>
+
+<product name="MOTODEV Studio Application Validator" uid="com.motorolamobility.preflighting" application="com.motorolamobility.preflighting.MOTODEVApplicationValidator" version="0.7.1" useFeatures="true" includeLaunchers="false">
+
+
+   <configIni use="default">
+   </configIni>
+
+   <launcherArgs>
+      <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts</vmArgsMac>
+   </launcherArgs>
+
+   <windowImages/>
+
+
+   <plugins>
+   </plugins>
+
+   <features>
+      <feature id="com.motorolamobility.preflighting.feature"/>
+      <feature id="com.motorolamobility.preflighting.ui.feature"/>
+      <feature id="com.motorolamobility.preflighting.sdk.feature"/>
+   </features>
+
+
+</product>

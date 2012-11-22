@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task
+  PUBLIC "-//OASIS//DTD DITA Task//EN" "../dtd/task.dtd">
+<task xml:lang="en-us" id="t_app-cert-props-changing">
+  <title>Managing keys and keystores</title>
+  <shortdesc>The Signing and Keys view provides you a simple means to generate keys and keystores, delete keys and
+    keystores, import keys from one keystore to another, backup and restore keystores, and of course sign Android
+    Package (APK) files with your keys.</shortdesc>
+</task>

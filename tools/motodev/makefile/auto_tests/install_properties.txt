@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AutomatedInstallation langpack="eng">
+	<com.izforge.izpack.panels.TargetPanel id="targetpanel">
+		<installpath>MOTODEV_INSTALLATION_PATH</installpath>
+	</com.izforge.izpack.panels.TargetPanel>
+<com.izforge.izpack.panels.PacksPanel id="packspanel">
+<pack index="0" name="MOTODEV Studio for Android" selected="true"/>
+</com.izforge.izpack.panels.PacksPanel>
+<com.izforge.izpack.panels.SummaryPanel id="summarypanel"/>
+<com.izforge.izpack.panels.InstallPanel id="installpanel"/>
+<com.izforge.izpack.panels.ShortcutPanel id="shortcutpanel">
+<programGroup name="MOTODEV Studio for Android"/>
+</com.izforge.izpack.panels.ShortcutPanel>
+</AutomatedInstallation>

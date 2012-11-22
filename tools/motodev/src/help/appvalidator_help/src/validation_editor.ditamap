@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "../dtd/map.dtd">
+<!--<map title="Android App Validator User Guide" id="com.motorola.studio.android.tooldocs.validator.helpbase">-->
+<map title="Android App Validator User Guide" id="com.motorolamobility.preflighting.tooldocs.validator.helpbase">
+  <topicmeta>
+    <copyright>
+      <copyryear year="2010-2012"/>
+      <copyrholder>Motorola Mobility, Inc.</copyrholder>
+    </copyright>
+  </topicmeta>
+  <topichead navtitle="Tasks">
+    <topicref href="topics/t_validate-about.dita">
+      <topicref href="topics/t_app-validating-gui.dita"/>
+      <topicref href="topics/t_app-validating-command-line.dita"/>
+    </topicref>
+    <topicref href="topics/c_appvalidator-conditions.dita"/>
+  </topichead>
+  <topichead navtitle="Reference" type="reference">
+    <topicref href="topics/u_appvalidator-prefs.dita">
+      <topicref href="topics/u_appvalidator-prefs-general.dita"/>
+      <topicref href="topics/u_appvalidator-prefs-checkers.dita"/>
+      <topicref href="topics/u_appvalidator-prefs-devices.dita"/>
+    </topicref>
+    <topicref href="topics/r_appvalidator-cmdline.dita"/>
+  </topichead>
+  <reltable title="Uni-directional links (topics in col 1 show links to topics in col 2)">
+    <relheader>
+      <relcolspec linking="sourceonly"/>
+      <relcolspec/>
+    </relheader>
+    <relrow>
+      <relcell>
+        <topicref href="topics/u_appvalidator-prefs-checkers.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/c_appvalidator-conditions.dita"/>
+      </relcell>
+    </relrow>
+  </reltable>
+  <reltable title="Bi-directional links (topics in col 1 and 2 show links to each other)">
+    <relheader>
+      <relcolspec/>
+      <relcolspec/>
+    </relheader>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_app-validating-command-line.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/t_app-validating-gui.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_app-validating-command-line.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/r_appvalidator-cmdline.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_app-validating-gui.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/u_appvalidator-prefs.dita"/>
+      </relcell>
+    </relrow>
+  </reltable>
+</map>

@@ -1,0 +1,365 @@
+/* -*- c++ -*- */
+/*
+ * Copyright (C) 2009 The Android Open Source Project
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *  * Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ *  * Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in
+ *    the documentation and/or other materials provided with the
+ *    distribution.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+ * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+ * COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+ * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+ * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS
+ * OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
+ * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+ * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+ * OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ * SUCH DAMAGE.
+ */
+
+#ifndef ANDROID_ASTL_STRING__
+#define ANDROID_ASTL_STRING__
+
+#include <algorithm>
+#include <cstddef>
+#include <iterator>
+#include <char_traits.h>
+
+namespace std {
+
+class ostream;
+
+// Simple string implementation. Its purpose is to be able to compile code that
+// uses the STL and requires std::string.
+//
+// IMPORTANT:
+// . This class it is not fully STL compliant. Some constructors/methods maybe
+// missing, they will be added on demand.
+// . We don't provide a std::basic_string template that std::string extends
+// because we use only char (wchar is not supported on Android).
+// . The memory allocation scheme uses the heap. Since Android has the concept
+// of SharedBuffer, we may, in the future, templatize this class and add an
+// allocation parameter.
+// . The implementation is not optimized in any way (no copy on write support),
+// temporary instance may be expensive.
+// . Currently there is limited support for iterators.
+//
+
+class string
+{
+  public:
+    typedef char_traits<char>      traits_type;
+    typedef traits_type::char_type value_type;
+    typedef size_t                 size_type;
+    typedef ptrdiff_t              difference_type;
+    typedef value_type&            reference;
+    typedef const value_type&      const_reference;
+    typedef value_type*            pointer;
+    typedef const value_type*      const_pointer;
+    typedef __wrapper_iterator<pointer,string>  iterator;
+    typedef __wrapper_iterator<const_pointer,string> const_iterator;
+
+    static const size_type npos = static_cast<size_type>(-1);
+
+    // Constructors
+    string();
+
+    string(const string& str);
+
+    // Construct a string from a source's substring.
+    // @param str The source string.
+    // @param pos The index of the character to start the copy at.
+    // @param n The number of characters to copy. Use string::npos for the
+    // remainder.
+    string(const string& str, size_t pos, size_type n);
+
+    // Same as above but implicitly copy from pos to the end of the str.
+    string(const string& str, size_type pos);
+
+    // Construct a string from a C string.
+    // @param str The source string, must be '\0' terminated.
+    string(const value_type *str);
+
+    // Construct a string from a char array.
+    // @param str The source C string. '\0' are ignored.
+    // @param n The number of characters to copy.
+    string(const value_type *str, size_type n);
+
+    // Construct a string from a repetition of a character.
+    // @param n The number of characters.
+    // @param c The character to use.
+    string(size_t n, char c);
+
+    // Construct a string from a char array.
+    // @param begin The start of the source C string. '\0' are ignored.
+    // @param end The end of source C string. Points just pass the last
+    // character.
+    string(const value_type *begin, const value_type *end);
+
+    ~string();
+
+    // @return The number of characters in the string, not including any
+    // null-termination.
+    size_type length() const { return mLength; }
+    size_type size() const { return mLength; }
+
+    // @return A pointer to null-terminated contents.
+    const value_type *c_str() const { return mData; }
+    const value_type *data() const { return mData; }
+
+    // Empty the string on return. Release the internal buffer. Length
+    // and capacity are both 0 on return. If you want to keep the
+    // internal buffer around for reuse, call 'erase' instead.
+    void clear();
+
+    // @return true if the string is empty.
+    bool empty() const { return this->size() == 0; }
+
+    // Remove 'len' characters from the string starting at 'pos'. The
+    // string length is reduced by 'len'. If len is greater or equal
+    // to the number of characters in the string, it is truncated at
+    // 'pos'. If 'pos' is beyond the end of the string, 'erase' does
+    // nothing. Note, regular STL implementations throw a out_of_range
+    // exception in this case.
+    // Internally, the capacity of the buffer remains unchanged. If
+    // you wanted to recover the deleted chars' memory you should call
+    // 'reserve' explicitly (see also 'clear').
+    // @param pos Index of the first character to remove (default to 0)
+    // @param n Number of characters to delete. (default to remainder)
+    // @return a reference to this string.
+    string& erase(size_type pos = 0, size_type n = npos);
+
+    // @param str The string to be append.
+    // @return A reference to this string.
+    string& operator+=(const string& str) { return this->append(str); }
+
+    // @param str The C string to be append.
+    // @return A reference to this string.
+    string& operator+=(const value_type *str) { return this->append(str); }
+
+    // @param c A character to be append.
+    // @return A reference to this string.
+    string& operator+=(const char c) { this->push_back(c); return *this; }
+
+    // @param c A character to be append.
+    void push_back(const char c);
+
+    // no-op if str is NULL.
+    string& append(const value_type *str);
+    // no-op if str is NULL. n must be >= 0.
+    string& append(const value_type *str, size_type n);
+    // no-op if str is NULL. pos and n must be >= 0.
+    string& append(const value_type *str, size_type pos, size_type n);
+    string& append(const string& str);
+
+    template<typename _InputIterator>
+    string& append(_InputIterator first, _InputIterator last);
+
+    // Comparison.
+    // @return 0 if this==other, < 0 if this < other and > 0 if this > other.
+    // Don't assume the values are -1, 0, 1
+    int compare(const string& other) const;
+    int compare(const value_type *other) const;
+
+    friend bool operator==(const string& left, const string& right);
+    friend bool operator==(const string& left, const value_type *right);
+    friend bool operator==(const value_type *left, const string& right) { return right == left; }
+    friend bool operator!=(const string& left, const string& right) { return !(left == right); }
+    friend bool operator!=(const string& left, const char* right) { return !(left == right); }
+    friend bool operator!=(const value_type *left, const string& right) { return !(left == right); }
+
+    // @return Number of elements for which memory has been allocated. capacity >= size().
+    size_type capacity() const { return mCapacity; }
+
+    // Change the capacity to new_size. No effect if new_size < size().
+    // 0 means Shrink to fit.
+    // @param new_size number of character to be allocated.
+    void reserve(size_type new_size = 0);
+
+    // Exchange the content of this with the content of other.
+    // @param other Instance to swap this one with.
+    void swap(string& other);
+
+    // Accessors.
+    // @param pos of the char. No boundary, signed checks are done.
+    // @return a const reference to the char.
+    const char& operator[](const size_type pos) const;
+
+    // @param pos of the char. No boundary, signed checks are done.
+    // @return a reference to the char.
+    char& operator[](const size_type pos);
+
+    // 'at' is similar to operator[] except that it does check bounds.
+    const char& at(const size_type pos) const;
+    char& at(const size_type pos);
+
+    // Assignments.
+    string& operator=(const string& str) { return assign(str); }
+    string& operator=(const char* str) { return assign(str); }
+    string& operator=(char c);
+
+    string& assign(const string& str);
+    // Assign a substring of the original.
+    // @param str Original string.
+    // @param pos Index of the start of the copy.
+    // @param n Number of character to be copied.
+    string& assign(const string& str, size_type pos, size_type n);
+    string& assign(const value_type *str);
+
+    // Assign a non-nul terminated array of chars.
+    // @param array Of chars non-nul terminated.
+    // @param len Length of the array.
+    string& assign(const value_type *array, size_type len);
+
+    // Concat. Prefer using += or append.
+    // Uses unnamed object for return value optimization.
+    friend string operator+(const string& left, const string& right) {
+        return string(left).append(right);
+    }
+    friend string operator+(const string& left, const value_type *right) {
+        return string(left).append(right);
+    }
+    friend string operator+(const value_type *left, const string& right) {
+        return string(left).append(right);
+    }
+    friend string operator+(const string& left, char right) {
+        return string(left).operator+=(right);
+    }
+    friend string operator+(char left, const string& right) {
+        return string(&left, 1).append(right);
+    }
+
+    // Insert a copy of c before the character referred to by pos.
+    // @param pos A valid iterator on *this.
+    // @return An iterator which refers to the copy of the inserted
+    // character. Because internally some reallocation may occur, the
+    // returned iterator may be different from 'pos'.
+    iterator insert(iterator pos, char c);
+
+    // Find the position of a sub-string. The empty string is always
+    // found at the requested position except when it's beyond the
+    // string's end.
+    // @param str String to locate.
+    // @param pos Index of the character to search from. Default to 0.
+    // @return Index of start of the first occurrence of the
+    // string. string::npos if no occurrence of str was found from the
+    // starting position.
+    size_type find(const string& str, size_type pos = 0) const {
+        return find(str.mData, pos);
+    }
+
+    // Find the position of a C sub-string. The empty string is always
+    // found at the requested position except when it's beyond the
+    // string's end.
+    // @param str C string to locate.
+    // @param pos Index of the character to search from. Default to 0.
+    // @return Index of start of the first occurrence of the
+    // string. string::npos if no occurrence of str was found from the
+    // starting position.
+    size_type find(const value_type *str, size_type pos = 0) const;
+
+    // Find the lowest position xpos, if possible, such that:
+    //   pos <= xpos && xpos < size()
+    //   at(xpos) == c
+    // @return xpos if it exists, npos otherwise.
+    size_type find(const value_type c, size_type pos = 0) const {
+        return find_first_of(c, pos);
+    }
+
+    // Find the highest position xpos, if possible, such that:
+    //   xpos <= pos && xpos < size()
+    //   at(xpos) == c
+    // @return xpos if it exists, npos otherwise.
+    size_type rfind(const value_type c, size_type pos = npos) const {
+        return find_last_of(c, pos);
+    }
+
+    // Iterators
+    iterator begin() {return iterator(mData);}
+    const_iterator begin() const {return const_iterator(mData);}
+    iterator end() {return iterator(mData + mLength);}
+    const_iterator end() const {return const_iterator(mData + mLength);}
+
+    // @return the substring [pos, pos + n].
+    // Requires pos <= size(). If n > size() - pos, size() - pos is used.
+    string substr(size_type pos = 0, size_type n = npos) const;
+
+    // Find char methods. Return the position or npos if the char was not found.
+    size_type find_first_of(value_type c, size_type pos = 0) const;
+    size_type find_last_of(value_type c, size_type pos = npos) const;
+    size_type find_first_not_of(value_type c, size_type pos = 0) const;
+    size_type find_last_not_of(value_type c, size_type pos = npos) const;
+
+  private:
+    bool SafeMalloc(size_type n);
+    void SafeRealloc(size_type n);
+    void SafeFree(value_type *str);
+    void ResetTo(value_type *str);
+    void ConstructEmptyString();
+    void Constructor(const value_type *str, size_type n);
+    void Constructor(const value_type *str, size_type pos, size_type n);
+    void Constructor(size_type num, char c);
+    void DeleteSafe();
+    void Append(const value_type *str, size_type len);
+
+    value_type *mData;  // pointer to the buffer
+    size_type mCapacity;  // size of the buffer.
+    size_type mLength;  // len of the string excl. null-terminator.
+};
+
+// Comparaison:
+bool operator<(const string& lhs, const string& rhs);
+bool operator<=(const string& lhs, const string& rhs);
+bool operator>(const string& lhs, const string& rhs);
+bool operator>=(const string& lhs, const string& rhs);
+
+// Swap
+void swap(string& lhs, string& rhs);
+
+// I/O
+ostream& operator<<(ostream& os, const string& str);
+
+
+// Specialization of append(iterator, iterator) using string iterators
+// (const and non const).
+template<>
+string& string::append<__wrapper_iterator<const char *,string> >(
+    __wrapper_iterator<const char *,string> first,
+    __wrapper_iterator<const char *,string> last);
+template<>
+string& string::append<__wrapper_iterator<char *,string> >(
+    __wrapper_iterator<char *,string> first,
+    __wrapper_iterator<char *,string> last);
+
+// append(iterator,iterator) default implementation.
+template<typename _InputIterator>
+string& string::append(_InputIterator first, _InputIterator last) {
+    size_type dist = std::distance(first, last);
+    size_type new_len = mLength + dist;
+    if (new_len <= mLength) {
+        return *this;  // 0 / overflow
+    }
+    reserve(new_len);
+    if (new_len > mCapacity) {
+        return *this;  // memory allocation failed.
+    }
+    std::copy(first, last, mData + mLength);
+    mLength = new_len;
+    mData[mLength] = '\0';
+    return *this;
+}
+
+
+}  // namespace std
+
+#endif  // ANDROID_ASTL_STRING__

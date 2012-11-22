@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task
+  PUBLIC "-//OASIS//DTD DITA Task//EN" "../dtd/task.dtd">
+<task xml:lang="en-us" id="t_emulator-view-closing">
+  <title>Closing the Android Emulator view</title>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <context>
+      <p>To close the Android Emulator view, click the white "X" in the view's tab. If the view was displaying at least
+        one running emulator, and no other view is still displaying that emulator, you will be asked if the running
+        Android emulator instances should be stopped as well. Click <uicontrol>Yes</uicontrol> if you want to stop all
+        of them. Click <uicontrol>No</uicontrol> to leave them all running. Note that emulators can continue to run even
+        though they aren't displayed in an Eclipse view or in an external window; simply re-open the Android Emulator
+        view to once again view and interact with the running emulators.</p>
+      <p>The Device Management view shows which emulators are currently running (the Status column displays "Online" for
+        each running emulator). You can stop individual emulators from this view, even if they are not displayed in the
+        Android Emulator view. Note that stopping all emulator instances does not cause the Android Emulator view to
+        close automatically.</p>
+    </context>
+  </taskbody>
+</task>

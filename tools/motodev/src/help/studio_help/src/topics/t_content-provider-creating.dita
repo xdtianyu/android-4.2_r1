@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task
+  PUBLIC "-//OASIS//DTD DITA Task//EN" "../dtd/task.dtd">
+<task xml:lang="en-us" id="t_content-provider-creating">
+  <title>Adding a content provider</title>
+  <shortdesc>Allows you to easily add a new content provider, with empty implementations of many commonly-used methods,
+    to an existing Android project. A content provider allows other applications and services to access your
+    application's data, and can be used to expose your application's tables as live folders.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <context/>
+    <steps>
+      <step>
+        <cmd>In the Package Explorer, right-click the project to which the activity should be added and select
+            <menucascade><uicontrol>New</uicontrol><uicontrol>Android Content Provider</uicontrol></menucascade>.</cmd>
+      </step>
+      <step>
+        <cmd>Specify a name for your new ContentProvider subclass in <uicontrol>Name</uicontrol>.</cmd>
+      </step>
+      <step>
+        <cmd>By default the new provider will not have a label of its own; the application's label will be used to
+          represent the content being exposed. If you want a specific label for this content provider, clear the
+            <uicontrol>Default</uicontrol> option (next to the <uicontrol>Label</uicontrol> field) and then enter your
+          preferred user-readable label.</cmd>
+      </step>
+      <step>
+        <cmd>If this content provider uses device capabilities for which the user must grant permission, specify them in
+          the <uicontrol>Permission</uicontrol> area. These permissions will be added to the appropriate place in your
+          application's manifest file. To specify a permission, click <uicontrol>Add</uicontrol>, select the needed
+          permission, and click <uicontrol>OK</uicontrol>.</cmd>
+      </step>
+      <step>
+        <cmd>Content providers typically use a URI containing the name of their ContentProvider subclass to identify the
+          data being exposed by the provider. The <uicontrol>Use default authority</uicontrol> option, which is selected
+          by default, causes the New Android Content Provider wizard to do this for you. If you wish to specify a
+          different URI, or if you wish to specify additional URIs for this content provider, for each click <uicontrol
+            >Add</uicontrol> (next to <uicontrol>Authorities</uicontrol>) and enter the desired URI.</cmd>
+      </step>
+      <step>
+        <cmd>Click <uicontrol>Finish</uicontrol>.</cmd>
+      </step>
+    </steps>
+    <result>The content provider is created and added to the selected project. It is also opened in an editor
+    view.</result>
+  </taskbody>
+</task>

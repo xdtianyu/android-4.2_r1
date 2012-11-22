@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference id="u_studio-prefs" xml:lang="en-us">
+  <title>MOTODEV Studio preferences</title>
+  <shortdesc>Preferences that are specific to MOTODEV Studio.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody> </refbody>
+</reference>

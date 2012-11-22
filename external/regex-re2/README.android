@@ -1,0 +1,29 @@
+Code obtained via
+-----------------
+hg clone https://re2.googlecode.com/hg re2
+
+Version
+-------
+
+hg identify
+2d252384c5e8 tip
+
+Changes required to build using stlport on Android as follows (full diff)
+-------------------------------------------------------------------------
+diff -r ./re2/parse.cc /home/idh/temp9/re2/re2/parse.cc
+19d18
+< #include <ctype.h>
+diff -r ./re2/re2.cc /home/idh/temp9/re2/re2/re2.cc
+13d12
+< #include <ctype.h>
+Only in /home/idh/temp9/re2/re2: testing
+diff -r ./util/util.h /home/idh/temp9/re2/util/util.h
+43,48c43
+< #if defined(ANDROID)
+< 
+< #include <unordered_set>
+< using std::tr1::unordered_set;
+< 
+< #elif defined(__GNUC__) && !defined(USE_CXX0X)
+---
+> #if defined(__GNUC__) && !defined(USE_CXX0X)

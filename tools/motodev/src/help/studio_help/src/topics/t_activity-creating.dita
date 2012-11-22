@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task
+  PUBLIC "-//OASIS//DTD DITA Task//EN" "../dtd/task.dtd">
+<task xml:lang="en-us" id="t_activity-creating">
+  <title>Adding an Android activity</title>
+  <shortdesc>Allows you to easily add a new activity to an existing Android project. Activities are typically used to
+    implement part of the application's UI.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <context/>
+    <steps>
+      <step>
+        <cmd>In the Package Explorer, right-click the project to which the activity should be added and select
+            <menucascade><uicontrol>New</uicontrol><uicontrol>Android Activity</uicontrol></menucascade>.</cmd>
+      </step>
+      <step>
+        <cmd>If you would like to base this activity on one of the supplied templates (and thus have some of the code
+          filled in for you), click <uicontrol>Create New Activity Based on Template</uicontrol>.</cmd>
+        <substeps>
+          <substep>
+            <cmd>From the list of template activities, select the one upon which the activity should be based. Note that
+              one of the samples--Database List--lists the contents of selected columns within your application's SQLite
+              database; in order to select this sample your application must already have a database in its <codeph
+                >assets</codeph> folder.</cmd>
+          </substep>
+          <substep>
+            <cmd>Click <uicontrol>Next</uicontrol>.</cmd>
+          </substep>
+        </substeps>
+      </step>
+      <step>
+        <cmd>Verify the contents of the <uicontrol>Source folder</uicontrol> and <uicontrol>Package</uicontrol> fields,
+          ensuring that they are correct for your project.</cmd>
+      </step>
+      <step>
+        <cmd>Specify a name for your new Activity subclass in <uicontrol>Name</uicontrol>.</cmd>
+      </step>
+      <step>
+        <cmd>By default the new activity will not have a label of its own; the application's label will be used if and
+          when the activity needs to be presented to the user. If you want a specific label for this activity, clear the
+            <uicontrol>Default</uicontrol> option (next to the <uicontrol>Label</uicontrol> field) and then enter your
+          preferred user-readable label.</cmd>
+      </step>
+      <step>
+        <cmd>If this activity uses device capabilities for which the user must grant permission, specify them in the
+            <uicontrol>Permission</uicontrol> area. These permissions will be added to the appropriate place in your
+          application's manifest file. To specify a permission, click <uicontrol>Add</uicontrol>, select the needed
+          permission, and click <uicontrol>OK</uicontrol>.</cmd>
+      </step>
+      <step>
+        <cmd>Specify the intents that this new activity responds to: for each, click <uicontrol>Add</uicontrol> (next to
+            <uicontrol>Action</uicontrol>) and select the appropriate intent or click <uicontrol>Input</uicontrol> and
+          enter the full name of the intent in the field provided.</cmd>
+        <info>You can select multiple intents from the dialog that appears when you click <uicontrol>Add</uicontrol>. To
+          select a range, select the first item in the set and then hold down the Shift key while selecting the last
+          item in the set. To select multiple separate intents, select the first item and then hold down the Control key
+          while selecting the remaining items.</info>
+      </step>
+      <step>
+        <cmd>If you need to specify additional information about the intents using one or more standard action
+          categories, for each click <uicontrol>Add</uicontrol> (next to <uicontrol>Category</uicontrol>) and select the
+          appropriate one or click <uicontrol>Input</uicontrol> and enter a category manually.</cmd>
+      </step>
+      <step>
+        <cmd>Unless you are basing your new activity on a template, the New Android Activity wizard will create the
+          activity with an empty onCreate() method. If you will be implementing onStart(), select the option to include
+          an empty onStart() method as well.</cmd>
+      </step>
+      <step>
+        <cmd>If this new activity is the one that should be started when the application is launched, select <uicontrol
+            >Set as the main activity</uicontrol>.</cmd>
+      </step>
+      <step>
+        <cmd>Click <uicontrol>Finish</uicontrol>.</cmd>
+      </step>
+    </steps>
+    <result>The activity is created and added to the selected project. It is also opened in an editor view.</result>
+  </taskbody>
+</task>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN"
+ "reference.dtd">
+
+<!-- (C) Copyright IBM Corporation 2006 All Rights Reserved. -->
+<reference id="readme" xml:lang="en-us">
+  <title>Motorola Dev Ed XHTML processing overrides</title>
+  <shortdesc>This DITA Open Toolkit plug-in implements overrides to standard XHTML processing that Motorola Dev Ed
+    uses in all such output.</shortdesc>
+  <refbody>
+    
+    
+    
+    
+    
+  </refbody>
+</reference>

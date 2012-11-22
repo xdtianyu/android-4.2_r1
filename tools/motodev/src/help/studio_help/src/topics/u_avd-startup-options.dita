@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference id="u_avd-startup-options" xml:lang="en-us">
+  <title>Startup Options</title>
+  <shortdesc>This dialog lets you specify options that are applied when you start the emulator.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <p>This dialog contains a number of tabs, each with a number of fields. Note that beneath the tabbed sections is a
+        non-editable field that presents your selected options, command-line style, as they will be passed to the
+        emulator when it is started. See <xref
+          href="http://d.android.com/guide/developing/tools/emulator.html#startup-options" format="html"
+          scope="external">http://d.android.com/guide/developing/tools/emulator.html#startup-options</xref> for all of
+        the possible command-line arguments.</p>
+    </section>
+    <section>
+      <title>User Interface tab</title>
+      <simpletable>
+        <strow>
+          <stentry><uicontrol>Screen Resolution</uicontrol></stentry>
+          <stentry>A DPI value that represents a scaling factor to be applied to the emulator window. This allows you to
+            alter the emulator's screen resolution to match the screen size of an actual device. By default, this value
+            is 165. Click the <uicontrol>Calculate</uicontrol> button to calculate screen resolution and scale values
+            that result in a life-sized image given the screen size of the device being emulated (in inches) and your
+            development computer's display size (in inches) or density (DPI).</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Scale</uicontrol></stentry>
+          <stentry>A value ranging from 0.1 to 3.0 that represents the scaling factor to be applied to the emulator
+            window. To specify the scale as a DPI value, include a suffix of "dpi". Click the <uicontrol
+            >Calculate</uicontrol> button to calculate screen resolution and scale values that result in a life-sized
+            image given the screen size of the device being emulated (in inches) and your development computer's display
+            size (in inches) or density (DPI).</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Disable Boot Animation</uicontrol></stentry>
+          <stentry>Speeds up the emulator startup by disabling the boot animation sequence.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Don't show Emulator Skin</uicontrol></stentry>
+          <stentry>Hides the "skin" that makes the emulated device look more like a specific handheld. Note that the
+            skin includes the device keyboard (if the emulated device has a physical keyboard); hiding the skin makes
+            this keyboard, along with any other physical controls presented by the emulated device, inaccessible. Also
+            note that if you change this option on a running emulator, you will need to stop and restart the emulator
+            for the option to take effect.</stentry>
+        </strow>
+      </simpletable>
+    </section>
+    <section>
+      <title>Disk Images tab</title>
+      <simpletable>
+        <strow>
+          <stentry><uicontrol>Cache</uicontrol></stentry>
+          <stentry>The working cache partition image.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>User Data</uicontrol></stentry>
+          <stentry>The working user-data disk image.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Init User Data</uicontrol></stentry>
+          <stentry>A file containing a user-data disk image that is copied to the working user-data disk image if the
+              <uicontrol>Wipe User Data</uicontrol> option is selected. </stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>RAM</uicontrol></stentry>
+          <stentry>A file that to be used as a RAM-disk image.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>SD Card</uicontrol></stentry>
+          <stentry>An SD card image that will be used by the new AVD instance.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Disable Cache Partition</uicontrol></stentry>
+          <stentry>Controls whether or not the AVD uses a cache partition.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Wipe User Data</uicontrol></stentry>
+          <stentry>Select this option to reset the user-data disk image when the AVD starts up. If a disk image is
+            provided in the <uicontrol>Init User Data</uicontrol> field, the contents of that file are copied to the
+            working user-data disk image, rather than the emulator's default image.</stentry>
+        </strow>
+      </simpletable>
+    </section>
+    <section>
+      <title>Network tab</title>
+      <p>The fields on this tab control how the AVD accesses the Internet.</p>
+      <simpletable>
+        <strow>
+          <stentry><uicontrol>DNS Server</uicontrol></stentry>
+          <stentry>A comma-separated list of up to four DNS server names or IP addresses to be used by the
+          AVD.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Network Latency</uicontrol></stentry>
+          <stentry>Emulates the network latency of various cellular network types, such as GPRS, EDGE, or UMTS.
+          </stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Network Speed</uicontrol></stentry>
+          <stentry>Throttles the networking speed to simulate that of a cellular network. Use this field to specify the
+            desired network type.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Port Number</uicontrol></stentry>
+          <stentry>The console port number for this emulator instance. This should be an even integer value that ranges
+            from 5554 to 5584.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Max Network Speed/Min Network Latency</uicontrol></stentry>
+          <stentry>Indicates that network operations should proceed at full speed, with no latency.</stentry>
+        </strow>
+      </simpletable>
+    </section>
+    <section>
+      <title>System tab</title>
+      <simpletable>
+        <strow>
+          <stentry><uicontrol>CPU Delay</uicontrol></stentry>
+          <stentry>Allows you to emulate a slow CPU. Supply a value from 0 (no delay) to 1000 (maximum delay). Note that
+            these integer values simply indicate a relative degree of delay and do not represent any actual amount of
+            time. </stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Redirect GPS</uicontrol></stentry>
+          <stentry>Emulates an NMEA-compatible GPS device that is connected to an external character device or socket.
+            For information on the format of this field, see the description of the -serial option in the QEMU user
+            documentation, which can be found at <xref href="http://www.nongnu.org/qemu/qemu-doc.html" format="html"
+              scope="external">http://www.nongnu.org/qemu/qemu-doc.html</xref>.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Disable JNI checks</uicontrol></stentry>
+          <stentry>Disables JNI checks in the Dalvik runtime.</stentry>
+        </strow>
+      </simpletable>
+    </section>
+    <section>
+      <title>Others tab</title>
+      <simpletable>
+        <strow>
+          <stentry><uicontrol>Other Startup Options</uicontrol></stentry>
+          <stentry>Use this field to enter any other startup options not available from the other tabs. Enter the
+            startup options as documented in the Android developer documentation at <xref
+              href="http://d.android.com/guide/developing/tools/emulator.html#startup-options" format="html"
+              scope="external"
+          >http://d.android.com/guide/developing/tools/emulator.html#startup-options</xref>.</stentry>
+        </strow>
+      </simpletable>
+    </section>
+  </refbody>
+</reference>

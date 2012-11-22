@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference xml:lang="en-us" id="u_studio-prefs_db">
+  <title>MOTODEV Database for Devices preferences</title>
+  <shortdesc>Contains preferences that are used when working with databases within MOTODEV Studio.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody><section>To access these
+    preferences, select <uicontrol>Preferences</uicontrol> from the <ph
+      conref="g_variables.dita#g_variables/studio-sdk-prefs-parent-menu"/> menu. Then from the list of preferences,
+    select <menucascade><uicontrol>MOTODEV Studio</uicontrol><uicontrol>MOTODEV Database</uicontrol></menucascade>.</section>
+    <section>
+      <simpletable>
+        <strow>
+          <stentry>
+            <uicontrol>Database Temporary Location</uicontrol>
+          </stentry>
+          <stentry>Allows you to specify the directory into which temporary databases are written. Temporary databases
+            are created when you connect to an on-device database from the MOTODEV Database perspective's MOTODEV
+            Database Explorer view.</stentry>
+        </strow>
+      </simpletable>
+    </section>
+  </refbody>
+</reference>

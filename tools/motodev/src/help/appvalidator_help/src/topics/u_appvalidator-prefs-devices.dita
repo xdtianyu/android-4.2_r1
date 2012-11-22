@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference id="u_appvalidator-prefs-devices" xml:lang="en-us">
+  <title>Android App Validator preferences - Devices tab</title>
+  <shortdesc>Allows you to specify which devices, if any, an app should be validated against when the Android App
+    Validator is run.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>The list box on this tab lists all devices for which validation criteria is known. By default, all devices
+      are selected, meaning that when the App Validator is run it will validate the app against all of the
+      listed devices. If you don't intend your app to run on certain devices (tablets, for instance, or small-screen
+      devices) you can clear the appropriate checkboxes to prevent the App Validator from generating error or
+      warning messages for those devices. Note that although the device list is initially sorted by device name, you can
+      click the <uicontrol>Screen Size</uicontrol> or <uicontrol>Pixel Density</uicontrol> column headings to sort the
+      list by the selected criteria, making it easier to select or eliminate devices by their screen specifications.
+      Finally, note the <uicontrol>Select/deselect all</uicontrol> control beneath the list, which allows you to quickly
+      select or clear the list of devices for which the app will be validated.</section>
+  </refbody>
+</reference>

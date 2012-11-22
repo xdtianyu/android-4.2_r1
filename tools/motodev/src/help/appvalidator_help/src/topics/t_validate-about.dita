@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "../dtd/task.dtd">
+<task id="t_validate-about" xml:lang="en-us">
+  <title>Validating Android applications</title>
+  <shortdesc>Using the Android Application Validator, you can easily run a set of "checkers" against your application
+    that look for problems that might not be immediately apparent at build or install time. The set of checks that the
+    Android Application Validator runs is extensible; as new checks are developed, they will be made available for
+    download.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+</task>

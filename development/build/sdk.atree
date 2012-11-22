@@ -1,0 +1,251 @@
+#
+# Copyright (C) 2007 The Android Open Source Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+#
+# These are the files that comprise that SDK.
+#
+# The files that will go in the tools folder are setup through
+#    sdk/build/tools.atree
+# This is to help when the sdk.git project is branched differently from
+# the other projects.
+#
+
+##############################################################################
+# SDK Root folder
+##############################################################################
+
+# the readme
+development/docs/SDK_RELEASE_NOTES RELEASE_NOTES.html
+
+# doc redirect
+frameworks/base/docs/docs-redirect.html documentation.html
+
+##############################################################################
+# Platform Tools Component
+##############################################################################
+
+development/sdk/plat_tools_source.properties  platform-tools/source.properties
+
+# host tools from out/host/$(HOST_OS)-$(HOST_ARCH)/
+bin/adb                                 strip platform-tools/adb
+bin/aapt                                strip platform-tools/aapt
+bin/aidl                                strip platform-tools/aidl
+bin/fastboot                            strip platform-tools/fastboot
+bin/llvm-rs-cc                          strip platform-tools/llvm-rs-cc
+
+# dx
+bin/dx                                        platform-tools/dx
+bin/dexdump                                   platform-tools/dexdump
+framework/dx.jar                              platform-tools/lib/dx.jar
+
+# Framework include for Renderscript
+frameworks/rs/scriptc                         platform-tools/renderscript/include
+external/clang/lib/Headers                    platform-tools/renderscript/clang-include
+external/clang/LICENSE.TXT                    platform-tools/renderscript/clang-include/LICENSE.TXT
+
+# API database for tools such as lint
+development/sdk/api-versions.xml              platform-tools/api/api-versions.xml
+
+##############################################################################
+# Platform Component
+##############################################################################
+
+# version files for the SDK updater, from development.git
+${HOST_OUT}/development/sdk/platform_source.properties platforms/${PLATFORM_NAME}/source.properties
+
+# copy build prop from out/.../sdk/
+sdk/sdk-build.prop                            platforms/${PLATFORM_NAME}/build.prop
+
+# the uper-jar file that apps link against. This is the public API
+${OUT_DIR}/target/common/obj/PACKAGING/android_jar_intermediates/android.jar platforms/${PLATFORM_NAME}/android.jar
+${OUT_DIR}/target/common/obj/JAVA_LIBRARIES/android_uiautomator_intermediates/javalib.jar           platforms/${PLATFORM_NAME}/uiautomator.jar
+
+# the aidl precompiled include
+obj/framework.aidl platforms/${PLATFORM_NAME}/framework.aidl
+
+# emulator skins from sdk.git
+development/tools/emulator/skins/QVGA          platforms/${PLATFORM_NAME}/skins/QVGA
+development/tools/emulator/skins/WQVGA432      platforms/${PLATFORM_NAME}/skins/WQVGA432
+development/tools/emulator/skins/WQVGA400      platforms/${PLATFORM_NAME}/skins/WQVGA400
+development/tools/emulator/skins/HVGA          platforms/${PLATFORM_NAME}/skins/HVGA
+development/tools/emulator/skins/WVGA800       platforms/${PLATFORM_NAME}/skins/WVGA800
+development/tools/emulator/skins/WVGA854       platforms/${PLATFORM_NAME}/skins/WVGA854
+development/tools/emulator/skins/WSVGA         platforms/${PLATFORM_NAME}/skins/WSVGA
+development/tools/emulator/skins/WXGA720       platforms/${PLATFORM_NAME}/skins/WXGA720
+development/tools/emulator/skins/WXGA800       platforms/${PLATFORM_NAME}/skins/WXGA800
+development/tools/emulator/skins/WXGA800-7in   platforms/${PLATFORM_NAME}/skins/WXGA800-7in
+
+# Platform SDK properties
+development/sdk/sdk.properties               platforms/${PLATFORM_NAME}/sdk.properties
+
+# sdk.git Ant templates for project files
+development/tools/templates/AndroidManifest.template        platforms/${PLATFORM_NAME}/templates/AndroidManifest.template
+development/tools/templates/AndroidManifest.tests.template  platforms/${PLATFORM_NAME}/templates/AndroidManifest.tests.template
+development/tools/templates/java_file.template              platforms/${PLATFORM_NAME}/templates/java_file.template
+development/tools/templates/java_tests_file.template        platforms/${PLATFORM_NAME}/templates/java_tests_file.template
+development/tools/templates/layout.template                 platforms/${PLATFORM_NAME}/templates/layout.template
+development/tools/templates/strings.template                platforms/${PLATFORM_NAME}/templates/strings.template
+development/tools/templates/ic_launcher_ldpi.png            platforms/${PLATFORM_NAME}/templates/ic_launcher_ldpi.png
+development/tools/templates/ic_launcher_mdpi.png            platforms/${PLATFORM_NAME}/templates/ic_launcher_mdpi.png
+development/tools/templates/ic_launcher_hdpi.png            platforms/${PLATFORM_NAME}/templates/ic_launcher_hdpi.png
+development/tools/templates/ic_launcher_xhdpi.png           platforms/${PLATFORM_NAME}/templates/ic_launcher_xhdpi.png
+
+# Eclipse Editors support
+framework/layoutlib.jar       platforms/${PLATFORM_NAME}/data/layoutlib.jar
+frameworks/base/core/res/res  platforms/${PLATFORM_NAME}/data/res
+docs/activity_actions.txt     platforms/${PLATFORM_NAME}/data/activity_actions.txt
+docs/broadcast_actions.txt    platforms/${PLATFORM_NAME}/data/broadcast_actions.txt
+docs/service_actions.txt      platforms/${PLATFORM_NAME}/data/service_actions.txt
+docs/categories.txt           platforms/${PLATFORM_NAME}/data/categories.txt
+docs/widgets.txt              platforms/${PLATFORM_NAME}/data/widgets.txt
+docs/features.txt             platforms/${PLATFORM_NAME}/data/features.txt
+
+# fonts for layoutlib.
+frameworks/base/data/fonts    platforms/${PLATFORM_NAME}/data/fonts
+
+# NOTICE files are copied by build/core/Makefile from sdk.git
+sdk/files/sdk_files_NOTICE.txt platforms/${PLATFORM_NAME}/templates/NOTICE.txt
+sdk/files/sdk_files_NOTICE.txt platforms/${PLATFORM_NAME}/data/NOTICE.txt
+sdk/files/sdk_files_NOTICE.txt platforms/${PLATFORM_NAME}/skins/NOTICE.txt
+
+##############################################################################
+# System image Component
+##############################################################################
+
+# System images + Kernel
+system.img                                 system-images/${PLATFORM_NAME}/${TARGET_CPU_ABI}/system.img
+ramdisk.img                                system-images/${PLATFORM_NAME}/${TARGET_CPU_ABI}/ramdisk.img
+userdata.img                               system-images/${PLATFORM_NAME}/${TARGET_CPU_ABI}/userdata.img
+system/build.prop                          system-images/${PLATFORM_NAME}/${TARGET_CPU_ABI}/build.prop
+
+# Note: the kernel image is handled by sdk-android-<abi>.atree now.
+
+##############################################################################
+# Docs Component
+##############################################################################
+
+# version files for the SDK updater, from sdk.git
+${HOST_OUT}/development/sdk/doc_source.properties docs/source.properties
+
+# the docs
+docs/offline-sdk docs
+frameworks/base/docs/docs-samples-redirect.html docs/samples/index.html
+
+
+##############################################################################
+# Samples Component
+##############################################################################
+
+# samples to include in the sdk samples package
+#
+# the list here should match the list of samples that we generate docs for,
+# (see web_docs_sample_code_flags in frameworks/base/Android.mk)
+development/apps/GestureBuilder                samples/${PLATFORM_NAME}/GestureBuilder
+development/samples/samples_source.properties  samples/${PLATFORM_NAME}/source.properties
+#
+# PLEASE KEEP THE SAMPLES IN ALPHABETICAL ORDER.
+#
+development/samples/AccelerometerPlay          samples/${PLATFORM_NAME}/AccelerometerPlay
+development/samples/ActionBarCompat            samples/${PLATFORM_NAME}/ActionBarCompat
+development/samples/AndroidBeamDemo            samples/${PLATFORM_NAME}/AndroidBeamDemo
+development/samples/ApiDemos                   samples/${PLATFORM_NAME}/ApiDemos
+development/samples/AppNavigation              samples/${PLATFORM_NAME}/AppNavigation
+development/samples/BackupRestore              samples/${PLATFORM_NAME}/BackupRestore
+development/samples/BasicGLSurfaceView         samples/${PLATFORM_NAME}/BasicGLSurfaceView
+development/samples/BluetoothChat              samples/${PLATFORM_NAME}/BluetoothChat
+development/samples/BluetoothHDP               samples/${PLATFORM_NAME}/BluetoothHDP
+development/samples/ContactManager             samples/${PLATFORM_NAME}/ContactManager
+development/samples/CrossCompatibility         samples/${PLATFORM_NAME}/CrossCompatibility
+development/samples/CubeLiveWallpaper          samples/${PLATFORM_NAME}/CubeLiveWallpaper
+development/samples/HelloEffects               samples/${PLATFORM_NAME}/HelloEffects
+development/samples/Home                       samples/${PLATFORM_NAME}/Home
+development/samples/HoneycombGallery           samples/${PLATFORM_NAME}/HoneycombGallery
+development/samples/JetBoy                     samples/${PLATFORM_NAME}/JetBoy
+development/samples/KeyChainDemo               samples/${PLATFORM_NAME}/KeyChainDemo
+development/samples/LunarLander                samples/${PLATFORM_NAME}/LunarLander
+development/samples/MultiResolution            samples/${PLATFORM_NAME}/MultiResolution
+development/samples/NotePad                    samples/${PLATFORM_NAME}/NotePad
+development/samples/RandomMusicPlayer          samples/${PLATFORM_NAME}/RandomMusicPlayer
+development/samples/SpellChecker/SampleSpellCheckerService samples/${PLATFORM_NAME}/SpellChecker/SampleSpellCheckerService
+development/samples/SpellChecker/HelloSpellChecker samples/${PLATFORM_NAME}/SpellChecker/HelloSpellChecker
+development/samples/SampleSyncAdapter          samples/${PLATFORM_NAME}/SampleSyncAdapter
+development/samples/SearchableDictionary       samples/${PLATFORM_NAME}/SearchableDictionary
+development/samples/SipDemo                    samples/${PLATFORM_NAME}/SipDemo
+development/samples/SkeletonApp                samples/${PLATFORM_NAME}/SkeletonApp
+development/samples/Snake                      samples/${PLATFORM_NAME}/Snake
+development/samples/SoftKeyboard               samples/${PLATFORM_NAME}/SoftKeyboard
+development/samples/Spinner                    samples/${PLATFORM_NAME}/Spinner
+development/samples/SpinnerTest                samples/${PLATFORM_NAME}/SpinnerTest
+development/samples/TicTacToeLib               samples/${PLATFORM_NAME}/TicTacToeLib
+development/samples/TicTacToeMain              samples/${PLATFORM_NAME}/TicTacToeMain
+development/samples/TtsEngine                  samples/${PLATFORM_NAME}/TtsEngine
+development/samples/ToyVpn                     samples/${PLATFORM_NAME}/ToyVpn
+development/samples/UiAutomator                samples/${PLATFORM_NAME}/UiAutomator
+development/samples/USB/MissileLauncher        samples/${PLATFORM_NAME}/USB/MissileLauncher
+development/samples/USB/AdbTest                samples/${PLATFORM_NAME}/USB/AdbTest
+development/samples/VoiceRecognitionService    samples/${PLATFORM_NAME}/VoiceRecognitionService
+development/samples/VoicemailProviderDemo      samples/${PLATFORM_NAME}/VoicemailProviderDemo
+development/samples/WeatherListWidget          samples/${PLATFORM_NAME}/WeatherListWidget
+development/apps/WidgetPreview                 samples/${PLATFORM_NAME}/WidgetPreview
+development/samples/WiFiDirectDemo             samples/${PLATFORM_NAME}/WiFiDirectDemo
+development/samples/WiFiDirectServiceDiscovery samples/${PLATFORM_NAME}/WiFiDirectServiceDiscovery
+development/samples/Wiktionary                 samples/${PLATFORM_NAME}/Wiktionary
+development/samples/WiktionarySimple           samples/${PLATFORM_NAME}/WiktionarySimple
+development/samples/XmlAdapters                samples/${PLATFORM_NAME}/XmlAdapters
+development/samples/RenderScript/HelloCompute  samples/${PLATFORM_NAME}/RenderScript/HelloCompute
+
+# NOTICE files are copied by build/core/Makefile from sdk.git
+sdk/files/sdk_files_NOTICE.txt samples/${PLATFORM_NAME}/NOTICE.txt
+
+##############################################################################
+# Add-on Folder
+##############################################################################
+
+# empty add-on folder with just a readme copied from sdk.git
+sdk/files/README_add-ons.txt add-ons/README.txt
+
+##############################################################################
+# Extra Component: Support
+##############################################################################
+
+development/sdk/support_source.properties                                                         extras/android/support/source.properties
+development/sdk/support_README.txt                                                                extras/android/support/README.txt
+sdk/files/sdk_files_NOTICE.txt                                                                    extras/android/support/NOTICE.txt
+
+${OUT_DIR}/target/common/obj/PACKAGING/android-support-v4_intermediates/android-support-v4.jar    extras/android/support/v4/android-support-v4.jar
+frameworks/support/v4                                                                             extras/android/support/v4/src
+development/samples/Support4Demos                                                                 extras/android/support/samples/Support4Demos
+development/samples/SupportAppNavigation                                                          extras/android/support/samples/SupportAppNavigation
+
+${OUT_DIR}/target/common/obj/PACKAGING/android-support-v13_intermediates/android-support-v13.jar  extras/android/support/v13/android-support-v13.jar
+frameworks/support/v13                                                                            extras/android/support/v13/src
+development/samples/Support13Demos                                                                extras/android/support/samples/Support13Demos
+
+frameworks/support/v7/gridlayout/README.txt                                                       extras/android/support/v7/gridlayout/README.txt
+frameworks/support/v7/gridlayout/.project                                                         extras/android/support/v7/gridlayout/.project
+frameworks/support/v7/gridlayout/.classpath                                                       extras/android/support/v7/gridlayout/.classpath
+frameworks/support/v7/gridlayout/AndroidManifest.xml                                              extras/android/support/v7/gridlayout/AndroidManifest.xml
+frameworks/support/v7/gridlayout/project.properties                                               extras/android/support/v7/gridlayout/project.properties
+frameworks/support/v7/gridlayout/res                                                              extras/android/support/v7/gridlayout/res
+frameworks/support/v7/gridlayout/readme                                                           extras/android/support/v7/gridlayout/src/.readme
+${OUT_DIR}/target/common/obj/PACKAGING/android-support-v7-gridlayout_intermediates/android-support-v7-gridlayout.jar    extras/android/support/v7/gridlayout/libs/android-support-v7-gridlayout.jar
+
+##############################################################################
+# Tests Component
+##############################################################################
+framework/layoutlib-tests.jar tests/libtests/layoutlib-tests.jar
+system/app/ConnectivityTest.apk tests/emulator-test-apps/ConnectivityTest.apk
+system/app/GpsLocationTest.apk tests/emulator-test-apps/GpsLocationTest.apk

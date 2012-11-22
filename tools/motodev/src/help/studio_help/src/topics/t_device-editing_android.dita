@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task
+  PUBLIC "-//OASIS//DTD DITA Task//EN" "../dtd/task.dtd">
+<task xml:lang="en-us" id="t_device-editing_android">
+  <title>Editing or deleting an Android Virtual Device (AVD)</title>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <context>
+      <p>To delete an existing AVD, ensure that it is not running (select it in the Device Management view and click
+          <uicontrol>Stop</uicontrol> if necessary), then right-click it in the Device Management view and select
+          <uicontrol>Delete</uicontrol>.</p>
+      <p>To edit an existing AVD:</p>
+    </context>
+    <steps>
+      <step>
+        <cmd>Click the <uicontrol>Device Management</uicontrol> tab, if necessary, to bring forward the Device
+          Management view.</cmd>
+      </step>
+      <step>
+        <cmd>Right-click the AVD and select <uicontrol>Properties</uicontrol>.</cmd>
+        <stepresult>The Android Virtual Device properties dialog appears.</stepresult>
+      </step>
+      <step>
+        <cmd>To alter the timeout, click Android Virtual Device in the left part of the dialog, and then change the
+          timeout value in the field on the right.</cmd>
+        <info>Note that you cannot change the name, target, skin, or path for an existing AVD.</info>
+      </step>
+      <step>
+        <cmd>Click <uicontrol>Startup Options</uicontrol> on the left side of the dialog.</cmd>
+      </step>
+      <step>
+        <cmd>Alter the AVD's startup options using the <uicontrol>User Interface</uicontrol>, <uicontrol>Disk
+          Images</uicontrol>, <uicontrol>Network</uicontrol>, <uicontrol>System</uicontrol>, and <uicontrol
+          >Others</uicontrol> tabs. Note that only the more commonly-used AVD options are presented on these tabs; if
+          you need to specify additional options, enter them into the field on the <uicontrol>Others</uicontrol> tab,
+          command-line style.</cmd>
+        <info>
+          <p>For a description of each of the startup options displayed on the various tabs, see <xref
+              href="u_new-device-startup_android.dita"/>. For all of the possible command-line arguments, see <xref
+              href="http://d.android.com/guide/developing/tools/emulator.html#startup-options" format="html"
+              scope="external">http://d.android.com/guide/developing/tools/emulator.html#startup-options</xref>.</p>
+          <p>Except on Mac OS X, to work with the emulator in a separate window simply close the Android Emulator view
+            and click <uicontrol>No</uicontrol> when you are asked if running emulator instances should be stopped.
+            Opening the Android Emulator view while the emulator is running externally causes the emulator to be shown
+            in the view. On Mac OS X, things work somewhat differently: see <xref href="t_emulator-external.dita"/> for
+            instructions.</p>
+        </info>
+      </step>
+      <step>
+        <cmd>Click <uicontrol>OK</uicontrol>. </cmd>
+      </step>
+    </steps>
+    <result>Your changes are saved and the dialog is closed.</result>
+  </taskbody>
+</task>

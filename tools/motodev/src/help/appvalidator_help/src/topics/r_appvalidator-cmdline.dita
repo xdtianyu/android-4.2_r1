@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference xml:lang="en-us" id="r_appvalidator-cmdline">
+  <title>appvalidator command-line options</title>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <p>The appvalidator script (located in the MOTODEV Studio for Android installation directory) has a number of
+        command-line options that can be used to customize its operation.</p>
+    </section>
+    <section><title>Getting Help</title>Invoke the appvalidator script with the <codeph>-help</codeph> option to see a
+      list of the command-line options.</section>
+    <section>
+      <title>Invoking the App Validator</title>
+      <p><codeblock>appvalidator [FILE] [OPTION [PARAMETER]]...</codeblock>
+        <codeph>FILE</codeph> is the Android APK or project to be validated. </p>
+    </section>
+    <section>
+      <title>Options</title>
+      <p>The <codeph>appvalidator</codeph> command-line options are as follows:</p>
+      <p>
+        <simpletable>
+          <sthead>
+            <stentry>Option</stentry>
+            <stentry>Parameter</stentry>
+            <stentry>Description</stentry>
+          </sthead>
+          <strow>
+            <stentry><codeph>-sdk</codeph></stentry>
+            <stentry>path to the SDK</stentry>
+            <stentry>Allows you to specify the location of the Android SDK to be used when validating the application.
+              If an SDK is not explicitly specified using this option, the Android SDK specified in your system PATH is
+              used instead.</stentry>
+          </strow>
+          <strow>
+            <stentry><codeph>-c</codeph></stentry>
+            <stentry>checker ID, (optional) checker parameters</stentry>
+            <stentry>Specifies the checker to use when validating the application. You specify checkers by their IDs; a
+              list of available checkers and their IDs can be obtained with the <codeph>-list-checkers</codeph>
+            option.</stentry>
+          </strow>
+          <strow>
+            <stentry><codeph>-wx</codeph></stentry>
+            <stentry>(optional) one or more checker IDs or conditions, separated by whitespace</stentry>
+            <stentry>Increases the warning level of the validation results for the specified set of checkers and/or
+              conditions. If no checker ID or condition ID is supplied, increases the warning level for all checkers and
+              conditions. A list of available checkers and their IDs can be obtained with the <codeph
+              >-list-checkers</codeph> option. A list of conditions and their IDs for a given checker can be obtained
+              through the use of the <codeph>-help</codeph> option.</stentry>
+          </strow>
+          <strow>
+            <stentry><codeph>-xw</codeph></stentry>
+            <stentry>(optional) one or more checker IDs, separated by whitespace</stentry>
+            <stentry>Decreases the warning level of the validation results for the specified set of checkers and/or
+              conditions. If no checker ID or condition ID is supplied, decreases the warning level for all checkers and
+              conditions. A list of available checkers and their IDs can be obtained with the <codeph
+              >-list-checkers</codeph> option. A list of conditions and their IDs for a given checker can be obtained
+              through the use of the <codeph>-help</codeph> option.</stentry>
+          </strow>
+          <strow>
+            <stentry><codeph>-output</codeph></stentry>
+            <stentry><codeph>text | csv | xml</codeph></stentry>
+            <stentry>Format the output as text (the default), as comma-separated values suitable for importing into a
+              spreadsheet (<codeph>csv</codeph>) or as XML. When this option is specified, the verbosity level is
+              automatically set to 0.</stentry>
+          </strow>
+          <strow>
+            <stentry><codeph>-limit</codeph></stentry>
+            <stentry>an integer value indicating the number of entries</stentry>
+            <stentry>Limits the output to the specified number of entries.</stentry>
+          </strow>
+          <strow>
+            <stentry><codeph>-list-checkers</codeph></stentry>
+            <stentry/>
+            <stentry>Lists the available checkers. Use the <codeph>-help</codeph> option to get information about an
+              individual checker.</stentry>
+          </strow>
+          <strow>
+            <stentry><codeph>-list-devices</codeph></stentry>
+            <stentry/>
+            <stentry>Lists the devices for which the Android app can be validated.</stentry>
+          </strow>
+          <strow>
+            <stentry><codeph>-describe-device</codeph></stentry>
+            <stentry>device name</stentry>
+            <stentry>For a specified device, enumerates the device parameters that may be used when validating an
+              Android app against that device. Supply the name of the device as listed with the <codeph
+              >-list-devices</codeph> option.</stentry>
+          </strow>
+          <strow>
+            <stentry><codeph>-d</codeph></stentry>
+            <stentry>device name</stentry>
+            <stentry>Validates the app only against the named device (to validate against more than one device, use
+              multiple <codeph>-d</codeph> options). If this option is not supplied, the app is validated against all of
+              the devices listed when you use the <codeph>-list-checkers</codeph> option.</stentry>
+          </strow>
+          <strow>
+            <stentry><codeph>-help</codeph></stentry>
+            <stentry>(optional) checker ID</stentry>
+            <stentry>When used by itself (without a checker ID) this option lists the command-line syntax and options
+              used to invoke the App Validator from the command line. If a checker ID is specified, the <codeph
+                >-help</codeph> option displays information about the specified checker, including a list of conditions
+              and their IDs for use with the <codeph>-wx</codeph> and <codeph>-xw</codeph> options. A list of available
+              checkers and their IDs can be obtained with the <codeph>-list-checkers</codeph> option.</stentry>
+          </strow>
+          <strow>
+            <stentry><codeph>-v</codeph><i>N</i></stentry>
+            <stentry/>
+            <stentry>Indicates the "verbosity level" - the level of detail that is logged (in the Console view, if run
+              from Eclipse) when the validator is run. In place of <i>N</i> supply a digit—either 0, 1, or 2—to indicate
+              the level. <codeph>-v0</codeph> (the default level) results in the most concise output, while <codeph
+              >-v2</codeph> produces a detailed log of every action that the validator takes.</stentry>
+          </strow>
+          <strow>
+            <stentry><codeph>-w</codeph><i>N</i></stentry>
+            <stentry/>
+            <stentry>Indicates the level of warnings that are logged (in the Problems view, if run from Eclipse) when
+              the validator is run. In place of <i>N</i> supply a digit—either 0, 1, 2, 3, or 4—to indicate the warning
+              level. <codeph>-w0</codeph> results in the most concise output, with only fatal errors being logged, while
+                <codeph>-w4</codeph> (the default) produces a detailed log of every warning and error.</stentry>
+          </strow>
+        </simpletable>
+      </p>
+    </section>
+  </refbody>
+</reference>

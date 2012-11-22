@@ -1,0 +1,30 @@
+apply plugin: 'java'
+
+dependencies {
+    compile project(':common')
+    compile 'kxml2:kxml2:2.3.0'
+
+    testCompile 'junit:junit:3.8.1'
+}
+
+group = 'com.android.tools'
+archivesBaseName = 'layoutlib_api'
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src'
+        }
+        resources {
+            srcDir 'src'
+        }
+    }
+    test {
+        java {
+            srcDir 'tests/src'
+        }
+        resources {
+            srcDir 'tests/src'
+        }
+    }
+}

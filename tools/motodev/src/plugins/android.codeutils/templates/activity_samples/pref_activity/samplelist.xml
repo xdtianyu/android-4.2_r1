@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sample_pref_categ_1">Preferences category 1</string>
+    <string name="sample_pref_categ_2">Preferences category 2</string>
+    <string name="sample_pref_categ_3">Preferences category 3</string>
+    <string name="sample_pref_ckb">Checkbox Preference</string>
+    <string name="sample_pref_check_it">Check It</string>
+    <string name="sample_pref_other_screen">Another Preference Screen</string>
+    <string name="sample_pref_add_prefs">Additional preferences</string>
+    <string name="sample_pref_other_ckb">Another Checkbox</string>
+    <string name="sample_pref_txt_dialog">Text Entry Dialog</string>
+    <string name="sample_pref_enter_txt">Enter something</string>
+    <string name="sample_pref_summary">Preference Summary</string>
+    <string name="sample_pref_sel_dialog">Selection Dialog</string>
+    <string name="sample_pref_click_pop_up">Click to pop up a list to choose from</string>
+    <string name="sample_pref_choose_number">Choose a number</string>
+    <string-array name="numbers">
+		<item>1</item>
+		<item>2</item>
+		<item>3</item>
+	</string-array>
+	<string-array name="numbernames">
+		<item>One</item>
+		<item>Two</item>
+		<item>Three</item>
+	</string-array>
+</resources>

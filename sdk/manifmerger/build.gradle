@@ -1,0 +1,33 @@
+apply plugin: 'java'
+
+dependencies {
+    compile project(':common')
+    compile project(':sdkmanager:libs:sdklib')
+    compile 'kxml2:kxml2:2.3.0'
+
+// not sure why the following line works in sdklib but not here...
+//    testCompile project(':sdkmanager:libs:sdklib').sourceSets.test.output
+    testCompile 'junit:junit:3.8.1'
+}
+
+group = 'com.android.tools'
+archivesBaseName = 'manifest-merger'
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src'
+        }
+        resources {
+            srcDir 'src'
+        }
+    }
+    test {
+        java {
+            srcDir 'tests/src'
+        }
+        resources {
+            srcDir 'tests/src'
+        }
+    }
+}

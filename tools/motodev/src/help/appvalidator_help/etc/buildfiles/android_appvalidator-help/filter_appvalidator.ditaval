@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Filter file for App Validator help. -->
+<val>
+  <prop att="product" val="android-studio" action="include"/>
+  <prop att="product" val="javame-studio" action="exclude"/>
+  <prop att="product" val="javame-sdk" action="exclude"/>
+  <prop att="product" val="webui" action="exclude"/>
+</val>

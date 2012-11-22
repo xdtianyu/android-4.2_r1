@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "../dtd/task.dtd">
+<task id="t_app-validating" xml:lang="en-us">
+  <title>Validating an application from Eclipse</title>
+  <shortdesc>From within Eclipse you can easily run the App Validator against any of your open projects.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <steps>
+      <step>
+        <cmd>From the Package Explorer view either right-click the open project or right-click an APK file from your
+          workspace and then select <uicontrol>Validate Android Application</uicontrol>. Note that you can validate
+          multiple APKs or multiple Android projects at one time by selecting <menucascade><uicontrol
+              >MOTODEV</uicontrol><uicontrol>App Validator</uicontrol><uicontrol>Validate Android
+          Apps</uicontrol></menucascade> (to validate one or more APKs) or <menucascade><uicontrol
+              >MOTODEV</uicontrol><uicontrol>App Validator</uicontrol><uicontrol>Validate Android
+          Project(s)</uicontrol></menucascade> (to validate one or more Android projects).</cmd>
+        <stepresult>The App Validator runs. The overall results are displayed in a Console view, and the various errors
+          and warnings are listed in the Problems view, often with suggestions for fixing the problem. Double-click an
+          entry in the Problems view to open the appropriate file in an editor view with the problem area highlighted.
+            <p>After running the App Validator, those files with problems are appropriately marked with error or warning
+            symbols in the Package Explorer.</p>Note that by default the output produced by the Android App Validator is
+          equivalent to running it with command-line options for the default verbosity level (-v2) and a detailed log of
+          every warning and error (-w4). These defaults can be changed (and other command-line options added) using the
+          App Validator preferences dialog.</stepresult>
+      </step>
+    </steps>
+  </taskbody>
+</task>

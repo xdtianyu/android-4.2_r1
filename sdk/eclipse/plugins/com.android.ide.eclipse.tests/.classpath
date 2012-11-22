@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="unittests"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<classpathentry kind="lib" path="kxml2-2.3.0.jar"/>
+	<classpathentry kind="lib" path="easymock.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/ddmlib"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/ddmuilib"/>
+	<classpathentry kind="lib" path="/plugin-adt/libs/ninepatch.jar" sourcepath="/ninepatch"/>
+	<classpathentry kind="lib" path="/plugin-base/libs/sdklib.jar" sourcepath="/SdkLib"/>
+	<classpathentry kind="lib" path="/plugin-adt/libs/sdkuilib.jar" sourcepath="/SdkUiLib"/>
+	<classpathentry kind="lib" path="/plugin-adt/libs/rule_api.jar" sourcepath="/rule_api"/>
+	<classpathentry kind="lib" path="/plugin-base/libs/common.jar" sourcepath="/common"/>
+	<classpathentry kind="lib" path="/plugin-adt/libs/lint_api.jar" sourcepath="/lint-api"/>
+	<classpathentry kind="lib" path="/plugin-adt/libs/lint_checks.jar" sourcepath="/lint-checks"/>
+	<classpathentry kind="lib" path="/plugin-base/libs/sdk_common.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

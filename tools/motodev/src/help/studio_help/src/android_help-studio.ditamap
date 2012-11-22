@@ -1,0 +1,916 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/map.dtd">
+<map title="MOTODEV Studio for Android User's Guide" id="com.motorola.studio.android.tooldocs.studio.helpbase">
+  <topicmeta>
+    <copyright>
+      <copyryear year="2009-2012"/>
+      <copyrholder>Motorola Mobility, Inc.</copyrholder>
+    </copyright>
+  </topicmeta>
+  <!-- <topichead navtitle="Concepts" type="concept" format="dita">
+  </topichead> -->
+  <!--  <topichead navtitle="Tasks" format="dita"> -->
+  <topicref href="topics/c_android-studio.dita"/>
+  <topicref href="topics/t_project-creating_android.dita"/>
+  <topicref href="topics/t_project-creating-widget_android.dita"/>
+  <topicref href="topics/t_activity-creating.dita"/>
+  <topicref href="topics/t_bcast-rcvr-creating.dita"/>
+  <topicref href="topics/t_service-creating.dita"/>
+  <topicref href="topics/t_content-provider-creating.dita"/>
+  <topicref href="topics/c_code-generator.dita">
+    <topicref href="topics/t_code-generator.dita"/>
+  </topicref>
+  <topicref href="topics/t_app-launching_android.dita"/>
+  <topicref href="topics/t_app-debugging_android.dita"/>
+  <topicref href="topics/t_app-testing-monkey.dita"/>
+  <topicref href="topics/t_app-memory-analyzing.dita"/>
+  <topicref href="topics/t_device-screen-capturing.dita"/>
+  <topicref href="topics/t_device-creating_android.dita"/>
+  <topicref href="topics/t_device-editing_android.dita"/>
+  <topicref href="topics/t_device-starting_android.dita"/>
+  <topicref href="topics/t_device-state-managing.dita"/>
+  <topicref href="topics/t_emulator-view-opening.dita"/>
+  <topicref href="topics/t_emulator-view-closing.dita"/>
+  <topicref href="topics/t_emulator-view-manipulating.dita">
+    <topicref href="topics/t_emulator-external.dita"/>
+    <topicref href="topics/t_emulator-language-changing.dita"/>
+  </topicref>
+  <topicref href="topics/t_android-perspective-opening.dita"/>
+  <topicref href="topics/t_app-packaging_android.dita"/>
+  <topicref href="topics/t_app-deploying_android.dita"/>
+  <topicref href="topics/t_app-uninstalling-android.dita"/>
+  <topicref href="topics/t_app-cert-signing_android.dita">
+    <topicref href="topics/t_app-signature-removing.dita"/>
+  </topicref>
+  <topicref href="topics/t_app-cert-props-changing.dita">
+    <topicref href="topics/t_cert-key-generating.dita"/>
+    <topicref href="topics/t_cert-key-properties.dita"/>
+    <topicref href="topics/t_app-cert-removing.dita"/>
+    <topicref href="topics/t_cert-key-pwd-changing.dita"/>
+    <topicref href="topics/t_keystore-creating.dita"/>
+    <topicref href="topics/t_keystore-deleting.dita"/>
+    <topicref href="topics/t_keystore-importing.dita"/>
+    <topicref href="topics/t_keystore-entries-importing.dita"/>
+    <topicref href="topics/t_keystore-backup.dita"/>
+    <topicref href="topics/t_keystore-backup-restore.dita"/>
+    <topicref href="topics/t_keystore-type-changing.dita"/>
+    <topicref href="topics/t_keystore-password-changing.dita"/>
+  </topicref>
+  <topicref href="topics/t_obfuscating.dita"/>
+  <topicref href="topics/t_db-about.dita">
+    <topicref href="topics/t_db-connecting.dita"/>
+    <topicref href="topics/t_db-creating.dita"/>
+    <topicref href="topics/t_db-deleting.dita"/>
+    <topicref href="topics/t_db-table-creating.dita"/>
+    <topicref href="topics/t_db-table-deleting.dita"/>
+    <topicref href="topics/t_db-table-editing.dita"/>
+    <topicref href="topics/t_db-classes-create.dita"/>
+  </topicref>
+  <!--<topicref href="topics/t_vdl-starting.dita"/>-->
+  <topicref href="topics/t_log-files-collecting.dita"/>
+  <anchor id="tasks_end"/>
+  <!--  </topichead> -->
+  <topichead navtitle="Reference">
+    <topichead navtitle="Views and Editors">
+      <topicref href="topics/u_emulator_android.dita" type="reference"/>
+      <!--     <topicref href="topics/u_snippets-view_android.dita" type="reference"/> -->
+      <topicref href="topics/u_new-proj_android.dita" type="reference"/>
+      <topicref href="topics/u_new-proj-widget_android.dita"/>
+      <topicref href="topics/u_new-activity.dita" type="reference"/>
+      <topicref href="topics/u_new-activity-template.dita">
+        <topicref href="topics/u_select-table.dita"/>
+        <topicref href="topics/u_select-columns.dita"/>
+      </topicref>
+      <topicref href="topics/u_new-broadcast-receiver.dita" type="reference"/>
+      <topicref href="topics/u_new-service.dita" type="reference"/>
+      <topicref href="topics/u_new-content-provider.dita" type="reference"/>
+      <topicref href="topics/u_new-widget-provider.dita"/>
+      <topichead navtitle="Manage Database">
+        <topicref href="topics/u_db-classes-create.dita"/>
+        <topicref href="topics/u_db-create.dita"/>
+      </topichead>
+      <topichead navtitle="Auto-Generated Code">
+        <topicref href="topics/u_code-generator.dita"/>
+        <topicref href="topics/u_save-ui-state.dita"/>
+        <topicref href="topics/u_options-menu-code-create.dita"/>
+        <topicref href="topics/u_new-activity-template.dita"/>
+      </topichead>
+      <topicref href="topics/u_collect-log-files.dita" type="reference"/>
+      <topicref href="topics/u_device-manager_android.dita" type="reference">
+        <topicref href="topics/u_new-device.dita" type="reference">
+          <topicref href="topics/u_new-device-main_android.dita" type="reference"/>
+          <topicref href="topics/u_new-device-startup_android.dita" type="reference"/>
+        </topicref>
+        <topicref href="topics/u_pkg-install.dita"/>
+        <topicref href="topics/u_device-app-uninstall.dita"/>
+        <topicref href="topics/u_emulator-language.dita"/>
+        <topicref href="topics/u_memory-analyze-app-select.dita"/>
+      </topicref>
+      <topicref href="topics/u_android-handset-properties.dita">
+        <topicref href="topics/u_device-properties_android.dita"/>
+      </topicref>
+      <topicref href="topics/u_avd-properties.dita">
+        <topicref href="topics/u_device-properties_android.dita"/>
+        <topicref href="topics/u_avd-startup-options.dita"/>
+      </topicref>
+      <topicref href="topics/u_screen-calculator.dita"/>
+      <topicref href="topics/u_device-screen-capture.dita"/>
+      <topicref href="topics/u_run-config-main.dita" type="reference">
+        <topicref href="topics/u_select-project.dita"/>
+        <topicref href="topics/u_select-instance.dita"/>
+        <topicref href="topics/u_select-activity.dita"/>
+      </topicref>
+      <topicref href="topics/u_avd-offline-dialog.dita"/>
+      <topicref href="topics/u_run-config-monkey-main.dita"/>
+      <topicref href="topics/u_pkg-export.dita">
+        <topicref href="topics/u_keystore-select.dita"/>
+      </topicref>
+      <topicref href="topics/u_app-signing-view.dita">
+        <topicref href="topics/u_sign-create-keystore.dita"/>
+        <topicref href="topics/u_sign-keystore-type-changing.dita"/>
+        <topicref href="topics/u_sign-import-keystore.dita"/>
+        <topicref href="topics/u_sign-import-keystore-entries.dita"/>
+        <topicref href="topics/u_sign-keystore-backup.dita"/>
+        <topicref href="topics/u_sign-keystore-backup-restore.dita"/>
+        <topicref href="topics/u_sign-create-self-cert.dita"/>
+        <topicref href="topics/u_sign-cert-properties.dita"/>
+        <topicref href="topics/u_mpkg-sign_android.dita" type="reference"/>
+        <topicref href="topics/u_mpkg-unsign_android.dita"/>
+      </topicref>
+      <topicref href="topics/u_obfuscation-prop.dita"/>
+      <topicref href="topics/u_obfuscate-projects.dita"/>
+      <topicref href="topics/u_db-database-perspective.dita"/>
+      <topicref href="topics/u_db-database-explorer.dita"/>
+      <topicref href="topics/u_db-create.dita"/>
+      <topicref href="topics/u_db-table-create.dita"/>
+      <topicref href="topics/u_db-sql-results-view.dita"/>
+      <topicref href="topics/u_db-sql-scrapbook.dita"/>
+      <topicref href="PLUGINS_ROOT/org.eclipse.datatools.sqltools.doc.user/doc/html/asc1229700427574.html"
+        navtitle="SQL Query Builder" locktitle="yes" format="html" scope="peer"/>
+      <topicref href="PLUGINS_ROOT/org.eclipse.datatools.sqltools.doc.user/doc/html/asc1229700412058.html" format="html"
+        scope="peer" navtitle="SQL Results View Options" locktitle="yes"/>
+      <topicref href="topics/u_studio-prefs.dita">
+        <topicref href="topics/u_studio-prefs_emulator.dita"/>
+        <topicref href="topics/u_studio-prefs_db.dita"/>
+        <topicref href="topics/u_studio-prefs_android.dita"/>
+      </topicref>
+      <topicref href="topics/u_video-view.dita"/>
+      <anchor id="reference_end"/>
+    </topichead>
+  </topichead>
+  <topicref href="topics/g_legal.dita"/>
+  <reltable title="Uni-directional links (topics in col 1 show links to topics in col 2)">
+    <relheader>
+      <relcolspec linking="sourceonly"/>
+      <relcolspec/>
+    </relheader>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_activity-creating.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/t_bcast-rcvr-creating.dita"/>
+        <topicref href="topics/t_content-provider-creating.dita"/>
+        <topicref href="topics/t_service-creating.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_bcast-rcvr-creating.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/t_activity-creating.dita"/>
+        <topicref href="topics/t_content-provider-creating.dita"/>
+        <topicref href="topics/t_service-creating.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_content-provider-creating.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/t_activity-creating.dita"/>
+        <topicref href="topics/t_bcast-rcvr-creating.dita"/>
+        <topicref href="topics/t_service-creating.dita"/>
+        <topicref href="http://developer.android.com/resources/articles/live-folders.html" navtitle="Live Folders"
+          locktitle="yes" format="html" scope="external"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_service-creating.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/t_activity-creating.dita"/>
+        <topicref href="topics/t_bcast-rcvr-creating.dita"/>
+        <topicref href="topics/t_content-provider-creating.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_app-launching_android.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/t_device-creating_android.dita"/>
+        <topicref href="topics/t_device-editing_android.dita"/>
+        <!--<topicref href="topics/t_vdl-starting.dita"/>-->
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_app-debugging_android.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/t_device-creating_android.dita"/>
+        <topicref href="topics/t_device-editing_android.dita"/>
+        <!--<topicref href="topics/t_vdl-starting.dita"/>-->
+        <topicref href="PLUGINS_ROOT/org.eclipse.jdt.doc.user/concepts/clocdbug.htm"
+          navtitle="Local Debugging (Java development user guide)" locktitle="yes" format="html" scope="peer"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_device-creating_android.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/t_app-launching_android.dita"/>
+        <topicref href="http://d.android.com/guide/developing/tools/emulator.html#startup-options" format="html"
+          navtitle="Emulator Startup Options" scope="external" locktitle="yes"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_device-editing_android.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/t_app-launching_android.dita"/>
+        <topicref href="http://d.android.com/guide/developing/tools/emulator.html#startup-options" format="html"
+          navtitle="Emulator Startup Options" scope="external" locktitle="yes"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_emulator-view-opening.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/t_app-launching_android.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_app-packaging_android.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/t_app-cert-props-changing.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_app-deploying_android.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/t_app-cert-signing_android.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_cert-key-generating.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/t_app-cert-signing_android.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_device-state-managing.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="http://developer.android.com/guide/developing/tools/adb.html#shellcommands"
+          navtitle="Issuing Shell Commands (Android developers documentation)" locktitle="yes" format="html"
+          scope="external"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_emulator-controlling.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="http://developer.android.com/guide/developing/tools/emulator.html#console"
+          navtitle="Using the Emulator Console (Android developers documentation)" locktitle="yes" format="html"
+          scope="external"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_db-table-creating.dita"/>
+        <topicref href="topics/t_db-table-deleting.dita"/>
+        <topicref href="topics/t_db-table-editing.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/t_db-connecting.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/u_db-database-explorer.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/u_db-sql-results-view.dita"/>
+        <topicref href="topics/u_studio-prefs_db.dita"/>
+        <topicref href="topics/u_db-classes-create.dita"/>
+        <topicref href="topics/u_db-table-create.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/u_run-config-main.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/t_device-creating_android.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_emulator-external.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/t_device-creating_android.dita"/>
+        <topicref href="topics/t_device-editing_android.dita"/>
+        <topicref href="topics/t_emulator-view-opening.dita"/>
+        <topicref href="topics/u_new-device-startup_android.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_app-testing-monkey.dita"/>
+        <topicref href="topics/u_run-config-monkey-main.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="http://developer.android.com/guide/developing/tools/monkey.html"
+          navtitle="UI/Application Exerciser Monkey documentation" locktitle="yes" format="html" scope="external"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/u_run-config-monkey-main.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/u_device-manager_android.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_app-memory-analyzing.dita"/>
+        <topicref href="topics/u_memory-analyze-app-select.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="http://www.eclipse.org/mat/" navtitle="Memory Analyzer (MAT) documentation" locktitle="yes"
+          format="html" scope="external"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_emulator-language-changing.dita"/>
+        <topicref href="topics/u_emulator-language.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="http://developer.android.com/guide/topics/resources/localization.html#emulator"
+          navtitle="Testing on an Emulator" locktitle="yes" format="html" scope="external"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_project-creating_android.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/t_config-for-native.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_obfuscating.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="http://developer.android.com/guide/developing/tools/proguard.html" format="html"
+          scope="external" locktitle="yes" navtitle="ProGuard (in Android developer documentation)"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/u_code-generator.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/c_code-generator.dita"/>
+      </relcell>
+    </relrow>
+  </reltable>
+  <reltable title="Bi-directional links (topics in col 1 and 2 show links to each other)">
+    <relheader>
+      <relcolspec/>
+      <relcolspec/>
+    </relheader>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_activity-creating.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/u_new-activity.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_activity-creating.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/u_new-activity-template.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_bcast-rcvr-creating.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/u_new-broadcast-receiver.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_content-provider-creating.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/u_new-content-provider.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_service-creating.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/u_new-service.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_app-launching_android.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/u_run-config-main.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_app-debugging_android.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/u_run-config-main.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_device-creating_android.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/t_device-editing_android.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_device-creating_android.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/u_new-device.dita"/>
+        <topicref href="topics/u_new-device-main_android.dita"/>
+        <topicref href="topics/u_new-device-startup_android.dita"/>
+        <topicref href="topics/t_device-starting_android.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_device-editing_android.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/u_new-device.dita"/>
+        <topicref href="topics/u_new-device-main_android.dita"/>
+        <topicref href="topics/u_new-device-startup_android.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/u_device-manager_android.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/t_device-starting_android.dita"/>
+        <topicref href="topics/t_device-state-managing.dita"/>
+        <topicref href="topics/t_emulator-controlling.dita"/>
+        <topicref href="topics/t_app-deploying_android.dita"/>
+        <topicref href="topics/t_app-uninstalling-android.dita"/>
+        <topicref href="topics/t_app-testing-monkey.dita"/>
+        <topicref href="topics/t_app-memory-analyzing.dita"/>
+        <topicref href="topics/t_device-screen-capturing.dita"/>
+        <topicref href="topics/t_emulator-language-changing.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_emulator-view-opening.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/t_emulator-view-closing.dita"/>
+        <topicref href="topics/t_emulator-view-manipulating.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/u_emulator_android.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/t_emulator-view-opening.dita"/>
+        <topicref href="topics/t_emulator-view-closing.dita"/>
+        <topicref href="topics/t_emulator-view-manipulating.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/u_emulator_android.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/t_emulator-view-closing.dita"/>
+        <topicref href="topics/t_emulator-view-manipulating.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_app-packaging_android.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/t_app-cert-signing_android.dita"/>
+        <topicref href="topics/t_app-deploying_android.dita"/>
+        <topicref href="topics/u_pkg-export.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_app-cert-signing_android.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/t_app-cert-props-changing.dita"/>
+        <topicref href="topics/u_app-signing-view.dita"/>
+        <topicref href="topics/u_mpkg-sign_android.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_app-signature-removing.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/u_app-signing-view.dita"/>
+        <topicref href="topics/u_mpkg-unsign_android.dita"/>
+        <topicref href="topics/t_app-cert-props-changing.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_app-deploying_android.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/t_app-launching_android.dita"/>
+        <topicref href="topics/t_app-packaging_android.dita"/>
+        <topicref href="topics/u_device-manager_android.dita"/>
+        <topicref href="topics/u_pkg-install.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_app-cert-props-changing.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/u_app-signing-view.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_cert-key-generating.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/u_sign-create-self-cert.dita"/>
+        <topicref href="topics/t_app-cert-removing.dita"/>
+        <topicref href="topics/u_sign-cert-properties.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_emulator-view-manipulating.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/t_emulator-controlling.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_log-files-collecting.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/u_collect-log-files.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/u_db-sql-scrapbook.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/u_db-sql-results-view.dita"/>
+        <topicref href="PLUGINS_ROOT/org.eclipse.datatools.sqltools.doc.user/doc/html/asc1229700427574.html"
+          navtitle="SQL Query Builder" locktitle="yes" format="html" scope="peer"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/u_db-sql-results-view.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="PLUGINS_ROOT/org.eclipse.datatools.sqltools.doc.user/doc/html/asc1229700412058.html"
+          format="html" scope="peer" navtitle="SQL Results View Options" locktitle="yes"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_db-creating.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/t_db-table-creating.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_app-deploying_android.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/t_app-uninstalling-android.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_device-screen-capturing.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/u_device-screen-capture.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/u_new-device-startup_android.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/u_screen-calculator.dita"/>
+        <topicref href="topics/u_avd-startup-options.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/u_avd-startup-options.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/u_screen-calculator.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/u_android-handset-properties.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/u_avd-properties.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_app-testing-monkey.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/t_app-debugging_android.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/u_run-config-monkey-main.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/t_app-testing-monkey.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/u_db-classes-create.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/t_db-classes-create.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_db-classes-create.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/t_content-provider-creating.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/u_emulator-language.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/t_emulator-language-changing.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/u_device-app-uninstall.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/t_app-uninstalling-android.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/u_memory-analyze-app-select.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/t_app-memory-analyzing.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_project-creating_android.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/t_project-creating-widget_android.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_obfuscating.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/t_project-creating_android.dita"/>
+        <topicref href="topics/u_obfuscate-projects.dita"/>
+        <topicref href="topics/u_obfuscation-prop.dita"/>
+        <topicref href="topics/t_app-packaging_android.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/u_obfuscate-projects.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/u_obfuscation-prop.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/u_new-proj_android.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/t_project-creating_android.dita"/>
+      </relcell>
+    </relrow>
+    <!--<relrow>
+      <relcell>
+        <topicref href="topics/t_vdl-starting.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/u_studio-prefs_da.dita"/>
+      </relcell>
+    </relrow>-->
+    <relrow>
+      <relcell>
+        <topicref href="topics/u_db-create.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/u_db-table-create.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/u_db-create.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/t_db-creating.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/u_db-table-create.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/t_db-table-creating.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/u_new-activity.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/u_new-activity-template.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_code-generator.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/u_code-generator.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_cert-key-properties.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/u_sign-cert-properties.dita"/>
+        <topicref href="topics/t_cert-key-generating.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_cert-key-pwd-changing.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/t_cert-key-generating.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_keystore-creating.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/t_keystore-deleting.dita"/>
+        <topicref href="topics/t_keystore-backup-restore.dita"/>
+        <topicref href="topics/t_keystore-importing.dita"/>
+        <topicref href="topics/t_keystore-entries-importing.dita"/>
+        <topicref href="topics/u_sign-create-keystore.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_keystore-backup.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/t_keystore-backup-restore.dita"/>
+        <topicref href="topics/u_sign-keystore-backup.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_keystore-backup-restore.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/u_sign-keystore-backup-restore.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_keystore-deleting.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/t_app-cert-removing.dita"/>
+        <topicref href="topics/t_keystore-backup.dita"/>
+        <topicref href="topics/t_keystore-creating.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_keystore-importing.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/t_keystore-entries-importing.dita"/>
+        <topicref href="topics/u_sign-import-keystore.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_keystore-entries-importing.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/t_cert-key-generating.dita"/>
+        <topicref href="topics/t_app-cert-removing.dita"/>
+        <topicref href="topics/u_sign-import-keystore-entries.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/t_keystore-type-changing.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/u_sign-keystore-type-changing.dita"/>
+      </relcell>
+    </relrow>
+    <relrow>
+      <relcell>
+        <topicref href="topics/c_keys-keystores.dita"/>
+      </relcell>
+      <relcell>
+        <topicref href="topics/u_app-signing-view.dita"/>
+        <topicref href="topics/t_app-cert-props-changing.dita"/>
+      </relcell>
+    </relrow>
+  </reltable>
+</map>

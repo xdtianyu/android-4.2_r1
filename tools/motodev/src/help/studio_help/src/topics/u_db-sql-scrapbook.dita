@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference id="u_db-sql-scrapbook" xml:lang="en-us">
+  <title>SQL Scrapbook</title>
+  <shortdesc>From the SQL Scrapbook views (you can have multiple SQL Scrapbook views) you can enter and execute
+    arbitrary SQL. This allows you to perform more complex SQL operations than you can with the UI controls provided by
+    the MOTODEV Database perspective.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <p>The SQL Scrapbook view is divided into two parts. The upper portion contains the Connection profile and
+        identifies the database to which the view is connected (if any). The lower part is a single large text field
+        into which you enter your SQL statements. </p>
+      <p>The Connection profile consists of the following fields:</p>
+      <simpletable>
+        <strow>
+          <stentry><uicontrol>Type</uicontrol></stentry>
+          <stentry>Database type. For instance, <codeph>SQLITE_3.5.9</codeph>. The type is automatically filled in when
+            you connect to a database from the SQL Scrapbook view.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Name</uicontrol></stentry>
+          <stentry>Full name of the connection profile. For instance, <codeph
+            >myAVD.com.motorola.example.database.books</codeph>. Select a profile from this list to connect to
+          it.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Database</uicontrol></stentry>
+          <stentry>Database name. For instance, <codeph>books</codeph></stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Status</uicontrol></stentry>
+          <stentry>Database status. For instance, <codeph>Connected, Auto Commit</codeph></stentry>
+        </strow>
+      </simpletable>
+      <p>You must be connected to a database from within the Connection profile to be able to execute SQL statements.</p>
+      <p>To execute a single SQL statement, enter the statement in the large text area, or right-click in this area and
+        select <uicontrol>Edit in SQL Query Builder</uicontrol> to construct your SQL query statement interactively.
+        Then, right-click the statement and select <uicontrol>Execute Current Text</uicontrol>. Note that you can
+        execute all of the SQL statements in the text are with <uicontrol>Execute All</uicontrol>, or a set of
+        statements by selecting them and then selecting one of the <uicontrol>Execute Selected Text</uicontrol> commands
+        from the context-sensitive menu.</p>
+      <p>The execution results appear in the SQL Results view. </p>
+      <note>The SQL Scrapbook is not connected to the MOTODEV Database Explorer; if the MOTODEV Database Explorer is
+        opened when you run a command in the SQL Scrapbook view, any database changes that result from that command are
+        not automatically reflected in the MOTODEV Database Explorer. You will need to manually refresh the MOTODEV
+        Database Explorer view to see the changes.</note>
+    </section>
+  </refbody>
+</reference>

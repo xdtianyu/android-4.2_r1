@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference id="u_obfuscate-projects" xml:lang="en-us">
+  <title>Obfuscation dialog</title>
+  <shortdesc>Use this dialog to enable or disable obfuscation of the Java classes in one or more Android projects. You
+    access this dialog by selecting <uicontrol>Enable/Disable Obfuscation</uicontrol> from the MOTODEV menu.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <p>This dialog allows you to enable or disable obfuscation of the selected Android projects. Select the projects
+        to be obfuscated, clear any that should not be obfuscated, and click <uicontrol>OK</uicontrol>. If MOTODEV
+        Studio is configured so that projects build automatically, changing the obfuscation setting for one or more
+        projects will cause those projects to immediately be rebuilt.</p>
+      <p>Note that this is not simply a one-time change; this dialog alters the obfuscation setting in each project's
+        properties. </p>
+    </section>
+  </refbody>
+</reference>

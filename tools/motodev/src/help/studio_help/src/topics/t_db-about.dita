@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "../dtd/task.dtd">
+<task id="t_db-about" xml:lang="en-us">
+  <title>Exploring and manipulating Android databases</title>
+  <shortdesc>The MOTODEV Database Explorer perspective allows you to create and delete SQLite databases and database
+    tables, view and edit database table content, and import and export database table contents, all on a connected
+    developer handset or emulated device, within an Android project, or anywhere else accessible to your development
+    computer (such as on an SD card within a connected handset that is currently mounted for USB access). Note that for
+    security reasons you can only work with emulated devices or Android devices intended for development; you cannot
+    view or modify database contents on a production Android handset.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <context>
+      <p>The MOTODEV Database Explorer view lists the following:</p>
+      <dl>
+        <dlentry>
+          <dt>Connected devices and running emulators</dt>
+          <dd>These are listed first in the MOTODEV Database Explorer view. Note that all Android AVDs are listed, not
+            just those that are running (AVDs listed with a disclosure triangle to the left of them are running; those
+            without a disclosure triangle are not runing). Connected devices are listed, but once they are disconnected
+            they are removed from the list. If the connected device or running emulator contains an SD card, disclosing
+            the device's applications also lists "External Storage"; you can map the databases on the device's SD card
+            for browsing or editing without having to mount the SD card for USB access. Note that non-development
+            handsets do not provide access to their databases. </dd>
+        </dlentry>
+        <dlentry>
+          <dt>Projects in your current workspace</dt>
+          <dd>Within the entry labeled "Workspace" are all of the Android projects found within your current workspace.
+            Those listed with a disclosure triangle to the left contain a database. Those without a disclosure triangle
+            do not currently contain a database (although you can add one).</dd>
+        </dlentry>
+        <dlentry>
+          <dt>Databases outside your current workspace that you have mapped</dt>
+          <dd>The "Filesystem" grouping in the MOTODEV Database Explorer view lists additional SQLite databases that you
+            have "mapped" into the view. This allows you to work with databases that are outside of your current
+            workspace. In particular, you can connect an Android handset to your development computer, mount its SD card
+            for USB access, and then map any databases on that SD card. You can then browse and edit those databases as
+            you would any other.</dd>
+        </dlentry>
+      </dl>
+    </context>
+  </taskbody>
+</task>

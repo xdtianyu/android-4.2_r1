@@ -1,0 +1,20 @@
+# ueventd seclabel is specified in init.rc since
+# it lives in the rootfs and has no unique file type.
+type ueventd, domain;
+tmpfs_domain(ueventd)
+allow ueventd rootfs:file r_file_perms;
+allow ueventd rootfs:file entrypoint;
+allow ueventd init:process sigchld;
+allow ueventd self:capability { chown mknod net_admin setgid fsetid sys_rawio dac_override };
+allow ueventd device:file create_file_perms;
+allow ueventd device:chr_file rw_file_perms;
+allow ueventd sysfs:file rw_file_perms;
+allow ueventd sysfs:file setattr;
+allow ueventd tmpfs:chr_file rw_file_perms;
+allow ueventd dev_type:dir create_dir_perms;
+allow ueventd dev_type:lnk_file { create unlink };
+allow ueventd dev_type:chr_file { create setattr unlink };
+allow ueventd dev_type:blk_file { create setattr unlink };
+allow ueventd self:netlink_kobject_uevent_socket *;
+allow ueventd efs_file:dir search;
+allow ueventd efs_file:file r_file_perms;

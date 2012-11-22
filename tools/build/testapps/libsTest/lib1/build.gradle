@@ -1,0 +1,9 @@
+apply plugin: 'android-library'
+
+dependencies {
+    compile project(':lib2')
+}
+
+android {
+    target = "android-15"
+}

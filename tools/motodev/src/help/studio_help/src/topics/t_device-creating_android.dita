@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task
+  PUBLIC "-//OASIS//DTD DITA Task//EN" "../dtd/task.dtd">
+<task xml:lang="en-us" id="t_device-creating_android">
+  <title>Creating an Android Virtual Device (AVD)</title>
+  <shortdesc>Although MOTODEV Studio for Android recognizes Android Virtual Devices (AVDs) created from the command
+    line, it is much simpler to create them from within MOTODEV Studio for Android.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <steps>
+      <step>
+        <cmd>Click the <uicontrol>Device Management</uicontrol> tab, if necessary, to bring forward the Device
+          Management view.</cmd>
+      </step>
+      <step>
+        <cmd>Click the New Device button (<image href="../images/tml-new-instance.png"/>) and select <uicontrol>Android
+            Virtual Device</uicontrol>.</cmd>
+        <stepresult>The Create a New Device dialog appears.</stepresult>
+      </step>
+      <step>
+        <cmd>Supply a name for your device instance and click <uicontrol>Next</uicontrol>. </cmd>
+        <info>Note that this name must not be in use by an existing AVD listed in the Device Management view.</info>
+      </step>
+      <step>
+        <cmd>Verify or supply the information found on the Main tab: </cmd>
+        <substeps>
+          <substep>
+            <cmd><uicontrol>AVD Target</uicontrol>: the system image the AVD is to use.</cmd>
+          </substep>
+          <substep>
+            <cmd><uicontrol>AVD Skin</uicontrol>: the screen resolution and orientation. For instance, "HVGA-L" causes
+              the AVD to use an HVGA display (480x320 pixels) in landscape orientation. "QVGA-P" indicates a QVGA
+              display (320x240 pixels) in portrait orientation. </cmd>
+          </substep>
+          <substep>
+            <cmd><uicontrol>ABI Type</uicontrol>: Application Binary Interface (ABI) type. For all current
+              Android-powered devices, this should be "ARM (armeabi)".</cmd>
+          </substep>
+          <substep>
+            <cmd><uicontrol>AVD Path</uicontrol>: Use this field if you want to specify a non-default location for the
+              AVD directory that will be constructed for this virtual device. Leave <uicontrol>Use default</uicontrol>
+              selected if the default location is acceptable. Otherwise, clear the <uicontrol>Use default</uicontrol>
+              option and specify your desired directory location. </cmd>
+            <info>
+              <note>Storing your AVD on a remote location on a network file system will result in decreased performance.
+                For best results, store your AVDs on the local file system. Note that on Linux hosts your user home
+                folder may be on a remote file server; in such cases storing the AVD in your home folder will cause
+                performance to suffer.</note>
+            </info>
+          </substep>
+          <substep>
+            <cmd><uicontrol>SD Card</uicontrol>: Allows you to specify whether the emulated device has an emulated SD
+              card. Select <uicontrol>None</uicontrol> if you don't need or want the emulated device to have an SD card.
+              To use an existing SD card image (a .img file), select <uicontrol>Existing</uicontrol> and then specify
+              the path to the card image file. To create a new SD card, select <uicontrol>New</uicontrol>, enter a
+              numeric value in the field that follows, and specify the units for that value (KB or MB).</cmd>
+          </substep>
+          <substep>
+            <cmd><uicontrol>Proxy Settings</uicontrol>: Select this option if you want the emulated device to use the
+              same network settings that Eclipse is configured to use. If your network requires the use of a proxy, for
+              instance, and Eclipse is configured to use that proxy, selecting this option causes the emulated device to
+              use that same proxy for its network communications.</cmd>
+          </substep>
+          <substep>
+            <cmd><uicontrol>Snapshot Settings</uicontrol>: Enables the capture and use of a "snapshot"--a copy of the
+              emulator's memory--to speed the emulator startup process (subsequent to the first startup; the initial
+              startup will proceed at the normal speed, but after a snapshot has been taken subsequent startups can be
+              based on that snapshot, bypassing much of the startup process). <uicontrol>Enable Snapshot</uicontrol>
+              enables snapshots, and activates the other snapshot options. <uicontrol>Launch emulator from
+              snapshot</uicontrol> indicates that the most recent snapshot should be used whenever the emulator is
+              launched. <uicontrol>Save to snapshot on exit</uicontrol> takes a snapshot--and thus records the current
+              state of the emulator--whenever the emulator is shut down.</cmd>
+          </substep>
+          <substep>
+            <cmd><uicontrol>Internal Emulator Window</uicontrol> (not available on Mac OS X): Leave <uicontrol>Show the
+                Native Emulator Window within an Eclipse View (Recommended)</uicontrol> selected unless you know that
+              the native option does not work correctly on your development machine (in which case you should select
+                <uicontrol>Use VNC to show the Emulator within an Eclipse View</uicontrol>). Note that if necessary you
+              can later change this setting for an existing AVD by editing its properties.</cmd>
+          </substep>
+          <substep>
+            <cmd><uicontrol>Timeout (sec)</uicontrol>: Use this field to specify a timeout period after which, if the
+              emulator has not finished starting, the emulator should be shut down. Typically this is set to two minutes
+              (120 seconds).</cmd>
+          </substep>
+        </substeps>
+        <info>Note that when creating an AVD, the name, target, skin, and path values cannot later be changed.</info>
+      </step>
+      <step>
+        <cmd>Click <uicontrol>Finish</uicontrol> if you don't need to further customize the AVD. Otherwise, click
+            <uicontrol>Next</uicontrol>.</cmd>
+      </step>
+      <step>
+        <cmd>Specify any additional options using the <uicontrol>User Interface</uicontrol>, <uicontrol>Disk
+          Images</uicontrol>, <uicontrol>Network</uicontrol>, <uicontrol>System</uicontrol>, and <uicontrol
+          >Others</uicontrol> tabs. Note that only the more commonly-used AVD options are presented on these tabs; if
+          you need to specify additional options, enter them into the field on the <uicontrol>Others</uicontrol> tab,
+          command-line style.</cmd>
+        <info>
+          <p>For a description of each of the startup options displayed on the various tabs, see <xref
+              href="u_new-device-startup_android.dita"/>. For all of the possible command-line arguments, see <xref
+              href="http://d.android.com/guide/developing/tools/emulator.html#startup-options" format="html"
+              scope="external">http://d.android.com/guide/developing/tools/emulator.html#startup-options</xref>.</p>
+          <p>Except on Mac OS X, to work with the emulator in a separate window simply close the Android Emulator view
+            and click <uicontrol>No</uicontrol> when you are asked if running emulator instances should be stopped.
+            Opening the Android Emulator view while the emulator is running externally causes the emulator to be shown
+            in the view. On Mac OS X, things work somewhat differently: see <xref href="t_emulator-external.dita"/> for
+            instructions.</p>
+        </info>
+      </step>
+      <step>
+        <cmd>Click <uicontrol>Finish</uicontrol>. </cmd>
+      </step>
+    </steps>
+    <result>The AVD is created and listed under <uicontrol>Android Virtual Device</uicontrol> in the Device Management
+      view.</result>
+  </taskbody>
+</task>

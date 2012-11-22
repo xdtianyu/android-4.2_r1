@@ -1,0 +1,4 @@
+Corresponding gollum version in this binary : 05be6962a64d7dc351a49510ad8b0cab937d0c10 (increase the const and heap areas for core1)
+Corresponding ducati version in this binary : b70ffd4cc728fb22ccc34adb0ad46b6648cb09dc (Adding TI NV12 as a custom color format)
+Corresponding kernel commit tested with: c2bfda0d4830a1f745aea955de516424b3b85e02 ( omap4: Kconfig: select ipc/omx modules by default)
+Corresponding DOMX commit tested with: 8d67c6dc2f8972a9f9110b1f2fe8179966258843 ( Enabling Android build for Linux_DOMX)

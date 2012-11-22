@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference id="u_sign-cert-properties" xml:lang="en-us">
+  <title>Key Properties dialog</title>
+  <shortdesc>Allows you to see the various properties of a key.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <p>This dialog is displayed when you select a key and then click <image href="../images/KeyProperties.png"/> (View
+        Key Properties) in the Signing and Keys view (or when you right-click the key and select <uicontrol>View Key
+          Properties</uicontrol>).</p>
+      <simpletable>
+        <strow>
+          <stentry><uicontrol>Alias name</uicontrol></stentry>
+          <stentry>A unique name to be given to this key pair. Key pairs are identified by alias within the
+            keystore.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>First and Last Name</uicontrol></stentry>
+          <stentry>Your name.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Organization</uicontrol></stentry>
+          <stentry>The name of the company you are working for.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Organization unit</uicontrol></stentry>
+          <stentry>The company branch or division you are working for.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>City or Locality</uicontrol></stentry>
+          <stentry>The full name of your city or locality. For instance, "New York".</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>State or Province</uicontrol></stentry>
+          <stentry>Your state or province. This should be a full name. For instance, "California".</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Country Code (XX)</uicontrol></stentry>
+          <stentry>Select your country from the list.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Creation Date</uicontrol></stentry>
+          <stentry>The date (and time) that the key was created.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Expiration Date</uicontrol></stentry>
+          <stentry>The date (and time) when the key will expire (and is thus no longer valid). Although an app signed
+            with a key that has since expired will continue to launch, users won't be able to download or update an app
+            signed with an expired key.</stentry>
+        </strow>
+      </simpletable>
+    </section>
+  </refbody>
+</reference>

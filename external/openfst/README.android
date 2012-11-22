@@ -1,0 +1,4 @@
+Openfst openfst-1.2.10
+Updated to Google CL27738347
+
+Modified to use stlport, Android.mk file added.

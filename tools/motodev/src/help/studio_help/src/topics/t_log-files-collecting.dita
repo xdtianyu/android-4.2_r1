@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task
+  PUBLIC "-//OASIS//DTD DITA Task//EN" "../dtd/task.dtd">
+<task xml:lang="en-us" id="t_log-files-collecting">
+  <title>Collecting log files</title>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <context>
+      <p>MOTODEV Studio allows you to collect Eclipse and MOTODEV Studio log files and package them into a single ZIP
+        archive.</p>
+    </context>
+    <steps>
+      <step>
+        <cmd>Select <uicontrol>Collect Log Files</uicontrol> from the <ph product="javame-studio javame-sdk webui"
+              ><uicontrol>MOTODEV</uicontrol></ph><ph product="android-studio"><uicontrol>Help</uicontrol></ph> menu. </cmd>
+        <stepresult>The Collect Log Files dialog appears.</stepresult>
+      </step>
+      <step product="javame-studio javame-sdk webui">
+        <cmd>Using the <uicontrol>Directory</uicontrol> field, specify the directory into which the archive containing
+          the log files should be written.</cmd>
+        <info>By default, the log file is written to your home directory.</info>
+      </step>
+      <step product="javame-studio javame-sdk webui">
+        <cmd>In the <uicontrol>File Name</uicontrol> field, enter the name to be used for the archive file.</cmd>
+      </step>
+      <step product="android-studio">
+        <cmd>Using the <uicontrol>Output file</uicontrol> field, specify the path and filename for the archive file.
+          Because this is a ZIP archive, you may want to give the filename a <codeph>.zip</codeph> extension.</cmd>
+      </step>
+      <step>
+        <cmd>Select the log files that should be archived from those listed under <uicontrol>Log
+        Files</uicontrol>.</cmd>
+      </step>
+      <step>
+        <cmd>Click <uicontrol>Finish</uicontrol>.</cmd>
+      </step>
+    </steps>
+  </taskbody>
+</task>

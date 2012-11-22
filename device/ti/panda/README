@@ -1,0 +1,70 @@
+Running Android on pandaboard:
+
+This assumes that you have all the necessary proprietary binaries.
+
+When working with AOSP, download them from:
+http://code.google.com/android/nexus/drivers.html#panda
+The master branch in AOSP works with the latest version of those drivers.
+
+Unarchive each file at the root of your source tree (with tar zxvf), and
+execute the included shell script, still at the root of tour source tree.
+That will create a vendor tree that contains the necessary files.
+They can be unarchived and extracted in any order.
+
+For Googlers working in Google's full internal tree (i.e. with
+vendor/ti/proprietary and related projects) or in equivalent
+situations, this is done automatically.
+
+Board setup:
+Power supply
+Mini-USB to the PC
+USB keyboard and mouse
+(optional) Ethernet, on a network that supports DHCP
+HDMI-to-DVI-D on the P1 DVI-D connector
+
+# Initial setup, part 1: build fastboot
+source build/envsetup.sh
+lunch full_panda-userdebug
+make fastboot
+
+# Initial setup, part 2:
+# With no SD card inserted, plug USB first, then the power cord,
+#   and load fastboot over USB:
+device/ti/panda/usbboot device/ti/panda/bootloader.bin
+
+# Initial setup, part 3:
+# Once in fastboot, insert and initialize an SD card (4GB or greater):
+fastboot oem format
+fastboot flash xloader device/ti/panda/xloader.bin
+fastboot flash bootloader device/ti/panda/bootloader.bin
+
+# Build and flash, part 1: Do a build
+source build/envsetup.sh
+lunch full_panda-userdebug
+make
+
+# Build and flash, part 2: Flash
+# Reboot into the SD card's fastboot (hold GPIO_121 and press PWRON_RESET)
+#   and flash the system:
+fastboot erase cache
+fastboot flash userdata
+fastboot flashall
+
+# Post-boot setup, part 1: Set the date on the board:
+adb shell date $(date +%s)
+
+# Post-boot setup, part 2: (optional) Configure Ethernet
+adb shell dhcpcd eth0
+
+=================================
+
+KNOWN ISSUES
+
+fastboot -w doesn't work. Neither does fastboot erase userdata. They don't
+write a valid filesystem.
+
+Ethernet networking is initialized to use DHCP. The status bar will not
+show that there is an Ethernet connection established, but apps such as
+Browser will work.
+
+Everything camera-related crashes.

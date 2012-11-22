@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE cshelp PUBLIC "-//IBM//DTD DITA CSHelp//EN"
+ "..\dtd\cshelp.dtd">
+<!-- This file is part of the DITA Open Toolkit project hosted on -->
+<!-- Sourceforge.net. See the accompanying license.txt file for   -->
+<!-- applicable licenses.                                         -->
+<cshelp id="test_csh_1" xml:lang="en-us">
+<title>Second CSH file</title>
+<shortdesc></shortdesc>
+<csbody></csbody>
+<cshelp id="contextId4" xml:lang="en-us">
+<title>CSH topic four</title>
+<shortdesc>This is the first sentence of context-sensitive help topic four.</shortdesc>
+<csbody>
+<p>Here is the second sentence.</p>
+</csbody>
+<related-links>
+<link format="dita" href="../com.mycompany.myplugin/a.dita" scope="peer"><linktext>Link
+text</linktext></link>
+</related-links>
+</cshelp>
+<cshelp id="contextId5" xml:lang="en-us">
+<title>CSH topic five</title>
+<shortdesc>This is the first sentence of context-sensitive help topic five.</shortdesc>
+<csbody>
+<p>This is the second sentence.</p>
+</csbody>
+<related-links>
+<link format="dita" href="../com.mycompany.myplugin/a.dita" scope="peer"><linktext>Link
+text</linktext></link>
+</related-links>
+</cshelp>
+</cshelp>

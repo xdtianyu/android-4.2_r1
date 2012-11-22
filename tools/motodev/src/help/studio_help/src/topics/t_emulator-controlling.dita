@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task
+  PUBLIC "-//OASIS//DTD DITA Task//EN" "../dtd/task.dtd">
+<task xml:lang="en-us" id="t_emulator-controlling">
+  <title>Controlling an emulated device</title>
+  <shortdesc>Opens a new Emulator Console connected to the selected AVD instance. You can use the Emulator Console to
+    simulate hardware events, simulate telephony events, and control various aspects of the emulated device.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <steps>
+      <step>
+        <cmd>Switch to the Device Management view.</cmd>
+      </step>
+      <step>
+        <cmd>Right-click a running AVD.</cmd>
+        <info>The AVD must be running; start if, if necessary.</info>
+      </step>
+      <step>
+        <cmd>From the menu that appears, select <uicontrol>Console</uicontrol>.</cmd>
+        <stepresult>The Console view is opened or brought forward, and an Emulator Console connected to the selected
+          device is displayed. Use it to issue Emulator Console commands. </stepresult>
+      </step>
+    </steps>
+    <postreq>Note that you can switch the Console view between various consoles by clicking <image
+        href="../images/display-selected-console-button.png"/> (Display Selected Console).</postreq>
+  </taskbody>
+</task>

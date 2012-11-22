@@ -1,0 +1,5 @@
+
+<!--Context extension point for all Sequoyah context-sensitive help-->
+<extension point="org.eclipse.help.contexts">
+  <contexts file="cs_app-validator.xml" plugin="com.motorolamobility.preflighting.ui"/>
+</extension>

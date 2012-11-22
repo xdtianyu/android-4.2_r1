@@ -1,0 +1,155 @@
+/* -*- c++ -*- */
+/*
+ * Copyright (C) 2010 The Android Open Source Project
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *  * Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ *  * Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in
+ *    the documentation and/or other materials provided with the
+ *    distribution.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+ * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+ * COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+ * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+ * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS
+ * OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
+ * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+ * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+ * OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ * SUCH DAMAGE.
+ */
+
+#ifndef ANDROID_ASTL_STREAMBUF__
+#define ANDROID_ASTL_STREAMBUF__
+
+#include <char_traits.h>
+
+namespace std {
+
+/**
+ * Basic implementation of streambuf. The STL standard defines a
+ * basic_streambuf template that gets specialized for char and
+ * wchar. Since Android supports only char, we don't use a template
+ * here.
+ * Only output ops are supported.
+ * There are only 2 public entry points:
+ *  - sputc
+ *  - sputn
+ */
+
+class streambuf
+{
+  public:
+    typedef char_traits<char>       traits_type;
+    typedef traits_type::char_type  char_type;
+    typedef traits_type::int_type   int_type;
+    typedef streampos               pos_type;
+    typedef streamoff               off_type;
+
+  public:
+    virtual ~streambuf();
+
+    /**
+     * Entry points for derived buffer functions. The public version
+     * pubfoo dispatch to the protected foo member functions.
+     * @return -1 on failure.
+     */
+    int pubsync() { return this->sync(); }
+
+    /**
+     * Entry point for all single-character output functions.
+     */
+    int_type sputc(char_type c) {
+        // TODO: Should not rely on sputn, this is a temp implementation.
+        this->sputn(&c, 1);
+        return traits_type::to_int_type(c);
+    }
+
+    /**
+     * Write str[0] to str[n-1] to output sequence. Stops if sputc
+     * would return traits_type::eof().
+     * @param str  A buffer area.
+     * @param num  Maximum number of characters to write.
+     * @return The number of characters written.
+     */
+    streamsize sputn(const char_type* str, streamsize num) {
+        return this->xsputn(str, num);
+    }
+
+  protected:
+    streambuf();
+
+
+    /**
+     *  Access to the put area.
+     *  - pbase() returns the beginning pointer for the output sequence.
+     *  - pptr() returns the next pointer for the output sequence.
+     *  - epptr() returns the end pointer for the output sequence.
+     *  - pbump(int) Advance the write postion in the output sequence.
+     */
+    char_type* pbase() const { return mPutBeg; }
+    char_type* pptr() const { return mPutCurr; }
+    char_type* epptr() const { return mPutEnd; }
+    void pbump(int num) {
+        if (mPutCurr + num > mPutCurr && mPutCurr + num <= mPutEnd) {
+            mPutCurr += num;
+        }
+    }
+
+    /**
+     * Set the 3 write pointers.
+     */
+    void setp(char_type* beg, char_type* end) {
+        if (end >= beg) {
+            mPutBeg = mPutCurr = beg;
+            mPutEnd = end;
+        }
+    }
+
+    /**
+     * Sync buffer array. Provided by derived class.
+     * @return -1 on failure.
+     */
+    virtual int sync() { return 0; }
+
+    /**
+     * See sputn. Provided by derived class.
+     */
+    virtual streamsize xsputn(const char_type* str, streamsize num);
+
+    /**
+     * Consumes one char from the buffer, writes to the controlled
+     * sequence if possible. This is called when the buffer is
+     * full. Typically the impl will flush the buffer, write the
+     * character 'c'.
+     * Provided by derived class.
+     * @return traits::eof() in case of error, anything else otherwise.
+     */
+    virtual int_type overflow(int_type /* c */ = traits_type::eof())
+    { return traits_type::eof(); }
+
+    /**
+     * Minimal abstraction for an internal buffer.
+     *  -  put == output == write
+     */
+    char_type* 		mPutBeg;    // Start of put area.
+    char_type* 		mPutCurr;   // Current put area.
+    char_type* 		mPutEnd;    // End of put area.
+
+  private:
+    // No copy constructors.
+    streambuf(const streambuf& sb);
+    streambuf& operator=(const streambuf&) { return *this; }
+};
+
+}  // namespace std
+
+#endif

@@ -1,0 +1,186 @@
+// Copyright (C) 2010 The Android Open Source Project
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+// http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+// ----------------------------------------------------------------------------
+//
+// This file consists of lines with specifications of what
+// to do with layout tests in Dump Render Tree.
+// The lines can be either specific tests or whole directories
+// in which case the options apply to all test cases in that directory
+// and any subdirectory.
+//
+// The format of the file is along the lines of:
+//
+// path/to/foo/bar.html CRASH
+// path/to/bar FAIL SLOW // A comment
+// path/to/foo2/ SLOW FAIL
+// path/to/bar.html SLOW
+//
+// Valid options:
+// CRASH - the test is expected to crash, so we skip it completely (it is not run)
+// FAIL - runs the test and compares the result, but we expect it to fail
+// SLOW - marks the test as being slow to run
+
+editing/selection/move-left-right.html CRASH // Causes DumpRenderTree to hang
+fast/js/excessive-comma-usage.html CRASH // Tests huge initializer list, causes OOM.
+fast/js/regexp-charclass-crash.html CRASH // RegExp is too large, causing OOM
+fast/regex/test1.html CRASH // Causes DumpRenderTree to hang with V8
+fast/regex/slow.html CRASH // Causes DumpRenderTree to hang with V8
+
+// This first block of tests are for features for which Android
+// should pass all tests. They are skipped only temporarily.
+// TODO: Fix these failing tests and remove them from this list.
+fast/dom/HTMLLinkElement/link-and-subresource-test.html FAIL // Requires layoutTestController.dumpResourceResponseMIMETypes(), see http://b/issue?id=4470249
+fast/dom/HTMLLinkElement/prefetch.html FAIL // Requires layoutTestController.dumpResourceResponseMIMETypes(), see http://b/issue?id=4470249
+fast/encoding/char-decoding.html FAIL // fails in Java HTTP stack, see http://b/issue?id=3047156
+fast/encoding/hanarei-blog32-fc2-com.html FAIL // fails in Java HTTP stack, see http://b/issue?id=3046986
+fast/encoding/mailto-always-utf-8.html FAIL // Requires waitForPolicyDelegate(), see http://b/issue?id=3043468
+fast/encoding/percent-escaping.html FAIL // fails in Java HTTP stack, see http://b/issue?id=3046984
+http/tests/appcache/empty-manifest.html FAIL // flaky
+http/tests/appcache/fallback.html FAIL // http://b/issue?id=2713004
+http/tests/appcache/foreign-iframe-main.html FAIL // flaky - skips states
+http/tests/appcache/manifest-with-empty-file.html FAIL // flaky
+http/tests/appcache/origin-quota.html FAIL // requires clearAllApplicationCaches(), see http://b/issue?id=2944196
+storage/database-lock-after-reload.html FAIL // Succeeds but DumpRenderTree does not read result correctly
+storage/hash-change-with-xhr.html FAIL // Succeeds but DumpRenderTree does not read result correctly
+storage/open-database-creation-callback-isolated-world.html FAIL // Requires layoutTestController.evaluateScriptInIsolatedWorld()
+storage/statement-error-callback-isolated-world.html FAIL // Requires layoutTestController.evaluateScriptInIsolatedWorld()
+storage/statement-success-callback-isolated-world.html FAIL // Requires layoutTestController.evaluateScriptInIsolatedWorld()
+storage/transaction-callback-isolated-world.html FAIL // Requires layoutTestController.evaluateScriptInIsolatedWorld()
+storage/transaction-error-callback-isolated-world.html FAIL // Requires layoutTestController.evaluateScriptInIsolatedWorld()
+storage/transaction-success-callback-isolated-world.html FAIL // Requires layoutTestController.evaluateScriptInIsolatedWorld()
+
+// Expected failures due to unsupported features or tests unsuitable for Android.
+fast/encoding/char-decoding-mac.html FAIL // Mac-specific encodings (also marked Won't Fix in Chromium, bug 7388)
+fast/encoding/char-encoding-mac.html FAIL // Mac-specific encodings (also marked Won't Fix in Chromium, bug 7388)
+fast/encoding/idn-security.html FAIL // Mac-specific IDN checks (also marked Won't Fix in Chromium, bug 21814)
+fast/events/touch/basic-multi-touch-events.html FAIL // Requires multi-touch gestures not supported by Android system
+fast/events/touch/touch-coords-in-zoom-and-scroll.html FAIL // Requires eventSender.zoomPageIn(),zoomPageOut()
+fast/events/touch/touch-target.html FAIL // Requires multi-touch gestures not supported by Android system
+fast/workers FAIL // workers not supported
+http/tests/cookies/third-party-cookie-relaxing.html FAIL // We don't support conditional acceptance of third-party cookies
+http/tests/eventsource/workers FAIL // workers not supported
+http/tests/workers FAIL // workers not supported
+http/tests/xmlhttprequest/workers FAIL // workers not supported
+storage/domstorage/localstorage/private-browsing-affects-storage.html FAIL // private browsing not supported
+storage/domstorage/sessionstorage/private-browsing-affects-storage.html FAIL // private browsing not supported
+storage/indexeddb FAIL // indexeddb not supported
+storage/private-browsing-readonly.html FAIL // private browsing not supported
+websocket/tests/workers FAIL // workers not supported
+
+// Expected failures due to missing expected results
+dom/xhtml/level3/core/canonicalform08.xhtml FAIL
+dom/xhtml/level3/core/canonicalform09.xhtml FAIL
+dom/xhtml/level3/core/documentgetinputencoding03.xhtml FAIL
+dom/xhtml/level3/core/entitygetinputencoding02.xhtml FAIL
+dom/xhtml/level3/core/entitygetxmlversion02.xhtml FAIL
+dom/xhtml/level3/core/nodegetbaseuri05.xhtml FAIL
+dom/xhtml/level3/core/nodegetbaseuri07.xhtml FAIL
+dom/xhtml/level3/core/nodegetbaseuri09.xhtml FAIL
+dom/xhtml/level3/core/nodegetbaseuri10.xhtml FAIL
+dom/xhtml/level3/core/nodegetbaseuri11.xhtml FAIL
+dom/xhtml/level3/core/nodegetbaseuri15.xhtml FAIL
+dom/xhtml/level3/core/nodegetbaseuri17.xhtml FAIL
+dom/xhtml/level3/core/nodegetbaseuri18.xhtml FAIL
+dom/xhtml/level3/core/nodelookupnamespaceuri01.xhtml FAIL
+dom/xhtml/level3/core/nodelookupprefix19.xhtml FAIL
+fast/dom/HTMLLinkElement/pending-stylesheet-count.html FAIL
+
+// Expected failures for pixel tests
+fast/encoding/denormalised-voiced-japanese-chars.html FAIL
+fast/encoding/invalid-UTF-8.html FAIL
+fast/encoding/utf-16-big-endian.html FAIL
+fast/encoding/utf-16-little-endian.html FAIL
+fast/encoding/xmacroman-encoding-test.html FAIL
+
+// Expected failures due to DumpRenderTree2 serving tests from http://127.0.0.1
+// rather than file://
+// TODO: Consider checking in Android expected results for these tests, once
+// we've switched fully to DumpRenderTree2
+dom/html/level2/html/HTMLDocument03.html FAIL
+dom/xhtml/level2/html/HTMLDocument03.xhtml FAIL
+dom/xhtml/level2/html/HTMLIFrameElement11.xhtml FAIL
+fast/dom/HTMLAnchorElement/set-href-attribute-protocol.html FAIL
+fast/leaks/002.html FAIL
+storage/open-database-creation-callback.html FAIL
+storage/quota-tracking.html FAIL
+
+// TODO: These need to be triaged
+fast/css/case-transform.html FAIL // will not fix #619707
+fast/dom/Element/offsetLeft-offsetTop-body-quirk.html FAIL // different screen size result in extra spaces in Apple compared to us
+fast/dom/Window/Plug-ins.html FAIL // need test plugin
+fast/dom/Window/window-screen-properties.html FAIL // pixel depth
+fast/dom/Window/window-xy-properties.html FAIL // requires eventSender.mouseDown(),mouseUp()
+fast/dom/attribute-namespaces-get-set.html FAIL // http://b/733229
+fast/dom/object-embed-plugin-scripting.html FAIL // dynamic plugins not supported
+fast/dom/tabindex-clamp.html FAIL // there is extra spacing in the file due to multiple input boxes fitting on one line on Apple, ours are wrapped. Space at line ends are stripped.
+fast/events/anchor-image-scrolled-x-y.html FAIL // requires eventSender.mouseDown(),mouseUp()
+fast/events/arrow-navigation.html FAIL // http://b/735233
+fast/events/capture-on-target.html FAIL // requires eventSender.mouseDown(),mouseUp()
+fast/events/dblclick-addEventListener.html FAIL // requires eventSender.mouseDown(),mouseUp()
+fast/events/drag-in-frames.html FAIL // requires eventSender.mouseDown(),mouseUp()
+fast/events/drag-outside-window.html FAIL // requires eventSender.mouseDown(),mouseUp()
+fast/events/event-view-toString.html FAIL // requires eventSender.mouseDown(),mouseUp()
+fast/events/frame-click-focus.html FAIL // requires eventSender.mouseDown(),mouseUp()
+fast/events/frame-tab-focus.html FAIL // http://b/734308
+fast/events/iframe-object-onload.html FAIL // there is extra spacing in the file due to multiple frame boxes fitting on one line on Apple, ours are wrapped. Space at line ends are stripped.
+fast/events/input-image-scrolled-x-y.html FAIL // requires eventSender.mouseDown(),mouseUp()
+fast/events/mouseclick-target-and-positioning.html FAIL // requires eventSender.mouseDown(),mouseUp()
+fast/events/mouseover-mouseout.html FAIL // requires eventSender.mouseDown(),mouseUp()
+fast/events/mouseover-mouseout2.html FAIL // requires eventSender.mouseDown(),mouseUp()
+fast/events/mouseup-outside-button.html FAIL // requires eventSender.mouseDown(),mouseUp()
+fast/events/mouseup-outside-document.html FAIL // requires eventSender.mouseDown(),mouseUp()
+fast/events/onclick-list-marker.html FAIL // requires eventSender.mouseDown(),mouseUp()
+fast/events/ondragenter.html FAIL // requires eventSender.mouseDown(),mouseUp()
+fast/events/onload-webkit-before-webcore.html FAIL // missing space in textrun, ok as text is wrapped. ignore. #714933
+fast/events/option-tab.html FAIL // http://b/734308
+fast/events/window-events-bubble.html FAIL // requires eventSender.mouseDown(),mouseUp()
+fast/events/window-events-bubble2.html FAIL // requires eventSender.mouseDown(),mouseUp()
+fast/events/window-events-capture.html FAIL // requires eventSender.mouseDown(),mouseUp()
+fast/forms/drag-into-textarea.html FAIL // requires eventSender.mouseDown(),mouseUp()
+fast/forms/focus-control-to-page.html FAIL // http://b/716638
+fast/forms/focus2.html FAIL // http://b/735111
+fast/forms/form-data-encoding-2.html FAIL // charset convert. #516936 ignore, won't fix
+fast/forms/form-data-encoding.html FAIL // charset convert. #516936 ignore, won't fix
+fast/forms/input-appearance-maxlength.html FAIL // execCommand "insertText" not supported
+fast/forms/input-select-on-click.html FAIL // requires eventSender.mouseDown(),mouseUp()
+fast/forms/listbox-onchange.html FAIL // requires eventSender.mouseDown(),mouseUp()
+fast/forms/listbox-selection.html FAIL // http://b/735116
+fast/forms/onselect-textarea.html FAIL // requires eventSender.mouseMoveTo, mouseDown & mouseUp and abs. position of mouse to select a word. ignore, won't fix #716583
+fast/forms/onselect-textfield.html FAIL // requires eventSender.mouseMoveTo, mouseDown & mouseUp and abs. position of mouse to select a word. ignore, won't fix #716583
+fast/forms/plaintext-mode-1.html FAIL // not implemented queryCommandEnabled:BackColor, Undo & Redo
+fast/forms/search-cancel-button-mouseup.html FAIL // requires eventSender.mouseDown(),mouseUp()
+fast/forms/search-event-delay.html FAIL // http://b/735120
+fast/forms/select-empty-list.html FAIL // requires eventSender.mouseDown(),mouseUp()
+fast/forms/select-type-ahead-non-latin.html FAIL // http://b/735244
+fast/forms/selected-index-assert.html FAIL // not capturing the console messages
+fast/forms/selection-functions.html FAIL // there is extra spacing as the text areas and input boxes fit next to each other on Apple, but are wrapped on our screen.
+fast/forms/textarea-appearance-wrap.html FAIL // Our text areas are a little thinner than Apples. Also RTL test failes
+fast/forms/textarea-initial-caret-position.html FAIL // Text selection done differently on our platform. When a inputbox gets focus, the entire block is selected.
+fast/forms/textarea-no-scroll-on-blur.html FAIL // Text selection done differently on our platform. When a inputbox gets focus, the entire block is selected.
+fast/forms/textarea-paste-newline.html FAIL // Copy&Paste commands not supported
+fast/forms/textarea-scrolled-endline-caret.html FAIL // requires eventSender.mouseDown(),mouseUp()
+fast/frames/iframe-window-focus.html FAIL // http://b/735140
+fast/frames/frameElement-widthheight.html FAIL // screen width&height are different
+fast/frames/frame-js-url-clientWidth.html FAIL // screen width&height are different
+fast/html/tab-order.html FAIL // http://b/719289
+fast/js/navigator-mimeTypes-length.html FAIL // dynamic plugins not supported
+fast/js/string-capitalization.html FAIL // http://b/516936
+fast/loader/local-JavaScript-from-local.html FAIL // Requires LayoutTests to exist at /tmp/LayoutTests
+fast/loader/local-iFrame-source-from-local.html FAIL // Requires LayoutTests to exist at /tmp/LayoutTests
+fast/loader/opaque-base-url.html FAIL // extra spacing because iFrames rendered next to each other on Apple
+fast/overflow/scroll-vertical-not-horizontal.html FAIL // http://b/735196
+fast/parser/script-tag-with-trailing-slash.html FAIL // not capturing the console messages
+fast/replaced/image-map.html FAIL // requires eventSender.mouseDown(),mouseUp()
+fast/text/plain-text-line-breaks.html FAIL // extra spacing because iFrames rendered next to each other on Apple
+profiler FAIL // profiler is not supported

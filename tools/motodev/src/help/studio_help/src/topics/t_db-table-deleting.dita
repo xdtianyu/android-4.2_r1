@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "../dtd/task.dtd">
+<task id="t_db-table-deleting" xml:lang="en-us">
+  <title>Deleting a database table</title>
+  <shortdesc>From the MOTODEV Database Explorer view you can delete device database tables.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <prereq>You perform this task from within the MOTODEV Database Explorer view. This view is part of the MOTODEV
+      Database perspective; switch to this perspective when working with Android databases.</prereq>
+    <steps>
+      <step>
+        <cmd>In the MOTODEV Database Explorer view, right-click the database table to be deleted and select <uicontrol
+          >Delete Table</uicontrol>.</cmd>
+        <stepresult>The selected database table is immediately deleted.</stepresult>
+      </step>
+    </steps>
+  </taskbody>
+</task>

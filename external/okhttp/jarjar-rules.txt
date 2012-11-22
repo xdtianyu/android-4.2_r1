@@ -1,0 +1,1 @@
+rule libcore.** libcoreunbundled.@1

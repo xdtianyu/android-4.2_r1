@@ -1,0 +1,39 @@
+//
+// A basic Android application that follows all the conventions
+//
+buildscript {
+    repositories {
+        maven { url '../../repo' }
+    }
+    dependencies {
+        classpath 'com.android.build:gradle-android:0.1-SNAPSHOT'
+    }
+}
+apply plugin: 'android'
+
+version='1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'com.google.guava:guava:11.0.2'
+}
+
+android {
+    target = "android-15"
+
+	defaultConfig {
+		signingStoreLocation = "debug.keystore"
+		signingStorePassword = "android"
+		signingKeyAlias = "androiddebugkey"
+		signingKeyPassword = "android"
+	}
+
+	buildTypes {
+		blah {
+			packageNameSuffix = ".blah"
+		}
+	}
+}

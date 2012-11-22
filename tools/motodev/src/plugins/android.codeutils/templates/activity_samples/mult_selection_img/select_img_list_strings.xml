@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="selected">You selected: </string>
+    <string name="list_item">List Item </string>
+    <string name="description">description</string>
+    <string name="button_label">Done</string>
+</resources>

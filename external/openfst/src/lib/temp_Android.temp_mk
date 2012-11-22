@@ -1,0 +1,20 @@
+#
+# Copyright 2012 Google Inc. All Rights Reserved.
+# Author: npereira@google.com (Nicole Pereira)
+#
+# Android makefile for openfst library.
+#
+
+OPENFST_DIR := $(call my-dir)
+
+LOCAL_PATH := $(call my-dir)
+include $(CLEAR_VARS)
+
+LOCAL_MODULE := libopenfst_patts
+
+LOCAL_CPP_EXTENSION := .cc
+LOCAL_C_INCLUDES += $(OPENFST_DIR)/src/include/
+
+#LOCAL_SRC_FILES := $(call private-function-all-cpp-files-under, src) 
+
+include $(BUILD_STATIC_LIBRARY)

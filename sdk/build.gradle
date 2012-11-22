@@ -1,0 +1,18 @@
+allprojects {
+    apply plugin: 'maven'
+
+    repositories {
+        mavenCentral()
+    }
+
+    version = '21.0-SNAPSHOT'
+
+	uploadArchives {
+	    repositories {
+	        mavenDeployer {
+	            repository(url: uri("$rootDir/../out/host/repo"))
+	        }
+	    }
+	}
+
+}

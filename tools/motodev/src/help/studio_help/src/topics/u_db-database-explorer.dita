@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference id="u_db-database-explorer" xml:lang="en-us">
+  <title>MOTODEV Database Explorer</title>
+  <shortdesc>The MOTODEV Database Explorer lists all AVDs (Android Virtual Devices), connected devices, and your
+    workspace and allows you to see and explore their SQLite databases. You can also use it to create and edit databases
+    within projects in your current workspace.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <p>The MOTODEV Database Explorer lists all AVDs and connected devices. Note, however, that due to security
+        constraints you can view or modify SQLite databases only on handsets intended for development use.
+        Non-development handsets do not provide access to their databases.</p>
+      <p>The MOTODEV Database Explorer consists of a tree view that lists the following:</p>
+      <dl>
+        <dlentry>
+          <dt>Connected devices and running emulators</dt>
+          <dd>These are listed first in the MOTODEV Database Explorer view. Note that all Android AVDs are listed, not
+            just those that are running (AVDs listed with a disclosure triangle to the left of them are running; those
+            without a disclosure triangle are not runing). Connected devices are listed, but once they are disconnected
+            they are removed from the list. If the connected device or running emulator contains an SD card, disclosing
+            the device's applications also lists "External Storage"; you can map the databases on the device's SD card
+            for browsing or editing without having to mount the SD card for USB access.</dd>
+        </dlentry>
+        <dlentry>
+          <dt>Projects in your current workspace</dt>
+          <dd>Within the entry labeled "Workspace" are all of the Android projects found within your current workspace.
+            Those listed with a disclosure triangle to the left contain a database. Those without a disclosure triangle
+            do not currently contain a database (although you can add one).</dd>
+        </dlentry>
+        <dlentry>
+          <dt>Databases outside your current workspace that you have mapped</dt>
+          <dd>The "Filesystem" grouping in the MOTODEV Database Explorer view lists additional SQLite databases that you
+            have "mapped" into the view. This allows you to work with databases that are outside of your current
+            workspace. In particular, you can connect an Android handset to your development computer, mount its SD card
+            for USB access, and then map any databases on that SD card. You can then browse and edit those databases as
+            you would any other.</dd>
+        </dlentry>
+      </dl>
+      <p>You must connect to a database in order to view or modify its contents. When you connect to a database, a copy
+        of that database is made in your computer's Temp directory (if desired, you can change where this temporary copy
+        is made; see the MOTODEV Studio preferences). It is that copy that you view and edit. It is important to note
+        that changes you make to a database in MOTODEV Studio for Android are made to this local copy of the database;
+        only when you save your changes is the database copied back to the device or AVD.</p>
+      <p>The MOTODEV Database Explorer also provides the following controls:</p>
+      <simpletable>
+        <strow>
+          <stentry><image href="../images/collapse-all.png"/></stentry>
+          <stentry>Collapse All</stentry>
+          <stentry>Collapses the tree so that only the root nodes are showing.</stentry>
+        </strow>
+        <strow>
+          <stentry><image href="../images/refresh-sdks.png"/></stentry>
+          <stentry>Refresh</stentry>
+          <stentry>Re-scans the filesystem, workspace, and any running or connected devices looking for accessible
+            databases.</stentry>
+        </strow>
+        <strow>
+          <stentry><image href="../images/db-create-table.png"/></stentry>
+          <stentry>Create table</stentry>
+          <stentry>Defines a new table within a database</stentry>
+        </strow>
+        <strow>
+          <stentry><image href="../images/db-create-classes.png"/></stentry>
+          <stentry>Create Database Management Classes </stentry>
+          <stentry>Creates classes you can use to manage and access your application's database: content providers for
+            each of the database's tables, and a SQL open helper that can create and if desired initialize your database
+            at runtime.</stentry>
+        </strow>
+        <strow>
+          <stentry><image href="../images/browse-table-contents.png"/></stentry>
+          <stentry>Browse or edit table contents</stentry>
+          <stentry>Only active when a table is selected, this control presents the contents of the table in an editor
+            view, formatted much like a spreadsheet, with rows representing records and columns representing the fields
+            within each record. </stentry>
+        </strow>
+        <strow>
+          <stentry><image href="../images/open-scrapbook.png"/></stentry>
+          <stentry>Open scrapbook to edit SQL statements</stentry>
+          <stentry>Opens the SQL Scrapbook editor, from which you can execute arbitrary SQL statements.</stentry>
+        </strow>
+      </simpletable>
+    </section>
+    <section>
+      <title>Filtering the MOTODEV Database Explorer view</title>
+      <p>The Devices list initially shows all apps on each connected device (if accessible) or running emulator.
+        Right-click the device name and select <b>Filter applications without db</b> to eliminate those apps that don't
+        have SQLite databases. The resulting list will then only list applications that have SQLite databases.</p>
+    </section>
+  </refbody>
+</reference>

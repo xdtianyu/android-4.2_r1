@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference id="u_obfuscation-prop" xml:lang="en-us">
+  <title>MOTODEV Studio project properties dialog</title>
+  <shortdesc>Use this dialog to control whether Java classes should be obfuscated when the parent Android project is
+    built for release. You access this dialog by right-clicking a project from the Package Explorer and selecting
+      <uicontrol>Properties</uicontrol>, and then selecting MOTODEV Studio from the list of properties.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <p>This dialog has a single option that allows you to enable or disable obfuscation of Java classes for the
+        selected project. Obfuscation is performed at build time, and only for release builds. Obfuscation is not
+        performed when building a debug version of a project, whether or not this option is enabled. Note that this
+        option may have been specified when the project was created; it is available for selection in the New Android
+        Project using Studio for Android dialog.</p>
+    </section>
+    <section>
+      <simpletable>
+        <strow>
+          <stentry>
+            <uicontrol>Obfuscation</uicontrol>
+          </stentry>
+          <stentry>If selected, Java classes will be obfuscation at build time when a release version of the project is
+            built.</stentry>
+        </strow>
+      </simpletable>
+    </section>
+  </refbody>
+</reference>

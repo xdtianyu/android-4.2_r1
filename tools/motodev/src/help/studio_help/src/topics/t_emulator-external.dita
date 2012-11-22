@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "../dtd/task.dtd">
+<task id="t_emulator_external" xml:lang="en-us">
+  <title>Opening the emulator in an external window</title>
+  <shortdesc>MOTODEV Studio normally presents emulated devices in the Android Emulator view. If you prefer, though,
+    emulated devices can be displayed in a window external to MOTODEV Studio.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <context>
+      <p>By default, MOTODEV Studio for Android opens the device emulator in an Eclipse view. Except on Mac OS X, to
+        work with the emulator in a separate window simply close the Android Emulator view and click <uicontrol
+        >No</uicontrol> when you are asked if running emulator instances should be stopped. The reverse works as you
+        might expect: while the emulator is running externally if you open the Android Emulator view the emulator will
+        be shown in that view (rather than externally).</p>
+      <p>On Mac OS X, things work a bit differently. Here, each AVD has an associated property that controls whether or
+        not the emulator is shown externally. In addition, if the Android Emulator view is open, the emulator is shown
+        there. This means that you can show the emulator in a view, or externally, or in both places at once, or in
+        neither place. </p>
+      <p><b>The remainder of this document assumes that you are running Mac OS X.</b>
+      </p>
+      <p>AVDs are presented within the Android Emulator view by default. To specify that an AVD be opened externally at
+        the time you create it: click <uicontrol>Next</uicontrol> after filling out the dialog asking for the AVD target
+        and skin. In the dialog that follows (the one in which you set startup options for the AVD), on the <uicontrol
+          >Others</uicontrol> tab, remove the <uicontrol>-no-window</uicontrol> option.</p>
+      <p>To alter an existing AVD so that it opens externally:</p>
+    </context>
+    <steps>
+      <step>
+        <cmd>Right-click the AVD and select <uicontrol>Properties</uicontrol>.</cmd>
+        <stepresult>The Properties dialog appears.</stepresult>
+      </step>
+      <step>
+        <cmd>In the Properties dialog, select <menucascade><uicontrol>Android Virtual Device</uicontrol><uicontrol
+              >Startup Options</uicontrol></menucascade>.</cmd>
+      </step>
+      <step>
+        <cmd>In the Startup Options dialog, on the <uicontrol>Others</uicontrol> tab, clear the <uicontrol
+          >-no-window</uicontrol> option.</cmd>
+      </step>
+      <step>
+        <cmd>Click <uicontrol>OK</uicontrol> to save your changes and close the dialog</cmd>
+        <info>
+          <note type="important">If the AVD is running at the time you make this change, you will need to stop and
+            restart the AVD.</note>
+        </info>
+      </step>
+      <step>
+        <cmd>If you do not wish to also see the emulator presented in the Android Emulator view, close that view. </cmd>
+      </step>
+    </steps>
+    <postreq>Note that if the AVD has the <uicontrol>-no-window</uicontrol> option set and you elect not to have the
+      emulator presented within an Eclipse view, the AVD will not be displayed. Conversely, if you leave the <uicontrol
+        >-no-window</uicontrol> option set and you also specify that the emulator is to be displayed within an Eclipse
+      view, it will appear both within Eclipse and in a separate window. </postreq>
+  </taskbody>
+</task>

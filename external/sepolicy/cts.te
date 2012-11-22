@@ -1,0 +1,49 @@
+#
+# Rules to allow the Android CTS to run.
+# Do not enable in production policy.
+#
+
+bool android_cts false;
+if (android_cts) {
+# Reads /proc/pid entries to check that no unexpected root
+# processes are running.
+allow appdomain domain:dir r_dir_perms;
+allow appdomain domain:{ file lnk_file } r_file_perms;
+
+# Will still fail when trying to read other app /proc/pid
+# entries due to MLS constraints.  Just silence the denials.
+dontaudit appdomain appdomain:dir r_dir_perms;
+dontaudit appdomain appdomain:file r_file_perms;
+
+# Walk the file tree, stat any file.
+allow appdomain file_type:dir r_dir_perms;
+allow appdomain fs_type:dir r_dir_perms;
+allow appdomain dev_type:dir r_dir_perms;
+allow appdomain file_type:dir_file_class_set getattr;
+allow appdomain dev_type:dir_file_class_set getattr;
+allow appdomain fs_type:dir_file_class_set getattr;
+
+# Execute the shell or other system executables.
+allow appdomain shell_exec:file rx_file_perms;
+allow appdomain system_file:file rx_file_perms;
+
+# Accesses to apk_tmp_file and shell_data_file
+allow appdomain apk_tmp_file:file rw_file_perms;
+allow appdomain shell_data_file:file r_file_perms;
+
+# Read permission over link file to devices.
+allow appdomain dev_type:lnk_file read;
+
+# Read routing information.
+allow netdomain self:netlink_route_socket { create read write nlmsg_read };
+
+# Tries to open /dev/alarm for writing but expects failure.
+dontaudit appdomain alarm_device:chr_file write;
+
+# Tries to create and use a netlink kobject uevent socket
+# to test for a vulnerable vold.
+dontaudit appdomain self:netlink_kobject_uevent_socket create;
+
+# Tries to override DAC restrictions but expects to fail.
+dontaudit shell self:capability dac_override;
+}

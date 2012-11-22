@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?metadataRepository class='org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository' version='1.0.0'?>
+<repository name='MOTODEV Studio for Android Core' type='org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository' version='1'>
+  <references size="4">
+	<repository url="https://studio-android.motodevupdate.com/android/4.2/basic/" type="0" options="1"/>
+	<repository url="https://studio-android.motodevupdate.com/android/4.2/basic/" type="1" options="1"/>
+    <repository url="https://studio-android.motodevupdate.com/android/4.2/" type="0" options="1"/>
+	<repository url="https://studio-android.motodevupdate.com/android/4.2/" type="1" options="1"/>
+   </references>
+</repository>

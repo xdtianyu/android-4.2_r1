@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference id="u_android-handset-properties" xml:lang="en-us">
+  <title>Android Handset Properties</title>
+  <shortdesc>Presents the basic properties of an Android handset, such as the device serial number, Android OS version, and API version.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody><section>To view the properties of an Android handset connected to your development computer, right-click the entry for the handset in the Device Management view and select <uicontrol>Properties</uicontrol> from the menu that appears. For more detailed properties, select <menucascade><uicontrol>Android Handset Properties</uicontrol><uicontrol>Device Properties</uicontrol></menucascade> in the left pane of the Properties dialog.</section> </refbody>
+</reference>

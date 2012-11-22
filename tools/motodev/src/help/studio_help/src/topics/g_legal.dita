@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/topic.dtd">
+<topic id="g_legal">
+  <title>Trademark notices</title>
+  <body>
+    <p>Copyright © <ph conref="g_variables.dita#g_variables/product-copyright-years"/>, Motorola Mobility, Inc. All rights
+      reserved.</p>
+    <p>This documentation is provided to you under the terms of the Motorola End User License Agreement. Motorola Mobility, Inc.
+      reserves the right to revise this documentation and to make changes in content from time to time without
+      obligation on the part of Motorola Mobility, Inc. to provide notification of such revision or changes.</p>
+    <p>If this documentation is provided on compact disc or as part of another software package, the other software and
+      documentation on the compact disc are subject to the license agreement accompanying the compact disc.</p>
+    <p>MOTOROLA and the Stylized M Logo are registered in the U.S. Patent &amp; Trademark Office. <ph
+        product="android-studio">Android is a trademark of Google Inc. Use of this trademark is subject to <xref
+          scope="external" format="html" href="http://www.google.com/permissions/index.html">Google Permissions</xref>.
+      </ph>Java and all other Java-based marks are trademarks or registered trademarks of Sun Microsystems, Inc. in the
+      U.S. and other countries. Eclipse is a trademark of Eclipse Foundation, Inc. <ph product="android-studio"
+        >DeviceAnywhere is a trademark of Mobile Complete, Inc. </ph><ph product="webui">Microsoft, Windows, Windows Me,
+        and Windows XP are registered trademarks of Microsoft Corporation. Linux is the registered trademark of Linus
+        Torvalds in the United States and other countries. VMware is a registered trademark or trademarks (the "Marks")
+        of VMware, Inc. in the United States and/or other jurisdictions. </ph>
+      <ph product="javame-studio javame-sdk">Symbian and UIQ are registered trademarks of Symbian Software Ltd. </ph>
+      All other product and service names are the property of their respective owners.</p>
+  </body>
+</topic>

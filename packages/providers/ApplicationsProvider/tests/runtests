@@ -1,0 +1,6 @@
+mmm packages/providers/ApplicationsProvider || return
+mmm packages/providers/ApplicationsProvider/tests || return
+adb install -r ${OUT}/system/app/ApplicationsProvider.apk || return
+adb install -r ${OUT}/data/app/ApplicationsProviderTests.apk || return
+adb shell am instrument -w -e class com.android.providers.applications.ApplicationsProviderTest com.android.providers.applications.tests/android.test.InstrumentationTestRunner || return
+

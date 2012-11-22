@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference id="u_new-activity" xml:lang="en-us">
+  <title>New Activity wizard</title>
+  <shortdesc>Creates a new Android activity.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <p>Use this dialog if you just want a basic activity as your starting point (this basic activity consists of
+        little more than an empty onCreate() method; you can also have an empty onStart() method added by selecting it
+        from the list at the bottom of the dialog). If you would like the activity to be created based upon a sample,
+        select <uicontrol>Create New Activity Based On Template</uicontrol>. </p>
+      <simpletable>
+        <strow>
+          <stentry><uicontrol>Source folder</uicontrol></stentry>
+          <stentry>The folder into which the source code for the new activity is to be stored. By default this is the
+            current project's src folder.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Package</uicontrol></stentry>
+          <stentry>The package that is to contain the new activity. By default this is the current project's
+          package.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Name</uicontrol></stentry>
+          <stentry>The name to be used for the class that implements the activity. This should be a simple,
+            non-qualified name.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Label</uicontrol></stentry>
+          <stentry>(optional) The label for the activity. This label is displayed to the user, often along with the
+            activity's icon, when the activity needs to be identified to the user. Note that if you specify a label, the
+            New Activity wizard creates a string resource to hold this value. If the <uicontrol>Default</uicontrol>
+            option is selected, a label is not set for this activity (the Label field is not editable); the user sees
+            the application's label instead.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Superclass</uicontrol></stentry>
+          <stentry>The class from which the activity inherits. For activities, this is <codeph
+            >android.app.Activity</codeph>.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Permission</uicontrol></stentry>
+          <stentry>(optional) Permissions that should be added to the project's manifest file due to this activity.
+            Click <uicontrol>Add</uicontrol> to display a list of possible permissions from which you can
+          select.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Action</uicontrol></stentry>
+          <stentry>(optional) The actions to be performed by an intent filter associated with this activity. Click
+              <uicontrol>Add</uicontrol> to select from the available actions. Note that you can select multiple intents
+            from the dialog that appears when you click <uicontrol>Add</uicontrol>. To select a range, select the first
+            item in the set and then hold down the Shift key while selecting the last item in the set. To select
+            multiple separate intents, select the first item and then hold down the Control key while selecting the
+            remaining items.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Category</uicontrol></stentry>
+          <stentry>(optional) The associated intent filter categories. Click <uicontrol>Add</uicontrol> to select from
+            the available categories.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Set as the main activity</uicontrol></stentry>
+          <stentry>Select this option if this new activity is to be the app's main activity. Doing so updates the
+            application's manifest file to specify that this is the activity that should be started when the application
+            is first launched.</stentry>
+        </strow>
+        <strow>
+          <stentry>Create an onStart() method</stentry>
+          <stentry>Select this option if you would like to have an empty onStart() method included in your activity.</stentry>
+        </strow>
+      </simpletable>
+    </section>
+  </refbody>
+</reference>

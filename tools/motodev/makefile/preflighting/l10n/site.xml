@@ -1,0 +1,43 @@
+<site>
+	<feature url="features/com.motorolamobility.preflighting.feature.nl_es_@featureversion.jar" id="com.motorolamobility.preflighting.feature.nl_es" 
+	version="@featureversion">
+			<category name="MOTODEVAppValidatorLangPack" />
+	</feature>
+	<feature url="features/com.motorolamobility.preflighting.feature.nl_pt_BR_@featureversion.jar" id="com.motorolamobility.preflighting.feature.nl_pt_BR" 
+	version="@featureversion">
+			<category name="MOTODEVAppValidatorLangPack" />
+	</feature>
+	<feature url="features/com.motorolamobility.preflighting.feature.nl_zh_@featureversion.jar" id="com.motorolamobility.preflighting.feature.nl_zh" 
+	version="@featureversion">
+			<category name="MOTODEVAppValidatorLangPack" />
+	</feature>
+	<feature url="features/com.motorolamobility.preflighting.feature.nl_fr_@featureversion.jar" id="com.motorolamobility.preflighting.feature.nl_fr" 
+	version="@featureversion">
+			<category name="MOTODEVAppValidatorLangPack" />
+	</feature>
+	<feature url="features/com.motorolamobility.preflighting.feature.nl_de_@featureversion.jar" id="com.motorolamobility.preflighting.feature.nl_de" 
+	version="@featureversion">
+			<category name="MOTODEVAppValidatorLangPack" />
+	</feature>
+	<feature url="features/com.motorolamobility.preflighting.feature.nl_ru_@featureversion.jar" id="com.motorolamobility.preflighting.feature.nl_ru" 
+	version="@featureversion">
+			<category name="MOTODEVAppValidatorLangPack" />
+	</feature>
+	<feature url="features/com.motorolamobility.preflighting.feature.nl_ko_@featureversion.jar" id="com.motorolamobility.preflighting.feature.nl_ko" 
+	version="@featureversion">
+			<category name="MOTODEVAppValidatorLangPack" />
+	</feature>
+	<feature url="features/com.motorolamobility.preflighting.feature.nl_ar_@featureversion.jar" id="com.motorolamobility.preflighting.feature.nl_ar" 
+	version="@featureversion">
+			<category name="MOTODEVAppValidatorLangPack" />
+	</feature>
+	<feature url="features/com.motorolamobility.preflighting.feature.nl_iw_@featureversion.jar" id="com.motorolamobility.preflighting.feature.nl_iw" 
+	version="@featureversion">
+			<category name="MOTODEVAppValidatorLangPack" />
+	</feature>
+	<feature url="features/com.motorolamobility.preflighting.feature.nl_it_@featureversion.jar" id="com.motorolamobility.preflighting.feature.nl_it" 
+	version="@featureversion">
+			<category name="MOTODEVAppValidatorLangPack" />
+	</feature>
+	<category-def name="MOTODEVAppValidatorLangPack" label="MOTODEV App Validator Language Packages" />
+</site>

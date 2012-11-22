@@ -1,0 +1,23 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'com.google.guava:guava:11.0.2'
+}
+
+group = 'com.example.android.multiproject'
+archivesBaseName = 'util'
+version = '1.0'
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: uri("../../../repo"))
+        }
+    }
+}
+

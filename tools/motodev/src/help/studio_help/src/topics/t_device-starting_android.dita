@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task
+  PUBLIC "-//OASIS//DTD DITA Task//EN" "../dtd/task.dtd">
+<task xml:lang="en-us" id="t_device-starting_android">
+  <title>Starting, stopping, and resetting an Android Virtual Device (AVD)</title>
+  <shortdesc/>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <prereq>You must have an existing AVD, listed in the Device Management view. </prereq>
+    <steps>
+      <step>
+        <cmd>Click the <uicontrol>Device Management</uicontrol> tab, if necessary, to bring forward the Device
+          Management view.</cmd>
+      </step>
+      <step>
+        <cmd>Double-click an offline AVD to start it. Similarly, double-click an online AVD to stop it. Or, in the
+          Device Management view, right-click the AVD you wish to start, stop, or reset and select the desired operation
+          from the menu that appears. </cmd>
+        <info>Note that when starting or resetting an AVD, it must not already be running. Also note that if you launch one of your Android projects using a run configuration that targets an AVD, and
+          that AVD is not yet running, it will be started automatically for you.</info>
+      </step>
+    </steps><postreq>You can also start, stop, or reset multiple AVDs at one time by selecting the AVDs and clicking the appropriate command icon at the top of the Device Management View.</postreq>
+  </taskbody>
+</task>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "../dtd/concept.dtd">
+<concept id="c_code-generator" xml:lang="en-us">
+  <title>Generating Java Code for an Activity or Fragment Layout</title>
+  <shortdesc>MOTODEV Studio can generate boilerplate code for selected UI objects defined in an activity's or fragment's
+    layout file. It generates attribute declarations, findViewById() calls, and event handlers.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <conbody>
+    <p>Initiate the Java code generator by right-clicking the Java source file for your Activity or Fragment and
+      selecting <menucascade><uicontrol>Source</uicontrol><uicontrol>Generate Java Code Based on
+      Layout</uicontrol></menucascade>. The code generator begins by looking through the Java code for your selected
+      Activity or Fragment to identify the xml-based layout file it uses. If it is processing an Activity, it searches
+      for a call to setContentView() in the Activity's onCreate() method. If it is processing a Fragment, it searches
+      for code that looks like this:
+      <codeblock>	View v = inflater.inflate(R.layout.<i>myLayoutFileName</i>, container, false);
+	return v;</codeblock>Having
+      identified the layout file corresponding to the selected Java class, the code generator looks through the layout
+      file for UI objects that have Android IDs defined with "@+id". It then presents the list of UI objects to you, and
+      you indicate those UI objects for which it should generate code. Finally, the code generator generates the
+      appropriate code and inserts it into the Activity's or Fragment's top-level class. </p>
+    <p>Note that in order for the above to work, your Activity or Fragment code must not have errors. As well, the xml
+      file that defines your layout must be well-formed. Also note that the Java code generator works with the Android
+      Compatibility package: FragmentActivity subclasses are supported.</p>
+    <section>
+      <title>What it Generates</title>
+      <p>The code generator adds to the Activity or Fragment an attribute for each selected UI object as well as for
+        Fragments inside an Activity. Then, it generates the following code within your Activity's onCreate() method or
+        your Fragment's onCreateView() method: <ol>
+          <li>findViewById() statements for graphical items such as TextView, EditText, Button, etc.</li>
+          <li>OnClickListener handlers for Button, ImageButton, and ToggleButton objects. If the button has an
+            android:onClick attribute defined in the layout file, the named method is created (empty) instead of an
+            inline OnClickListener handler.</li>
+          <li>OnItemSelectedListener handlers for Spinner objects.</li>
+          <li>OnItemClickListener handlers for Gallery objects.</li>
+          <li>OnKeyListener handlers for EditText objects.</li>
+          <li>OnSeekBarChangeListener handlers for SeekBar objects.</li>
+          <li>OnRatingBarChangeListener handlers for RatingBar objects.</li>
+        </ol></p>
+      <p>For fragments inside an Activity, the code generator creates setFragmentManager().findFragmentById() calls.</p>
+      <p>For RadioButtons inside a RadioGroup, the code generator creates an object that implements the
+        View.OnClickListener interface. The object's generated onClick() method contains a switch statement with a case
+        for each RadioButton.</p>
+      <p>Note that the code generator does not simply add all of the above blindly. It is careful not to add duplicate
+        attributes, event handlers, or findViewById() statements if it finds an existing findViewById() statement for a
+        given UI object. So, for instance, if you have an existing layout with supporting code, upon adding a new UI
+        object to that layout and initiating the code-generation process you will only be given the option to generate
+        code for the new UI object. As well, the code is added in such a way as to allow you to use <menucascade
+            ><uicontrol>Edit</uicontrol><uicontrol>Undo</uicontrol></menucascade> to back out the additions, if you
+        decide not to go ahead with them. </p>
+    </section>
+  </conbody>
+</concept>

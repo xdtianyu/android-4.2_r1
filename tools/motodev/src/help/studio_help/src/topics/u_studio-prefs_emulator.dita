@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference xml:lang="en-us" id="u_studio-prefs_emulator">
+  <title>Android Emulator preferences</title>
+  <shortdesc>Contains preferences that control the operation of the Android Emulator view.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody><section>To access these preferences,
+    select <uicontrol>Preferences</uicontrol> from the <menucascade><uicontrol>File</uicontrol><uicontrol
+      >Window</uicontrol></menucascade> menu. Then from the list of preferences, select <menucascade><uicontrol>MOTODEV
+        Studio</uicontrol><uicontrol>Android Emulator</uicontrol></menucascade>.</section>
+    <section>
+      <title>MOTODEV Studio for Android Dialogs</title>
+      <simpletable>
+        <strow>
+          <stentry>
+            <uicontrol>Show emulators externally upon closing the Emulator View</uicontrol>
+          </stentry>
+          <stentry>This option should normally be selected. Clear this option if the emulator unexpectedly stops when
+            you close the Android Emulator view. If this option is cleared, when you close the Android Emulator view the
+            emulator will continue to run although it will not be displayed, either in an Eclipse view or in an external
+            window. Re-opening the Android Emulator view will cause the running emulator to once again be
+              displayed.<note>This option is not applicable on systems running Mac OS X.</note></stentry>
+        </strow>
+      </simpletable>
+    </section>
+  </refbody>
+</reference>

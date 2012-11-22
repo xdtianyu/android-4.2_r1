@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference id="u_mpkg-sign_android" xml:lang="en-us">
+  <title>Package Signing dialog</title>
+  <shortdesc>Signs one or more Android packages with a public/private key pair. Note that in order to sign multiple
+    packages at once, they must all reside in the same directory. </shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>This dialog is displayed when you click <image href="../images/PackageSign.png"/> (Sign Android Package) in
+      the Signing and Keys view, when you right click in the Package Explorer and select <menucascade>
+        <uicontrol>MOTODEV Studio</uicontrol>
+        <uicontrol>Sign Android Package</uicontrol>
+      </menucascade>, or when you select <menucascade>
+        <uicontrol>Signing</uicontrol>
+        <uicontrol>Sign Android Package</uicontrol>
+      </menucascade> from the MOTODEV menu. <simpletable>
+        <strow>
+          <stentry><uicontrol>Packages folder</uicontrol></stentry>
+          <stentry>Path to the folder in which the Android package (.apk) files reside.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Keystore</uicontrol></stentry>
+          <stentry>Drop-down list that enumerates the keystores that are known to the Signing and Keys view. Select the
+            keystore that contains the key to be used for signing.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Keystore Password</uicontrol></stentry>
+          <stentry>Supply the password for the selected keystore. If you previously indicated that the keystore password
+            should be saved (either when you created the keystore or during a previous signing operation), the keystore
+            password will be filled in for you.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Save this password</uicontrol></stentry>
+          <stentry>Select this option if you want the keystore password to be saved and then automatically filled in
+            when you use this keystore during future signing operations.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Key</uicontrol></stentry>
+          <stentry>Public/private key pair to be used to sign the Android packages. The drop-down list allows you to
+            select from among the key pairs within the selected keystore. </stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Select the packages</uicontrol></stentry>
+          <stentry>Lists the Android package files found in the directory specified by <uicontrol>Packages
+              folder</uicontrol>. Select at least one of them to be signed.</stentry>
+        </strow>
+      </simpletable>
+      <p>After you click <uicontrol>Finish</uicontrol> to begin the signing process, you may be prompted for the
+        selected key's password. If so, supply it in the field provided. If you had previously indicated that the key's
+        password should be saved (either when you created the key or during a previous signing operation), the saved
+        password will be used and this secondary dialog will not be displayed.</p>
+    </section>
+  </refbody>
+</reference>

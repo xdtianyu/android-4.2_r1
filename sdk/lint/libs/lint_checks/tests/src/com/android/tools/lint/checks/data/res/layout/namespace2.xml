@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+    xmlns:customprefix="http://schemas.android.com/apk/res/android"
+    xmlns:bogus="http://foo.com/bar"
+    customprefix:id="@+id/newlinear"
+    customprefix:layout_width="match_parent"
+    customprefix:layout_height="match_parent"
+    customprefix:orientation="vertical"
+    bogus:orientation="bogus"
+    orientation="true">
+
+</LinearLayout>

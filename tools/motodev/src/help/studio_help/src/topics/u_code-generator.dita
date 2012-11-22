@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference id="u_code-generator" xml:lang="en-us">
+  <title>Generate Java Code Based on Layout dialog</title>
+  <shortdesc>Use this dialog to specify those UI objects for which attribute declarations, findViewById() calls, and
+    event handlers should be generated. This dialog appears when you right-click an Activity or Fragment subclass
+    (right-click either the editor window showing this subclass, or the subclass' filename in the Package Explorer) and
+    select <menucascade><uicontrol>Source</uicontrol><uicontrol>Generate Java Code Based on
+    Layout</uicontrol></menucascade>.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <simpletable>
+        <strow>
+          <stentry>
+            <uicontrol>Project</uicontrol>
+          </stentry>
+          <stentry>The project containing the Activity or Fragment for which code is to be generated.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Target Class</uicontrol></stentry>
+          <stentry>The Activity or Fragment subclass to which the generated code should be added. </stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Source Layout File</uicontrol></stentry>
+          <stentry>(read only) The name of the layout file (minus the ".xml" extension) controlled by the selected
+            target class file. The Java code generator determines the name of this file by examining the target class
+            file for a call to setContentView() in the Activity's onCreate() method (if the target class is an Activity)
+            or a call to inflater.inflate() (if the target class is a Fragment). </stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>UI Objects</uicontrol></stentry>
+          <stentry>The list of objects eligible for code generation. Code will be generated for those items that have
+            been selected using the checkbox in the <uicontrol>Id</uicontrol> column. For a UI object to be listed here,
+            it must have an Android ID defined with "@+id" in the layout file and there must not already be a
+            findViewById() statement for it in the selected target class file.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Generate default listeners when possible</uicontrol></stentry>
+          <stentry>If selected (this is the default), listeners will be generated for those selected UI elements that
+            can register them. </stentry>
+        </strow>
+      </simpletable>
+    </section>
+  </refbody>
+</reference>

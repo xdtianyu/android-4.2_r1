@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference id="u_collect-log-files" xml:lang="en-us">
+  <title>Collect Log Files dialog</title>
+  <shortdesc>Using this dialog you can collect Eclipse and MOTODEV Studio log files and package them into a single ZIP
+    archive.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <p>This dialog appears when you select Collect Log Files from the Help menu.</p>
+      <simpletable>
+        <strow product="javame-studio javame-sdk webui">
+          <stentry><uicontrol>Directory</uicontrol></stentry>
+          <stentry>The directory into which the ZIP archive containing the log files should be written.</stentry>
+        </strow>
+        <strow product="javame-studio javame-sdk webui">
+          <stentry><uicontrol>File name</uicontrol></stentry>
+          <stentry>The name to be used for the archive file, minus the extension. An extension of <codeph>.zip</codeph>
+            will be added when the archive is created.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Output file</uicontrol></stentry>
+          <stentry>The path and filename for the archive file. Because this is a ZIP archive, you may want to give the
+            filename a <codeph>.zip</codeph> extension.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Log Files</uicontrol></stentry>
+          <stentry>A list of files that are eligible to be archived. Only those files that are selected will be
+            archived.</stentry>
+        </strow>
+      </simpletable>
+    </section>
+  </refbody>
+</reference>

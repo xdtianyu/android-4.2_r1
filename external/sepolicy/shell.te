@@ -1,0 +1,42 @@
+type shell, domain;
+type shell_exec, file_type;
+domain_auto_trans(init, shell_exec, shell)
+allow shell rootfs:dir r_dir_perms;
+allow shell devpts:chr_file rw_file_perms;
+allow shell tty_device:chr_file rw_file_perms;
+allow shell console_device:chr_file rw_file_perms;
+allow shell system_file:file x_file_perms;
+allow shell shell_exec:file rx_file_perms;
+allow shell zygote_exec:file rx_file_perms;
+allow shell shell_data_file:dir create_dir_perms;
+allow shell shell_data_file:file create_file_perms;
+allow shell shell_data_file:file rx_file_perms;
+
+# Access sdcard.
+allow shell sdcard:dir rw_dir_perms;
+allow shell sdcard:file create_file_perms;
+
+r_dir_file(shell, apk_data_file)
+allow shell dalvikcache_data_file:file write;
+
+# Run dmesg.
+allow shell kernel:system syslog_read;
+
+# Run cat /proc/kmsg.
+allow shell kernel:system syslog_mod;
+
+# Run logcat.
+allow shell log_device:chr_file r_file_perms;
+
+# Run app_process.
+# XXX Split into its own domain?
+app_domain(shell)
+
+# Property Service
+allow shell shell_prop:property_service set;
+
+# setprop toolbox command
+allow shell property_socket:sock_file write;
+
+# ctl interface
+allow shell ctl_dumpstate_prop:property_service set;

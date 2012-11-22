@@ -1,0 +1,54 @@
+previous_label=$1
+
+find emd_tools/android/src -name MANIFEST.MF | sed s/".META-INF.MANIFEST.MF"//g > all_plugins.txt
+cleartool find emd_tools/android/src -cview -version "!lbtype($previous_label)" -print | sed s:\\\\:/:g >changed_files.txt 2>/dev/null
+
+all_plugins=$(cat all_plugins.txt)
+changed_files=$(cat changed_files.txt)
+
+echo DIRECTORY,ID,VERSION,PREVIOUS_VERSION,CHANGED/NEW/UNMODIFIED
+
+for plugin in $all_plugins
+do
+	echo -n $plugin,
+
+	pluginfile=$plugin/META-INF/MANIFEST.MF
+
+	id=$(cat $pluginfile | grep Bundle-SymbolicName)
+	id=${id%%;*}
+	id=${id##* }
+	echo -n $id
+
+	version=$(cat $pluginfile | grep Bundle-Version)
+	version=${version##* }
+      version=$(echo $version | sed s/\n//g)
+	echo -n ,$version
+
+	previous_version=$(cleartool diff -diff_format $pluginfile@@/main/0 $pluginfile@@/$previous_label 2>/dev/null | grep "Bundle-Version")
+      previous_version=${previous_version##* }
+      previous_version=$(echo $previous_version | sed s/\n//g)
+	
+	if [ "$previous_version" ]
+	then
+		echo -n ,$previous_version
+	else
+		echo -n ,
+	fi
+
+	changed=$(echo $changed_files | grep $plugin)
+
+	if [ "$changed" ]
+	then
+ 		if [ "$previous_version" ]
+		then
+			echo -n ,CHANGED
+		else
+			echo -n ,NEW
+		fi
+	else
+		echo -n ,UNMODIFIED
+	fi
+
+	echo 
+
+done

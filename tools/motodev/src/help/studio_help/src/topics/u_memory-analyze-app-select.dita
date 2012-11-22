@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference id="u_memory-analyze-app-select" xml:lang="en-us">
+  <title>Analyze Memory Using MAT dialog</title>
+  <shortdesc>MOTODEV Studio for Android can generate an HPROF file for a selected Android application and then pass it
+    to MAT, the Eclipse memory analyzer. Using MAT you can look for memory leaks and locate areas where your app might
+    be using an excessive amount of memory.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>The first step in the memory analysis process is to select the running application to be analyzed. The
+      Analyze Memory Using MAT dialog allows you to do this: select the application's package from the list and click
+        <uicontrol>Finish</uicontrol>.</section>
+  </refbody>
+</reference>

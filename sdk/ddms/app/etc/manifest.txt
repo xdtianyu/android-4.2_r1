@@ -1,0 +1,3 @@
+Main-Class: com.android.ddms.Main
+Class-Path: common.jar sdkstats.jar ddmlib.jar ddmuilib.jar swtmenubar.jar org.eclipse.jface_3.6.2.M20110210-1200.jar org.eclipse.equinox.common_3.6.0.v20100503.jar org.eclipse.core.commands_3.6.0.I20100512-1500.jar jcommon-1.0.12.jar jfreechart-1.0.9.jar jfreechart-1.0.9-swt.jar osgi.jar
+

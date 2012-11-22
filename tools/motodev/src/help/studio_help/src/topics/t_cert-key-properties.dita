@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "../dtd/task.dtd">
+<task id="t_cert-key-properties" xml:lang="en-us">
+  <title>Examining a key's properties</title>
+  <shortdesc>Use this procedure to look at the properties that were specified when a key was created.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <steps>
+      <step>
+        <cmd>If necessary, open the Signing and Keys view by <ph product="webui android-studio">selecting <menucascade>
+              <uicontrol>Window</uicontrol>
+              <uicontrol>Show View</uicontrol>
+              <uicontrol>Other</uicontrol>
+            </menucascade> and then selecting <menucascade>
+              <uicontrol>MOTODEV Studio</uicontrol>
+              <uicontrol>Signing and Keys</uicontrol>
+            </menucascade> from the list of views</ph>. Note that this view is part of the MOTODEV Studio for Android
+          perspective and is thus normally opened when you switch to that perspective.</cmd>
+      </step>
+      <step>
+        <cmd>In the Signing and Keys view select the key whose properties you want to see. Note that you may need to
+          click the disclosure triangle next to the keystore containing the key to expose that keystore's
+          contents.</cmd>
+      </step>
+      <step>
+        <cmd>Click <image href="../images/KeyProperties.png"/> (Key Properties).</cmd>
+        <stepresult>The Key Properties dialog is displayed, which shows all of the properties that were specified when
+          the key was created. The Validity period, specified as a duration (in years) when the key was created, is
+          shown as two dates: the date the key was created, and the date that the key expires.</stepresult>
+      </step>
+      <step>
+        <cmd>Click <uicontrol>OK</uicontrol> when you are done reviewing the key's properties.</cmd>
+      </step>
+    </steps>
+  </taskbody>
+</task>

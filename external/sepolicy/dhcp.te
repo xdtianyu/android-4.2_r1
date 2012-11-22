@@ -1,0 +1,22 @@
+type dhcp, domain;
+type dhcp_exec, exec_type, file_type;
+type dhcp_data_file, file_type, data_file_type;
+type dhcp_system_file, file_type, data_file_type;
+
+init_daemon_domain(dhcp)
+
+allow dhcp cgroup:dir { create add_name };
+allow dhcp self:capability { setgid setuid net_admin net_raw };
+allow dhcp self:packet_socket { create setopt bind write read };
+allow dhcp self:netlink_route_socket { write nlmsg_write read create bind };
+allow dhcp self:udp_socket { create ioctl };
+allow dhcp shell_exec:file { read open execute };
+allow dhcp proc:file write;
+allow dhcp property_socket:sock_file write ;
+allow dhcp system_prop:property_service set ;
+allow dhcp dhcp_system_file:file rx_file_perms;
+allow dhcp dhcp_system_file:dir r_dir_perms;
+unix_socket_connect(dhcp, property, init)
+
+type_transition dhcp system_data_file:{ dir file } dhcp_data_file;
+allow dhcp dhcp_data_file:dir { write add_name search };

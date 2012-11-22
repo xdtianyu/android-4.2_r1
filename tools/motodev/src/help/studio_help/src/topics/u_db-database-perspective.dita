@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference id="u_db-database-perspective" xml:lang="en-us">
+  <title>MOTODEV Database perspective</title>
+  <shortdesc>Using the MOTODEV Database perspective you can explore and edit local and on-device SQL databases.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <p>The MOTODEV Database perspective consists of the following views:</p>
+      <ul>
+        <li><xref href="u_db-database-explorer.dita">MOTODEV Database Explorer</xref></li>
+        <li><xref href="u_db-sql-results-view.dita">SQL Results view</xref></li>
+        <li><xref href="u_device-manager_android.dita">Device Management view</xref></li>
+        <li>Console view</li>
+      </ul>
+      <p>Open the MOTODEV Database perspective by clicking the <uicontrol>Window</uicontrol> menu and selecting
+          <menucascade><uicontrol>Open Perspective</uicontrol><uicontrol>Other</uicontrol></menucascade>. Then, from the
+        list of perspectives, select <uicontrol>MOTODEV Database</uicontrol>. </p>
+    </section>
+  </refbody>
+</reference>

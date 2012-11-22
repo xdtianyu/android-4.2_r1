@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference id="u_new-widget-provider" xml:lang="en-us">
+  <title>New Android Widget Provider wizard</title>
+  <shortdesc>Creates a new Android widget provider.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <simpletable>
+        <strow>
+          <stentry><uicontrol>Source folder</uicontrol></stentry>
+          <stentry>The folder into which the source code for the new widget provider is to be stored. By default this is
+            the current project's src folder.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Package</uicontrol></stentry>
+          <stentry>The package that is to contain the new widget provider. By default this is the current project's
+            package.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Name</uicontrol></stentry>
+          <stentry>The name to be used for the class that implements the widget provider. This should be a simple,
+            non-qualified name.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Label</uicontrol></stentry>
+          <stentry>(optional) The label for the widget provider. Note that if you specify a label, the New Android
+            Widget Provider wizard creates a string resource to hold this value. If the <uicontrol>Default</uicontrol>
+            option is selected, a label is not set for this widget provider (the Label field is not editable); the
+            application's label is used instead.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Superclass</uicontrol></stentry>
+          <stentry>This field is not editable. Widget providers subclass <codeph
+            >android.appwidget.AppWidgetProvider</codeph>.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Permission</uicontrol></stentry>
+          <stentry>Permissions that should be added to the application's manifest file. Click <uicontrol>Add</uicontrol>
+            to display a list of permissions from which you can choose.</stentry>
+        </strow>
+      </simpletable>
+    </section>
+  </refbody>
+</reference>

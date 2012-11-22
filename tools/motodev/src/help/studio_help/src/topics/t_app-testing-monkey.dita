@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "../dtd/task.dtd">
+<task id="t_app-testing-monkey" xml:lang="en-us">
+  <title>Testing Your Application with the UI/Application Exerciser Monkey</title>
+  <shortdesc>The Android UI/Application Exerciser Monkey sends pseudo-random events (within limits you set) to your
+    application. This can prove to be an effective way to exercise little-used paths within your code, thus uncovering
+    bugs you might otherwise not find. The Monkey tool itself is provided as part of the Android SDK, but it has a
+    command-line interface. MOTODEV Studio for Android provides an interface for Monkey, so that you can exercise your
+    applications from within the same environment you use to build them.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <context>
+      <p>Within MOTODEV Studio for Android you use "Test events with Monkey" launch configurations to test your apps
+        with the UI/Application Exerciser Monkey. </p>
+      <note type="important">Unlike other launch configurations, a "Test events with Monkey" configuration does not load
+        your app onto the target device. You must have previously installed the app(s) you wish to test prior to setting
+        up and running a Monkey configuration.</note>
+    </context>
+    <steps>
+      <step>
+        <cmd>Create the launch configuration using one of the following methods:</cmd>
+        <choices>
+          <choice>If the emulator you wish to use is running, or the device you wish to use is connected to your
+            development computer, right-click the emulator or device in the Device Management view and select <uicontrol
+              >Test events with Monkey</uicontrol>.</choice>
+          <choice>Select <uicontrol>Run Configurations</uicontrol> from the <uicontrol>Run</uicontrol> menu. From the
+            left pane of the Run Configurations dialog select <uicontrol>Test events with Monkey</uicontrol> and click
+            'New' <image href="../images/new-config-button.png"/> to create a new configuration.</choice>
+        </choices>
+      </step>
+      <step>
+        <cmd>Using the <uicontrol>Device</uicontrol> field (on the <uicontrol>Main</uicontrol> tab), select the device
+          instance to be used to run the Monkey test. Note that you can only select from among running emulators and
+          connected devices; if there are no device instances from which to choose, you'll first need to launch an
+          emulator or connect a handset. </cmd>
+      </step>
+      <step>
+        <cmd>Select those packages that Monkey should exercise from the package list. You can select one or several
+          packages; Monkey will limit its scope only to the selected packages. To select a single package, click it. To
+          select a block of adjacent packages, click the first and then Shift-click the last. To select several
+          individual packages, click the first one and then Control-click (Command-click, on Macintosh) the remaining
+          packages.</cmd>
+      </step>
+      <step>
+        <cmd>Using the <uicontrol>Event count</uicontrol> field, specify the number of pseudo-random events to be sent
+          to the selected packages.</cmd>
+      </step>
+      <step>
+        <cmd>To further customize the way that that Monkey tests your applications, select the <uicontrol
+          >Options</uicontrol> tab and fill in the desired fields. See the UI/Application Exerciser Monkey documentation
+          provided with the Android SDK for information on the purpose and allowable values for each of these fields.
+          Note that you can select <uicontrol>General</uicontrol> and supply options as command-line parameters, rather
+          than as form values.</cmd>
+      </step>
+      <step>
+        <cmd>Click <uicontrol>Run</uicontrol> to save your new configuration and run it. Or, click <uicontrol
+          >Apply</uicontrol> and then <uicontrol>Close</uicontrol> to save your new configuration without running it.
+        </cmd>
+      </step>
+    </steps>
+    <result>When Monkey runs it posts its progress to the MOTODEV Studio for Android Console view.</result>
+    <postreq>You can re-run your Monkey configuration at any time by selecting it from your Run configurations and
+      clicking <uicontrol>Run</uicontrol>.</postreq>
+  </taskbody>
+</task>

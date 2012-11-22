@@ -1,0 +1,8 @@
+# dbus daemon
+type dbusd, domain;
+type dbusd_exec, exec_type, file_type;
+
+init_daemon_domain(dbusd)
+# Reads /proc/pid/cmdline of clients
+r_dir_file(dbusd, system)
+r_dir_file(dbusd, bluetoothd)

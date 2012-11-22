@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeLite_Project Name="libMesa" InternalType="Static Library">
+  <Plugins>
+    <Plugin Name="qmake">
+      <![CDATA[00020001N0005Debug0000000000000001N0007Release000000000000]]>
+    </Plugin>
+  </Plugins>
+  <VirtualDirectory Name="include">
+    <VirtualDirectory Name="pixelflinger2">
+      <File Name="include/pixelflinger2/pixelflinger2_constants.h"/>
+      <File Name="include/pixelflinger2/pixelflinger2_vector4.h"/>
+      <File Name="include/pixelflinger2/pixelflinger2_format.h"/>
+      <File Name="include/pixelflinger2/pixelflinger2_interface.h"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="GLES2">
+      <File Name="include/GLES2/gl2ext.h"/>
+      <File Name="include/GLES2/gl2.h"/>
+      <File Name="include/GLES2/gl2platform.h"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="c99">
+      <File Name="include/c99/inttypes.h"/>
+      <File Name="include/c99/stdint.h"/>
+      <File Name="include/c99/stdbool.h"/>
+    </VirtualDirectory>
+  </VirtualDirectory>
+  <VirtualDirectory Name="src">
+    <VirtualDirectory Name="mesa">
+      <VirtualDirectory Name="math">
+        <File Name="src/mesa/math/m_xform.h"/>
+        <File Name="src/mesa/math/m_clip_tmp.h"/>
+        <File Name="src/mesa/math/m_dotprod_tmp.h"/>
+        <File Name="src/mesa/math/m_copy_tmp.h"/>
+        <File Name="src/mesa/math/m_xform_tmp.h"/>
+        <File Name="src/mesa/math/m_norm_tmp.h"/>
+        <File Name="src/mesa/math/m_matrix.h"/>
+        <File Name="src/mesa/math/m_vector.h"/>
+        <File Name="src/mesa/math/m_debug_util.h"/>
+        <File Name="src/mesa/math/m_eval.h"/>
+        <File Name="src/mesa/math/m_debug.h"/>
+        <File Name="src/mesa/math/m_translate.h"/>
+        <File Name="src/mesa/math/m_trans_tmp.h"/>
+      </VirtualDirectory>
+      <VirtualDirectory Name="main">
+        <File Name="src/mesa/main/config.h"/>
+        <File Name="src/mesa/main/get.h"/>
+        <File Name="src/mesa/main/hash.h"/>
+        <File Name="src/mesa/main/imports.h"/>
+        <File Name="src/mesa/main/mfeatures.h"/>
+        <File Name="src/mesa/main/version.h"/>
+        <File Name="src/mesa/main/debug.h"/>
+        <File Name="src/mesa/main/core.h"/>
+        <File Name="src/mesa/main/shaderobj.h"/>
+        <File Name="src/mesa/main/macros.h"/>
+        <File Name="src/mesa/main/glheader.h"/>
+        <File Name="src/mesa/main/compiler.h"/>
+        <File Name="src/mesa/main/simple_list.h"/>
+        <File Name="src/mesa/main/mtypes.h"/>
+        <File Name="src/mesa/main/shaderobj.c"/>
+      </VirtualDirectory>
+      <VirtualDirectory Name="program">
+        <File Name="src/mesa/program/prog_parameter.cpp"/>
+        <File Name="src/mesa/program/symbol_table.h"/>
+        <File Name="src/mesa/program/prog_uniform.h"/>
+        <File Name="src/mesa/program/hash_table.c"/>
+        <File Name="src/mesa/program/prog_statevars.h"/>
+        <File Name="src/mesa/program/hash_table.h"/>
+        <File Name="src/mesa/program/symbol_table.c"/>
+        <File Name="src/mesa/program/ir_to_mesa.h"/>
+        <File Name="src/mesa/program/prog_parameter.h"/>
+      </VirtualDirectory>
+    </VirtualDirectory>
+    <VirtualDirectory Name="glsl">
+      <VirtualDirectory Name="glcpp">
+        <File Name="src/glsl/glcpp/glcpp.h"/>
+        <File Name="src/glsl/glcpp/pp.c"/>
+        <File Name="src/glsl/glcpp/glcpp-lex.c"/>
+        <File Name="src/glsl/glcpp/glcpp-parse.c"/>
+        <File Name="src/glsl/glcpp/glcpp-parse.h"/>
+      </VirtualDirectory>
+      <File Name="src/glsl/opt_swizzle_swizzle.cpp"/>
+      <File Name="src/glsl/list.h"/>
+      <File Name="src/glsl/opt_dead_code.cpp"/>
+      <File Name="src/glsl/image_file.h"/>
+      <File Name="src/glsl/opt_copy_propagation.cpp"/>
+      <File Name="src/glsl/strtod.h"/>
+      <File Name="src/glsl/loop_analysis.cpp"/>
+      <File Name="src/glsl/loop_unroll.cpp"/>
+      <File Name="src/glsl/ir_if_return.cpp"/>
+      <File Name="src/glsl/linker.cpp"/>
+      <File Name="src/glsl/ir_basic_block.h"/>
+      <File Name="src/glsl/opt_algebraic.cpp"/>
+      <File Name="src/glsl/link_functions.cpp"/>
+      <File Name="src/glsl/glsl_parser_extras.h"/>
+      <File Name="src/glsl/opt_discard_simplification.cpp"/>
+      <File Name="src/glsl/glsl_parser.h"/>
+      <File Name="src/glsl/ir_expression_flattening.cpp"/>
+      <File Name="src/glsl/builtin_variables.h"/>
+      <File Name="src/glsl/ir_print_visitor.h"/>
+      <File Name="src/glsl/ir_function_can_inline.cpp"/>
+      <File Name="src/glsl/s_expression.cpp"/>
+      <File Name="src/glsl/lower_discard.cpp"/>
+      <File Name="src/glsl/ir_to_llvm.cpp"/>
+      <File Name="src/glsl/opt_redundant_jumps.cpp"/>
+      <File Name="src/glsl/ir_div_to_mul_rcp.cpp"/>
+      <File Name="src/glsl/ir_mod_to_fract.cpp"/>
+      <File Name="src/glsl/glsl_types.h"/>
+      <File Name="src/glsl/glsl_symbol_table.cpp"/>
+      <File Name="src/glsl/ir_set_program_inouts.cpp"/>
+      <File Name="src/glsl/lower_variable_index_to_cond_assign.cpp"/>
+      <File Name="src/glsl/glsl_symbol_table.h"/>
+      <File Name="src/glsl/builtin_function.cpp"/>
+      <File Name="src/glsl/lower_noise.cpp"/>
+      <File Name="src/glsl/ir_reader.cpp"/>
+      <File Name="src/glsl/strtod.c"/>
+      <File Name="src/glsl/opt_constant_variable.cpp"/>
+      <File Name="src/glsl/ir_variable_refcount.cpp"/>
+      <File Name="src/glsl/ir_hierarchical_visitor.cpp"/>
+      <File Name="src/glsl/program.h"/>
+      <File Name="src/glsl/ast_type.cpp"/>
+      <File Name="src/glsl/hir_field_selection.cpp"/>
+      <File Name="src/glsl/glsl_parser_extras.cpp"/>
+      <File Name="src/glsl/opt_constant_propagation.cpp"/>
+      <File Name="src/glsl/ir_clone.cpp"/>
+      <File Name="src/glsl/main.cpp"/>
+      <File Name="src/glsl/ir_reader.h"/>
+      <File Name="src/glsl/ir_variable.cpp"/>
+      <File Name="src/glsl/loop_analysis.h"/>
+      <File Name="src/glsl/glsl_types.cpp"/>
+      <File Name="src/glsl/glsl_parser.cpp"/>
+      <File Name="src/glsl/lower_instructions.cpp"/>
+      <File Name="src/glsl/ir_optimization.h"/>
+      <File Name="src/glsl/ir_constant_expression.cpp"/>
+      <File Name="src/glsl/ir_import_prototypes.cpp"/>
+      <File Name="src/glsl/opt_constant_folding.cpp"/>
+      <File Name="src/glsl/ast_function.cpp"/>
+      <File Name="src/glsl/lower_jumps.cpp"/>
+      <File Name="src/glsl/ast_expr.cpp"/>
+      <File Name="src/glsl/ir_print_visitor.cpp"/>
+      <File Name="src/glsl/opt_noop_swizzle.cpp"/>
+      <File Name="src/glsl/ir.h"/>
+      <File Name="src/glsl/ir_validate.cpp"/>
+      <File Name="src/glsl/ir_visitor.h"/>
+      <File Name="src/glsl/ir_function.cpp"/>
+      <File Name="src/glsl/opt_function_inlining.cpp"/>
+      <File Name="src/glsl/opt_dead_code_local.cpp"/>
+      <File Name="src/glsl/lower_vec_index_to_cond_assign.cpp"/>
+      <File Name="src/glsl/lower_vector.cpp"/>
+      <File Name="src/glsl/ir_expression_flattening.h"/>
+      <File Name="src/glsl/opt_dead_functions.cpp"/>
+      <File Name="src/glsl/ir_hierarchical_visitor.h"/>
+      <File Name="src/glsl/lower_vec_index_to_swizzle.cpp"/>
+      <File Name="src/glsl/ir_variable_refcount.h"/>
+      <File Name="src/glsl/ir_to_llvm.h"/>
+      <File Name="src/glsl/opt_tree_grafting.cpp"/>
+      <File Name="src/glsl/ir_rvalue_visitor.cpp"/>
+      <File Name="src/glsl/ir_rvalue_visitor.h"/>
+      <File Name="src/glsl/lower_texture_projection.cpp"/>
+      <File Name="src/glsl/ir.cpp"/>
+      <File Name="src/glsl/linker.h"/>
+      <File Name="src/glsl/ir_basic_block.cpp"/>
+      <File Name="src/glsl/builtin_types.h"/>
+      <File Name="src/glsl/opt_structure_splitting.cpp"/>
+      <File Name="src/glsl/ast_to_hir.cpp"/>
+      <File Name="src/glsl/ir_function_inlining.h"/>
+      <File Name="src/glsl/ir_hv_accept.cpp"/>
+      <File Name="src/glsl/opt_if_simplification.cpp"/>
+      <File Name="src/glsl/glsl_lexer.cpp"/>
+      <File Name="src/glsl/s_expression.h"/>
+      <File Name="src/glsl/loop_controls.cpp"/>
+      <File Name="src/glsl/lower_if_to_cond_assign.cpp"/>
+      <File Name="src/glsl/lower_mat_op_to_vec.cpp"/>
+      <File Name="src/glsl/ast.h"/>
+      <File Name="src/glsl/glsl_compiler.cpp"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="talloc">
+      <File Name="src/talloc/hieralloc.c"/>
+      <File Name="src/talloc/hieralloc.h"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="pixelflinger2">
+      <File Name="src/pixelflinger2/texture.cpp"/>
+      <File Name="src/pixelflinger2/pixelflinger2.h"/>
+      <File Name="src/pixelflinger2/pixelflinger2.cpp"/>
+      <File Name="src/pixelflinger2/texture.h"/>
+      <File Name="src/pixelflinger2/format.cpp"/>
+      <File Name="src/pixelflinger2/raster.cpp"/>
+      <File Name="src/pixelflinger2/shader.cpp"/>
+      <File Name="src/pixelflinger2/llvm_scanline.cpp"/>
+      <File Name="src/pixelflinger2/buffer.cpp"/>
+      <File Name="src/pixelflinger2/llvm_helper.h"/>
+      <File Name="src/pixelflinger2/scanline.cpp"/>
+      <File Name="src/pixelflinger2/llvm_texture.cpp"/>
+    </VirtualDirectory>
+  </VirtualDirectory>
+  <Description/>
+  <Dependencies/>
+  <Dependencies Name="Release"/>
+  <Settings Type="Static Library">
+    <Configuration Name="Debug" CompilerType="gnu gcc" DebuggerType="GNU gdb debugger" Type="Static Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <Compiler Options="-D__STDC_LIMIT_MACROS;-D__STDC_CONSTANT_MACROS;-m32 -march=i686;-DDEBUG;-UNDEBUG;-O0;-g" Required="yes" PreCompiledHeader="">
+        <IncludePath Value="src/mesa/"/>
+        <IncludePath Value="include/"/>
+        <IncludePath Value="src/talloc/"/>
+        <IncludePath Value="src/mapi/"/>
+        <IncludePath Value="../../external/llvm/include"/>
+        <IncludePath Value="../../external/llvm/host/include"/>
+        <IncludePath Value="../../frameworks/compile/libbcc/include"/>
+        <IncludePath Value="../../frameworks/base/opengl/include"/>
+      </Compiler>
+      <Linker Options="-m32 -lstdc++ -ldl -lpthread" Required="yes">
+        <LibraryPath Value="/home/davidxli/Desktop/android/master/out/host/linux-x86/obj/STATIC_LIBRARIES/libLLVMX86CodeGen_intermediates"/>
+        <LibraryPath Value="/home/davidxli/Desktop/android/master/out/host/linux-x86/obj/STATIC_LIBRARIES/libLLVMX86Info_intermediates"/>
+        <LibraryPath Value="/home/davidxli/Desktop/android/master/out/host/linux-x86/obj/STATIC_LIBRARIES/libLLVMBitReader_intermediates"/>
+        <LibraryPath Value="/home/davidxli/Desktop/android/master/out/host/linux-x86/obj/STATIC_LIBRARIES/libLLVMSelectionDAG_intermediates"/>
+        <LibraryPath Value="/home/davidxli/Desktop/android/master/out/host/linux-x86/obj/STATIC_LIBRARIES/libLLVMAsmPrinter_intermediates"/>
+        <LibraryPath Value="/home/davidxli/Desktop/android/master/out/host/linux-x86/obj/STATIC_LIBRARIES/libLLVMJIT_intermediates"/>
+        <LibraryPath Value="/home/davidxli/Desktop/android/master/out/host/linux-x86/obj/STATIC_LIBRARIES/libLLVMCodeGen_intermediates"/>
+        <LibraryPath Value="/home/davidxli/Desktop/android/master/out/host/linux-x86/obj/STATIC_LIBRARIES/libLLVMTarget_intermediates"/>
+        <LibraryPath Value="/home/davidxli/Desktop/android/master/out/host/linux-x86/obj/STATIC_LIBRARIES/libLLVMMC_intermediates"/>
+        <LibraryPath Value="/home/davidxli/Desktop/android/master/out/host/linux-x86/obj/STATIC_LIBRARIES/libLLVMScalarOpts_intermediates"/>
+        <LibraryPath Value="/home/davidxli/Desktop/android/master/out/host/linux-x86/obj/STATIC_LIBRARIES/libLLVMipo_intermediates"/>
+        <LibraryPath Value="/home/davidxli/Desktop/android/master/out/host/linux-x86/obj/STATIC_LIBRARIES/libLLVMTransformUtils_intermediates"/>
+        <LibraryPath Value="/home/davidxli/Desktop/android/master/out/host/linux-x86/obj/STATIC_LIBRARIES/libLLVMCore_intermediates"/>
+        <LibraryPath Value="/home/davidxli/Desktop/android/master/out/host/linux-x86/obj/STATIC_LIBRARIES/libLLVMSupport_intermediates"/>
+        <LibraryPath Value="/home/davidxli/Desktop/android/master/out/host/linux-x86/obj/STATIC_LIBRARIES/libLLVMSystem_intermediates"/>
+        <LibraryPath Value="/home/davidxli/Desktop/android/master/out/host/linux-x86/obj/STATIC_LIBRARIES/libLLVMAnalysis_intermediates"/>
+        <LibraryPath Value="/home/davidxli/Desktop/android/master/out/host/linux-x86/obj/STATIC_LIBRARIES/libLLVMInstCombine_intermediates"/>
+        <LibraryPath Value="/home/davidxli/Desktop/android/master/out/host/linux-x86/obj/STATIC_LIBRARIES/libLLVMipa_intermediates"/>
+        <LibraryPath Value="/home/davidxli/Desktop/android/master/out/host/linux-x86/obj/STATIC_LIBRARIES/libLLVMExecutionEngine_intermediates"/>
+        <LibraryPath Value="/home/davidxli/Desktop/android/master/out/host/linux-x86/obj/STATIC_LIBRARIES/libLLVMMCParser_intermediates"/>
+        <Library Value="libbcc"/>
+      </Linker>
+      <ResourceCompiler Options="" Required="no"/>
+      <General OutputFile="./Debug/$(ProjectName).a" IntermediateDirectory="./Debug/obj" Command="./$(ProjectName)" CommandArguments="--dump-hir --glsl-es stress_fs.frag" WorkingDirectory="./Debug" PauseExecWhenProcTerminates="yes"/>
+      <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="">
+        <PostConnectCommands/>
+        <StartupCommands/>
+      </Debugger>
+      <PreBuild/>
+      <PostBuild/>
+      <CustomBuild Enabled="no">
+        <RebuildCommand/>
+        <CleanCommand/>
+        <BuildCommand/>
+        <PreprocessFileCommand/>
+        <SingleFileCommand/>
+        <MakefileGenerationCommand/>
+        <ThirdPartyToolName>None</ThirdPartyToolName>
+        <WorkingDirectory/>
+      </CustomBuild>
+      <AdditionalRules>
+        <CustomPostBuild/>
+        <CustomPreBuild/>
+      </AdditionalRules>
+    </Configuration>
+    <Configuration Name="Release" CompilerType="gnu gcc" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <Compiler Options="" Required="yes" PreCompiledHeader="">
+        <IncludePath Value="."/>
+      </Compiler>
+      <Linker Options="-O2" Required="yes"/>
+      <ResourceCompiler Options="" Required="no"/>
+      <General OutputFile="$(IntermediateDirectory)/$(ProjectName)" IntermediateDirectory="./Release" Command="./$(ProjectName)" CommandArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes"/>
+      <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="">
+        <PostConnectCommands/>
+        <StartupCommands/>
+      </Debugger>
+      <PreBuild/>
+      <PostBuild/>
+      <CustomBuild Enabled="no">
+        <RebuildCommand/>
+        <CleanCommand/>
+        <BuildCommand/>
+        <PreprocessFileCommand/>
+        <SingleFileCommand/>
+        <MakefileGenerationCommand/>
+        <ThirdPartyToolName>None</ThirdPartyToolName>
+        <WorkingDirectory/>
+      </CustomBuild>
+      <AdditionalRules>
+        <CustomPostBuild/>
+        <CustomPreBuild/>
+      </AdditionalRules>
+    </Configuration>
+    <GlobalSettings>
+      <Compiler Options="">
+        <IncludePath Value="."/>
+      </Compiler>
+      <Linker Options="">
+        <LibraryPath Value="."/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
+  </Settings>
+  <Dependencies Name="Debug"/>
+</CodeLite_Project>

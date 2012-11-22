@@ -1,0 +1,2 @@
+        <activity android:name=".ACTIVITY_NAME" android:label="APPLICATION_NAME"/>
+        

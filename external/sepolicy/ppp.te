@@ -1,0 +1,17 @@
+# Point to Point Protocol daemon
+type ppp, domain;
+type ppp_device, dev_type;
+type ppp_exec, exec_type, file_type;
+type ppp_system_file, file_type;
+
+domain_auto_trans(mtp, ppp_exec, ppp)
+
+allow ppp mtp:socket { read write ioctl };
+allow ppp ppp_device:chr_file rw_file_perms;
+allow ppp self:capability net_admin;
+allow ppp self:udp_socket { create ioctl };
+allow ppp ppp_system_file:dir search;
+allow ppp ppp_system_file:file rx_file_perms;
+allow ppp vpn_data_file:dir w_dir_perms;
+allow ppp vpn_data_file:file create_file_perms;
+allow ppp mtp:fd use;

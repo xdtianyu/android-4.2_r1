@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE cshelp
+  PUBLIC "-//IBM//DTD DITA CSHelp//EN" "../dtd/cshelp.dtd">
+<cshelp id="cs_app-validator" xml:lang="en-us">
+  <title>Android Application Validator CS Help</title>
+  <shortdesc/>
+  <csbody/>
+
+  <!-- Plug-in: com.motorolamobility.preflighting.ui -->
+  <cshelp id="preference-appvalidator-commandline">
+    <title>Android App Validator preferences dialog</title>
+    <shortdesc>The Android App Validator preferences dialog enables you to control how the validator operates when invoked
+    from within Eclipse.</shortdesc>
+    <csbody/>
+    <related-links>
+      <link href="u_appvalidator-prefs.dita"/>
+    </related-links>
+  </cshelp>
+</cshelp>

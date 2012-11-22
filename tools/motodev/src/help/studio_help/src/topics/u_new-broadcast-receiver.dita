@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference id="u_new-broadcast-receiver" xml:lang="en-us">
+  <title>New Broadcast Receiver wizard</title>
+  <shortdesc> Creates a new Android broadcast receiver.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <simpletable>
+        <strow>
+          <stentry><uicontrol>Source folder</uicontrol></stentry>
+          <stentry>The folder into which the source code for the new broadcast receiver is to be stored. By default this
+            is the current project's src folder.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Package</uicontrol></stentry>
+          <stentry>The package that is to contain the new broadcast receiver. By default this is the current project's
+            package.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Name</uicontrol></stentry>
+          <stentry>The name to be used for the class that implements the broadcast receiver. This should be a simple,
+            non-qualified name.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Label</uicontrol></stentry>
+          <stentry>(optional) The label for the broadcast receiver. Note that if you specify a label, the New Broadcast
+            Receiver wizard creates a string resource to hold this value. If the <uicontrol>Default</uicontrol> option
+            is selected, a label is not set for this broadcast receiver (the Label field is not editable); the
+            application's label is used instead.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Superclass</uicontrol></stentry>
+          <stentry>The class from which the broadcast receiver inherits. For broadcast receivers, this is <codeph
+              >android.app.BroadcastReceiver</codeph>.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Permission</uicontrol></stentry>
+          <stentry>(optional) Permissions that should be added to the project's manifest file due to this broadcast
+            receiver. Click <uicontrol>Add</uicontrol> to display a list of possible permissions from which you can
+            select.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Action</uicontrol></stentry>
+          <stentry>(optional) The actions to be performed by an intent filter associated with this broadcast receiver.
+            Click <uicontrol>Add</uicontrol> to select from the available actions.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Category</uicontrol></stentry>
+          <stentry>(optional) The associated intent filter's categories. Click <uicontrol>Add</uicontrol> to select from
+            the available categories.</stentry>
+        </strow>
+      </simpletable>
+    </section>
+  </refbody>
+</reference>

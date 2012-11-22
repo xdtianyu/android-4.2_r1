@@ -1,0 +1,144 @@
+page.title=Android SDK
+header.hide=1
+page.metaDescription=Download the official Android SDK to develop apps for Android-powered devices.
+
+sdk.win_installer=installer_r20.0.3-windows.exe
+sdk.win_installer_bytes=70495456
+sdk.win_installer_checksum=cf23b95d0c9cd57fac3c3be253171af4
+
+sdk.win_download=android-sdk_r20.0.3-windows.zip
+sdk.win_bytes=90379469
+sdk.win_checksum=cd895c79201f7f02507eb3c3868a1c5e
+
+sdk.mac_download=android-sdk_r20.0.3-macosx.zip
+sdk.mac_bytes=58218455
+sdk.mac_checksum=07dc88ba2c0817ef178a665d002831bf
+
+sdk.linux_download=android-sdk_r20.0.3-linux.tgz
+sdk.linux_bytes=82616305
+sdk.linux_checksum=0d53c2c31d6b5d0cf7385bccd0b06c27
+
+@jd:body
+
+<style type="text/css">
+  .offline { display:none; }
+</style>
+
+<div class="wrap">
+
+<div class="col-13">&nbsp;</div><!-- provides top margin for content -->
+
+<div class="col-7" style="margin-left:0">
+  <img src="{@docRoot}images/sdk-cube.png" alt="" />
+</div>
+
+
+<div class="col-6" style="margin-right:0;">
+  
+<div id="intro" style="position:absolute;width:inherit">
+<h1 style="margin-top:0">Get the Android SDK</h1>
+
+  
+<p>The Android SDK provides you the API libraries and developer tools necessary to build, test,
+  and debug apps for Android.</p>
+
+<!-- this appears when viewing the offline docs -->
+<p class="offline">
+To get the latest Android SDK, please visit the web site at <a
+href="http://developer.android.com/sdk/index.html">developer.android.com/sdk/</a>
+</p>
+
+<!-- this appears when viewing the online docs -->
+<div class="online">
+<a class="big button" id="download-button" href="" style="display:none" ></a>
+<p id="not-supported">Choose the SDK package for your OS from the table below.</p>
+
+<p style="margin-top:20px;font-size:12px"><a href='' onclick="
+  if ($('.pax').is(':visible')) {
+    $('.pax').slideUp();
+  } else {
+    $('.reqs').slideUp();
+    $('.pax').slideDown();
+  }return false;">Other platforms</a> | 
+  <a href='' onclick="
+  if ($('.reqs').is(':visible')) {
+    $('.reqs').slideUp();
+  } else {
+    $('.pax').slideUp();
+    $('.reqs').slideDown();
+  }return false;">System requirements</a></p>
+</div><!-- end online -->
+
+</div><!-- end intro -->
+
+
+
+<div id="next-steps" class="online" style="display:none;position:absolute;width:inherit">
+  <h1 style="margin-top:0">Get ready to code!</h1>
+  <p><em><span id="filename"></span></em> is now downloading...</p>
+  <p>You'll soon be developing apps for Android! Once the download completes,
+    you need to follow a few steps to set up your environment.</p>
+  <p>To continue, follow the guide to <a href="{@docRoot}sdk/installing/index.html">Installing
+the SDK</a>.</p>
+  
+</div><!-- end next-steps -->
+
+</div><!-- end col-6 -->
+
+
+<div class="col-13">&nbsp;</div><!-- provides padding -->
+ 
+
+<div class="col-6 reqs" style="margin-left:0;display:none;font-size:12px">
+<h3>Operating Systems</h3>
+<ul>
+  <li>Windows XP (32-bit), Vista (32- or 64-bit), or Windows 7 (32- or 64-bit)</li>
+  <li>Mac OS X 10.5.8 or later (x86 only)</li>
+  <li>Linux (tested on Ubuntu Linux, Lucid Lynx)
+    <ul>
+      <li>GNU C Library (glibc) 2.7 or later is required.</li>
+      <li>On Ubuntu Linux, version 8.04 or later is required.</li>
+      <li>64-bit distributions must be capable of running 32-bit applications.</li>
+    </ul>
+  </li>
+</ul>
+</div>
+
+<div class="col-7 reqs" style="margin-right:0;display:none;font-size:12px">
+<h3>Eclipse IDE</h3>
+    <ul>
+      <li>Eclipse 3.6.2 (Helios) or greater
+<p class="note"><strong>Note:</strong> Eclipse 3.5 (Galileo) is no longer
+supported with the latest version of ADT.</p></li>
+      <li>Eclipse <a href="http://www.eclipse.org/jdt">JDT</a> plugin (included
+in most Eclipse IDE packages) </li>
+      <li><a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">JDK 6</a>
+        (JRE alone is not sufficient)</li>
+      <li><a href="{@docRoot}tools/sdk/eclipse-adt.html">Android Development Tools plugin</a>
+(recommended)</li>
+      <li><strong>Not</strong> compatible with Gnu Compiler for Java (gcj)</li>
+    </ul>
+
+
+<h3>Other development environments</h3>
+    <ul>
+      <li><a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">JDK 6</a>
+        (JRE alone is not sufficient)</li>
+      <li><a href="http://ant.apache.org/">Apache Ant</a> 1.8 or later</li>
+      <li><strong>Not</strong> compatible with Gnu Compiler for Java (gcj)</li>
+    </ul>
+  </li>
+</ul>
+
+<p class="note"><strong>Note:</strong> Some Linux distributions may include JDK 1.4 or Gnu Compiler
+for Java, both of which are <em>not</em> supported for Android development. </p>
+</div>
+
+</div>
+
+<script>
+  if (location.hash == "#Requirements") {
+    $('.reqs').show();
+  }
+</script>
+

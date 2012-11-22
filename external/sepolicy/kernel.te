@@ -1,0 +1,4 @@
+# Life begins with the kernel.
+type kernel, domain;
+# The kernel is unconfined.
+unconfined_domain(kernel)

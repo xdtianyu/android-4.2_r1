@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference id="u_app-signing-view" xml:lang="en-us">
+  <title>Signing And Keys view</title>
+  <shortdesc>The Signing and Keys view allows you to create and manage keys and keystores. From this view you can sign
+    or remove signatures from your application packages.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section><p>The Signing and Keys view is part of the MOTODEV Studio for Android perspective. You can open it manually  by <ph
+          product="webui android-studio">selecting <menucascade>
+            <uicontrol>Window</uicontrol>
+            <uicontrol>Show View</uicontrol>
+            <uicontrol>Other</uicontrol>
+          </menucascade> and then selecting <menucascade>
+            <uicontrol product="webui">Studio for WebUI</uicontrol>
+            <uicontrol product="android-studio">MOTODEV Studio</uicontrol>
+            <uicontrol>Signing and Keys</uicontrol>
+          </menucascade> from the list of views.</ph></p></section>
+    <section>
+      <p>The Signing and Keys view lists the keys (within keystores) that you can use to sign your application packages.
+        In the upper-right corner of the view are a set of buttons that allow you to manipulate and use those keys and
+        keystores:</p>
+      <simpletable>
+        <strow product="android-studio">
+          <stentry><image href="../images/KeystoreRefresh.png"/></stentry>
+          <stentry>Refresh Keystore</stentry>
+          <stentry>Rereads the contents of the selected keystore and updates the Signing and Keys view
+            accordingly.</stentry>
+        </strow>
+        <strow>
+          <stentry><image href="../images/KeystoreCreate.png"/></stentry>
+          <stentry>Create Keystore</stentry>
+          <stentry>Creates a new keystore.</stentry>
+        </strow>
+        <strow product="android-studio">
+          <stentry><image href="../images/KeystoreDelete.png"/></stentry>
+          <stentry>Delete Keystore</stentry>
+          <stentry>Deletes the selected keystore.</stentry>
+        </strow>
+        <strow>
+          <stentry><image href="../images/KeystorePasswordChange.png"/></stentry>
+          <stentry>Change Keystore Password</stentry>
+          <stentry>Changes the password used to protect the selected keystore.</stentry>
+        </strow>
+        <strow>
+          <stentry><image href="../images/KeystoreTypeChange.png"/></stentry>
+          <stentry>Change Keystore Type</stentry>
+          <stentry>Changes the keystore type (to JKS, JCEKS, or PKCS12).</stentry>
+        </strow>
+        <strow>
+          <stentry><image href="../images/KeystoreImport.png"/></stentry>
+          <stentry>Import Keystore</stentry>
+          <stentry>Imports an existing keystore into the Signing and Keys view.</stentry>
+        </strow>
+        <strow product="android-studio">
+          <stentry><image href="../images/KeystoreEntriesImport.png"/></stentry>
+          <stentry>Import Entries</stentry>
+          <stentry>Imports one or more entries (keys) from one keystore into another.</stentry>
+        </strow>
+        <strow product="android-studio">
+          <stentry><image href="../images/KeystoresBackup.png"/></stentry>
+          <stentry>Backup Keystores</stentry>
+          <stentry>Backs up one or more keystores to a zip archive.</stentry>
+        </strow>
+        <strow product="android-studio">
+          <stentry><image href="../images/KeystoresRestore.png"/></stentry>
+          <stentry>Restore Backup</stentry>
+          <stentry>Restores one or more keystores that had been backed up to a zip archive.</stentry>
+        </strow>
+        <strow product="webui">
+          <stentry><image href="../images/KeyCreate.png"/></stentry>
+          <stentry>Create Key</stentry>
+          <stentry>Creates a new key within a selected keystore.</stentry>
+        </strow>
+        <strow>
+          <stentry><image href="../images/KeyPasswordChange.png"/></stentry>
+          <stentry>Change Key Password</stentry>
+          <stentry>Changes the password used to protect a selected key.</stentry>
+        </strow>
+        <strow>
+          <stentry><image href="../images/KeyDelete.png"/></stentry>
+          <stentry>Delete Key</stentry>
+          <stentry>Deletes a key.</stentry>
+        </strow>
+        <strow>
+          <stentry><image href="../images/KeyProperties.png"/></stentry>
+          <stentry>View Key Properties</stentry>
+          <stentry>Displays the properties of a selected key.</stentry>
+        </strow>
+        <strow>
+          <stentry><image href="../images/PackageSign.png"/></stentry>
+          <stentry>Sign Android Package</stentry>
+          <stentry>Signs one or more Android packages (APKs) with a selected key.</stentry>
+        </strow>
+        <strow>
+          <stentry><image href="../images/PackageUnsign.png"/></stentry>
+          <stentry>Remove Android Package Signature</stentry>
+          <stentry>Removes any signatures from one or more selected Android packages (APKs).</stentry>
+        </strow>
+      </simpletable>
+    <p>Note that some of the buttons are inactive; only those buttons that apply to the currently selected key or keystore are usable.</p>
+    </section>
+  </refbody>
+</reference>

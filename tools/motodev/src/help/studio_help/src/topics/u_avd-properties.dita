@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference id="u_avd-properties" xml:lang="en-us">
+  <title>Android Virtual Device Properties</title>
+  <shortdesc>Presents the basic properties of an Android Virtual Device (AVD), such as the name, target device, skin,
+    and the path to the AVD file. This properties dialog also allows you to specify proxy settings for connecting the
+    AVD to the Internet, emulator snapshot settings, the technology used when presenting the emulator in the Android
+    Emulator view (Windows and Linux only), and a timeout value used when launching the emulator.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>To view the properties of an AVD, right-click the entry for the AVD in the Device Management view and
+      select <uicontrol>Properties</uicontrol> from the menu that appears. For more detailed properties, select
+        <menucascade><uicontrol>Android Virtual Device</uicontrol><uicontrol>Device Properties</uicontrol></menucascade>
+      in the left pane of the Properties dialog. Options that control how the emulator is launched can be found under
+        <menucascade><uicontrol>Android Virtual Device</uicontrol><uicontrol>Startup Options</uicontrol></menucascade>.</section>
+    <section>
+      <simpletable>
+        <strow>
+          <stentry><uicontrol>Proxy Settings</uicontrol></stentry>
+          <stentry>Select this option if you want the emulated device to use the same network settings that Eclipse is
+            configured to use. If your network requires the use of a proxy, for instance, and Eclipse is configured to
+            use that proxy, selecting this option causes the emulated device to use that same proxy for its network
+            communications.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Snapshot Settings</uicontrol></stentry>
+          <stentry>Enables the capture and use of a "snapshot"--a copy of the emulator's memory--to speed the emulator
+            startup process (subsequent to the first startup; the initial startup will proceed at the normal speed, but
+            after a snapshot has been taken subsequent startups can be based on that snapshot, bypassing much of the
+            startup process)</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Internal Emulator Window</uicontrol></stentry>
+          <stentry>(not available on Mac OS X) Specifies whether, when displaying the emulator image in the Android
+            Emulator view, the emulator image is presented natively or using VNC. Leave <uicontrol>Show the Native
+              Emulator Window within an Eclipse View (Recommended)</uicontrol> selected unless you know that the native
+            option does not work correctly on your development machine (in which case you should select <uicontrol>Use
+              VNC to show the Emulator within an Eclipse View</uicontrol>). Note that you cannot change the <uicontrol
+              >Internal Emulator Window</uicontrol> properties while the emulator is running.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Timeout (sec)</uicontrol></stentry>
+          <stentry>Specifies the timeout value used when starting the emulator; if the emulator does not launch during
+            the specified interval, the launch is aborted. Note that you cannot change the timeout value while the
+            emulator is running.</stentry>
+        </strow>
+      </simpletable>
+    </section>
+  </refbody>
+</reference>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<!-- get to this dialog by clicking Browse next to Instance in the Run Configurations dialog (Main tab) -->
+<reference id="u_select-instance" xml:lang="en-us">
+  <title>Instance Selection dialog</title>
+  <shortdesc>Allows you to select the device instance that will serve as the target for the run configuration. This
+    dialog appears when you click <uicontrol>Browse</uicontrol> next to the <uicontrol>Instance</uicontrol> field on the
+    Main tab of an <uicontrol>Android Application using Studio for Android</uicontrol> run configuration.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <p>This dialog displays the set of device instances currently known to MOTODEV Studio for Android. This includes
+        physical devices that are currently connected to your development computer as well as any AVDs you have created
+        (whether or not they are running). Note that if you create a run configuration that targets a physical Android
+        device and then unplug that device, the configuration becomes invalid. You can only run such a configuration if
+        you either select a different device instance or once again plug in the device used to create the
+      configuration.</p>
+    </section>
+  </refbody>
+</reference>

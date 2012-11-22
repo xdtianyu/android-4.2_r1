@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference id="u_new-device-main_android" xml:lang="en-us">
+  <title>New Android Virtual Device Instance dialog (main information)</title>
+  <shortdesc>The second in a sequence of dialogs that are presented when you create a new AVD from the Device Management
+    view, this dialog lets you specify various aspects of the AVD itself, such as which version of the operating system
+    it runs and what the screen dimensions are.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <simpletable>
+        <strow>
+          <stentry>
+            <uicontrol>AVD Target</uicontrol>
+          </stentry>
+          <stentry>The system image the AVD is to use.</stentry>
+        </strow>
+        <strow>
+          <stentry>
+            <uicontrol>AVD Skin</uicontrol>
+          </stentry>
+          <stentry>The screen resolution and orientation. For instance, "HVGA-L" causes the AVD to use an HVGA display
+            (480x320 pixels) in landscape orientation. "QVGA-P" indicates a QVGA display (320x240 pixels) in portrait
+            orientation.</stentry>
+        </strow>
+        <strow>
+          <stentry>
+            <uicontrol>AVD Path</uicontrol>
+          </stentry>
+          <stentry>Use this field if you want to specify a non-default location for the AVD directory that will be
+            constructed for this virtual device. Leave <uicontrol>Use default</uicontrol> selected if the default
+            location is acceptable. Otherwise, clear the <uicontrol>Use default</uicontrol> option and specify your
+            desired directory location.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>SD Card</uicontrol></stentry>
+          <stentry>Allows you to specify whether the emulated device has an emulated SD card. To use an existing SD card
+            image (a .img file), select <uicontrol>Existing</uicontrol> and then specify the path to the card image
+            file. To create a new SD card, select <uicontrol>New</uicontrol>, enter a numeric value in the field that
+            follows, and specify the units for that value (KB or MB).</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Internal Emulator Window</uicontrol> (not available on Mac OS X)</stentry>
+          <stentry>Controls whether the AVD is displayed within the Android Emulator view directly or using VNC.
+            Normally you would leave <uicontrol>Show the Native Emulator Window within an Eclipse View
+            (Recommended)</uicontrol> selected; only if the native option does not work correctly on your development
+            machine should you select <uicontrol>Use VNC to show the Emulator within an Eclipse View</uicontrol>. Note
+            that these options only control how the emulator image is displayed within the Android Emulator view, and
+            not whether the image is displayed in a view or in an external window.</stentry>
+        </strow>
+        <strow>
+          <stentry>
+            <uicontrol>Timeout (sec)</uicontrol>
+          </stentry>
+          <stentry>AVD timeout value. By default this is set to 60 seconds.</stentry>
+        </strow>
+      </simpletable>
+      <p>Click <uicontrol>Finish</uicontrol> to create the AVD with the default startup options, or click <uicontrol
+          >Next</uicontrol> if you want to view and possibly alter the options that will be used when this AVD is
+        started.</p>
+    </section>
+  </refbody>
+</reference>

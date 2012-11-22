@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference id="u_download-components" xml:lang="en-us">
+  <title>Download Components dialog</title>
+  <shortdesc>The Download Components dialog allows you to specify or download an SDK, and install support for native
+    (C/C++) code development. To open this dialog, select <uicontrol>Download components</uicontrol> from the
+      <uicontrol>MOTODEV</uicontrol> menu.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <p>The left side of the Download Components dialog lists the types of components you can download and install. (If
+        you don't see this list in the Download Components dialog, click the <uicontrol>More</uicontrol> button near the
+        bottom of the dialog.) Selecting a component type alters the right side of the dialog; on this side are listed
+        those components of the selected type that you have not yet installed. From here you can select individual
+        components to be installed.</p>
+      <p>The supported component types are (not all may be listed in the dialog, depending upon component availability):</p>
+      <simpletable>
+        <strow>
+          <stentry><uicontrol>SDK</uicontrol></stentry>
+          <stentry>Software development kit (SDK). Use this option to specify an SDK (if you have already downloaded
+            one) or download one (by clicking <uicontrol>Download</uicontrol>) if you have not. Note that the Android
+            SDK by itself is not enough to develop with: you will also need one or more platforms. After downloading or
+            selecting the SDK, use the Android SDK and AVD Manager (which you can access using the link provided below
+            the SDK Location field) to download platforms. You also use the Android SDK and AVD Manager to update SDKs
+            and platforms; this dialog is primarily just for new installations to link MOTODEV Studio to the Android
+            SDK.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Native Support</uicontrol></stentry>
+          <stentry>Supports native (C/C++) code development, in addition to Java. In order to use this option you must
+            have separately downloaded and installed the Android NDK. Additionally, the JDK (not just the JRE) must be
+            installed, and if your development computer is running Microsoft Windows you must have Cygwin installed.
+            Verify the correct installation and configuration of each before enabling native support in MOTODEV
+          Studio.</stentry>
+        </strow>
+      </simpletable>
+    </section>
+  </refbody>
+</reference>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference id="u_db-table-create" xml:lang="en-us">
+  <title>Create New Table</title>
+  <shortdesc>Defines a new, empty table within an existing database. To access this dialog, switch to the MOTODEV
+    Database perspective. Then, using the MOTODEV Database Explorer, right-click a connected database and select
+      <uicontrol>Create Table</uicontrol>.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <simpletable>
+        <strow>
+          <stentry><uicontrol>Table Name</uicontrol></stentry>
+          <stentry>The name of the SQLite database table to be created.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Add</uicontrol></stentry>
+          <stentry>Adds a new column to the database table. You will be prompted for the column name, type, and an
+            optional default value. You can also indicate whether the column represents a primary key, and, if so,
+            whether the key should be generated automatically.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Edit</uicontrol></stentry>
+          <stentry>Edits a selected table column. </stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Remove</uicontrol></stentry>
+          <stentry>Deletes a selected table column.</stentry>
+        </strow>
+      </simpletable>
+    </section>
+  </refbody>
+</reference>

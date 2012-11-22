@@ -1,0 +1,6 @@
+
+          <enablement>
+            <or>
+              <systemTest property="osgi.os" value="win32"/>
+            </or>
+          </enablement>

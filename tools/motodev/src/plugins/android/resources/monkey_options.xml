@@ -1,0 +1,91 @@
+<monkeyOptions>
+
+	<group id="%Monkey_Tab_Label_Events">
+	
+		<monkeyOption name="-s" fName="%Monkey_Option_Seed_Label" type="int">
+			<description>%Monkey_Option_Seed_Description</description>
+		</monkeyOption>
+		
+		<monkeyOption name="--throttle" fName="%Monkey_Option_Throttle_Label" type="int">
+			<description>%Monkey_Option_Throttle_Description</description>
+		</monkeyOption>
+		
+		<monkeyOption name="--pct-touch" fName="%Monkey_Option_PctTouch_Label" type="int">
+			<description>%Monkey_Option_PctTouch_Description</description>
+		</monkeyOption>
+		
+		<monkeyOption name="--pct-motion" fName="%Monkey_Option_PctMotion_Label" type="int">
+			<description>%Monkey_Option_PctMotion_Description</description>
+		</monkeyOption>
+		
+		<monkeyOption name="--pct-trackball" fName="%Monkey_Option_PctTrackball_Label" type="int">
+			<description>%Monkey_Option_PctTrackball_Description</description>
+		</monkeyOption>
+		
+		<monkeyOption name="--pct-nav" fName="%Monkey_Option_PctNav_Label" type="int">
+			<description>%Monkey_Option_PctNav_Description</description>
+		</monkeyOption>
+		
+		<monkeyOption name="--pct-majornav" fName="%Monkey_Option_PctMajornav_Label" type="int">
+			<description>%Monkey_Option_PctMajornav_Description</description>
+		</monkeyOption>
+		
+		<monkeyOption name="--pct-syskeys" fName="%Monkey_Option_PctSyskeys_Label" type="int">
+			<description>%Monkey_Option_PctSyskeys_Description</description>
+		</monkeyOption>
+		
+		<monkeyOption name="--pct-appswitch" fName="%Monkey_Option_PctAppswitch_Label" type="int">
+			<description>%Monkey_Option_PctAppswitch_Description</description>
+		</monkeyOption>
+		
+		<monkeyOption name="--pct-anyevent" fName="%Monkey_Option_PctAnyevent_Label" type="int">
+			<description>%Monkey_Option_PctAnyevent_Description</description>
+		</monkeyOption>
+	</group>
+	
+	
+	<group id="%Monkey_Tab_Label_Constraints">
+		<monkeyOption name="-c" fName="%Monkey_Option_Categories_Label" type="text">
+			<description>%Monkey_Option_Categories_Description</description>
+		</monkeyOption>		
+	</group>
+	
+	<group id="%Monkey_Tab_Label_Debugging">
+		<monkeyOption name="--dbg-no-events" fName="%Monkey_Option_DbgNoEvents_Label" type="none">
+			<description>%Monkey_Option_DbgNoEvents_Description</description>
+		</monkeyOption>
+		<monkeyOption name="--hprof" fName="%Monkey_Option_Hprof_Label" type="none">
+			<description>%Monkey_Option_Hprof_Description</description>
+		</monkeyOption>
+		<monkeyOption name="--ignore-crashes" fName="%Monkey_Option_IgnoreCrashs_Label" type="none">
+			<description>%Monkey_Option_IgnoreCrashs_Description</description>
+		</monkeyOption>
+		<monkeyOption name="--ignore-timeouts" fName="%Monkey_Option_IgnoreTimeouts_Label" type="none">
+			<description>%Monkey_Option_IgnoreTimeouts_Description</description>
+		</monkeyOption>							
+		<monkeyOption name="--ignore-security-exceptions" fName="%Monkey_Option_IgnoreSecurity_Label" type="none">
+			<description>%Monkey_Option_IgnoreSecurity_Description</description>
+		</monkeyOption>
+		<monkeyOption name="--kill-process-after-error" fName="%Monkey_Option_KillProcessAfterError_Label" type="none">
+			<description>%Monkey_Option_KillProcessAfterError_Description</description>
+		</monkeyOption>
+		<monkeyOption name="--monitor-native-crashes" fName="%Monkey_Option_MonitorNativeCrashes_Label" type="none">
+			<description>%Monkey_Option_MonitorNativeCrashes_Description</description>
+		</monkeyOption>
+		<monkeyOption name="--wait-dbg" fName="%Monkey_Option_WaitDBG_Label" type="none">
+			<description>%Monkey_Option_WaitDBG_Description</description>
+		</monkeyOption>
+	</group>
+		
+	<group id="%Monkey_Tab_Label_General">
+	    <monkeyOption name="-v" fName="%Monkey_Option_Verbose_Label" type="none">
+			<description>%Monkey_Option_Verbose_Description</description>			
+		</monkeyOption>
+		<monkeyOption name="other" fName="%Monkey_Option_OtherMonkeyOptions_Label" type="text">
+			<description>%Monkey_Option_OtherMonkeyOptions_Description</description>
+		</monkeyOption>
+		
+	</group>
+	
+	
+</monkeyOptions>

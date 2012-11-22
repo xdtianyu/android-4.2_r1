@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<!-- This file is part of the DITA Open Toolkit project hosted on 
+     Sourceforge.net. See the accompanying license.txt file in the
+     main toolkit package for applicable licenses.-->
+<!-- (C) Copyright IBM Corporation 2006 All Rights Reserved. -->
+
+<!--
+     This file declares each DTD module that is part of the specialization.
+     The path is relative to the base toolkit directory.
+-->
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog"
+         prefer="public">
+
+  <public publicId="-//IBM//DTD DITA CSHelp//EN"
+          uri="plugins/cshelp/dtd/cshelp.dtd"/>
+  <public publicId="-//IBM//ELEMENTS DITA CSHelp//EN"
+       uri="plugins/cshelp/dtd/cshelp.mod"/>
+
+</catalog>

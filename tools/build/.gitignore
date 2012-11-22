@@ -1,0 +1,16 @@
+local.properties
+.DS_Store
+*.iml
+*.ipr
+*.iws
+.gradle
+/build
+gradle/build
+testapps/*/build
+testapps/multiproject/*/build
+testapps/tictactoe/*/build
+testapps/applibtest/*/build
+testapps/libsTest/*/build
+testapps/repo/*/build
+/repo
+/out

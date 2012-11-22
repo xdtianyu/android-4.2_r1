@@ -1,0 +1,35 @@
+buildscript {
+    repositories {
+        maven { url '../../repo' }
+    }
+    dependencies {
+        classpath 'com.android.build:gradle-android:0.1-SNAPSHOT'
+    }
+}
+apply plugin: 'android'
+
+android {
+    target         "android-15"
+    flavorGroups   "group1", "group2"
+
+    productFlavors {
+        f1 {
+            flavorGroup   "group1"
+
+            buildConfig   "public final static String GROUP1 = \"F1\";"
+        }
+        f2 {
+            flavorGroup   "group1"
+            buildConfig   "public final static String GROUP1 = \"F2\";"
+        }
+
+        fa {
+            flavorGroup   "group2"
+            buildConfig   "public final static String GROUP2 = \"FA\";"
+        }
+        fb {
+            flavorGroup   "group2"
+            buildConfig   "public final static String GROUP2 = \"FB\";"
+        }
+    }
+}

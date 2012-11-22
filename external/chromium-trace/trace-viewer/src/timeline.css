@@ -1,0 +1,25 @@
+/* Copyright (c) 2012 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file. */
+
+.timeline * {
+  -webkit-user-select: none;
+  cursor: default;
+}
+
+.timeline {
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+}
+
+.timeline-model-track-container {
+  -webkit-box-flex: 1;
+  overflow: auto;
+}
+
+.timeline-drag-box {
+  background-color: rgba(0, 0, 255, 0.25);
+  border: 1px solid rgb(0, 0, 96);
+  font-size: 75%;
+  position: fixed;
+}

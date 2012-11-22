@@ -1,0 +1,27 @@
+:-webkit-full-screen {
+    background-color: white;
+}
+
+:root:full-screen-document:not(:full-screen) {
+    overflow:hidden;
+}
+
+video:-webkit-full-screen {
+    background-color: black !important;
+    position: static !important;
+    margin: 0 !important;
+    height: 100% !important;
+    width: 100% !important;
+    -webkit-box-flex: 1 !important;
+    display: block !important;
+}
+
+img:-webkit-full-screen {
+    width: auto;   
+    height: 100%;
+    max-width: 100%;
+}
+
+video:-webkit-full-page-media:-webkit-full-screen::-webkit-media-controls-panel {
+    bottom: 0px;
+}

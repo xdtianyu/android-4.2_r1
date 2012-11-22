@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:motorolaMenu?after=updateSeparator">
+         <command
+               commandId="com.motorola.studio.android.update.studio"
+               icon="icons/obj16/MOTODEV_update_icon_16x16.png"
+               label="%command.update.name"
+               style="push">
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="com.motorola.studio.android.installer.handlers.UpdateStudioHandler"
+            id="com.motorola.studio.android.update.studio"
+            name="%update.name">
+      </command>
+   </extension>
+</plugin>

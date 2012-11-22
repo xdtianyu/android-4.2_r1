@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "../dtd/concept.dtd">
+<concept xml:lang="en-us" id="c_android-studio">
+  <title>About MOTODEV Studio for Android</title>
+  <prolog>
+    <metadata>
+      <keywords><!--<indexterm></indexterm>--></keywords>
+    </metadata>
+  </prolog>
+  <conbody>
+    <p>MOTODEV Studio for Android offers unsurpassed workflow ease and a unique integrated experience for developing
+      Android applications. One installer brings you everything you need: from design to development to deployment on an
+      Android handset to sales, with a focus on Motorola products. MOTODEV Studio for Android saves you many steps so
+      you can focus on creativity while maximizing productivity.</p>
+    <p>Among the many features of MOTODEV Studio for Android are:</p>
+    <ul>
+      <li><b>Complete Development Package</b>: one installer ensures an integrated development environment with Eclipse
+        and Android Development Tools (ADT) plus automatic download of the Android SDKs, add-ons, and samples on 32-bit
+        or 64-bit versions of Microsoft Windows and Linux, and 64-bit versions of Mac OS X. All of the essentials are
+        set up for you. Or, install as plugins into an existing Eclipse installation.</li>
+      <li><uicontrol>Native Development</uicontrol>: Build projects with native (C/C++) components, generate C/C++
+        classes from native function declarations in your Java source files.</li>
+      <li><uicontrol>App Validator</uicontrol>: Detect and repair problems before your app is distributed. The App
+        Validator checks your app for a wide range of improper conditions: missing permissions and translated strings,
+        improper layouts, incompatibilities with various devices, and problems with your Java code such as unclosed
+        database cursors. </li>
+      <li><b>Code Generation</b>: Automatically generate code to access UI widgets defined in your xml-based layout
+        files.</li>
+      <li><b>Device Management View</b>: Easily create and manage AVDs (Android Virtual Devices), and set AVD startup
+        options using the Device Management view. Use this view to quickly launch an ADB shell or Emulator Console.</li>
+      <li><b>Screen Capture</b>: From the Device Management view you can easily capture an image of the screen on a real
+        or emulated device.</li>
+      <li><b>Handset Emulators in a view</b>: test applications on an integrated emulator within a MOTODEV Studio view:
+        no need to switch between IDE and target. Make use of handset-specific emulators.</li>
+      <li><b>Target Motorola Handsets</b>: debug and run applications on connected Android handsets, such as those
+        available from Motorola, Mobility.</li>
+      <li><b>Application Creation Wizards</b>: create essential classes simply and easily, including Broadcast Receiver,
+        Content Provider, Service, and Activity.</li>
+      <li><b>Drag and Drop Snippets</b>: add often-used code from templates for more stable and better performing
+        applications.</li>
+      <li><b>Application Signing</b>: create and import certificates to sign applications.</li>
+      <li><b>Deploy Packages</b>: load your applications onto a target handset or emulator with just a few clicks.
+        Easily export zip-aligned packages (signed or unsigned) compatible with Google Play.</li>
+      <li><b>MOTODEV Studio Perspective</b>: displays the most common development views by default.</li>
+      <li><b>MOTODEV Database Perspective</b>: allows you to view and edit SQLite databases on developer handsets and
+        emulated devices.</li>
+      <li><b>Localization Files Editor</b>: helps you to create, translate, and manage localized strings files.</li>
+      <li><b>RSS Feeds view</b>: includes feeds from Motorola, Inc. related to Android app development and marketing.</li>
+      <li><b>MOTODEV Web Resources</b>: this web page, presented as an Eclipse view, contains links to MOTODEV Studio
+        release notes and other helpful resources on the web.</li>
+    </ul>
+  </conbody>
+</concept>

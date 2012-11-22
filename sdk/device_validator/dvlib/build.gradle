@@ -1,0 +1,27 @@
+apply plugin: 'java'
+
+dependencies {
+    testCompile 'junit:junit:3.8.1'
+}
+
+group = 'com.android.tools'
+archivesBaseName = 'dvlib'
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src'
+        }
+        resources {
+            srcDir 'src'
+        }
+    }
+    test {
+        java {
+            srcDir 'tests/src'
+        }
+        resources {
+            srcDir 'tests/src'
+        }
+   }
+}

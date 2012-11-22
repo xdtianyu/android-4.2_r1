@@ -1,0 +1,46 @@
+((function pow
+   (signature float
+     (parameters
+       (declare (in) float arg0)
+       (declare (in) float arg1))
+     ((return (expression float pow (var_ref arg0) (var_ref arg1)))))
+
+   (signature vec2
+     (parameters
+       (declare (in) vec2 b)
+       (declare (in) vec2 e))
+      	(
+			(declare () vec2 ret)
+			(assign (constant bool (1)) (x) (var_ref ret) (call pow ((swiz x (var_ref b)) (swiz x (var_ref e)) )))
+			(assign (constant bool (1)) (y) (var_ref ret) (call pow ((swiz y (var_ref b)) (swiz y (var_ref e)) )))
+			(return (var_ref ret))
+		)
+	)
+
+   (signature vec3
+     (parameters
+       (declare (in) vec3 b)
+       (declare (in) vec3 e))
+      	(
+			(declare () vec3 ret)
+			(assign (constant bool (1)) (x) (var_ref ret) (call pow ((swiz x (var_ref b)) (swiz x (var_ref e)) )))
+			(assign (constant bool (1)) (y) (var_ref ret) (call pow ((swiz y (var_ref b)) (swiz y (var_ref e)) )))
+			(assign (constant bool (1)) (z) (var_ref ret) (call pow ((swiz z (var_ref b)) (swiz z (var_ref e)) )))
+			(return (var_ref ret))
+		)
+	)
+
+	(signature vec4
+     (parameters
+       (declare (in) vec4 b)
+       (declare (in) vec4 e))
+      	(
+			(declare () vec4 ret)
+			(assign (constant bool (1)) (x) (var_ref ret) (call pow ((swiz x (var_ref b)) (swiz x (var_ref e)) )))
+			(assign (constant bool (1)) (y) (var_ref ret) (call pow ((swiz y (var_ref b)) (swiz y (var_ref e)) )))
+			(assign (constant bool (1)) (z) (var_ref ret) (call pow ((swiz z (var_ref b)) (swiz z (var_ref e)) )))
+			(assign (constant bool (1)) (w) (var_ref ret) (call pow ((swiz w (var_ref b)) (swiz w (var_ref e)) )))
+			(return (var_ref ret))
+		)
+	)
+))

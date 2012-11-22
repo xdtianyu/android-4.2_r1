@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference id="u_sign-create-key-pair" xml:lang="en-us">
+  <title>Create Key Pair dialog</title>
+  <shortdesc>Contains fields for each of the components of a distinguished name (DN) that identifies you as the person
+    generating the key pair. </shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <p>This dialog is displayed when you click <image href="../images/create-key-pair-button.png"/> (Create Key Pair)
+        in the Application Signing Tool view.</p>
+      <p>You must supply a value for each of the form's fields in order to generate the public-private key pair.</p>
+      <simpletable>
+        <strow>
+          <stentry><uicontrol>Alias name</uicontrol></stentry>
+          <stentry>A unique name to be given to this key pair. Certificates and key pairs are identified by alias within
+            the Application Signing Tool.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>First and Last Name</uicontrol></stentry>
+          <stentry>Your name.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Organization</uicontrol></stentry>
+          <stentry>The name of the company you are working for.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Organization unit</uicontrol></stentry>
+          <stentry>The company branch or division you are working for.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>City or Locality</uicontrol></stentry>
+          <stentry>The full name of your city or locality. For instance, "New York".</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>State or Province</uicontrol></stentry>
+          <stentry>Your state or province. This should be a full name. For instance, "California".</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Country Code (XX)</uicontrol></stentry>
+          <stentry>Select your country from the list.</stentry>
+        </strow>
+      </simpletable>
+    </section>
+  </refbody>
+</reference>

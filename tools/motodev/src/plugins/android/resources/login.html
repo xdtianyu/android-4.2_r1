@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<script>
+			function sendForm() {
+				var form = document.getElementById("login_form");
+				form.submit();
+			}
+		</script>
+	</head>
+	
+	<body>
+		<div style="display:none">
+			<form id="login_form" action="https://developer.motorola.com/?login=1" method="post">
+				<input class="text" id="login-email" type="text" name="login_username" value="$$login" />
+				<input class="text" id="login-password" type="password" name="login_password" value="$$password" />
+				<input type='hidden' name='login_return_to' value='/studio-flow/v1/motoappstore' />
+			</form>
+		</div>
+		<p>Loading...</p>
+		<script>
+			sendForm();
+		</script>
+	</body>
+</html>

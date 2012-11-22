@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<!-- get to this dialog by clicking Browse next to Project in the Run Configurations dialog (Main tab) -->
+<reference id="u_select-project" xml:lang="en-us">
+  <title>Project Selection dialog</title>
+  <shortdesc>Allows you to select the Android project containing the application to be run by a run configuration. This
+    dialog appears when you click <uicontrol>Browse</uicontrol> next to the <uicontrol>Project</uicontrol> field on the
+    Main tab of an <uicontrol>Android Application using Studio for Android</uicontrol> run configuration.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <p>This dialog displays the set of projects associated with the current workspace. Select the appropriate project
+        and click <uicontrol>OK</uicontrol>. Note that you cannot create a run configuration that references a project
+        outside of the current workspace.</p>
+    </section>
+  </refbody>
+</reference>

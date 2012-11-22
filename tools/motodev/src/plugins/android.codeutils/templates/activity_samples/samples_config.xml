@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<sample name="%Activity_Samples_DB_name" description="%Activity_Samples_DB_description">
+		<file name="database_list/database_list_activity.java" resourceType="src" />
+		<file name="database_list/databaselayout.xml" resourceType="layout" />
+	</sample>
+	<sample name="%Activity_Samples_ListActivities_name" description="%Activity_Samples_ListActivities_description">
+	</sample>
+	<sample name="%Activity_Samples_Dialog_name" description="%Activity_Samples_Dialog_description">
+		<file name="dialog/dialog_activity.java" resourceType="src" />
+		<file name="dialog/dialoglayout.xml" resourceType="layout" />
+		<file name="dialog/dialog_strings.xml" resourceType="values" />
+	</sample>
+	<sample name="%Activity_Samples_Multitouch_name" description="%Activity_Samples_Multitouch_description">
+		<file name="multitouch_event/multitouch_event_activity.java" resourceType="src" />
+		<file name="multitouch_event/multitouchlayout.xml" resourceType="layout" />
+		<file name="multitouch_event/multitouch.jpg" resourceType="drawable" />
+	</sample>
+		<sample name="%Activity_Samples_Preference_name" description="%Activity_Samples_Preference_description">
+		<file name="pref_activity/preference_activity.java" resourceType="src" />	
+		<file name="pref_activity/samplepreferences.xml" resourceType="xml" />	
+		<file name="pref_activity/samplelist.xml" resourceType="values" />		
+	</sample>
+	<sample name="%Activity_Samples_RadioButton_name" description="%Activity_Samples_RadioButton_description">
+		<file name="radio_button/radio_button_activity.java" resourceType="src" />
+		<file name="radio_button/radiobuttonlayout.xml" resourceType="layout" />
+		<file name="radio_button/radio_strings.xml" resourceType="values" />
+	</sample>
+	<sample name="%Activity_Samples_Tabs_name" description="%Activity_Samples_Tabs_description">
+		<file name="tabs/tabs_activity.java" resourceType="src" />		
+		<file name="tabs/tabicon.png" resourceType="drawable" />
+		<file name="tabs/tabs_strings.xml" resourceType="values" />
+	</sample>
+	<sample name="%Activity_Samples_DashboardPattern_name" description="%Activity_Samples_DashboardPattern_description">
+		<file name="dashboard_pattern/dashboard_activity.java" resourceType="src" />		
+		<file name="dashboard_pattern/dashboard_icon.png" resourceType="drawable" />
+		<file name="dashboard_pattern/dashboard_item_background.xml" resourceType="drawable" />
+		<file name="dashboard_pattern/dashboard_strings.xml" resourceType="values" />
+		<file name="dashboard_pattern/dashboard_layout.xml" finalName="dashboard.xml" resourceType="layout" />
+		<file name="dashboard_pattern/dashboard_layout_land.xml" finalName="dashboard.xml" resourceType="layout" modifier="land" />
+	</sample>
+	<sample name="%Activity_Samples_ActionBar_name" description="%Activity_Samples_ActionBar_description">
+		<file name="action_bar/action_bar_activity.java" resourceType="src"/>
+		<file name="action_bar/ablayout.xml" resourceType="layout" />
+		<file name="action_bar/abmenu.xml" resourceType="menu" />
+		<file name="action_bar/action_bar_strings.xml" resourceType="values" />
+		<file name="action_bar/actionbaricon.png" resourceType="drawable" />
+	</sample>
+	<sample name="%Activity_Samples_ActionBarCompatibility_name" description="%Activity_Samples_ActionBarCompatibility_description">
+		<file name="action_bar_compatibility/action_bar_compatibility_activity.java" resourceType="src"/>
+		<file name="action_bar_compatibility/ablayout.xml" resourceType="layout" />
+		<file name="action_bar_compatibility/actionbar.xml" resourceType="layout" />
+		<file name="action_bar_compatibility/action_bar_compatibility_strings.xml" resourceType="values" />
+		<file name="action_bar/actionbaricon.png" resourceType="drawable" />
+	</sample>
+	<sample name="%Activity_Samples_QuickAction_name" description="%Activity_Samples_QuickAction_description">
+		<file name="quickaction/quick_action.java" resourceType="src"/>
+		<file name="quickaction/quick_action_item.xml" resourceType="layout" />
+		<file name="quickaction/quick_action_grid.xml" resourceType="layout" />
+		<file name="quickaction/quick_action_activity.xml" resourceType="layout" />
+		<file name="quickaction/quickaction_list_bottom.9.png" resourceType="drawable" />
+		<file name="quickaction/quickaction_list_top.9.png" resourceType="drawable" />
+		<file name="quickaction/icon.png" resourceType="drawable" />
+		<file name="quickaction/imgbuttonselector_background.xml" resourceType="drawable" />
+		<file name="quickaction/imgbuttonselector.xml" resourceType="drawable" />
+		<file name="quickaction/quickaction_list_anim.xml" resourceType="anim" />
+		<file name="quickaction/quick_action_strings.xml" resourceType="values" />
+	</sample>
+</resources>

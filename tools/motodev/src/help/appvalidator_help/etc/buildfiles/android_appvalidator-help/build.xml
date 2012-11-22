@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="android_appvalidator-help" default="all" basedir=".">
+
+  <!--Properties unique to this build (others are specified in ../build_lib.xml)-->
+
+  <loadproperties srcfile="build.properties"/>
+
+  <!--Location of output folder where each plug-in's folder goes-->
+  <property name="out-projdir" value="${basedir}/../../../out/android_appvalidator-help"/>
+  <property name="out-basedir" value="${out-projdir}/product"/>
+  <property name="out-jardir" value="${out-basedir}/jars"/>
+  <!--Name of plug-in's TOC file (without extension)-->
+  <property name="toc-filenoext" value="main"/>
+  <!--Path of file containing context extension points for context-sensitive help-->
+  <property name="context-file" value="${basedir}/context_extension_points.xml"/>
+  <property name="report" value="false"/>
+
+  <import file="../build_lib.xml"/>
+
+  <target name="all" depends="plugins"/>
+
+  <target name="plugins" depends="clean" description="Build App Validator help plug-ins.">
+
+    <mkdir dir="${out-jardir}"/>
+
+    <!-- Call build-topics-plugin macro to build help for each ditamap. -->
+    <build-topics-plugin map="validation_editor.ditamap" ditaval="${basedir}/filter_appvalidator.ditaval"
+      hdr="${basedir}/../../resources/hdr-none.xml">
+      <build-cshelp cshelp-topic="${src-dir}/topics/cs_app-validator.dita"
+        context-out-dir="${@{map}-plugin-temp-dir}/contexts" ditaval="${basedir}/filter_appvalidator.ditaval"
+        context-temp-dir="${@{map}-plugin-temp-dir}_contexts"
+        plugin-out-dir="${out-basedir}/${@{map}-plugin-id}_${plugin-version}"/>
+      <zip destfile="${out-jardir}/${@{map}-plugin-id}_${plugin-version}.jar"
+        basedir="${out-basedir}/${@{map}-plugin-id}_${plugin-version}"/>
+      <report map="@{map}"/>
+      <checklinks dir="${out-basedir}/${@{map}-plugin-id}_${plugin-version}" map="@{map}"/>
+      <!-- Create zip file from jar so zip filename includes build number -->
+      <zip destfile="${out-jardir}/android_appvalidator-help_${build-number}.zip">
+        <fileset dir="${out-jardir}" includes="${@{map}-plugin-id}_${plugin-version}.jar"/>
+      </zip>
+    </build-topics-plugin>
+
+  </target>
+
+
+  <target name="releasenotes">
+    <property name="mapfile" value="android_studio-release-notes.ditamap"/>
+    <basename property="mapname" file="${mapfile}" suffix=".ditamap"/>
+    <property name="relnote-out-dir" value="${out-projdir}/web/${mapname}"/>
+    <delete dir="${relnote-out-dir}" quiet="yes"/>
+    <!-- Call DITA-OT build script-->
+    <ant antfile="${dita.dir}/build.xml" target="init" description="Call DITA OT build script">
+      <property name="transtype" value="xhtml"/>
+      <property name="args.input" value="${src-dir}/${mapfile}"/>
+      <property name="dita.input.valfile" value="${basedir}/filter_appvalidator.ditaval"/>
+      <property name="output.dir" value="${relnote-out-dir}"/>
+      <property name="dita.temp.dir" value="${temp-dir}/${mapname}"/>
+      <property name="args.logdir" value="${log-dir}"/>
+    </ant>
+
+    <deleteflagimages output-dir="${relnote-out-dir}"/>
+    <replacecss output-dir="${relnote-out-dir}"/>
+
+  </target>
+
+</project>

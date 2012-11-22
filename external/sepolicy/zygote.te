@@ -1,0 +1,31 @@
+# zygote
+type zygote, domain;
+type zygote_exec, exec_type, file_type;
+
+init_daemon_domain(zygote)
+typeattribute zygote mlstrustedsubject;
+# Override DAC on files and switch uid/gid.
+allow zygote self:capability { dac_override setgid setuid };
+# Switch SELinux context to app domains.
+allow zygote system:process dyntransition;
+allow zygote appdomain:process dyntransition;
+# Move children into the peer process group.
+allow zygote system:process { getpgid setpgid };
+allow zygote appdomain:process { getpgid setpgid };
+# Write to system data.
+allow zygote system_data_file:dir rw_dir_perms;
+allow zygote system_data_file:file create_file_perms;
+allow zygote dalvikcache_data_file:dir rw_dir_perms;
+allow zygote dalvikcache_data_file:file create_file_perms;
+# Execute dexopt.
+allow zygote system_file:file x_file_perms;
+# Control cgroups.
+allow zygote cgroup:dir create_dir_perms;
+allow zygote self:capability sys_admin;
+# Check validity of SELinux context before use.
+selinux_check_context(zygote)
+# Check SELinux permissions.
+selinux_check_access(zygote)
+# Read /seapp_contexts, presently on the rootfs.
+allow zygote rootfs:file r_file_perms;
+

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical"
+  android:weightSum="1" android:layout_width="match_parent" android:layout_height="match_parent">
+    <TableLayout android:layout_width="match_parent" android:layout_height="match_parent">
+        <TableRow android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_weight="1">
+            <LinearLayout android:layout_width="wrap_content" android:layout_weight="1" android:orientation="vertical" android:layout_height="wrap_content" android:layout_gravity="center" android:clickable="true" android:background="@drawable/#drawable_name#dashboard_pattern/dashboard_item_background.xml#" android:id="@+id/feature_1">
+                <ImageView android:src="@drawable/#drawable_name#dashboard_pattern/dashboard_icon.png#" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center" android:id="@+id/feature_icon_1" android:background="@android:color/transparent"></ImageView>
+                <TextView android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/feature_name_1" android:textAppearance="?android:attr/textAppearanceMedium" android:textStyle="bold" android:text="@string/feature_1"></TextView>
+            </LinearLayout>
+            <LinearLayout android:layout_weight="1" android:layout_width="wrap_content" android:orientation="vertical" android:layout_height="wrap_content" android:layout_gravity="center" android:clickable="true" android:background="@drawable/#drawable_name#dashboard_pattern/dashboard_item_background.xml#" android:id="@+id/feature_2">
+                <ImageView android:src="@drawable/#drawable_name#dashboard_pattern/dashboard_icon.png#" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center" android:id="@+id/feature_icon_2" android:background="@android:color/transparent"></ImageView>
+                <TextView android:textAppearance="?android:attr/textAppearanceMedium" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/feature_name_2" android:textStyle="bold" android:text="@string/feature_2"></TextView>
+            </LinearLayout>
+        </TableRow>
+        <TableRow android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_weight="1">
+            <LinearLayout android:layout_width="wrap_content" android:layout_weight="1" android:orientation="vertical" android:layout_height="wrap_content" android:layout_gravity="center" android:clickable="true" android:background="@drawable/#drawable_name#dashboard_pattern/dashboard_item_background.xml#" android:id="@+id/feature_3">
+                <ImageView android:src="@drawable/#drawable_name#dashboard_pattern/dashboard_icon.png#" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center" android:id="@+id/feature_icon_3" android:background="@android:color/transparent"></ImageView>
+                <TextView android:textAppearance="?android:attr/textAppearanceMedium" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/feature_name_3" android:textStyle="bold" android:text="@string/feature_3"></TextView>
+            </LinearLayout>
+            <LinearLayout android:layout_width="wrap_content" android:layout_weight="1" android:orientation="vertical" android:layout_height="wrap_content" android:layout_gravity="center" android:clickable="true" android:background="@drawable/#drawable_name#dashboard_pattern/dashboard_item_background.xml#" android:id="@+id/feature_4">
+                <ImageView android:src="@drawable/#drawable_name#dashboard_pattern/dashboard_icon.png#" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center" android:id="@+id/feature_icon_4" android:background="@android:color/transparent"></ImageView>
+                <TextView android:textAppearance="?android:attr/textAppearanceMedium" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/feature_name_4" android:textStyle="bold" android:text="@string/feature_4"></TextView>
+            </LinearLayout>
+        </TableRow>
+        <TableRow android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_weight="1">
+            <LinearLayout android:layout_width="wrap_content" android:layout_weight="1" android:orientation="vertical" android:layout_height="wrap_content" android:layout_gravity="center" android:clickable="true" android:background="@drawable/#drawable_name#dashboard_pattern/dashboard_item_background.xml#" android:id="@+id/feature_5">
+                <ImageView android:src="@drawable/#drawable_name#dashboard_pattern/dashboard_icon.png#" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center" android:id="@+id/feature_icon_5" android:background="@android:color/transparent"></ImageView>
+                <TextView android:textAppearance="?android:attr/textAppearanceMedium" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/feature_name_5" android:textStyle="bold" android:text="@string/feature_5"></TextView>
+            </LinearLayout>
+            <LinearLayout android:layout_width="wrap_content" android:layout_weight="1" android:orientation="vertical" android:layout_height="wrap_content" android:layout_gravity="center" android:clickable="true" android:background="@drawable/#drawable_name#dashboard_pattern/dashboard_item_background.xml#" android:id="@+id/feature_6">
+                <ImageView android:src="@drawable/#drawable_name#dashboard_pattern/dashboard_icon.png#" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center" android:id="@+id/feature_icon_6" android:background="@android:color/transparent"></ImageView>
+                <TextView android:textAppearance="?android:attr/textAppearanceMedium" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/feature_name_6" android:textStyle="bold" android:text="@string/feature_6"></TextView>
+            </LinearLayout>
+        </TableRow>
+    </TableLayout>
+    
+</LinearLayout>

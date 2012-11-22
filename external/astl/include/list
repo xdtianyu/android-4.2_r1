@@ -1,0 +1,292 @@
+/* -*- c++ -*- */
+/*
+ * Copyright (C) 2010 The Android Open Source Project
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *  * Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ *  * Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in
+ *    the documentation and/or other materials provided with the
+ *    distribution.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+ * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+ * COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+ * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+ * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS
+ * OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
+ * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+ * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+ * OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ * SUCH DAMAGE.
+ */
+
+#ifndef ANDROID_ASTL_LIST__
+#define ANDROID_ASTL_LIST__
+
+#include <cstddef>
+#include <iterator>
+#include <limits>
+#include <algorithm>
+
+// Double linked list. In the android NS we declare the nodes and
+// iterators. The list declaration in the std NS follows that.
+
+namespace android {
+
+struct ListNodeBase {
+    ListNodeBase *mNext;
+    ListNodeBase *mPrev;
+
+    // Swap 2 nodes.
+    static void swap(ListNodeBase& a, ListNodeBase& b);
+
+    // Insert this node BEFORE pos.
+    void hook(ListNodeBase * const pos);
+
+    // Remove this node and link prev and next together.
+    void unhook();
+};
+
+template <typename _T>
+struct ListNode: public ListNodeBase {
+    _T mData;
+};
+
+// iterators: ListIterator and ListConstIterator are bidirectional ones.
+template<typename _T>
+struct ListIterator
+{
+    typedef ListIterator<_T>      iterator_type;
+    typedef android::ListNode<_T> node_type;
+  public:
+    typedef ptrdiff_t                       difference_type;
+    typedef std::bidirectional_iterator_tag iterator_category;
+    typedef _T                              value_type;
+    typedef _T*                             pointer;
+    typedef _T&                             reference;
+
+    ListIterator():
+        mNode() { }
+
+    explicit ListIterator(android::ListNodeBase* node):
+        mNode(node) { }
+
+    reference operator*() const { return static_cast<node_type*>(mNode)->mData; }
+    pointer operator->() const { return &operator*(); }
+
+    iterator_type& operator++() { mNode = mNode->mNext; return *this; }
+    iterator_type& operator++(int) {
+        iterator_type tmp = *this;
+        mNode = mNode->mNext;
+        return *tmp;
+    }
+
+    iterator_type& operator--() { mNode = mNode->mPrev; return *this; }
+    iterator_type& operator--(int) {
+        iterator_type tmp = *this;
+        mNode = mNode->mPrev;
+        return *tmp;
+    }
+
+    bool operator==(const iterator_type& o) const { return mNode == o.mNode; }
+    bool operator!=(const iterator_type& o) const { return mNode != o.mNode; }
+
+    ListNodeBase *mNode;
+};
+
+template<typename _T>
+struct ListConstIterator
+{
+    typedef ListConstIterator<_T> iterator_type;
+    typedef android::ListNode<_T> node_type;
+  public:
+    typedef ptrdiff_t                       difference_type;
+    typedef std::bidirectional_iterator_tag iterator_category;
+    typedef _T                              value_type;
+    typedef _T*                             pointer;
+    typedef _T&                             reference;
+
+    ListConstIterator():
+        mNode() { }
+
+    explicit ListConstIterator(ListNodeBase* node):
+        mNode(node) { }
+
+    ListConstIterator(const ListIterator<_T>& it): mNode(it.mNode) { }
+
+    reference operator*() const { return static_cast<node_type*>(mNode)->mData; }
+    pointer operator->() const { return &operator*(); }
+
+    iterator_type& operator++() { mNode = mNode->mNext; return *this; }
+    iterator_type& operator++(int) {
+        iterator_type tmp = *this;
+        mNode = mNode->mNext;
+        return *tmp;
+    }
+
+    iterator_type& operator--() { mNode = mNode->mPrev; return *this; }
+    iterator_type& operator--(int) {
+        iterator_type tmp = *this;
+        mNode = mNode->mPrev;
+        return *tmp;
+    }
+
+    bool operator==(const iterator_type& o) const { return mNode == o.mNode; }
+    bool operator!=(const iterator_type& o) const { return mNode != o.mNode; }
+
+    ListNodeBase *mNode;
+};
+
+}  // namespace android
+
+namespace std {
+
+// std::list
+
+template<typename _T>
+class list {
+  public:
+    typedef _T                              value_type;
+    typedef _T*                             pointer;
+    typedef const _T*                       const_pointer;
+    typedef _T&                             reference;
+    typedef const _T&                       const_reference;
+    typedef android::ListIterator<_T>       iterator;
+    typedef android::ListConstIterator<_T>  const_iterator;
+    typedef size_t                          size_type;
+    typedef ptrdiff_t                       difference_type;
+
+    // Default constructor, no element.
+    list() { init(); }
+    ~list() { clear(); }
+
+    // Empty the list.
+    void clear();
+
+    // Element access.
+    reference front() { return *iterator(mHead.mNext); }
+    const_reference front() const { return *iterator(mHead.mNext); }
+    reference back() { return *iterator(mHead.mPrev); }
+    const_reference back() const { return *iterator(mHead.mPrev); }
+
+    // Iterators.
+    iterator begin() { return iterator(mHead.mNext); }
+    const_iterator begin() const { return const_iterator(mHead.mNext); }
+    iterator end() { return iterator(&mHead); }
+    const_iterator end() const { return const_iterator(&mHead); }
+
+    // Add data at the begin of the list.
+    // @param elt To be added.
+    void push_front(const value_type& elt) { insert(begin(), elt); }
+    void push_back(const value_type& elt) { insert(end(), elt); }
+
+    // Removes first element. Invalidated the iterators/references to begin.
+    void pop_front() { eraseAtPos(iterator(mHead.mNext)); }
+
+    // Removes last element. Invalidated the iterators/references to
+    // the last element.
+    void pop_back() { eraseAtPos(iterator(mHead.mPrev)); }
+
+    bool empty() const { return mLength == 0; }
+
+    // @eturn the number of elements in the list.
+    size_type size() const { return mLength; }
+
+    // @return the maximum size for a list
+    size_type max_size() const { return numeric_limits<size_type>::max(); }
+
+    // Insert the element BEFORE the 'pos' iterator.
+    // @param pos Iterator in the list.
+    // @param elt Element to be inserted.
+    // @return an iterator that points to the inserted element.
+    iterator insert(iterator pos, const value_type& elt);
+
+    // Remove the element pointed by the iterator. Constant in time,
+    // calls once to _T's destructor.
+    // @param pos Iterator pointing to the elt to be removed.
+    // @return An iterator pointing to the next elt or end().
+    iterator erase(iterator position);
+
+    // Remove a range of elements [first, last)
+    // @param first Iterator pointing to the first element to be removed.
+    // @param last Iterator pointing to one past the last element to be removed.
+    // @return An iterator pointing to the elt next to 'last' or end().
+    iterator erase(iterator first, iterator last);
+
+  private:
+    void init() {
+        mHead.mNext = &mHead;
+        mHead.mPrev = &mHead;
+        mLength = 0;
+    }
+
+    // Erase, don't return anything.
+    void eraseAtPos(iterator pos);
+
+    size_type mLength;
+    // mHead does not contain any data, it represents end().
+    android::ListNodeBase mHead;
+};
+
+
+template<typename _T>
+void list<_T>::clear() {
+    while (mHead.mNext != &mHead) {
+        // Upcast so delete will reclaim all the memory.
+        android::ListNode<_T> *node =
+                static_cast<android::ListNode<_T> *>(mHead.mNext);
+        mHead.mNext = node->mNext;
+        delete node;
+    }
+    init();
+}
+
+template<typename _T>
+typename list<_T>::iterator list<_T>::insert(iterator pos, const value_type& elt) {
+    if (mLength + 1 > mLength) {
+        android::ListNode<_T> *node = new android::ListNode<_T>();
+        node->mData = elt;
+        node->hook(pos.mNode);
+        ++mLength;
+        return iterator(node);
+    } else {
+        return end();
+    }
+}
+
+template<typename _T>
+typename list<_T>::iterator list<_T>::erase(iterator pos) {
+    iterator res = iterator(pos.mNode->mNext);
+    eraseAtPos(pos);
+    return res;
+}
+
+template<typename _T>
+typename list<_T>::iterator list<_T>::erase(iterator first, iterator last) {
+    while (first != last) {
+        first = erase(first);  // erase returns an iterator to the next elt.
+    }
+    return last;
+}
+
+template<typename _T>
+void list<_T>::eraseAtPos(iterator pos) {
+    if (pos.mNode != &mHead) {
+        pos.mNode->unhook();
+        android::ListNode<_T>* node =
+                static_cast<android::ListNode<_T>*>(pos.mNode);
+        delete node;
+        --mLength;
+    }
+}
+
+}  // namespace std
+
+#endif  // ANDROID_ASTL_LIST__

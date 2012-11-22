@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="last_updated">Last updated on %s</string>
+    <string name="pull_to_refresh">Pull to refresh</string>
+    <string name="release_to_refresh">Release to refresh</string>
+    <string name="selected_element_message">Selected element is: %s</string>
+    <string name="list_item_number">List Item %s</string>
+    <string name="loading_message">Loading...</string>
+</resources>

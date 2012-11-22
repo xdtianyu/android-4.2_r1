@@ -1,0 +1,85 @@
+fullpage=true
+no_footer_links=true
+carousel=true
+page.metaDescription=The official site for Android developers. Provides the Android SDK and documentation for app developers and designers.
+@jd:body
+
+
+<div class="wrap">
+    <!-- Slideshow -->
+    <div class="slideshow-container slideshow-home col-16">
+        <a href="" class="slideshow-prev">Prev</a>
+        <a href="" class="slideshow-next">Next</a>
+        <div class="frame">
+            <ul>
+                <li class="item carousel-home">
+                    <div class="content-left col-9">
+                        <a href="{@docRoot}about/versions/jelly-bean.html"><img src="{@docRoot}images/home/android-jellybean.png" ></a>
+                    </div>
+                    <div class="content-right col-6">
+                    <h1>Jelly Bean now available!</h1>
+                    <p>Android 4.1 (Jelly Bean) builds on what's great about Android
+                      with improvements to performance and user experience.</p>
+                    <p>New APIs are also available that allow you to build richer and more
+                      interactive notifications, transfer larger
+                    payloads through NFC, discover services over Wi-Fi, and much more.</p>
+                    <p><a href="{@docRoot}about/versions/jelly-bean.html" class="button">More 
+                        about Jelly Bean</a></p>
+                    </div>
+                </li>
+                <li class="item carousel-home">
+                    <div class="content-left col-10">
+                        <img src="{@docRoot}images/home/design.png" style="margin-top:30px">
+                    </div>
+                    <div class="content-right col-5">
+                    <h1>Make your Android apps<br>look great</h1>
+                    <p>New templates in the design guide make it easier than ever to design apps
+that are beautiful and easy to use.</p>
+                    <p><a href="{@docRoot}design/index.html" class="button">Learn More</a></p>
+                    </div>
+                </li>
+                <li class="item carousel-home">
+                        <div class="content-left col-10">
+                        <img src="{@docRoot}images/home/google-io.png">
+                        </div>
+                        <div class="content-right col-5">
+                        <h1>Android videos<br/> from Google I/O!</h1>
+                        <p>If you couldn't make it to Google I/O this year or want to review some of the material,
+                          all of the Android sessions are now available for viewing online.</p>
+                        <p><a href="http://www.youtube.com/playlist?list=PL4C6BCDE45E05F49E&feature=plcp"
+class="button">Watch the Android sessions</a></p>
+                        </div>
+                </li>
+                <li class="item carousel-home">
+                        <div class="content-left col-10">
+                            <img src="{@docRoot}images/home/google-play.png"
+                                  style="margin-top:50px">
+                        </div>
+                        <div class="content-right col-5">
+                        <h1>Publish your apps<br>in Google Play</h1>
+                        <p>The most visited store in the world for Android apps. Cloud-connected and always synced, it's never been easier for users to find and download your apps.</p>
+
+                        <p><a href="{@docRoot}distribute/index.html" class="button">Learn More</a></p>
+                        </div> 
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- /End slideshow -->
+    
+    
+</div>
+<div class="wrap" style="padding-bottom:20px">
+    <!-- Section links -->
+    <div class="home-sections">
+        <ul>
+            <li><a href="{@docRoot}about/index.html">About Android</a></li>
+            <li><a href="{@docRoot}sdk/index.html">Get the SDK</a></li>
+            <li><a href="http://source.android.com">Open Source</a></li>
+            <li><a href="{@docRoot}support.html">Support</a></li>
+            <li class="last"><a href="{@docRoot}legal.html">Legal</a></li>
+        </ul>
+    </div>
+    <!-- /Section links -->
+</div>     
+

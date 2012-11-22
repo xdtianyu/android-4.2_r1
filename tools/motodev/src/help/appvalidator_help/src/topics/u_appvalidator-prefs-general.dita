@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference id="u_appvalidator-prefs-general" xml:lang="en-us">
+  <title>Android App Validator preferences - General Settings tab</title>
+  <shortdesc>Use the General Settings tab to control those aspects of the App Validator that are independent of
+    any specific checker or target device.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <simpletable>
+      <strow>
+        <stentry><b>Output limit</b></stentry>
+        <stentry>Limits the output to the specified number of entries. A value of zero indicates that there should be no
+          limit on the number of entries output by the App Validator.</stentry>
+      </strow>
+      <strow>
+        <stentry><uicontrol>Output type</uicontrol></stentry>
+        <stentry>Format the output as text (the default), as XML, or as comma-separated values suitable for importing
+          into a spreadsheet (CSV). When this option is specified, the verbosity level is automatically set to
+        0.</stentry>
+      </strow>
+      <strow>
+        <stentry><uicontrol>Warning levels</uicontrol></stentry>
+        <stentry>Controls the level of messages that are logged in the Problems view when the validator is run. Level 0
+          ("No messages") results in the most concise output, with no errors, warnings, or fix suggestions being logged,
+          while level 4 (the default) produces a detailed log of every error, warning, and fix suggestion.</stentry>
+      </strow>
+      <strow>
+        <stentry><uicontrol>Verbosity levels</uicontrol></stentry>
+        <stentry>Controls the "verbosity level" - the level of detail that is logged in the Console view when the
+          validator is run. Level 0 ("Only validation results") results in the most concise output, while level 2
+          ("Debug and Execution Info"--the default) is the most verbose.</stentry>
+      </strow>
+      <strow>
+        <stentry><b>Show errors as warnings in Eclipse Problems view</b></stentry>
+        <stentry>If selected, causes validation errors to be downgraded to warnings in the Problems view. This ensures
+          that validation errors don't prevent your app from building.</stentry>
+      </strow>
+    </simpletable>
+  </refbody>
+</reference>

@@ -1,0 +1,1 @@
+Class-Path: common.jar guava-tools.jar sdklib.jar manifmerger.jar

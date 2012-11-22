@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task
+  PUBLIC "-//OASIS//DTD DITA Task//EN" "../dtd/task.dtd">
+<task xml:lang="en-us" id="t_app-deploying_javame">
+  <title>Installing an application on a device</title>
+  <shortdesc>Describes how to deploy a packaged Android application onto a real or emulated Android device.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <prereq>
+      <note type="important">The target device must be listed in the Device Management view, and it must be online. If
+        you are deploying to an emulated device, that emulator must be running. If you are deploying to an Android
+        handset, it must be connected to your development computer.</note>
+    </prereq>
+    <steps>
+      <step>
+        <cmd>Click the <uicontrol>Device Management</uicontrol> tab, if necessary, to bring forward the Device
+          Management view.</cmd>
+      </step>
+      <step>
+        <cmd>Install the app by dragging and dropping its APK onto a running AVD or connected handset listed in the
+          Device Management view (note that you can use this technique to install multiple APKs by selecting them all
+          and then dragging and dropping the group onto the listed device). Alternatively, you can do the following:</cmd>
+        <substeps>
+          <substep>
+            <cmd>Right-click the device to which the application is to be deployed.</cmd>
+          </substep>
+          <substep>
+            <cmd>From the menu that appears, select <uicontrol>Install App</uicontrol>.</cmd>
+            <stepresult>The Install Application dialog appears.</stepresult>
+          </substep>
+          <substep>
+            <cmd>Using the <uicontrol>Application package</uicontrol> field, select the APK file to be installed.</cmd>
+            <info>If the APK file is not properly signed for the target device, the dialog will indicate that the
+              package is either unsigned or malformed. You cannot proceed if this is the case.</info>
+          </substep>
+          <substep>
+            <cmd>Specify what MOTODEV Studio for Android should do if a version of the application already exists on the
+              target device.</cmd>
+            <info>
+              <ul>
+                <li>If MOTODEV Studio can safely overwrite any existing version of the application, select <uicontrol
+                    >Overwrite if application already exists</uicontrol>.</li>
+                <li>To have any previous version of the application uninstalled before installing this new one, select
+                    <uicontrol>Uninstall application before install</uicontrol>.</li>
+                <li>If you do not want an existing version of the application overwritten--that is, if you only want the
+                  application deployed to the device if it does not already reside on the device--select the <uicontrol
+                    >Do nothing if application is already installed</uicontrol> option.</li>
+              </ul>
+            </info>
+          </substep>
+          <substep>
+            <cmd>Click <uicontrol>Finish</uicontrol>.</cmd>
+          </substep>
+        </substeps>
+      </step>
+    </steps>
+    <result>The application is transferred to the chosen device, unless the application already exists on the device and
+      you elected not to overwrite it, in which case an error message will be generated.</result>
+  </taskbody>
+</task>

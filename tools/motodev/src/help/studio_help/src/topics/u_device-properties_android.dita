@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference id="u_device-properties_android" xml:lang="en-us">
+  <title>Device Properties</title>
+  <shortdesc>Presents a detailed list of device properties for the chosen connected device or running AVD (if the AVD is
+    not running, this dialog will be empty).</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>This dialog consists of a scrolling two-column table in which the first column is the property name and the
+      second is the value of that property. To export these properties to a text file in comma-separated-value (CSV)
+      format, click <uicontrol>CSV Export</uicontrol> and specify the destination.</section>
+  </refbody>
+</reference>

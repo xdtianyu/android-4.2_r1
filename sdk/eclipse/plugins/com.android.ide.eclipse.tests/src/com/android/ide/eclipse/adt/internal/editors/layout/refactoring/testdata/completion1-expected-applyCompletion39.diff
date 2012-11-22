@@ -1,0 +1,4 @@
+Code completion in completion1.xml for marginBottom="50"^ selecting  android:maxEms:
+<         android:layout_marginBottom="50"^
+---
+>         android:layout_marginBottom="50" android:maxEms="^"

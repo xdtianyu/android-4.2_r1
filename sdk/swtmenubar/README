@@ -1,0 +1,80 @@
+Using the Eclipse project SwtMenuBar
+------------------------------------
+
+This project provides a platform-specific way to hook into
+the default OS menu bar.
+
+On MacOS, it allows an SWT app to have an About menu item
+and to hook into the default Preferences menu item.
+
+On Windows and Linux, an SWT Menu should be provided (typically
+named "Tools") into which the About and Options menu items
+will be added.
+
+
+Consequently the implementation contains platform-specific source
+folders for the Java files that rely on a platform-specific version
+of SWT.jar.
+
+Right now we have the following source folders:
+- src/        - Generic implementation for all platforms.
+- src-darwin/ - Implementation for MacOS Carbon.
+
+*Only* the default "src/" folder is declared in the project .classpath
+so that the project can be opened in Eclipse on any platform and still
+work. However that means that on MacOS the custom src-darwin folder is
+not used by default.
+
+
+
+1- To build the library:
+
+Do not use Eclipse to build the library. Instead use the makefile:
+
+$ cd $TOP_OF_ANDROID_TREE
+$ . build/envsetup.sh && lunch sdk-eng
+$ make swtmenubar
+
+This will create a Jar in <Android tree>/out/host/<platform>/framework/
+that can then be included in the target application.
+
+
+2- To use the library in a target application:
+
+Build the swtmenubar library as explained in step 1.
+
+In the target application, define a classpath variable in Eclipse:
+- Open Preferences > Java > Build Path > Classpath Variables
+- Create a new classpath variable named ANDROID_OUT_FRAMEWORK
+- Set its folder value to <Android tree>/out/host/<platform>/framework
+
+Then add a variable to the Build Path of the target project:
+- Open Project > Properties > Java Build Path
+- Select the "Libraries" tab
+- Use "Add Variable"
+- Select ANDROID_OUT_FRAMEWORK
+- Select "Extend..."
+- Select swtmenubar.jar (which you previously built at step 1)
+
+
+3- Tip for developing this library:
+
+Keep in mind that src-darwin folder must not be added to the
+source folder list, otherwise the library would not compile
+on Windows or Linux.
+
+If you change anything to IMenuBarCallback, make sure to test
+on a Mac to be sure you're not breaking the API.
+
+To work on this on a Mac, you can either:
+a- simply temporarily add src-darwin as a source folder to the
+   build path and remove it before submitting.
+b- or directly edit the java files and rebuild the library using
+   'make swtmenubar' from a shell.
+
+To test the library, use 'make swtmenubar'. This will build the
+library in out/... and the sdkmanager project is already setup
+to find it there.
+
+--
+EOF

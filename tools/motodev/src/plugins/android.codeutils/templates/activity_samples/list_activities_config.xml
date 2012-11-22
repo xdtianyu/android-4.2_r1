@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<sample name="%Activity_Samples_DDList_name" description="%Activity_Samples_DDList_description" preview="dropdown_list/preview.png">
+		<file name="dropdown_list/dropdown_list_activity.java" resourceType="src" />
+		<file name="dropdown_list/ddlistlayout.xml" resourceType="layout" />
+		<file name="dropdown_list/ddlist_strings.xml" resourceType="values" />
+	</sample>
+	<sample name="%Activity_Samples_SelectionList_name" description="%Activity_Samples_SelectionList_description" preview="selection_list/preview.png">
+		<file name="selection_list/selection_list_activity.java" resourceType="src" />
+		<file name="selection_list/selection_strings.xml" resourceType="values" />
+	</sample>
+	<sample name="%Activity_Samples_SimpleList_name" description="%Activity_Samples_SimpleList_description" preview="simple_list/preview.png">
+		<file name="simple_list/simple_list_activity.java" resourceType="src" />
+		<file name="simple_list/simple_list_strings.xml" resourceType="values" />
+	</sample>
+	<sample name="%android.wizard.activity.multiplechoicelist.name" description="%android.wizard.activity.multiplechoicelist.description" preview="mult_selection_img/preview.png">
+		<file name="mult_selection_img/select_img_list_activity.java" resourceType="src" />
+		<file name="mult_selection_img/select_img_list_strings.xml" resourceType="values" />
+		<file name="mult_selection_img/listicon.png" resourceType="drawable" />
+		<file name="mult_selection_img/listviewmult.xml" resourceType="layout" />
+		<file name="mult_selection_img/listrowmult.xml" resourceType="layout" />
+	</sample>
+	<sample name="%android.wizard.activity.singlechoicelist.name" description="%android.wizard.activity.singlechoicelist.description" preview="single_selection_img/preview.png">
+		<file name="single_selection_img/single_sel_img_activity.java" resourceType="src" />
+		<file name="single_selection_img/single_sel_img_strings.xml" resourceType="values" />
+		<file name="single_selection_img/listrowsingle.xml" resourceType="layout" />
+		<file name="single_selection_img/listviewsingle.xml" resourceType="layout" />
+		<file name="single_selection_img/listiconsingle.png" resourceType="drawable" />
+	</sample>
+	<sample name="%android.wizard.activity.imageoptionlist.name" description="%android.wizard.activity.imageoptionlist.description" preview="img_text_list/preview.png">
+		<file name="img_text_list/img_text_activity.java" resourceType="src" />
+		<file name="img_text_list/img_text_strings.xml" resourceType="values" />
+		<file name="img_text_list/listview.xml" resourceType="layout" />
+		<file name="img_text_list/listrow.xml" resourceType="layout" />
+		<file name="img_text_list/listicon.png" resourceType="drawable" />
+	</sample>
+	<sample name="%android.wizard.activity.endlesslist.name" description="%android.wizard.activity.endlesslist.description" preview="endless_list/preview.png">
+		<file name="endless_list/endless_list_activity.java" resourceType="src" />
+		<file name="endless_list/ListElement.java" resourceType="src" />
+		<file name="endless_list/listrow.xml" resourceType="layout" />
+		<file name="endless_list/listicon.png" resourceType="drawable" />
+		<file name="endless_list/endless_list_strings.xml" resourceType="values" />
+	</sample>
+	<sample name="%android.wizard.activity.endlesslist.usingfragment.name" description="%android.wizard.activity.endlesslist.usingfragment.description" preview="endless_list_usingfragment/preview.png">
+		<file name="endless_list_usingfragment/endless_list_activity.java" resourceType="src" />
+		<file name="endless_list_usingfragment/FragmentEndlessList.java" resourceType="src" />
+		<file name="endless_list_usingfragment/ListElement.java" resourceType="src" />
+		<file name="endless_list_usingfragment/activitylayout.xml" resourceType="layout" />
+		<file name="endless_list_usingfragment/listrow.xml" resourceType="layout" />
+		<file name="endless_list_usingfragment/listicon.png" resourceType="drawable" />
+		<file name="endless_list_usingfragment/endless_list_usingfragment_strings.xml" resourceType="values" />
+	</sample>	
+	<sample name="%android.wizard.activity.pulltorefresh.name" description="%android.wizard.activity.pulltorefresh.description" preview="endless_list_pull_to_refresh/preview.png">
+		<file name="endless_list_pull_to_refresh/pull_to_refresh_activity.java" resourceType="src" />
+		<file name="endless_list_pull_to_refresh/ListElement.java" resourceType="src" />
+		<file name="endless_list_pull_to_refresh/listrow.xml" resourceType="layout" />
+		<file name="endless_list_pull_to_refresh/listheader.xml" resourceType="layout" />
+		<file name="endless_list_pull_to_refresh/listicon.png" resourceType="drawable" />
+		<file name="endless_list_pull_to_refresh/endless_list_pull_to_refresh_strings.xml" resourceType="values" />
+	</sample>
+</resources>

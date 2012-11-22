@@ -1,0 +1,125 @@
+/* -*- c++ -*- */
+/*
+ * Copyright (C) 2010 The Android Open Source Project
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *  * Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ *  * Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in
+ *    the documentation and/or other materials provided with the
+ *    distribution.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+ * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+ * COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+ * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+ * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS
+ * OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
+ * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+ * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+ * OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ * SUCH DAMAGE.
+ */
+
+#ifndef ANDROID_ASTL_SET__
+#define ANDROID_ASTL_SET__
+
+// To include bionic's stl_pair.h, __STL_*_NAMESPACE must be defined.
+#ifndef __STL_BEGIN_NAMESPACE
+#define __STL_BEGIN_NAMESPACE namespace std {
+#define __STL_END_NAMESPACE   }
+#endif
+
+#include <stl_pair.h>
+#include <iterator>
+#include <vector>
+
+namespace std {
+
+#ifdef _Key
+#error "_Key is a macro."
+#endif
+
+// Very basic and crude implementation of std::set.
+//
+// TODO: Replace the vector used to implement the set with an RB
+// tree. vector does not implement insert and is not ordered as a
+// result.
+
+template<class _Key>
+class set
+{
+  public:
+    typedef _Key key_type;
+    typedef _Key value_type;
+
+  private:
+    typedef vector<_Key> impl_type;
+  public:
+    typedef _Key*        pointer;
+    typedef const _Key*  const_pointer;
+    typedef _Key&        reference;
+    typedef const _Key&  const_reference;
+
+    typedef typename impl_type::iterator        iterator;
+    typedef typename impl_type::const_iterator  const_iterator;
+    typedef typename impl_type::size_type       size_type;
+    typedef typename impl_type::difference_type difference_type;
+
+    // Insert elt if and only if there is no element in the set
+    // equivalent to elt already.
+    // @param elt Element to be inserted.
+    // @return A pair made of:
+    //         - an iterator which points to the equivalent element in the set
+    //           (either 'elt' or the one already present),
+    //         - a bool which indicates if the insertion took place.
+    pair<iterator, bool> insert(const value_type& elt) {
+        typename impl_type::iterator i = mImpl.begin();
+        while (i != mImpl.end()) {
+            if (elt == *i) {
+                return pair<iterator, bool>(i, false);
+            }
+            ++i;
+        }
+        mImpl.push_back(elt);
+        return pair<iterator, bool>(--mImpl.end(), true);
+    }
+
+    // Set have an insert unique semantic so there is at most one
+    // instance of the elt.
+    // @param elt Element to locate.
+    // @return 0 if elt was not found, 1 otherwise.
+    size_type count(const key_type& elt) const {
+        typename impl_type::const_iterator i = mImpl.begin();
+        while (i != mImpl.end()) {
+            if (elt == *i) {
+                return 1;
+            }
+            ++i;
+        }
+        return 0;
+    }
+
+    // @return true if the set is empty, false otherwise.
+    bool empty() const { return mImpl.size() == 0; }
+    size_type size() const { return mImpl.size(); }
+
+    iterator begin() { return mImpl.begin(); }
+    iterator end() { return mImpl.end(); }
+
+    const_iterator begin() const { return mImpl.begin(); }
+    const_iterator end() const { return mImpl.end(); }
+
+  private:
+    impl_type mImpl;
+};
+
+}  // namespace std
+
+#endif  // ANDROID_ASTL_VECTOR__

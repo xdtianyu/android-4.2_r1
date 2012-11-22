@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference id="u_pkg-install" xml:lang="en-us">
+  <title>Install Application dialog</title>
+  <shortdesc>Installs an application to an Android device or a running emulator instance. This dialog is presented when
+    you right-click a device in the Device Management view and select <uicontrol>Install App</uicontrol> from the menu
+    that appears.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <simpletable>
+        <strow>
+          <stentry><uicontrol>Application package</uicontrol></stentry>
+          <stentry>Path to the application package (.apk file) to be installed. This file can usually be found inside
+            the project's <codeph>bin</codeph> directory.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Replace if application already exists</uicontrol></stentry>
+          <stentry>This option, which is selected by default, allows an existing version of the application to be
+            overwritten on the target device. Clear this option if you don't want to overwrite any existing version of
+            the application.</stentry>
+        </strow>
+      </simpletable>
+    </section>
+  </refbody>
+</reference>

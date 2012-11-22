@@ -1,0 +1,2 @@
+set solib-search-path /home/nowar/cyanogen/gdk/samples/bitmap-plasma-llvm/obj/local/armeabi
+directory /home/nowar/cyanogen/gdk/platforms/android-9/arch-arm/usr/include /home/nowar/cyanogen/gdk/samples/bitmap-plasma-llvm/jni /home/nowar/cyanogen/gdk/sources/cxx-stl/system

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+	<string name="selected_element_message">Selected element is: %s</string>
+	<string name="list_item_number">List Item %s</string>
+    <string name="loading_message">Loading...</string>
+</resources>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference id="u_new-content-provider" xml:lang="en-us">
+  <title>New Content Provider wizard</title>
+  <shortdesc>Creates a new Android content provider.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <simpletable>
+        <strow>
+          <stentry><uicontrol>Source folder</uicontrol></stentry>
+          <stentry>The folder into which the source code for the new content provider is to be stored. By default this
+            is the current project's src folder.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Package</uicontrol></stentry>
+          <stentry>The package that is to contain the new content provider. By default this is the current project's
+            package.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Name</uicontrol></stentry>
+          <stentry>The name to be used for the class that implements the content provider. This should be a simple,
+            non-qualified name.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Label</uicontrol></stentry>
+          <stentry>(optional) The label for the content provider. Note that if you specify a label, the New Content
+            Provider wizard creates a string resource to hold this value. If the <uicontrol>Default</uicontrol> option
+            is selected, a label is not set for this content provider (the Label field is not editable); the
+            application's label is used instead.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Superclass</uicontrol></stentry>
+          <stentry>The class from which the content provider inherits. For content providers, this is <codeph
+              >android.app.ContentProvider</codeph>.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Permission</uicontrol></stentry>
+          <stentry>(optional) Permissions that should be added to the project's manifest file due to this content
+            provider. Click <uicontrol>Add</uicontrol> to display a list of possible permissions from which you can
+            select.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Authorities</uicontrol></stentry>
+          <stentry>One or more URIs that are used to associate data with this content provider. Typically, the
+            fully-qualified name of the content provider's class is used; this is automatically filled in for you by the
+            wizard when the <uicontrol>Use default authority</uicontrol> option is selected. Add additional URIs by
+            clicking <uicontrol>Add</uicontrol>. </stentry>
+        </strow>
+      </simpletable>
+    </section>
+  </refbody>
+</reference>

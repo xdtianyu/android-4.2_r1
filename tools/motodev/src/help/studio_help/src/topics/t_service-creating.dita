@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task
+  PUBLIC "-//OASIS//DTD DITA Task//EN" "../dtd/task.dtd">
+<task xml:lang="en-us" id="t_service-creating">
+  <title>Adding an Android service</title>
+  <shortdesc>Allows you to easily add a new service to an existing Android project. A service allows you to perform
+    lengthy background operations or an API that can be called by other applications.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <context/>
+    <steps>
+      <step>
+        <cmd>In the Package Explorer, right-click the project to which the service should be added and select
+            <menucascade><uicontrol>New</uicontrol><uicontrol>Android Service</uicontrol></menucascade>.</cmd>
+      </step>
+      <step>
+        <cmd>Specify a name for your new Service subclass in <uicontrol>Name</uicontrol>.</cmd>
+      </step>
+      <step>
+        <cmd>By default the new service will not have a label of its own; the application's label will be used when
+          necessary. If you want a specific label for this service, clear the <uicontrol>Default</uicontrol> option
+          (next to the <uicontrol>Label</uicontrol> field) and then enter your preferred user-readable label.</cmd>
+      </step>
+      <step>
+        <cmd>If this service uses device capabilities for which the user must grant permission, specify them in the
+            <uicontrol>Permission</uicontrol> area. These permissions will be added to the appropriate place in your
+          application's manifest file. To specify a permission, click <uicontrol>Add</uicontrol>, select the needed
+          permission, and click <uicontrol>OK</uicontrol>.</cmd>
+      </step>
+      <step>
+        <cmd>The New Android Service wizard will create the service with an empty onBind() method. If you will be
+          implementing onCreate() and/or onStart(), select the appropriate options to include empty versions of those
+          method as well.</cmd>
+      </step>
+      <step>
+        <cmd>Click <uicontrol>Finish</uicontrol>.</cmd>
+      </step>
+    </steps>
+    <result>The service is created and added to the selected project. It is also opened in an editor view.</result>
+  </taskbody>
+</task>

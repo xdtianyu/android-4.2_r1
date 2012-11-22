@@ -1,0 +1,297 @@
+/* -*- c++ -*- */
+/*
+ * Copyright (C) 2009 The Android Open Source Project
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *  * Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ *  * Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in
+ *    the documentation and/or other materials provided with the
+ *    distribution.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+ * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+ * COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+ * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+ * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS
+ * OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
+ * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+ * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+ * OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ * SUCH DAMAGE.
+ */
+
+#ifndef ANDROID_ASTL_ALGORITHM__
+#define ANDROID_ASTL_ALGORITHM__
+
+#include <cstddef>
+#include <cstring>
+#include <iterator>
+#include <type_traits.h>
+#ifndef ANDROID_ASTL_TYPE_TRAITS_H__
+#error "Wrong file included!"
+#endif
+
+namespace std {
+
+// This file contains the following template functions:
+// - min
+// - max
+// - swap
+// - fill
+// - fill_n
+// - copy
+// - equal
+
+template<typename _T> inline const _T& min(const _T& left, const _T& right)
+{
+    if (left < right) return left;
+    return right;
+}
+
+template<typename _T> inline const _T& max(const _T& left, const _T& right)
+{
+    if (right < left) return left;
+    return right;
+}
+
+template<typename _T> inline void swap(_T& left, _T& right)
+{
+    _T tmp = left;
+    left = right;
+    right = tmp;
+}
+
+
+// Basic iterators, loop over the elements, we don't know how many
+// elements we need to copy. See the random access specialization
+// below.
+template<typename _Category>
+struct copy_move {
+    template<typename _InputIterator, typename _OutputIterator>
+    static _OutputIterator
+    __copy_move(_InputIterator first, _InputIterator last, _OutputIterator res) {
+        for (; first != last; ++res, ++first) {
+            *res = *first;
+        }
+        return res;
+    }
+};
+
+// For random access iterators, we know how many elements we have to
+// copy (random iterators support operator-).
+template<>
+struct copy_move<random_access_iterator_tag> {
+    template<typename _InputIterator, typename _OutputIterator>
+    static _OutputIterator
+    __copy_move(_InputIterator first, _InputIterator last, _OutputIterator res) {
+        typedef typename iterator_traits<_InputIterator>::difference_type
+                difference_type;
+
+        for (difference_type n = last - first; n > 0; --n) {
+            *res = *first;
+            ++first;
+            ++res;
+        }
+        return res;
+    }
+};
+
+// TODO: for simple case and wrapper iterator, should degrade to memmove.
+
+// copy elements in the range [first, last) into the range [result,
+// result + (last - first)) starting from first and proceeding to
+// last.
+//
+// For each non negative n < (last - first) performs:
+// *(result + n) = *(first + n)
+// @require result should not be in the [first, last) range.
+// @return result + (last - first)
+template<typename _InputIterator, typename _OutputIterator>
+inline _OutputIterator
+copy(_InputIterator first, _InputIterator last, _OutputIterator res) {
+    typedef typename iterator_traits<_InputIterator>::iterator_category
+            _Category;
+
+    return copy_move<_Category>::__copy_move(
+        android::iter<_InputIterator>::base(first),
+        android::iter<_InputIterator>::base(last),
+        res);
+}
+
+// fill the range [begin, end) with copies of value, return nothing.
+// fill_n the range [begin, begin + n) with copies of value, return
+// the pointer at begin + n.
+//
+// TODO: fill and fill_n should take forward and output iterators for
+// begin and end params. Fix this when iterator are defined.
+
+template<bool> struct __fill
+{
+    template<typename _T> static void fill(_T *begin, const _T *end,
+                                           const _T& value)
+    {
+        for (; begin < end; ++begin)
+            *begin = value;
+    }
+};
+
+template<> struct __fill<true>  // scalar version
+{
+    template<typename _T> static void fill(_T *begin, const _T *end,
+                                           const _T& value)
+    {
+        const _T tmp = value;
+
+        for (; begin < end; ++begin)
+            *begin = tmp;
+    }
+};
+
+template<typename _T> void fill(_T *begin, _T *end, const _T& value)
+{
+    const bool is_scalar = std::is_scalar<_T>::value;
+    __fill<is_scalar>::fill(begin, end, value);
+}
+
+// Specialization: for one-byte types use memset.
+inline void fill(unsigned char *begin, unsigned char *end,
+                 const unsigned char& value)
+{
+    if (begin < end)
+    {
+        const int tmp = value;
+        std::memset(begin, tmp, end - begin);
+    }
+}
+
+inline void fill(signed char *begin, signed char *end, const signed char& value)
+{
+    if (begin < end)
+    {
+        const int tmp = value;
+        std::memset(begin, tmp, end - begin);
+    }
+}
+
+inline void fill(char *begin, char *end, const char& value)
+{
+    if (begin < end)
+    {
+        const int tmp = value;
+        std::memset(begin, tmp, end - begin);
+    }
+}
+
+template<bool> struct __fill_n
+{
+    template<typename _T> static _T *fill_n(_T *begin, size_t num,
+                                            const _T& value)
+    {
+        for (size_t i = 0; i < num; ++i, ++begin)
+        {
+            *begin = value;
+        }
+        return begin;
+    }
+};
+
+template<> struct __fill_n<true>  // scalar version
+{
+    template<typename _T> static _T *fill_n(_T *begin, size_t num,
+                                            const _T& value)
+    {
+        const _T tmp = value;
+
+        for (size_t i = 0; i < num; ++i, ++begin)
+        {
+            *begin = tmp;
+        }
+        return begin;
+    }
+};
+
+template<typename _T> _T *fill_n(_T *begin, size_t n, const _T& value)
+{
+    const bool is_scalar = std::is_scalar<_T>::value;
+    return __fill_n<is_scalar>::fill_n(begin, n, value);
+}
+
+
+// Specialization: for one-byte types uses memset.
+inline unsigned char *fill_n(unsigned char *begin, size_t num,
+                             const unsigned char& value)
+{
+    const int tmp = value;
+    std::memset(begin, tmp, num);
+    return begin + num;
+}
+
+inline signed char *fill_n(signed char *begin, size_t num,
+                           const signed char& value)
+{
+    const int tmp = value;
+    std::memset(begin, tmp, num);
+    return begin + num;
+}
+
+inline char *fill_n(char *begin, size_t num, const char& value)
+{
+    const int tmp = value;
+    std::memset(begin, tmp, num);
+    return begin + num;
+}
+
+
+// Test a range for element-wise equality using operator==
+// @param begin1  An input iterator.
+// @param end1    An input iterator.
+// @param begin2  An input iterator.
+// @return true if all the elements of the range are equal.
+// TODO: When we have a proper structure for iterator as opposed to
+// just pointers, we should be able to the get the type for the values
+// referenced by the iterator and default to memcmp for simple types.
+// TODO: equal should degrade to memcmp for pod.
+template<typename _InputIterator1, typename _InputIterator2>
+inline bool equal(_InputIterator1 begin1, _InputIterator1 end1,
+                  _InputIterator2 begin2)
+{
+    for (; begin1 < end1; ++begin1, ++begin2)
+    {
+        if (!(*begin1 == *begin2))
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+// Test a range for element-wise equality using operator==
+// @param  begin1  An input iterator.
+// @param  end1    An input iterator.
+// @param  begin2  An input iterator.
+// @param  binary_pred A binary predicate function.
+// @return  true if all the elements of the range are equal.
+template<typename _InputIterator1, typename _InputIterator2, typename _BinaryPredicated>
+inline bool equal(_InputIterator1 begin1, _InputIterator1 end1,
+                  _InputIterator2 begin2, _BinaryPredicated binary_predicate)
+{
+    for (; begin1 < end1; ++begin1, ++begin2)
+    {
+        if (!bool(binary_predicate(*begin1, *begin2)))
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+}  // namespace std
+
+#endif

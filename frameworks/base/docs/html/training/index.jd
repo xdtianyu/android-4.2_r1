@@ -1,0 +1,14 @@
+page.title=Android Training
+page.metaDescription=Android Training provides a collection of classes that aim to help you build great apps for Android. Each class explains the steps required to solve a problem or implement a feature using code snippets and sample code for you to use in your apps.
+
+@jd:body
+
+<p>Welcome to Android Training. Here you'll find a collection of classes that aim to help you
+build great apps for Android, using best practices in a variety of framework topics.</p>
+
+<p>Each class explains the steps required to solve a problem or implement a feature using code
+snippets and sample code for you to use in your apps.</p>
+
+<p>This first section is focused on teaching you the bare essentials. If you're a new developer
+on Android, you should walk through each of these classes, beginning with 
+<a href="{@docRoot}training/basics/firstapp/index.html">Building Your First App</a>.</p></a>

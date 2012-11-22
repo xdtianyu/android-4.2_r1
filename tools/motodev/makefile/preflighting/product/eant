@@ -1,0 +1,9 @@
+#!/bin/bash
+# Run Ant with the configuration above
+export BUILD_BASE_PATH=/android/2.2.0
+
+#uncomment to create dev releases (qualifier is the build date)
+#export DEV_RELEASE=true
+
+
+$BUILD_BASE_PATH/env/eclipse/eclipse -nosplash -application org.eclipse.ant.core.antRunner -data /tmp/workspace_appvalidator_product -buildfile $BUILD_BASE_PATH/env/eclipse/plugins/org.eclipse.pde.build_3.6.1.R36x_v20100823/scripts/productBuild/productBuild.xml -Dbuilder=$BUILD_BASE_PATH/env/code/android/makefile/preflighting/product/ -DBUILD_DIR=$BUILD_BASE_PATH -Dtimestamp=00000000 -DforceContextQualifier=testing -logger org.apache.tools.ant.XmlLogger -logfile /tmp/buildappvalidatorproductlog.xml -Xmx1024m -Xms80m

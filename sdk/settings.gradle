@@ -1,0 +1,5 @@
+include 'common'
+include 'layoutlib_api'
+include 'device_validator:dvlib'
+include 'sdkmanager:libs:sdklib'
+include 'manifmerger'

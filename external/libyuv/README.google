@@ -1,0 +1,12 @@
+URL: http://libyuv.googlecode.com/svn-history/r52/trunk/
+Version: r52
+License: BSD
+License File: LICENSE
+
+Description:
+libyuv is an open-source library for yuv conversion and scaling.
+Specifically libyuv is optimized for SSE2/SSSE3 and Neon and has demonstrated
+speed up to 10x to 16x compared to C code.
+
+Local Modifications:
+None

@@ -1,0 +1,20 @@
+# debugger interface
+type debuggerd, domain;
+type debuggerd_exec, exec_type, file_type;
+
+init_daemon_domain(debuggerd)
+typeattribute debuggerd mlstrustedsubject;
+allow debuggerd self:capability { dac_override sys_ptrace chown kill fowner };
+allow debuggerd self:capability2 { syslog };
+allow debuggerd domain:dir r_dir_perms;
+allow debuggerd domain:file r_file_perms;
+allow debuggerd domain:process ptrace;
+allow debuggerd rootfs:file r_file_perms;
+allow debuggerd system_data_file:dir create_dir_perms;
+allow debuggerd system_data_file:dir relabelfrom;
+allow debuggerd tombstone_data_file:dir relabelto;
+allow debuggerd tombstone_data_file:dir create_dir_perms;
+allow debuggerd tombstone_data_file:file create_file_perms;
+allow debuggerd domain:process { sigstop signal };
+allow debuggerd exec_type:file r_file_perms;
+allow debuggerd log_device:chr_file r_file_perms;

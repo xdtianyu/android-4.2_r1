@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task
+  PUBLIC "-//OASIS//DTD DITA Task//EN" "../dtd/task.dtd">
+<task xml:lang="en-us" id="t_emulator-view-manipulating">
+  <title>Interacting with the Android emulator</title>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <task id="t_select_running_emulator">
+    <title>Selecting a running emulator</title>
+    <shortdesc>All running emulators are displayed within the Android Emulator view. Tabs are used to identify the
+      emulators and select between them.</shortdesc>
+  </task>
+  <task id="t_emulator_image_size">
+    <title>Changing the image size</title>
+    <shortdesc>Within the Android Emulator view you can enlarge or shrink the size of the emulated handset or emulated
+      display currently being displayed.</shortdesc>
+    <taskbody>
+      <steps-unordered>
+        <step>
+          <cmd>To "zoom in" on the current image, click <image href="../images/emulator-zoom-in.png"/></cmd>
+        </step>
+        <step>
+          <cmd>To "zoom out" and show more of the current image, click <image href="../images/emulator-zoom-out.png"
+          /></cmd>
+        </step>
+        <step>
+          <cmd>To change the image to a specific size, click menu (<image href="../images/menu-button.png"/>), and then
+            select <uicontrol>Zoom</uicontrol>. From the menu that appears, select one of the relative sizes (25%, 50%,
+            75%, 100%), or <uicontrol>Fit to Window</uicontrol>, which sizes the image so that it fits completely within
+            the view.</cmd>
+        </step>
+      </steps-unordered>
+    </taskbody>
+  </task>
+  <task id="t_emulator_change_orientation">
+    <title>Changing the emulator orientation</title>
+    <shortdesc>Click the handset image (<image href="../images/emulator-switch-layout.png"/>) at the top of the view to
+      toggle the orientation of the emulated device that is currently visible between portrait and landscape. You can
+      also click the small black triangle next to the handset image and then select <uicontrol>portrait</uicontrol> or
+        <uicontrol>landscape</uicontrol>. Note that other running emulators are not affected.</shortdesc>
+  </task>
+  <task id="t_device_interact">
+    <title>Interacting with the emulated device</title>
+    <shortdesc>From within the Android Emulator view you can enter data, click device keys, and use your mouse to
+      simulate tapping on the screen. Many of the keys on your development computer's keyboard map to the emulated
+      device's keyboard, making it easy to enter textual data.</shortdesc>
+  </task>
+  <!--
+  <task id="t_emulator_change_locale">
+    <title>Changing the emulated device's locale</title>
+    <shortdesc>From the Device Management view, you can change the locale of an emulated device. This feature is
+      particularly useful when testing localized versions of your applications.</shortdesc>
+    <taskbody>
+      <steps>
+        <step>
+          <cmd>In the Device Management view, right-click the emulated device (it must be running) and select <uicontrol
+              >Language</uicontrol>.</cmd>
+          <stepresult>You will be prompted for a language and a country.</stepresult>
+        </step>
+        <step>
+          <cmd>Specify the language and country that constitute the desired locale.</cmd>
+          <stepresult>The emulated device restarts using the specified locale.</stepresult>
+        </step>
+      </steps>
+      <postreq>Note that you can change the emulated device's locale to any language/country combination, whether or not
+        the device has the specified locale installed. If the chosen locale is not installed the device defaults to
+        English, but within your application your localized strings.xml file is used.</postreq>
+    </taskbody>
+  </task>
+-->
+</task>

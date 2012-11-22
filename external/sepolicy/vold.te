@@ -1,0 +1,59 @@
+# volume manager
+type vold, domain;
+type vold_exec, exec_type, file_type;
+
+init_daemon_domain(vold)
+typeattribute vold mlstrustedsubject;
+allow vold system_file:file x_file_perms;
+allow vold block_device:dir create_dir_perms;
+allow vold block_device:blk_file create_file_perms;
+allow vold block_device:lnk_file read;
+allow vold devpts:chr_file rw_file_perms;
+allow vold rootfs:dir mounton;
+allow vold sdcard:dir mounton;
+allow vold sdcard:filesystem { mount remount unmount };
+allow vold sdcard:dir create_dir_perms;
+allow vold tmpfs:filesystem { mount unmount };
+allow vold tmpfs:dir create_dir_perms;
+allow vold tmpfs:dir mounton;
+allow vold self:capability { net_admin dac_override mknod sys_admin };
+allow vold self:netlink_kobject_uevent_socket *;
+allow vold app_data_file:dir search;
+allow vold app_data_file:file rw_file_perms;
+allow vold loop_device:blk_file rw_file_perms;
+allow vold dm_device:chr_file rw_file_perms;
+# For vold Process::killProcessesWithOpenFiles function.
+allow vold domain:dir r_dir_perms;
+allow vold domain:{ file lnk_file } r_file_perms;
+allow vold domain:process { signal sigkill };
+allow vold self:capability { sys_ptrace };
+
+# XXX Label sysfs files with a specific type?
+allow vold sysfs:file rw_file_perms;
+
+#
+# Rules to support encrypted fs support.
+#
+
+# Set property.
+unix_socket_connect(vold, property, init)
+
+# Unmount and mount the fs.
+allow vold labeledfs:filesystem { mount unmount };
+
+# Access /efs/userdata_footer.
+# XXX Split into a separate type?
+allow vold efs_file:file rw_file_perms;
+
+# Request AES module.
+allow vold kernel:system module_request;
+
+# Write to /proc/sysrq-trigger
+# XXX Label with a distinct type?
+allow vold proc:file write;
+
+# Create and mount on /data/tmp_mnt.
+allow vold system_data_file:dir { open read write create add_name mounton };
+
+# Property Service
+allow vold vold_prop:property_service set;

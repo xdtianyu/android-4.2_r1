@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference id="u_db-sql-results-view" xml:lang="en-us">
+  <title>SQL Results view</title>
+  <shortdesc>Displays the status and results of SQL statements entered using the SQL Scrapbook.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <p>The SQL Results view is divided into two halves. The left half consists of the following:</p>
+      <simpletable>
+        <strow>
+          <stentry>Filter field (unlabeled)</stentry>
+          <stentry>(this field is located above the table, and spans the entire left half of the view) Filters the rows
+            in the following table. Only those rows that have an operation containing the words listed here are
+            displayed. Clear this field to see all of the SQL operations that have been performed.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Status</uicontrol></stentry>
+          <stentry>Result of the corresponding SQL operation, such as <codeph>Failed</codeph> or <codeph
+            >Succeeded</codeph>.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Operation</uicontrol></stentry>
+          <stentry>SQL operation that was performed.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Date</uicontrol></stentry>
+          <stentry>When the SQL operation was performed.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Connection Profile</uicontrol></stentry>
+          <stentry>The connection profile that was used when performing the SQL operation.</stentry>
+        </strow>
+      </simpletable>
+      <p>Select a row in the table on the left side of the SQL Results view to see the actual results of the operation.
+        Depending upon the operation that was performed, the right half is usually organized into one or more of the
+        following tabs (if the "Display result in a single tab" control is selected, the right half will show the
+        results of the operation and the elapsed time in a single tab):</p>
+      <simpletable>
+        <strow>
+          <stentry><uicontrol>Status</uicontrol></stentry>
+          <stentry>Displays the SQL statement(s) executed, the status of the operation, and the elapsed time.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Parameters</uicontrol></stentry>
+          <stentry>Displays parameter names, data types, values, and parameter types for a routine procedural
+          object.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Result</uicontrol></stentry>
+          <stentry>Displays any output from the operation. For instance, if you execute a SELECT statement the table
+            rows are displayed here.</stentry>
+        </strow>
+      </simpletable>
+      <p>The SQL Results view contains the following controls:</p>
+      <simpletable>
+        <strow>
+          <stentry><image href="../images/terminate-result-icon.png"/></stentry>
+          <stentry>Terminate Result</stentry>
+          <stentry>Terminates a long-running SQL operation. Note that this control only active when a SQL operation is
+            in progress.</stentry>
+        </strow>
+        <strow>
+          <stentry><image href="../images/remove-result-icon.png"/></stentry>
+          <stentry>Remove Result</stentry>
+          <stentry>Deletes the selected result. This control is not active if you haven't selected a results
+          row.</stentry>
+        </strow>
+        <strow>
+          <stentry><image href="../images/remove-visible-results-icon.png"/></stentry>
+          <stentry>Remove all Visible Results</stentry>
+          <stentry>Deletes all of the displayed results. Note that you can use the Filter Results control (<image
+              href="../images/filter-results-icon.png"/>) and the filter field to select the set of results that is to
+            be deleted; this control does not delete results that aren't currently displayed.</stentry>
+        </strow>
+        <strow>
+          <stentry><image href="../images/display-single-tab-icon.png"/></stentry>
+          <stentry>Display result in a single tab</stentry>
+          <stentry>Presents the results of the selected SQL operation in a single tab.</stentry>
+        </strow>
+        <strow>
+          <stentry><image href="../images/display-text-mode-icon.png"/></stentry>
+          <stentry>Display result in text mode</stentry>
+          <stentry>Presents the results of the selected SQL operation in a set of tabs as described above.</stentry>
+        </strow>
+        <strow>
+          <stentry><image href="../images/filter-results-icon.png"/></stentry>
+          <stentry>Filter Results</stentry>
+          <stentry>Displays the SQL Results Filters dialog, from which you can filter the results in various
+          ways.</stentry>
+        </strow>
+      </simpletable>
+      <p>Right-click in the results to copy, save, export (as xml, text, or other), or print the displayed results.</p>
+    </section>
+  </refbody>
+</reference>

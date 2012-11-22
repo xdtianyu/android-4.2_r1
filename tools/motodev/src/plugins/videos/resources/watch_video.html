@@ -1,0 +1,31 @@
+<html>
+<head>
+
+	<script type="text/javascript" src="@@JAVASCRIPT_SRC@@"></script>
+
+	<script type="text/javascript">
+		
+		function setVideo(url){
+			var videoframe = document.getElementById('video-frame');
+			videoframe.src = url;
+		}
+		
+		function adjustSize(x, y){
+			var videoframe = document.getElementById('video-frame');
+			videoframe.width = x;
+			videoframe.height = y;
+		}	
+		
+		hasFlashPlayer(swfobject.hasFlashPlayerVersion('1'));
+		
+	</script>
+
+</head>
+	
+<body style="margin:0; overflow:hidden; background-color:#000000;">
+
+	<iframe style="filter:alpha(Opacity=0);-moz-opacity(0);" id="video-frame" src="" frameborder="0" allowfullscreen></iframe>
+
+</body>
+
+</html>

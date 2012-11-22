@@ -1,0 +1,236 @@
+/* -*- c++ -*- */
+/*
+ * Copyright (C) 2010 The Android Open Source Project
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *  * Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ *  * Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in
+ *    the documentation and/or other materials provided with the
+ *    distribution.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+ * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+ * COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+ * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+ * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS
+ * OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
+ * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+ * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+ * OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ * SUCH DAMAGE.
+ */
+
+#ifndef ANDROID_ASTL_LIMITS__
+#define ANDROID_ASTL_LIMITS__
+
+#include <limits.h>
+// GNU C++ compiler?
+#ifndef __GNUG__
+#error "__GNUG__ is not defined"
+#endif
+
+#ifdef _T
+#error "_T is defined"
+#endif
+
+// This is very incomplete partial implementation of the standard
+// <limits>. Only partial support for float and double is provided.
+
+namespace {
+// Template to return the number of decimal digits in a number
+// representation based on the number of bits and sign.
+// e.g  digits10<int,64,true>::value == 19
+template<typename T, T bits, bool is_signed> struct digits10 {
+    static const int value = 0;
+};
+
+// Specialization that can be used to initialize static constant at
+// compile time.
+template<> struct digits10<int,  8, false> { static const int value = 3; };
+template<> struct digits10<int,  8, true>  { static const int value = 3; };
+template<> struct digits10<int, 16, false> { static const int value = 5; };
+template<> struct digits10<int, 16, true>  { static const int value = 5; };
+template<> struct digits10<int, 32, false> { static const int value = 10; };
+template<> struct digits10<int, 32, true>  { static const int value = 10; };
+template<> struct digits10<int, 64, false> { static const int value = 20; };
+template<> struct digits10<int, 64, true>  { static const int value = 19; };
+}
+
+namespace std {
+
+struct __numeric_limits_base
+{
+    // True for all fundamental types.
+    static const bool is_specialized = false;
+
+    // True if the type is signed.
+    static const bool is_signed = false;
+
+    // True if the type is integer.
+    static const bool is_integer = false;
+
+    // The number of radix digits that be represented without change. For
+    // integer types, the number of non-sign bits in the representation; for
+    // floating-point types, the number of radix digits in the mantissa.
+    // Equivalent to FLT_MANT_DIG, DBL_MANT_DIG.
+    static const int digits = 0;
+
+    // The number of base 10 digits that can be represented without change.
+    // Equivalent to FLT_DIG, DBL_DIG, LDBL_MANT_DIG.
+    static const int digits10 = 0;
+};
+
+
+// Properties of fundamental types.
+// Only a subset of the properties is supported.
+template<typename _T>
+struct numeric_limits : public __numeric_limits_base
+{
+    // The minimum finite value.
+    static _T min() { return static_cast<_T>(0); }
+
+    // The maximum finite value.
+    static _T max() { return static_cast<_T>(0); }
+};
+
+// Specializations for some fundamental types.
+
+// numeric_limits<float>
+template<>
+struct numeric_limits<float>
+{
+    static const bool is_specialized = true;
+
+    static float min() { return __FLT_MIN__; }
+    static float max() { return __FLT_MAX__; }
+
+    static const bool is_signed = true;
+    static const bool is_integer = false;
+
+    static const int digits = __FLT_MANT_DIG__;
+    static const int digits10 = __FLT_DIG__;
+};
+
+// numeric_limits<double>
+template<>
+struct numeric_limits<double>
+{
+    static const bool is_specialized = true;
+
+    static double min() { return __DBL_MIN__; }
+    static double max() { return __DBL_MAX__; }
+
+    static const bool is_signed = true;
+    static const bool is_integer = false;
+
+    static const int digits = __DBL_MANT_DIG__;
+    static const int digits10 = __DBL_DIG__;
+};
+
+// numeric_limits<int>
+template<>
+struct numeric_limits<int>
+{
+    static const bool is_specialized = true;
+
+    static int min() { return INT_MIN; }
+    static int max() { return INT_MAX; }
+
+    static const bool is_signed = true;
+    static const bool is_integer = true;
+
+    static const int digits = static_cast<int>(sizeof(int) * CHAR_BIT);
+    static const int digits10 = digits10<int, digits, is_signed>::value;
+};
+
+// numeric_limits<unsigned int>
+template<>
+struct numeric_limits<unsigned int>
+{
+    static const bool is_specialized = true;
+
+    static unsigned int min() { return 0; }
+    static unsigned int max() { return UINT_MAX; }
+
+    static const bool is_signed = false;
+    static const bool is_integer = true;
+
+    static const int digits = static_cast<int>(sizeof(unsigned int) * CHAR_BIT);
+    static const int digits10 = digits10<int, digits, is_signed>::value;
+};
+
+// numeric_limits<long>
+template<>
+struct numeric_limits<long>
+{
+    static const bool is_specialized = true;
+
+    static long min() { return LONG_MIN; }
+    static long max() { return LONG_MAX; }
+
+    static const bool is_signed = true;
+    static const bool is_integer = true;
+
+    static const int digits = LONG_BIT;
+    static const int digits10 = digits10<int, digits, is_signed>::value;
+};
+
+// numeric_limits<unsigned long>
+template<>
+struct numeric_limits<unsigned long>
+{
+    static const bool is_specialized = true;
+
+    static unsigned long min() { return 0; }
+    static unsigned long max() { return ULONG_MAX; }
+
+    static const bool is_signed = true;
+    static const bool is_integer = true;
+
+    static const int digits = LONG_BIT;
+    static const int digits10 = digits10<int, digits, is_signed>::value;
+};
+
+// numeric_limits<long long>
+template<>
+struct numeric_limits<long long>
+{
+    static const bool is_specialized = true;
+
+    static long long min() { return LLONG_MIN; }
+    static long long max() { return LLONG_MAX; }
+
+    static const bool is_signed = true;
+    static const bool is_integer = true;
+
+    static const int digits = static_cast<int>(sizeof(long long) * CHAR_BIT);
+    static const int digits10 = digits10<int, digits, is_signed>::value;
+};
+
+// numeric_limits<unsigned long long>
+template<>
+struct numeric_limits<unsigned long long>
+{
+    static const bool is_specialized = true;
+
+    static unsigned long long min() { return 0; }
+    static unsigned long long max() { return ULLONG_MAX; }
+
+    static const bool is_signed = true;
+    static const bool is_integer = true;
+
+    static const int digits = static_cast<int>(sizeof(unsigned long long) * CHAR_BIT);
+    static const int digits10 = digits10<int, digits, is_signed>::value;
+};
+
+}  // namespace std
+
+
+#endif

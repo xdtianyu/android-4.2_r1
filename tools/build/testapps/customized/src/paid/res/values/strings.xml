@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Customized Paid App</string>
+    <string name="greeting">Hello world! Thanks for upgrading.</string>
+</resources>

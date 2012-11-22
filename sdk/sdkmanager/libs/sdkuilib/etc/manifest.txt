@@ -1,0 +1,1 @@
+Class-Path: sdklib.jar layoutlib_api.jar common.jar commons-compress-1.0.jar httpclient-4.1.1.jar httpcore-4.1.jar httpmime-4.1.1.jar commons-logging-1.1.1.jar commons-codec-1.4.jar swtmenubar.jar swt.jar org.eclipse.jface_3.6.2.M20110210-1200.jar org.eclipse.equinox.common_3.6.0.v20100503.jar org.eclipse.core.commands_3.6.0.I20100512-1500.jar

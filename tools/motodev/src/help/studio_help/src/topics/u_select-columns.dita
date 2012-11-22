@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference id="u_select-columns" xml:lang="en-us">
+  <title>Select Table Columns dialog</title>
+  <shortdesc>Allows you to select the database columns that are to be displayed within a new Database List
+    activity.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <p>When creating a new activity based upon the Database List template, after selecting the database table you are
+        then asked to select the table columns to be displayed in the list. Use this dialog to select the columns. Note
+        that by default all of the table's columns are selected.</p>
+    </section>
+  </refbody>
+</reference>

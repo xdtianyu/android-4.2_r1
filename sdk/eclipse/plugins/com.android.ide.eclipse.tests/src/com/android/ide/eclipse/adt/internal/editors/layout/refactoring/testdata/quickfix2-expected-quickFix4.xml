@@ -1,0 +1,3 @@
+< <color android:color="#0000000"/>
+---
+> <color android:color="#0000000" xmlns:android="http://schemas.android.com/apk/res/android"/>

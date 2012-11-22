@@ -1,0 +1,198 @@
+#
+# Copyright (C) 2010 The Android Open Source Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+#
+# These are the files that comprise the tools component of the SDK.
+#
+
+##############################################################################
+# Tools Component
+##############################################################################
+
+# version files for the SDK updater, from sdk.git
+sdk/files/tools_source.properties tools/source.properties
+
+# copy plugin.prop from sdk.git
+sdk/files/plugin.prop tools/lib/plugin.prop
+
+# readme regarding adb move to platform-tools
+sdk/files/adb_has_moved.txt tools/adb_has_moved.txt
+
+# native host tools from out/host/$(HOST_OS)-$(HOST_ARCH)/
+bin/sqlite3      strip tools/sqlite3
+bin/dmtracedump  strip tools/dmtracedump
+bin/etc1tool     strip tools/etc1tool
+bin/hprof-conv   strip tools/hprof-conv
+bin/mksdcard     strip tools/mksdcard
+bin/zipalign     strip tools/zipalign
+
+# emulator
+bin/emulator                         strip tools/emulator
+bin/emulator-x86                     strip tools/emulator-x86
+bin/emulator-arm                     strip tools/emulator-arm
+bin/emulator-mips                    strip tools/emulator-mips
+bin/emulator64-x86                   strip tools/emulator64-x86
+bin/emulator64-arm                   strip tools/emulator64-arm
+bin/emulator64-mips                  strip tools/emulator64-mips
+sdk/emulator/snapshot/snapshots.img  tools/lib/emulator/snapshots.img
+usr/share/pc-bios/bios.bin           tools/lib/pc-bios/bios.bin
+usr/share/pc-bios/vgabios-cirrus.bin tools/lib/pc-bios/vgabios-cirrus.bin
+
+# OpenGLES emulation libraries
+lib/libOpenglRender${DLL_EXTENSION}         strip tools/lib/libOpenglRender${DLL_EXTENSION}
+lib/libGLES_CM_translator${DLL_EXTENSION}   strip tools/lib/libGLES_CM_translator${DLL_EXTENSION}
+lib/libGLES_V2_translator${DLL_EXTENSION}   strip tools/lib/libGLES_V2_translator${DLL_EXTENSION}
+lib/libEGL_translator${DLL_EXTENSION}       strip tools/lib/libEGL_translator${DLL_EXTENSION}
+lib/lib64OpenglRender${DLL_EXTENSION}       strip tools/lib/lib64OpenglRender${DLL_EXTENSION}
+lib/lib64GLES_CM_translator${DLL_EXTENSION} strip tools/lib/lib64GLES_CM_translator${DLL_EXTENSION}
+lib/lib64GLES_V2_translator${DLL_EXTENSION} strip tools/lib/lib64GLES_V2_translator${DLL_EXTENSION}
+lib/lib64EGL_translator${DLL_EXTENSION}     strip tools/lib/lib64EGL_translator${DLL_EXTENSION}
+
+# Java-Based SDK Tools
+bin/ddms                tools/ddms
+bin/hierarchyviewer     tools/hierarchyviewer
+bin/draw9patch          tools/draw9patch
+bin/traceview           tools/traceview
+bin/android             tools/android
+bin/monkeyrunner        tools/monkeyrunner
+bin/lint                tools/lint
+bin/uiautomatorviewer   tools/uiautomatorviewer
+
+# sdk.git Ant templates for project build files
+sdk/templates/build.template        tools/lib/build.template
+sdk/templates/uibuild.template      tools/lib/uibuild.template
+sdk/files/proguard-project.txt      tools/lib/proguard-project.txt
+sdk/files/proguard-android.txt      tools/proguard/proguard-android.txt
+sdk/files/proguard-android-optimize.txt      tools/proguard/proguard-android-optimize.txt
+
+# Ant Build Rules
+sdk/files/ant                       tools/ant
+sdk/files/sdk_files_NOTICE.txt      tools/ant/NOTICE.txt
+
+# layout device definition
+sdk/files/devices.xml               tools/lib/devices.xml
+
+# AVD Hardware property list
+external/qemu/android/avd/hardware-properties.ini tools/lib/hardware-properties.ini
+
+# emacs support from sdk.git
+sdk/files/android.el tools/lib/android.el
+
+# Java Libraries for the tools
+framework/common.jar             tools/lib/common.jar
+framework/swtmenubar.jar         tools/lib/swtmenubar.jar
+sdk/apkbuilder/etc/apkbuilder    tools/apkbuilder
+framework/sdkstats.jar           tools/lib/sdkstats.jar
+framework/archquery.jar          tools/lib/archquery.jar
+framework/ddms.jar               tools/lib/ddms.jar
+framework/ddmlib.jar             tools/lib/ddmlib.jar
+framework/ddmuilib.jar           tools/lib/ddmuilib.jar
+framework/hierarchyviewer2.jar   tools/lib/hierarchyviewer2.jar
+framework/hierarchyviewerlib.jar tools/lib/hierarchyviewerlib.jar
+framework/draw9patch.jar         tools/lib/draw9patch.jar
+framework/traceview.jar          tools/lib/traceview.jar
+framework/anttasks.jar           tools/lib/anttasks.jar
+framework/sdklib.jar             tools/lib/sdklib.jar
+framework/sdkuilib.jar           tools/lib/sdkuilib.jar
+framework/sdkmanager.jar         tools/lib/sdkmanager.jar
+framework/monkeyrunner.jar       tools/lib/monkeyrunner.jar
+framework/chimpchat.jar          tools/lib/chimpchat.jar
+framework/guava-tools.jar        tools/lib/guava-tools.jar
+framework/jsilver.jar            tools/lib/jsilver.jar
+framework/jython.jar             tools/lib/jython.jar
+framework/mkidentity-prebuilt.jar tools/lib/mkidentity.jar
+framework/lint.jar               tools/lib/lint.jar
+framework/lint_api.jar           tools/lib/lint_api.jar
+framework/lint_checks.jar        tools/lib/lint_checks.jar
+framework/manifmerger.jar        tools/lib/manifmerger.jar
+framework/dvlib.jar              tools/lib/dvlib.jar
+framework/layoutlib_api.jar      tools/lib/layoutlib_api.jar
+framework/uiautomatorviewer.jar  tools/lib/uiautomatorviewer.jar
+
+
+# 3rd Party java libraries
+framework/commons-compress-1.0.jar                            tools/lib/commons-compress-1.0.jar
+framework/httpclient-4.1.1.jar                                tools/lib/httpclient-4.1.1.jar
+framework/httpcore-4.1.jar                                    tools/lib/httpcore-4.1.jar
+framework/httpmime-4.1.1.jar                                  tools/lib/httpmime-4.1.1.jar
+framework/commons-logging-1.1.1.jar                           tools/lib/commons-logging-1.1.1.jar
+framework/commons-codec-1.4.jar                               tools/lib/commons-codec-1.4.jar
+framework/emmalib.jar                                         tools/lib/emma_device.jar
+external/emma/lib/emma.jar                                    tools/lib/emma.jar
+external/emma/lib/emma_ant.jar                                tools/lib/emma_ant.jar
+framework/jcommon-1.0.12.jar                                  tools/lib/jcommon-1.0.12.jar
+framework/jfreechart-1.0.9.jar                                tools/lib/jfreechart-1.0.9.jar
+framework/jfreechart-1.0.9-swt.jar                            tools/lib/jfreechart-1.0.9-swt.jar
+framework/org.eclipse.core.commands_3.6.0.I20100512-1500.jar  tools/lib/org.eclipse.core.commands_3.6.0.I20100512-1500.jar
+framework/org.eclipse.equinox.common_3.6.0.v20100503.jar      tools/lib/org.eclipse.equinox.common_3.6.0.v20100503.jar
+framework/org.eclipse.jface_3.6.2.M20110210-1200.jar          tools/lib/org.eclipse.jface_3.6.2.M20110210-1200.jar
+framework/osgi.jar                                            tools/lib/osgi.jar
+framework/swing-worker-1.1.jar                                tools/lib/swing-worker-1.1.jar
+prebuilts/tools/common/asm-tools/asm-4.0.jar                  tools/lib/asm-4.0.jar
+prebuilts/tools/common/asm-tools/asm-tree-4.0.jar             tools/lib/asm-tree-4.0.jar
+prebuilts/tools/common/asm-tools/asm-analysis-4.0.jar         tools/lib/asm-analysis-4.0.jar
+prebuilts/tools/common/guava-tools/guava-13.0.1.jar           tools/lib/guava-13.0.1.jar
+prebuilts/tools/common/lombok-ast/lombok-ast-0.2.jar          tools/lib/lombok-ast-0.2.jar
+
+# Proguard
+# We're skipping the build and src/ trees (except for src/proguard/ant/task.properties)
+# and copying in a license.html file
+prebuilts/tools/common/proguard/license.html                   tools/proguard/license.html
+prebuilts/tools/common/proguard/proguard4.7/README             tools/proguard/README
+prebuilts/tools/common/proguard/proguard4.7/docs               tools/proguard/docs
+prebuilts/tools/common/proguard/proguard4.7/examples           tools/proguard/examples
+prebuilts/tools/common/proguard/proguard4.7/lib                tools/proguard/lib
+prebuilts/tools/common/proguard/proguard4.7/bin/proguard.sh    tools/proguard/bin/proguard.sh
+prebuilts/tools/common/proguard/proguard4.7/bin/proguardgui.sh tools/proguard/bin/proguardgui.sh
+prebuilts/tools/common/proguard/proguard4.7/bin/retrace.sh     tools/proguard/bin/retrace.sh
+prebuilts/tools/common/proguard/proguard4.7/src/proguard/ant/task.properties  tools/proguard/ant/task.properties
+
+# Templates
+sdk/templates/projects                   tools/templates/projects
+sdk/templates/activities                 tools/templates/activities
+sdk/templates/other                      tools/templates/other
+
+# SDK Controller
+sdk/apps/SdkController       tools/apps/SdkController
+
+# tools specific support jar
+framework/annotations.jar   tools/support/annotations.jar
+
+# systrace
+external/chromium-trace/systrace.py    tools/systrace/systrace.py
+external/chromium-trace/script.js      tools/systrace/script.js
+external/chromium-trace/style.css      tools/systrace/style.css
+external/chromium-trace/LICENSE        tools/systrace/LICENSE
+external/chromium-trace/AUTHORS        tools/systrace/AUTHORS
+
+# Misspelling databases for lint
+sdk/files/typos                        tools/support
+
+##############################################################################
+# Tests Component
+##############################################################################
+
+sdk/testapps                      tests/testapps
+framework/ddmlib-tests.jar        tests/libtests/ddmlib-tests.jar
+framework/ninepatch-tests.jar     tests/libtests/ninepatch-tests.jar
+framework/common-tests.jar        tests/libtests/common-tests.jar
+framework/sdklib-tests.jar        tests/libtests/sdklib-tests.jar
+framework/sdkuilib-tests.jar      tests/libtests/sdkuilib-tests.jar
+framework/layoutlib_api.jar       tests/libtests/layoutlib_api.jar
+framework/dvlib-tests.jar         tests/libtests/dvlib-tests.jar
+#FIXME breaks build, manifmerger jar files not properly built
+#framework/manifmerger-tests.jar   tests/libtests/manifmerger-tests.jar
+

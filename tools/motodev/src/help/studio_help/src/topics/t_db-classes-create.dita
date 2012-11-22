@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "../dtd/task.dtd">
+<task id="t_db-classes-create" xml:lang="en-us">
+  <title>Creating database management classes</title>
+  <shortdesc>Creates classes you can use to manage and access your application's database: content providers for each of
+    the database's tables, and a SQL open helper that can create and if desired initialize your database at runtime.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <prereq>This feature creates classes based upon the schema of an existing database. Accordingly, the database for
+      which you want to create classes must already exist. Note that the tables need to have the desired structure, but
+      need not have any content.</prereq>
+    <steps>
+      <step>
+        <cmd>In the Package Explorer right-click the project into which the database management classes are to be added
+          and select <menucascade>
+            <uicontrol>MOTODEV Studio</uicontrol><uicontrol>Create Database Management Classes</uicontrol>
+          </menucascade>.</cmd>
+        <stepresult>The Database Management Classes dialog appears, with various fields specific to your project filled
+          in.</stepresult>
+      </step>
+      <step>
+        <cmd>Using the <uicontrol>Database File</uicontrol> field, specify the location of the database from which the
+          classes are to be generated.</cmd>
+        <choices>
+          <choice>If the database is already part of your project click <uicontrol>Workspace</uicontrol> and select your
+            project's database.</choice>
+          <choice>If the database is not part of your project, click <uicontrol>Filesystem</uicontrol> and specify the
+            database to be used. Note that if you select this option the database will be copied into the appropriate
+            location within your project.</choice>
+        </choices>
+      </step>
+      <step>
+        <cmd>An SQL Open Helper class ensures at runtime that there is a copy of your database in your application's
+            <filepath>/data/data/</filepath> directory, from where it can be accessed by your application; it is
+          particularly useful if you want your app to launch with a preinitialized database. If you would like to have a
+          SQL Open Helper class generated for your database, ensure that <uicontrol>Generate SQL Open Helper</uicontrol>
+          is selected and specify a name for the helper class in the <uicontrol>Name</uicontrol> field. Also indicate
+          the source folder into which the generated class is to be written using the <uicontrol>Source
+          folder</uicontrol> field, and the package of which the class is to be a member using the <uicontrol
+          >Package</uicontrol> field. If you do not want an SQL Open Helper, clear the <uicontrol>Generate SQL Open
+            Helper</uicontrol> option.</cmd>
+      </step>
+      <step>
+        <cmd>To generate content providers for each of your database's tables, ensure that <uicontrol>Generate content
+            providers for each table</uicontrol> is selected. Specify the source folder into which the generated classes
+          are to be written using the <uicontrol>Source Folder</uicontrol> field, and the package of which the classes
+          are to be a member using the <uicontrol>Package</uicontrol> field. Each generated content provider class will
+          be named for the table from which it was generated; the class name will have the form <i>table_name</i><codeph
+            >ContentProvider</codeph>. If the generated source file names conflict with existing files within the
+          specified source folder, the existing files will be overwritten unless you clear the <uicontrol>Overwrite if
+            it already exists</uicontrol> option.</cmd>
+      </step>
+      <step>
+        <cmd>Click <uicontrol>Finish</uicontrol>.</cmd>
+      </step>
+    </steps>
+  </taskbody>
+</task>

@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="MOTODEV Studio for Android" default="noDefault">
+
+	<target name="createSiteXML">
+		<echoxml file="/tmp/site.xml">
+			<site>
+				<feature url="features/${studioFeatureName}.${studioFeatureVersion}.jar" id="${studioFeatureName}" version="${studioFeatureVersion}">
+					<category name="MOTODEVStudioforAndroid" />
+				</feature>
+				<category-def name="MOTODEVStudioforAndroid" label="MOTODEV Studio for Android" />
+				<feature url="features/${appValidatorFeatureName}.${appValidatorFeatureVersion}.jar" id="${appValidatorFeatureName}" version="${appValidatorFeatureVersion}">
+					<category name="MOTODEVStudioforAndroid" />
+				</feature>
+				<feature url="features/${appValidatorUIFeatureName}.${appValidatorUIFeatureVersion}.jar" id="${appValidatorUIFeatureName}" version="${appValidatorUIFeatureVersion}">
+					<category name="MOTODEVStudioforAndroid" />
+				</feature>
+				<feature url="features/${appValidatorSDKFeatureName}.${appValidatorSDKFeatureVersion}.jar" id="${appValidatorSDKFeatureName}" version="${appValidatorSDKFeatureVersion}">
+					<category name="MOTODEVStudioforAndroid" />
+				</feature>
+			</site>
+		</echoxml>
+	</target>
+
+	<!-- Was called by generate.language.packs -->
+	<target name="createSimpleRepository">
+		<antcall target="createSiteXML" />
+		<p2.mirror source="${OUTPUT_METADATA_PRODUCT}" destination="file:/${OUTPUT_METADATA_STUDIO}" raw="false">
+			<iu id="com.motorola.studio.android.feature.feature.group" />
+			<iu id="com.motorolamobility.preflighting.ui.feature.feature.group" />
+			<iu id="com.motorolamobility.preflighting.feature.feature.group" />
+			<iu id="com.motorolamobility.preflighting.sdk.feature.feature.group" />
+			<slicingoptions followstrict="true" includeoptional="false" includenongreedy="false" followonlyfilteredrequirements="true" includefeatures="true" />
+		</p2.mirror>
+
+		<eclipse.publish.featuresAndBundles append="true" artifactrepository="file:/${OUTPUT_METADATA_STUDIO}" artifactrepositoryname="MOTODEV Studio for Android Repository" metadatarepository="file:/${OUTPUT_METADATA_STUDIO}" metadatarepositoryname="MOTODEV Studio for Android Repository" site="file:/tmp/site.xml">
+
+			<features dir="${OUTPUT_METADATA_PRODUCT}" includes="features/com.motorola.studio.android.feature*" />
+			<features dir="${OUTPUT_METADATA_PRODUCT}" includes="features/com.motorolamobility.preflighting*" />			
+			<bundles dir="${OUTPUT_METADATA_PRODUCT}" includes="plugins/com.motorola.studio.android*" />
+			<bundles dir="${OUTPUT_METADATA_PRODUCT}" includes="plugins/com.motorolamobility.studio.android*" />
+			<bundles dir="${OUTPUT_METADATA_PRODUCT}" includes="plugins/com.motorolamobility.preflighting*" />
+		</eclipse.publish.featuresAndBundles>
+	</target>
+
+	<target name="createBasicSiteXML">
+			<echoxml file="/tmp/basicsite.xml">
+				<site>
+					<category-def name="MOTODEVStudioforAndroidBasic" label="MOTODEV Studio for Android Core" />
+					<feature url="features/com.motorola.studio.android.basic.feature.${studioFeatureVersion}.jar" id="com.motorola.studio.android.basic.feature" version="${studioFeatureVersion}">
+						<category name="MOTODEVStudioforAndroidBasic" />
+					</feature>					
+					<category-def name="MOTODEVStudioforAndroid" label="MOTODEV Studio for Android App Validator" />
+					<feature url="features/${appValidatorFeatureName}.${appValidatorFeatureVersion}.jar" id="${appValidatorFeatureName}" version="${appValidatorFeatureVersion}">
+						<category name="MOTODEVStudioforAndroid" />
+					</feature>
+					<feature url="features/${appValidatorUIFeatureName}.${appValidatorUIFeatureVersion}.jar" id="${appValidatorUIFeatureName}" version="${appValidatorUIFeatureVersion}">
+						<category name="MOTODEVStudioforAndroid" />
+					</feature>
+					<feature url="features/${appValidatorSDKFeatureName}.${appValidatorSDKFeatureVersion}.jar" id="${appValidatorSDKFeatureName}" version="${appValidatorSDKFeatureVersion}">
+						<category name="MOTODEVStudioforAndroid" />
+					</feature>
+				</site>
+			</echoxml>
+	</target>
+	
+	<target name="createSimpleBasicRepository">
+			<antcall target="createBasicSiteXML" />
+			<mkdir dir="${OUTPUT_METADATA_STUDIO_BASIC}"/>
+			<copy tofile="${OUTPUT_METADATA_STUDIO_BASIC}/content.xml" file="${MAKEFILE}/repository_skel/content_basic.xml"/>
+			<p2.mirror source="${OUTPUT_METADATA_STUDIO_FULL}" destination="file:/${OUTPUT_METADATA_STUDIO_BASIC}" raw="false">
+				<iu id="com.motorola.studio.android.basic.feature.feature.group" />		
+			<iu id="com.motorolamobility.preflighting.ui.feature.feature.group" />
+			<iu id="com.motorolamobility.preflighting.feature.feature.group" />
+			<iu id="com.motorolamobility.preflighting.sdk.feature.feature.group" />				
+				<slicingoptions followstrict="true" includeoptional="false" includenongreedy="false" followonlyfilteredrequirements="true" includefeatures="true" />
+			</p2.mirror>
+
+			<eclipse.publish.featuresAndBundles append="true" artifactrepository="file:/${OUTPUT_METADATA_STUDIO_BASIC}" artifactrepositoryname="MOTODEV Studio for Android Core Repository" metadatarepository="file:/${OUTPUT_METADATA_STUDIO_BASIC}" metadatarepositoryname="MOTODEV Studio for Android Core Repository" site="file:/tmp/basicsite.xml">
+				<features dir="${OUTPUT_METADATA_STUDIO_FULL}" includes="features/com.motorola.studio.android.basic.feature*" />
+				<features dir="${OUTPUT_METADATA_STUDIO_FULL}" includes="features/com.motorolamobility.preflighting*" />
+				<bundles dir="${OUTPUT_METADATA_STUDIO_FULL}" includes="plugins/com.motorola.studio.android.common*" />
+	            <bundles dir="${OUTPUT_METADATA_STUDIO_FULL}" includes="plugins/com.motorola.studio.android.codeutils*"/>        
+	            <bundles dir="${OUTPUT_METADATA_STUDIO_FULL}" includes="plugins/com.motorolamobility.studio.android.db.core*"/>         
+	            <bundles dir="${OUTPUT_METADATA_STUDIO_FULL}" includes="plugins/com.motorola.studio.android.translation*"/>
+				<bundles dir="${OUTPUT_METADATA_STUDIO_FULL}" includes="plugins/com.motorola.studio.android.codesnippets*"/>
+				<bundles dir="${OUTPUT_METADATA_STUDIO_FULL}" includes="plugins/com.motorolamobility.studio.android.certmanager*"/>
+				<bundles dir="${OUTPUT_METADATA_STUDIO_FULL}" includes="plugins/com.motorolamobility.studio.android.logger*"/>
+				<bundles dir="${OUTPUT_METADATA_STUDIO_FULL}" includes="plugins/com.motorolamobility.preflighting*" />
+				<bundles dir="${OUTPUT_METADATA_STUDIO_FULL}" includes="plugins/com.motorolamobility.studio.android*" />
+				<bundles dir="${OUTPUT_METADATA_STUDIO_FULL}" includes="binary/com.motorolamobility.preflighting*" />
+			</eclipse.publish.featuresAndBundles>
+			
+			<!-- run the category publisher.. there is no ant task to execute it -->
+			<java failonerror="true" jar="${eclipse.builder.path}/plugins/${eclipse.builder.launcher}" fork="true">
+				<arg value="-application" />
+				<arg value="org.eclipse.equinox.p2.publisher.CategoryPublisher" />
+				<arg value="-metadataRepository" />
+				<arg value="file:/${OUTPUT_METADATA_STUDIO_BASIC}" />
+				<arg value="-categoryDefinition" />
+				<arg value="file:/tmp/basicsite.xml" />
+			</java>
+	</target>
+	
+	<target name="mergeAppValidatorAndStudioRepositories">
+		<antcall target="createSiteXML" />
+		<p2.mirror destination="${OUTPUT_METADATA_PRODUCT}" source="file:${APPVALIDATOR_OUTPUT}" />
+		<java failonerror="true" jar="${eclipse.builder.path}/plugins/${eclipse.builder.launcher}" fork="true">
+			<arg value="-application" />
+			<arg value="org.eclipse.equinox.p2.publisher.CategoryPublisher" />
+			<arg value="-metadataRepository" />
+			<arg value="file:/${OUTPUT_METADATA_PRODUCT}" />
+			<arg value="-categoryDefinition" />
+			<arg value="file:/tmp/site.xml" />
+		</java>
+	</target>
+
+	<target name="genFullRepo">
+		<antcall target="createSiteXML" />
+		<p2.mirror destination="file:/${OUTPUT_METADATA_STUDIO_FULL}" raw="false">
+			<slicingoptions followstrict="true" includefeatures="true" />
+			<source>
+				<repository location="file:${OUTPUT_METADATA_PRODUCT}" />
+				<repository location="file://${BASE_REPOSITORIES_DIR}/REPO_ADT" />
+				<repository location="file://${BASE_REPOSITORIES_DIR}/REPO_ECLIPSE_PLATFORM" />
+				<repository location="file://${BASE_REPOSITORIES_DIR}/REPO_EMF_XSD_SDO" />
+				<repository location="file://${BASE_REPOSITORIES_DIR}/REPO_GEF" />
+				<repository location="file://${BASE_REPOSITORIES_DIR}/REPO_SEQUOYAH" />
+				<repository location="file://${BASE_REPOSITORIES_DIR}/REPO_JDT" />
+				<repository location="file://${BASE_REPOSITORIES_DIR}/REPO_WTP" />
+				<repository location="file://${BASE_REPOSITORIES_DIR}/REPO_DATATOOLS" />
+				<repository location="file://${BASE_REPOSITORIES_DIR}/REPO_RSS" />
+				<repository location="file://${BASE_REPOSITORIES_DIR}/REPO_BIRT" />
+				<repository location="file://${BASE_REPOSITORIES_DIR}/REPO_MAT" />
+				<repository location="file://${BASE_REPOSITORIES_DIR}/REPO_PROGUARD" />
+				<repository location="file://${BASE_REPOSITORIES_DIR}/REPO_PDE" />
+				<repository location="file://${BASE_REPOSITORIES_DIR}/REPO_MPC" />
+				<repository location="file://${BASE_REPOSITORIES_DIR}/REPO_EQUINOX" />
+				<repository location="file://${APPVALIDATOR_OUTPUT}" />
+			</source>
+			<iu id="com.motorola.studio.android.feature.feature.group" />
+			<iu id="com.motorolamobility.preflighting.ui.feature.feature.group" />
+			<iu id="com.motorolamobility.preflighting.feature.feature.group" />
+			<iu id="com.motorolamobility.preflighting.sdk.feature.feature.group" />
+			<iu id="biz.junginger.rss.eclipse.RssPlugin.feature.feature.group" />
+			<iu id="com.android.ide.eclipse.adt.feature.group" />
+			<iu id="com.android.ide.eclipse.ddms.feature.group" />
+			<iu id="com.android.ide.eclipse.hierarchyviewer.feature.group" />
+			<iu id="com.android.ide.eclipse.traceview.feature.group" />
+			<iu id="org.apache.commons.logging" />
+			<iu id="org.eclipse.datatools.enablement.sqlite.feature.feature.group" />
+			<iu id="org.eclipse.datatools.sqldevtools.data.feature.feature.group" />
+			<iu id="org.eclipse.datatools.connectivity.feature.feature.group" />
+			<iu id="org.eclipse.datatools.connectivity.oda.feature.feature.group" />
+			<iu id="org.eclipse.datatools.modelbase.feature.feature.group" />
+			<iu id="org.eclipse.datatools.sqldevtools.feature.feature.group" />
+			<iu id="org.eclipse.datatools.enablement.jdbc.feature.feature.group" />
+			<iu id="org.eclipse.datatools.common.doc.user.feature.group" />
+			<iu id="org.eclipse.datatools.sqltools.doc.user.feature.group" />
+			<iu id="org.eclipse.datatools.connectivity.doc.user.feature.group" />
+			<iu id="org.eclipse.datatools.doc.user.feature.group" />
+			<iu id="org.eclipse.gef.feature.group" />
+			<iu id="org.eclipse.jdt.feature.group" />
+			<iu id="org.eclipse.emf.feature.group" />
+			<iu id="org.eclipse.emf.ecore.feature.group" />
+			<iu id="org.eclipse.emf.ecore.edit.feature.group" />
+			<iu id="org.eclipse.emf.edit.ui.feature.group" />
+			<iu id="org.eclipse.emf.ecore.editor.feature.group" />
+			<iu id="org.eclipse.emf.converter.feature.group" />
+			<iu id="org.eclipse.emf.common.feature.group" />
+			<iu id="org.eclipse.emf.common.ui.feature.group" />
+			<iu id="org.eclipse.emf.mapping.feature.group" />
+			<iu id="org.eclipse.emf.mapping.ecore.feature.group" />
+			<iu id="org.eclipse.emf.mapping.ecore.editor.feature.group" />
+			<iu id="org.eclipse.emf.mapping.ui.feature.group" />
+			<iu id="org.eclipse.emf.codegen.feature.group" />
+			<iu id="org.eclipse.emf.codegen.ui.feature.group" />
+			<iu id="org.eclipse.emf.codegen.ecore.feature.group" />
+			<iu id="org.eclipse.emf.codegen.ecore.ui.feature.group" />
+			<iu id="org.eclipse.emf.databinding.feature.group" />
+			<iu id="org.eclipse.emf.databinding.edit.feature.group" />
+			<iu id="org.eclipse.emf.edit.feature.group" />
+			<iu id="org.eclipse.emf" />
+			<iu id="org.eclipse.emf.ant" />
+			<iu id="org.eclipse.emf.ecore" />
+			<iu id="org.eclipse.emf.common.ui" />
+			<iu id="org.eclipse.emf.edit.ui" />
+			<iu id="org.eclipse.emf.common" />
+			<iu id="org.eclipse.emf.mapping.ui" />
+			<iu id="org.eclipse.emf.mapping" />
+			<iu id="org.eclipse.emf.ecore.xmi" />
+			<iu id="org.eclipse.emf.ecore.change" />
+			<iu id="org.eclipse.emf.ecore.change.edit" />
+			<iu id="org.eclipse.emf.ecore.edit" />
+			<iu id="org.eclipse.emf.ecore.editor" />
+			<iu id="org.eclipse.emf.importer" />
+			<iu id="org.eclipse.emf.importer.ecore" />
+			<iu id="org.eclipse.emf.importer.rose" />
+			<iu id="org.eclipse.emf.importer.java" />
+			<iu id="org.eclipse.emf.exporter" />
+			<iu id="org.eclipse.emf.converter" />
+			<iu id="org.eclipse.emf.mapping.ecore" />
+			<iu id="org.eclipse.emf.mapping.ecore.editor" />
+			<iu id="org.eclipse.emf.mapping.ecore2ecore" />
+			<iu id="org.eclipse.emf.mapping.ecore2ecore.editor" />
+			<iu id="org.eclipse.emf.mapping.ecore2xml" />
+			<iu id="org.eclipse.emf.mapping.ecore2xml.ui" />
+			<iu id="org.eclipse.emf.edit" />
+			<iu id="org.eclipse.emf.codegen" />
+			<iu id="org.eclipse.emf.codegen.ui" />
+			<iu id="org.eclipse.emf.codegen.ecore" />
+			<iu id="org.eclipse.emf.codegen.ecore.ui" />
+			<iu id="org.eclipse.emf.databinding.edit" />
+			<iu id="org.eclipse.emf.databinding" />
+			<iu id="org.eclipse.mat.feature.feature.group" />
+			<iu id="org.eclipse.mat.chart.feature.feature.group" />
+			<iu id="org.eclipse.birt.core" />
+			<iu id="org.eclipse.birt.chart.engine" />
+			<iu id="org.eclipse.birt.chart.device.extension" />
+			<iu id="org.eclipse.birt.chart.device.swt" />
+			<iu id="org.eclipse.birt.chart.engine.extension" />
+			<iu id="org.eclipse.xsd.edit" />
+			<iu id="org.eclipse.xsd" />
+			<iu id="org.eclipse.sequoyah.device.common.feature.feature.group" />
+			<iu id="org.eclipse.sequoyah.device.feature.feature.group" />
+			<iu id="org.eclipse.sequoyah.localization.tools.feature.feature.group" />
+			<iu id="org.eclipse.sequoyah.localization.android.feature.feature.group" />
+			<iu id="org.eclipse.sequoyah.vnc.vncviewer.feature.feature.group" />
+			<iu id="org.eclipse.sequoyah.vnc.protocol.feature.feature.group" />
+			<iu id="org.eclipse.sequoyah.vnc.feature.feature.group" />
+			<iu id="org.eclipse.wst.common.fproj.feature.group" />
+			<iu id="org.eclipse.wst.jsdt.feature.feature.group" />
+			<iu id="org.eclipse.wst.server_adapters.feature.feature.group" />
+			<iu id="org.eclipse.wst.web_ui.feature.feature.group" />
+			<iu id="org.eclipse.wst.xml_core.feature.feature.group" />
+			<iu id="org.eclipse.wst.xml_ui.feature.feature.group" />
+			<iu id="org.eclipse.wst.xsl.feature.feature.group" />
+			<iu id="org.eclipse.xsd.feature.group" />
+			<iu id="org.eclipse.xsd.edit.feature.group" />
+			<iu id="org.eclipse.pde.feature.group" />
+			<iu id="net.certiv.proguarddt.feature.feature.group" />
+			<iu id="org.eclipse.epp.mpc.feature.group" />
+			<iu id="org.eclipse.equinox.p2.discovery.feature.feature.group" />
+		</p2.mirror>
+
+		<!-- Also mirror de product -->
+		<p2.mirror source="${OUTPUT_METADATA_PRODUCT}" destination="file:/${OUTPUT_METADATA_STUDIO_FULL}" />
+
+		<!-- run the category publisher.. there is no ant task to execute it -->
+		<java failonerror="true" jar="${eclipse.builder.path}/plugins/${eclipse.builder.launcher}" fork="true">
+			<arg value="-application" />
+			<arg value="org.eclipse.equinox.p2.publisher.CategoryPublisher" />
+			<arg value="-metadataRepository" />
+			<arg value="file:/${OUTPUT_METADATA_STUDIO_FULL}" />
+			<arg value="-categoryDefinition" />
+			<arg value="file:/tmp/site.xml" />
+		</java>
+
+	</target>
+
+	<target name="genAdditionsArchive">
+
+	</target>
+
+	<target name="genNativeArchive">
+
+	</target>
+
+	<target name="noDefault">
+		<echo message="You must specify a target when invoking this file" />
+	</target>
+</project>

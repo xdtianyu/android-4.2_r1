@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference id="u_device-screen-capture" xml:lang="en-us">
+  <title>Device Screen Capture view</title>
+  <shortdesc>The Device Screen Capture view presents a snapshot of a real or emulated device screen. From this dialog
+    you can save the image as a PNG file or copy it to the clipboard. From this dialog you can also capture additional
+    screen images from the selected device.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <p>The Device Screen Capture view appears when you right-click a device in the Device Management view (either a
+        connected device listed under <uicontrol>Android Handset</uicontrol> or an emulated device listed under
+          <uicontrol>Android Virtual Device</uicontrol>) and select <uicontrol>Take Screenshot</uicontrol>. Note that
+        the captured screen isn't automatically saved or copied to the clipboard; you need to use the <uicontrol
+        >Save</uicontrol> or <uicontrol>Copy</uicontrol> buttons to preserve the image.</p>
+    </section>
+    <simpletable>
+      <strow>
+        <stentry><uicontrol>Refresh</uicontrol></stentry>
+        <stentry>Recaptures the device screen. By manipulating the device and clicking <uicontrol>Refresh</uicontrol>,
+          you can easily capture a series of screen images.</stentry>
+      </strow>
+      <strow>
+        <stentry><uicontrol>Rotate</uicontrol></stentry>
+        <stentry>Rotates the captured image 90 degrees counterclockwise. Successive clicks of the <uicontrol
+          >Rotate</uicontrol> button continue to rotate the image; two clicks turn the image upside down, for
+        instance.</stentry>
+      </strow>
+      <strow>
+        <stentry><uicontrol>Save</uicontrol></stentry>
+        <stentry>Saves the image as a PNG file in a location you specify.</stentry>
+      </strow>
+      <strow>
+        <stentry><uicontrol>Copy</uicontrol></stentry>
+        <stentry>Copies the image to the computer's clipboard.</stentry>
+      </strow>
+      <strow>
+        <stentry><uicontrol>Done</uicontrol></stentry>
+        <stentry>Closes the Device Screen Capture dialog. Note that if you haven't saved the image or copied it to the
+          clipboard, the image won't be preserved.</stentry>
+      </strow>
+    </simpletable>
+  </refbody>
+</reference>

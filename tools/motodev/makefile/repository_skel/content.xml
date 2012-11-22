@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?metadataRepository class='org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository' version='1.0.0'?>
+<repository name='MOTODEV Studio for Android' type='org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository' version='1'>
+  <references size="16">
+    <!-- Sequoyah -->
+    <repository url="http://download.eclipse.org/sequoyah/updates/2.1/" options="1" type="0"/>
+    <repository url="http://download.eclipse.org/sequoyah/updates/2.1/" options="1" type="1"/>
+    
+    <!-- proguard updates -->  
+    <repository url="http://www.certiv.net/updates/" options="1" type="0"/>
+    <repository url="http://www.certiv.net/updates/" options="1" type="1"/>
+	
+	<repository url="https://studio-android.motodevupdate.com/platform/3.2/" type="0" options="1"/>
+	<repository url="https://studio-android.motodevupdate.com/platform/3.2/" type="1" options="1"/>
+	<repository url="https://studio-android.motodevupdate.com/android/4.1/adt/" type="0" options="1"/>
+	<repository url="https://studio-android.motodevupdate.com/android/4.1/adt/" type="1" options="1"/>
+	<repository url="https://studio-android.motodevupdate.com/android/4.1/basic/" type="0" options="1"/>
+	<repository url="https://studio-android.motodevupdate.com/android/4.1/basic/" type="1" options="1"/>
+	<repository url="https://studio-android.motodevupdate.com/android/4.1/studio/" type="0" options="1"/>
+	<repository url="https://studio-android.motodevupdate.com/android/4.1/studio/" type="1" options="1"/>
+	<repository url="http://download.eclipse.org/releases/juno/" type="0" options="1"/>
+	<repository url="http://download.eclipse.org/releases/juno/" type="1" options="1"/>
+	<repository url="https://studio-android.motodevupdate.com/android/4.1/rss/" type="0" options="1"/>
+	<repository url="https://studio-android.motodevupdate.com/android/4.1/rss/" type="1" options="1"/>	
+  </references>
+</repository>

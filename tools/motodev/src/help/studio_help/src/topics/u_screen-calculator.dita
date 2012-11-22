@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference id="u_screen-calculator" xml:lang="en-us">
+  <title>Screen Resolution/Scale Calculator</title>
+  <shortdesc>Calculates pixel density (or "screen resolution") in DPI and a scale value that cause an emulated device to
+    be displayed "life-size" on your development computer's screen..</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>This calculator can be invoked either from the New Android Virtual Device Instance dialog (the final dialog
+      you see when creating a new AVD from the Device Management view) or from the AVD properties (right-click an AVD in
+      the Device Management view, select <uicontrol>Properties</uicontrol>, and then in the Properties dialog navigate
+      to <menucascade><uicontrol>Android Virtual Device</uicontrol><uicontrol>Startup
+      Options</uicontrol></menucascade>). Simply click <uicontrol>Calculate</uicontrol> next to either the <uicontrol
+        >Screen Resolution (dpi)</uicontrol> or <uicontrol>Scale</uicontrol> options to display the calculator. Once you
+      have entered the necessary values into the calculator, click <uicontrol>OK</uicontrol> to close the calculator and
+      copy the calculated values to the appropriate startup options.</section>
+    <section>
+      <simpletable>
+        <strow>
+          <stentry><uicontrol>Device Screen Size (in)</uicontrol></stentry>
+          <stentry>The screen size (diagonal), in inches, of the device being emulated. This information is generally
+            included on the device specification sheet.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Monitor Screen Resolution</uicontrol></stentry>
+          <stentry>The pixel density or screen size (diagonal) of your development computer's display. Either click
+              <uicontrol>Value (dpi)</uicontrol> and supply your monitor's density (in pixels per inch), or click
+              <uicontrol>Based on Monitor Size (in)</uicontrol> and specify your monitor's size (the diagonal
+            measurement) in inches. It is important to note that when supplying a monitor size you only specify the
+            actual viewable display size; do not include the bezel.</stentry>
+        </strow>
+      </simpletable>
+    </section>
+  </refbody>
+</reference>

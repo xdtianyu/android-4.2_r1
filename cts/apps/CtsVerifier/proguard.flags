@@ -1,0 +1,8 @@
+-keepclasseswithmembernames class * {
+    native <methods>;
+}
+
+-keepclassmembers class com.android.cts.verifier.os.FileUtils$FileStatus {
+    private <fields>;
+}
+

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="actionBarTitle">Action Bar Title</string>
+    <string name="actionItem1">Action item 1</string>
+    <string name="actionItem2">Action item 2</string>
+    <string name="actionItem3">Action item 3</string>
+</resources>

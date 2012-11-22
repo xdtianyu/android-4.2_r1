@@ -1,0 +1,4 @@
+Code completion in completion3.xml for <Button ^></Button> selecting android:paddingRight:
+<     <Button ^></Button>
+---
+>     <Button android:paddingRight="^"></Button>

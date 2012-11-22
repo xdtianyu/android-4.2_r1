@@ -1,0 +1,5 @@
+apply plugin: 'android-library'
+
+android {
+    target = "android-15"
+}

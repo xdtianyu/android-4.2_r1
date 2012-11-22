@@ -1,0 +1,5 @@
+# init switches to init domain (via init.rc).
+type init, domain;
+# init is unconfined.
+unconfined_domain(init)
+tmpfs_domain(init)

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task
+  PUBLIC "-//OASIS//DTD DITA Task//EN" "../dtd/task.dtd">
+<task xml:lang="en-us" id="t_emulator-view-opening">
+  <title>Opening the Android Emulator view</title>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <context>
+      <p>MOTODEV Studio for Android can open the Android Emulator view for you whenever you start an AVD from the Device
+        Management view or whenever you launch one of the run configurations that targets an AVD (which automatically
+        starts the AVD, which can open the Android Emulator view). At the point where MOTODEV Studio for Android
+        determines that you might want the Android Emulator view opened, it prompts you. If you say "no", the view is
+        not opened: instead the emulator launches and runs in an external window.</p>
+      <p>To explicitly open the Android Emulator view:</p>
+    </context>
+    <steps>
+      <step>
+        <cmd>Select <menucascade><uicontrol>Show View</uicontrol><uicontrol>Other</uicontrol></menucascade> from the
+            <uicontrol>Window</uicontrol> menu. (If <uicontrol>Android Emulator</uicontrol> is listed under <uicontrol
+            >Show View</uicontrol>, select that; the Android Emulator view will open directly.)</cmd>
+        <stepresult>The Show View dialog appears.</stepresult>
+      </step>
+      <step>
+        <cmd>Select <menucascade>
+            <uicontrol>MOTODEV Studio for Android</uicontrol><uicontrol>Android Emulator</uicontrol>
+          </menucascade>.</cmd>
+      </step>
+    </steps>
+    <result>The Android Emulator view appears. Any AVDs running in the background will be displayed in this view. If no
+      AVDs are running, it will be empty.</result>
+    <postreq>
+      <p>Using this view you can interact with the emulated device. You can enlarge or shrink the handset image or
+        switch between portrait and landscape orientation using the controls at the top of the view.</p>
+      <p>Except on Mac OS X, to work with the emulator in a separate window simply close the Android Emulator view and
+        click <uicontrol>No</uicontrol> when you are asked if running emulator instances should be stopped. Opening the
+        Android Emulator view while the emulator is running externally causes the emulator to be shown in the view. On
+        Mac OS X, things work somewhat differently: see <xref href="t_emulator-external.dita"/> for instructions.</p>
+    </postreq>
+  </taskbody>
+</task>

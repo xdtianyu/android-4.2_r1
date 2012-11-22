@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "../dtd/task.dtd">
+<task id="t_app-uninstalling-android" xml:lang="en-us">
+  <title>Uninstalling Android applications</title>
+  <shortdesc>From within MOTODEV Studio for Android you can easily uninstall applications from a connected device or
+    emulator.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <steps>
+      <step>
+        <cmd>Click the <uicontrol>Device Management</uicontrol> tab, if necessary, to bring forward the Device
+          Management view.</cmd>
+      </step>
+      <step>
+        <cmd>Right-click the device from which the application is to be uninstalled. </cmd>
+        <info>The target device must be listed in the Device Management view, and it must be online. If you are
+          uninstalling an application from an emulated device, that emulator must be running. If you are uninstalling
+          from an Android handset, it must be connected to your development computer.</info>
+      </step>
+      <step>
+        <cmd>From the menu that appears, select <uicontrol>Uninstall App</uicontrol>.</cmd>
+        <stepresult>The Uninstall Application dialog appears, listing all of the packages on the target device that can
+          be uninstalled.</stepresult>
+      </step>
+      <step>
+        <cmd>Select the package that you want to uninstall and click <uicontrol>Finish</uicontrol></cmd>
+      </step>
+    </steps>
+  </taskbody>
+</task>

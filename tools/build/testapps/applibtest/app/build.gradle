@@ -1,0 +1,12 @@
+apply plugin: 'android'
+
+android {
+    target = "android-15"
+}
+
+//
+// A basic Android application split over a library and a main project.
+//
+dependencies {
+    compile project(':lib')
+}

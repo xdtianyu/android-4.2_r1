@@ -1,0 +1,246 @@
+/*
+ * Copyright 2010, The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+#ifdef USE_VFP_RUNTIME
+#   define DEF_GENERIC_OR_VFP_RUNTIME(func) DEF_VFP_RUNTIME(func)
+#   define DEF_LLVM_OR_VFP_RUNTIME(func) DEF_VFP_RUNTIME(func)
+#else
+#   undef DEF_VFP_RUNTIME
+#   define DEF_VFP_RUNTIME(func)
+#   define DEF_GENERIC_OR_VFP_RUNTIME(func) DEF_GENERIC_RUNTIME(func)
+#   define DEF_LLVM_OR_VFP_RUNTIME(func) DEF_LLVM_RUNTIME(func)
+#endif
+
+// Sorted
+DEF_LLVM_RUNTIME(__absvdi2)
+DEF_LLVM_RUNTIME(__absvsi2)
+
+DEF_GENERIC_OR_VFP_RUNTIME(__adddf3)
+DEF_GENERIC_OR_VFP_RUNTIME(__addsf3)
+
+DEF_LLVM_RUNTIME(__addvdi3)
+DEF_LLVM_RUNTIME(__addvsi3)
+
+#if defined(__arm__)
+  // ARM Runtime ABI:
+  // http://infocenter.arm.com/help/topic/com.arm.doc.ihi0043c/IHI0043C_rtabi.pdf
+  // See also: external/llvm/lib/Target/ARM/ARMISelLowering.cpp
+
+  DEF_GENERIC_RUNTIME(__aeabi_d2f)
+  DEF_GENERIC_RUNTIME(__aeabi_d2iz)
+  DEF_GENERIC_RUNTIME(__aeabi_d2lz)
+  DEF_GENERIC_RUNTIME(__aeabi_d2uiz)
+  DEF_GENERIC_RUNTIME(__aeabi_d2ulz)
+  DEF_GENERIC_RUNTIME(__aeabi_dadd)
+  DEF_GENERIC_RUNTIME(__aeabi_dcmpeq)
+  DEF_GENERIC_RUNTIME(__aeabi_dcmpge)
+  DEF_GENERIC_RUNTIME(__aeabi_dcmpgt)
+  DEF_GENERIC_RUNTIME(__aeabi_dcmple)
+  DEF_GENERIC_RUNTIME(__aeabi_dcmplt)
+  DEF_GENERIC_RUNTIME(__aeabi_dcmpun)
+  DEF_GENERIC_RUNTIME(__aeabi_ddiv)
+  DEF_GENERIC_RUNTIME(__aeabi_dmul)
+  DEF_GENERIC_RUNTIME(__aeabi_dsub)
+  DEF_GENERIC_RUNTIME(__aeabi_f2d)
+  DEF_GENERIC_RUNTIME(__aeabi_f2iz)
+  DEF_GENERIC_RUNTIME(__aeabi_f2lz)
+  DEF_GENERIC_RUNTIME(__aeabi_f2uiz)
+  DEF_GENERIC_RUNTIME(__aeabi_f2ulz)
+  DEF_GENERIC_RUNTIME(__aeabi_fadd)
+  DEF_GENERIC_RUNTIME(__aeabi_fcmpeq)
+  DEF_GENERIC_RUNTIME(__aeabi_fcmpge)
+  DEF_GENERIC_RUNTIME(__aeabi_fcmpgt)
+  DEF_GENERIC_RUNTIME(__aeabi_fcmple)
+  DEF_GENERIC_RUNTIME(__aeabi_fcmplt)
+  DEF_GENERIC_RUNTIME(__aeabi_fcmpun)
+  DEF_GENERIC_RUNTIME(__aeabi_fdiv)
+  DEF_GENERIC_RUNTIME(__aeabi_fmul)
+  DEF_GENERIC_RUNTIME(__aeabi_fsub)
+  DEF_GENERIC_RUNTIME(__aeabi_i2d)
+  DEF_GENERIC_RUNTIME(__aeabi_i2f)
+  DEF_GENERIC_RUNTIME(__aeabi_idiv)
+  DEF_GENERIC_RUNTIME(__aeabi_l2d)
+  DEF_GENERIC_RUNTIME(__aeabi_l2f)
+  DEF_GENERIC_RUNTIME(__aeabi_lasr)
+  DEF_GENERIC_RUNTIME(__aeabi_ldivmod)
+  DEF_GENERIC_RUNTIME(__aeabi_llsl)
+  DEF_GENERIC_RUNTIME(__aeabi_llsr)
+  DEF_GENERIC_RUNTIME(__aeabi_lmul)
+  DEF_GENERIC_RUNTIME(__aeabi_memcpy)
+  DEF_GENERIC_RUNTIME(__aeabi_memmove)
+  DEF_GENERIC_RUNTIME(__aeabi_memset)
+  DEF_GENERIC_RUNTIME(__aeabi_ui2d)
+  DEF_GENERIC_RUNTIME(__aeabi_ui2f)
+  DEF_GENERIC_RUNTIME(__aeabi_uidiv)
+  DEF_GENERIC_RUNTIME(__aeabi_ul2d)
+  DEF_GENERIC_RUNTIME(__aeabi_ul2f)
+  DEF_GENERIC_RUNTIME(__aeabi_uldivmod)
+#endif // defined(__arm__)
+
+#if !defined(__i386__) && !defined(__SSE2__)
+    DEF_LLVM_RUNTIME(__ashldi3)
+#endif
+#if !defined(ANDROID) /* has one in bionic */
+    DEF_LLVM_RUNTIME(__ashrdi3)
+#endif
+#if defined(__mips__)
+    DEF_GENERIC_RUNTIME(__ashrdi3)
+#endif
+
+#ifdef USE_VFP_RUNTIME
+//    DEF_GENERIC_RUNTIME(__bswapdi2)
+//    DEF_GENERIC_RUNTIME(__bswapsi2)
+#endif
+
+DEF_LLVM_RUNTIME(__clzdi2)
+DEF_LLVM_RUNTIME(__clzsi2)
+DEF_LLVM_RUNTIME(__cmpdi2)
+DEF_LLVM_RUNTIME(__ctzdi2)
+DEF_LLVM_RUNTIME(__ctzsi2)
+
+#if !defined(ANDROID) /* no complex extension */
+    DEF_LLVM_RUNTIME(__divdc3)
+#endif
+
+DEF_GENERIC_OR_VFP_RUNTIME(__divdf3)
+
+DEF_LLVM_RUNTIME(__divdi3)
+DEF_LLVM_RUNTIME(__divsi3)
+
+#if !defined(ANDROID) /* no complex extension */
+    DEF_LLVM_RUNTIME(__divsc3)
+#endif
+
+DEF_GENERIC_OR_VFP_RUNTIME(__divsf3)
+
+DEF_LLVM_RUNTIME(__eprintf)
+
+DEF_GENERIC_OR_VFP_RUNTIME(__eqdf2)
+DEF_GENERIC_OR_VFP_RUNTIME(__eqsf2)
+DEF_GENERIC_OR_VFP_RUNTIME(__extendsfdf2)
+
+DEF_LLVM_RUNTIME(__ffsdi2)
+DEF_LLVM_RUNTIME(__fixdfdi)
+
+DEF_GENERIC_OR_VFP_RUNTIME(__fixdfsi)
+
+DEF_LLVM_RUNTIME(__fixsfdi)
+
+DEF_GENERIC_OR_VFP_RUNTIME(__fixsfsi)
+
+DEF_LLVM_RUNTIME(__fixunsdfdi)
+DEF_LLVM_OR_VFP_RUNTIME(__fixunsdfsi)
+DEF_LLVM_RUNTIME(__fixunssfdi)
+
+DEF_LLVM_OR_VFP_RUNTIME(__fixunssfsi)
+
+#if !defined(__i386__)
+    DEF_LLVM_RUNTIME(__floatdidf)
+    DEF_LLVM_RUNTIME(__floatdisf)
+#endif
+
+DEF_GENERIC_OR_VFP_RUNTIME(__floatsidf)
+DEF_GENERIC_OR_VFP_RUNTIME(__floatsisf)
+
+#if !defined(__i386__)
+    DEF_LLVM_RUNTIME(__floatundidf)
+    DEF_LLVM_RUNTIME(__floatundisf)
+#endif
+
+DEF_GENERIC_RUNTIME(__floatunsidf)
+DEF_GENERIC_RUNTIME(__floatunsisf)
+
+DEF_VFP_RUNTIME(__floatunssidf)
+DEF_VFP_RUNTIME(__floatunssisf)
+
+DEF_GENERIC_OR_VFP_RUNTIME(__gedf2)
+DEF_GENERIC_OR_VFP_RUNTIME(__gesf2)
+DEF_VFP_RUNTIME(__gtdf2)
+DEF_VFP_RUNTIME(__gtsf2)
+
+DEF_GENERIC_OR_VFP_RUNTIME(__ledf2)
+DEF_GENERIC_OR_VFP_RUNTIME(__lesf2)
+
+#if !defined(__i386__) && !defined(__SSE2__)
+    DEF_LLVM_RUNTIME(__lshrdi3)
+#endif
+
+DEF_VFP_RUNTIME(__ltdf2)
+DEF_VFP_RUNTIME(__ltsf2)
+
+DEF_LLVM_RUNTIME(__moddi3)
+DEF_LLVM_RUNTIME(__modsi3)
+
+#ifndef ANDROID // no complex extension
+    DEF_LLVM_RUNTIME(__muldc3)
+#endif
+
+DEF_GENERIC_OR_VFP_RUNTIME(__muldf3)
+#if !defined(__i386__)
+    DEF_LLVM_RUNTIME(__muldi3)
+#endif
+
+#ifndef ANDROID // no complex extension
+    DEF_LLVM_RUNTIME(__mulsc3)
+#endif
+
+DEF_GENERIC_OR_VFP_RUNTIME(__mulsf3)
+
+DEF_LLVM_RUNTIME(__mulvdi3)
+DEF_LLVM_RUNTIME(__mulvsi3)
+
+DEF_VFP_RUNTIME(__nedf2)
+
+DEF_GENERIC_OR_VFP_RUNTIME(__negdf2)
+
+DEF_LLVM_RUNTIME(__negdi2)
+
+DEF_GENERIC_OR_VFP_RUNTIME(__negsf2)
+
+DEF_LLVM_RUNTIME(__negvdi2)
+DEF_LLVM_RUNTIME(__negvsi2)
+
+DEF_VFP_RUNTIME(__nesf2)
+
+DEF_LLVM_RUNTIME(__paritydi2)
+DEF_LLVM_RUNTIME(__paritysi2)
+DEF_LLVM_RUNTIME(__popcountdi2)
+DEF_LLVM_RUNTIME(__popcountsi2)
+DEF_LLVM_RUNTIME(__powidf2)
+DEF_LLVM_RUNTIME(__powisf2)
+
+DEF_GENERIC_OR_VFP_RUNTIME(__subdf3)
+DEF_GENERIC_OR_VFP_RUNTIME(__subsf3)
+
+DEF_LLVM_RUNTIME(__subvdi3)
+DEF_LLVM_RUNTIME(__subvsi3)
+
+DEF_GENERIC_OR_VFP_RUNTIME(__truncdfsf2)
+
+DEF_LLVM_RUNTIME(__ucmpdi2)
+DEF_LLVM_RUNTIME(__udivdi3)
+DEF_LLVM_RUNTIME(__udivmoddi4)
+DEF_LLVM_RUNTIME(__udivsi3)
+DEF_LLVM_RUNTIME(__umoddi3)
+DEF_LLVM_RUNTIME(__umodsi3)
+
+DEF_GENERIC_OR_VFP_RUNTIME(__unorddf2)
+DEF_GENERIC_OR_VFP_RUNTIME(__unordsf2)
+
+#undef DEF_GENERIC_RUNTIME
+#undef DEF_LLVM_RUNTIME
+#undef DEF_VFP_RUNTIME
+#undef DEF_BCC_RUNTIME

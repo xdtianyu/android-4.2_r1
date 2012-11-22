@@ -1,0 +1,2 @@
+Main-Class: com.android.hierarchyviewer.HierarchyViewerApplication
+Class-Path: ddmlib.jar ddmuilib.jar hierarchyviewerlib.jar sdklib.jar org.eclipse.jface_3.6.2.M20110210-1200.jar org.eclipse.core.commands_3.6.0.I20100512-1500.jar org.eclipse.equinox.common_3.6.0.v20100503.jar

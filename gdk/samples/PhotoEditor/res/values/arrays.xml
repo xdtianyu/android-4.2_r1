@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2010 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+    <string-array name="autofix_modes" translatable="false">
+        <item>off</item>
+        <item>on</item>
+    </string-array>
+
+    <array name="autofix_icons">
+        <item>@drawable/autofix_off</item>
+        <item>@drawable/autofix_on</item>
+    </array>
+
+    <string-array name="crop_modes" translatable="false">
+        <item>off</item>
+        <item>on</item>
+    </string-array>
+
+    <array name="crop_icons">
+        <item>@drawable/crop_off</item>
+        <item>@drawable/crop_on</item>
+    </array>
+
+    <string-array name="crossprocess_modes" translatable="false">
+        <item>off</item>
+        <item>on</item>
+    </string-array>
+
+    <array name="crossprocess_icons">
+        <item>@drawable/crossprocess_off</item>
+        <item>@drawable/crossprocess_on</item>
+    </array>
+
+    <string-array name="documentary_modes" translatable="false">
+        <item>off</item>
+        <item>on</item>
+    </string-array>
+
+    <array name="documentary_icons">
+        <item>@drawable/documentary_off</item>
+        <item>@drawable/documentary_on</item>
+    </array>
+
+    <string-array name="doodle_modes" translatable="false">
+        <item>off</item>
+        <item>on</item>
+    </string-array>
+
+    <array name="doodle_icons">
+        <item>@drawable/doodle_off</item>
+        <item>@drawable/doodle_on</item>
+    </array>
+
+    <string-array name="duotone_modes" translatable="false">
+        <item>off</item>
+        <item>on</item>
+    </string-array>
+
+    <array name="duotone_icons">
+        <item>@drawable/duotone_off</item>
+        <item>@drawable/duotone_on</item>
+    </array>
+
+    <string-array name="filllight_modes" translatable="false">
+        <item>off</item>
+        <item>on</item>
+    </string-array>
+
+    <array name="filllight_icons">
+        <item>@drawable/filllight_off</item>
+        <item>@drawable/filllight_on</item>
+    </array>
+
+    <string-array name="fisheye_modes" translatable="false">
+        <item>off</item>
+        <item>on</item>
+    </string-array>
+
+    <array name="fisheye_icons">
+        <item>@drawable/fisheye_off</item>
+        <item>@drawable/fisheye_on</item>
+    </array>
+
+    <string-array name="flip_modes" translatable="false">
+        <item>off</item>
+        <item>on</item>
+    </string-array>
+
+    <array name="flip_icons">
+        <item>@drawable/flip_off</item>
+        <item>@drawable/flip_on</item>
+    </array>
+
+    <string-array name="grain_modes" translatable="false">
+        <item>off</item>
+        <item>on</item>
+    </string-array>
+
+    <array name="grain_icons">
+        <item>@drawable/grain_off</item>
+        <item>@drawable/grain_on</item>
+    </array>
+
+    <string-array name="grayscale_modes" translatable="false">
+        <item>off</item>
+        <item>on</item>
+    </string-array>
+
+    <array name="grayscale_icons">
+        <item>@drawable/grayscale_off</item>
+        <item>@drawable/grayscale_on</item>
+    </array>
+
+    <string-array name="highlight_modes" translatable="false">
+        <item>off</item>
+        <item>on</item>
+    </string-array>
+
+    <array name="highlight_icons">
+        <item>@drawable/highlight_off</item>
+        <item>@drawable/highlight_on</item>
+    </array>
+
+    <string-array name="lomoish_modes" translatable="false">
+        <item>off</item>
+        <item>on</item>
+    </string-array>
+
+    <array name="lomoish_icons">
+        <item>@drawable/lomoish_off</item>
+        <item>@drawable/lomoish_on</item>
+    </array>
+
+    <string-array name="negative_modes" translatable="false">
+        <item>off</item>
+        <item>on</item>
+    </string-array>
+
+    <array name="negative_icons">
+        <item>@drawable/negative_off</item>
+        <item>@drawable/negative_on</item>
+    </array>
+
+    <string-array name="posterize_modes" translatable="false">
+        <item>off</item>
+        <item>on</item>
+    </string-array>
+
+    <array name="posterize_icons">
+        <item>@drawable/posterize_off</item>
+        <item>@drawable/posterize_on</item>
+    </array>
+
+    <string-array name="redeye_modes" translatable="false">
+        <item>off</item>
+        <item>on</item>
+    </string-array>
+
+    <array name="redeye_icons">
+        <item>@drawable/redeye_off</item>
+        <item>@drawable/redeye_on</item>
+    </array>
+
+    <string-array name="rotate_modes" translatable="false">
+        <item>off</item>
+        <item>on</item>
+    </string-array>
+
+    <array name="rotate_icons">
+        <item>@drawable/rotate_off</item>
+        <item>@drawable/rotate_on</item>
+    </array>
+
+    <string-array name="saturation_modes" translatable="false">
+        <item>off</item>
+        <item>on</item>
+    </string-array>
+
+    <array name="saturation_icons">
+        <item>@drawable/saturation_off</item>
+        <item>@drawable/saturation_on</item>
+    </array>
+
+    <string-array name="sepia_modes" translatable="false">
+        <item>off</item>
+        <item>on</item>
+    </string-array>
+
+    <array name="sepia_icons">
+        <item>@drawable/sepia_off</item>
+        <item>@drawable/sepia_on</item>
+    </array>
+
+    <string-array name="shadow_modes" translatable="false">
+        <item>off</item>
+        <item>on</item>
+    </string-array>
+
+    <array name="shadow_icons">
+        <item>@drawable/shadow_off</item>
+        <item>@drawable/shadow_on</item>
+    </array>
+
+    <string-array name="sharpen_modes" translatable="false">
+        <item>off</item>
+        <item>on</item>
+    </string-array>
+
+    <array name="sharpen_icons">
+        <item>@drawable/sharpen_off</item>
+        <item>@drawable/sharpen_on</item>
+    </array>
+
+    <string-array name="softfocus_modes" translatable="false">
+        <item>off</item>
+        <item>on</item>
+    </string-array>
+
+    <array name="softfocus_icons">
+        <item>@drawable/softfocus_off</item>
+        <item>@drawable/softfocus_on</item>
+    </array>
+
+    <string-array name="straighten_modes" translatable="false">
+        <item>off</item>
+        <item>on</item>
+    </string-array>
+
+    <array name="straighten_icons">
+        <item>@drawable/straighten_off</item>
+        <item>@drawable/straighten_on</item>
+    </array>
+
+    <string-array name="temperature_modes" translatable="false">
+        <item>off</item>
+        <item>on</item>
+    </string-array>
+
+    <array name="temperature_icons">
+        <item>@drawable/colortemperature_off</item>
+        <item>@drawable/colortemperature_on</item>
+    </array>
+
+    <string-array name="tint_modes" translatable="false">
+        <item>off</item>
+        <item>on</item>
+    </string-array>
+
+    <array name="tint_icons">
+        <item>@drawable/tint_off</item>
+        <item>@drawable/tint_on</item>
+    </array>
+
+    <string-array name="vignette_modes" translatable="false">
+        <item>off</item>
+        <item>on</item>
+    </string-array>
+
+    <array name="vignette_icons">
+        <item>@drawable/vignette_off</item>
+        <item>@drawable/vignette_on</item>
+    </array>
+
+    <string-array name="warmify_modes" translatable="false">
+        <item>off</item>
+        <item>on</item>
+    </string-array>
+
+    <array name="warmify_icons">
+        <item>@drawable/warmify_off</item>
+        <item>@drawable/warmify_on</item>
+    </array>
+
+    <string-array name="undo_modes" translatable="false">
+        <item>off</item>
+        <item>on</item>
+    </string-array>
+
+    <array name="undo_icons">
+        <item>@drawable/undo</item>
+        <item>@drawable/undo</item>
+    </array>
+
+    <string-array name="redo_modes" translatable="false">
+        <item>off</item>
+        <item>on</item>
+    </string-array>
+
+    <array name="redo_icons">
+        <item>@drawable/redo</item>
+        <item>@drawable/redo</item>
+    </array>
+
+    <array name="color_picker_wheel_colors">
+        <item>@color/color_picker_preset_color1</item>
+        <item>@color/color_picker_preset_color2</item>
+        <item>@color/color_picker_preset_color3</item>
+        <item>@color/color_picker_preset_color4</item>
+        <item>@color/color_picker_preset_color5</item>
+        <item>@color/color_picker_preset_color6</item>
+        <item>@color/color_picker_preset_color7</item>
+        <item>@color/color_picker_preset_color8</item>
+        <item>@color/color_picker_preset_color9</item>
+        <item>@color/color_picker_preset_color10</item>
+        <item>@color/color_picker_preset_color11</item>
+        <item>@color/color_picker_preset_color12</item>
+        <item>@color/color_picker_preset_color13</item>
+        <item>@color/color_picker_preset_color14</item>
+        <item>@color/color_picker_preset_color15</item>
+        <item>@color/color_picker_preset_color16</item>
+        <item>@color/color_picker_preset_color17</item>
+        <item>@color/color_picker_preset_color18</item>
+        <item>@color/color_picker_preset_color19</item>
+        <item>@color/color_picker_preset_color20</item>
+        <item>@color/color_picker_preset_color21</item>
+        <item>@color/color_picker_preset_color22</item>
+        <item>@color/color_picker_preset_color23</item>
+        <item>@color/color_picker_preset_color24</item>
+    </array>
+
+</resources>

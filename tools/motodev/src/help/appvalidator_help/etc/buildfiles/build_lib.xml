@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="lib" basedir=".">
+
+  <taskdef resource="net/sf/antcontrib/antlib.xml"/>
+
+  <!--Location of DITA Open Toolkit-->
+  <property name="dita.dir" value="${basedir}/../../../tools/ditaot"/>
+  <!--Location of DITA source files to build-->
+  <property name="src-dir" value="${basedir}/../../../src"/>
+  <!--Location of temp folder-->
+  <property name="temp-dir" value="${basedir}/temp"/>
+  <!--Location of logs folder-->
+  <property name="log-dir" value="${basedir}/logs"/>
+  <!--Path of file containing context extension points for context-sensitive help-->
+  <property name="context-file" value="${basedir}/context_extension_points.xml"/>
+  <!--If present, load file containing Eclipse enablement elements for Windows-only content.-->
+  <available file="enable-win32.xml" property="enablement-present"/>
+  <if>
+    <isset property="enablement-present"/>
+    <then>
+      <loadfile property="enablement-win32" srcfile="enable-win32.xml"/>
+    </then>
+  </if>
+
+  <!--  References ANT extension that provides Perl 5 compatible regex functionality.-->
+  <property name="ant.regexp.regexpimpl" value="org.apache.tools.ant.util.regexp.JakartaOroRegexp"/>
+
+  <!--Import DITA OT build file-->
+  <import file="${dita.dir}/build.xml"/>
+
+  <target name="clean" description="Delete all generated files (out, temp, and logs folders)">
+    <delete dir="${out-projdir}" quiet="yes"/>
+    <delete dir="${log-dir}" quiet="yes"/>
+    <delete dir="${temp-dir}" quiet="yes"/>
+    <delete file="${basedir}/ditaot_batch.log"/>
+  </target>
+
+  <macrodef name="build-topics-plugin" description="Build a DevEd Eclipse help plug-in">
+    <attribute name="map" default="NOT_SET"/>
+    <attribute name="ditaval" default="NOT_SET"/>
+    <attribute name="hdr" default="NOT_SET"/>
+    <attribute name="provider" default="Motorola Mobility, Inc."/>
+    <element name="build-callers-tasks" implicit="yes" optional="yes"/>
+    <sequential>
+      <echo/>
+      <echo>=============================================================================</echo>
+      <echo>START build-topics-plugin for @{map}</echo>
+      <echo>Ditaval file: "@{ditaval}"</echo>
+      <property name="@{map}-path" value="${src-dir}/@{map}"/>
+      <!-- Reads ditamap into ANT XML properties so that build script can use same map ID as plug-in ID everywhere. -->
+      <xmlproperty file="${@{map}-path}" prefix="@{map}"/>
+      <property name="@{map}-plugin-id" value="${@{map}.map(id)}"/>
+      <echo>Plug-in ID: ${@{map}-plugin-id}</echo>
+      <property name="@{map}-plugin-out-dir"
+        value="${out-basedir}/${@{map}-plugin-id}_${plugin-version}"/>
+      <property name="@{map}-plugin-temp-dir"
+        value="${temp-dir}/${@{map}-plugin-id}_${plugin-version}"/>
+      <!-- Get copyright info from map file -->
+      <property name="@{map}-copyryear" value="${@{map}.map.topicmeta.copyright.copyryear(year)}"/>
+      <property name="@{map}-copyrholder" value="${@{map}.map.topicmeta.copyright.copyrholder}"/>
+      <echo>Copyright date: ${@{map}-copyryear}</echo>
+      <echo>Copyright holder: ${@{map}-copyrholder}</echo>
+      <!--Delete output folder before building so no unnecessary files from previous build are left.-->
+      <delete dir="${@{map}-plugin-out-dir}" quiet="yes"/>
+
+      <!-- Call DITA-OT build script-->
+      <ant antfile="${dita.dir}/build.xml" target="init" description="Call DITA OT build script">
+        <property name="transtype" value="eclipsehelp"/>
+        <property name="args.input" value="${@{map}-path}"/>
+        <property name="dita.input.valfile" value="@{ditaval}"/>
+        <property name="args.hdr" value="@{hdr}"/>
+        <property name="output.dir" value="${@{map}-plugin-out-dir}"/>
+        <property name="dita.temp.dir" value="${@{map}-plugin-temp-dir}"/>
+        <property name="args.logdir" value="${log-dir}"/>
+        <!-- Sets "Bundle-Version" in meta-mf/manifest.mf, the version of this help plug-in. -->
+        <property name="args.eclipse.version" value="${plugin-version}"/>
+        <property name="args.eclipse.provider" value="@{provider}"/>
+        <property name="args.eclipsehelp.toc" value="${toc-filenoext}"/>
+      </ant>
+
+      <!--Change filename of TOC file from ditamapname.xml to specified.-->
+      <basename property="@{map}-filenoext" file="@{map}" suffix=".ditamap"/>
+      <move file="${@{map}-plugin-out-dir}/${@{map}-filenoext}.xml"
+        tofile="${@{map}-plugin-out-dir}/${toc-filenoext}.xml"/>
+
+      <deleteflagimages output-dir="${@{map}-plugin-out-dir}"/>
+      <replacecss output-dir="${@{map}-plugin-out-dir}"/>
+
+      <!--Replace special anchors in TOC with Eclipse enablement elements-->
+      <!--Set anchor id="eclipse-enable-win32onlyXXX" for topics that should appear in TOC only in Windows.-->
+      <!--XXX can be anything (required only to make anchor id unique in ditamap file.-->
+      <if>
+        <isset property="enablement-present"/>
+        <then>
+          <replaceregexp file="${@{map}-plugin-out-dir}/${toc-filenoext}.xml"
+            match="\s*?&lt;anchor\s+id\s*?=\s*?&quot;eclipse-enable-win32only.*?&quot;\s*?/&gt;"
+            replace="${enablement-win32}" flags="gi"/>
+        </then>
+      </if>
+
+      <!--Move debugging files to temp folder.-->
+      <!--<move file="${@{map}-plugin-out-dir}/dita.list" todir="${@{map}-plugin-temp-dir}"/>
+        <move file="${@{map}-plugin-out-dir}/dita.xml.properties" todir="${@{map}-plugin-temp-dir}"/>-->
+
+      <!--Perform caller's implicit tasks here-->
+      <build-callers-tasks/>
+
+      <echo>END build-topics-plugin for @{map}</echo>
+    </sequential>
+  </macrodef>
+
+
+  <macrodef name="build-cshelp" description="Build cshelp for a DevEd Eclipse help plug-in">
+    <attribute name="cshelp-topic" default="NOT_SET"/>
+    <attribute name="ditaval" default="NOT_SET"/>
+    <attribute name="context-out-dir" default="NOT_SET"/>
+    <attribute name="context-temp-dir" default="NOT_SET"/>
+    <attribute name="plugin-out-dir" default="NOT_SET"/>
+    <element name="build-callers-tasks" implicit="yes" optional="yes"/>
+    <sequential>
+      <basename property="@{cshelp-topic}-filenoext" file="@{cshelp-topic}" suffix=".dita"/>
+      <echo/>
+      <echo>======================================================</echo>
+      <echo>START build-cshelp for ${@{cshelp-topic}-filenoext}</echo>
+      <!-- Call DITA-OT build script to build cshelp topics using special XSL-->
+      <ant antfile="${dita.dir}/build.xml" target="init">
+        <property name="args.input" value="@{cshelp-topic}"/>
+        <property name="dita.input.valfile" value="@{ditaval}"/>
+        <property name="output.dir" value="@{context-out-dir}"/>
+        <property name="dita.temp.dir" value="@{context-temp-dir}"/>
+        <property name="args.xsl" value="${dita.dir}/plugins/cshelp/xsl/dit2context.xsl"/>
+        <property name="dita.extname" value=".dita"/>
+        <property name="transtype" value="xhtml"/>
+        <property name="args.outext" value="xml"/>
+      </ant>
+      <!-- Add "topics/" to start of each href so that contexts link to topics in "topics" subfolder-->
+      <replaceregexp file="@{context-out-dir}/${@{cshelp-topic}-filenoext}.xml"
+        match="&lt;topic(\s+)href=&#34;" replace="&lt;topic\1href=&#34;topics/"
+        byline="true"/>
+      <!-- Move context XML file to this plug-in's output folder-->
+      <move file="@{context-out-dir}/${@{cshelp-topic}-filenoext}.xml" todir="@{plugin-out-dir}"/>
+      <!--Load context ext points file, then add it to the end of the plugin.xml file-->
+      <loadfile property="context-ext-pts" srcfile="${context-file}"/>
+      <replaceregexp file="@{plugin-out-dir}/plugin.xml" match="&lt;/plugin&gt;"
+        replace="${context-ext-pts}&lt;/plugin&gt;" byline="yes"/>
+
+      <!--Perform caller's implicit tasks here-->
+      <build-callers-tasks/>
+
+      <echo>END build-cshelp for ${@{cshelp-topic}-filenoext}</echo>
+    </sequential>
+  </macrodef>
+
+  <macrodef name="report" description="Generate debugging report for a ditamap">
+    <attribute name="map" default="NOT_SET"/>
+    <sequential>
+      <if>
+        <istrue value="${report}"/>
+        <then>
+          <exec dir="${basedir}" executable="php" output="${log-dir}/@{map}_debug-report.txt"
+            os="Mac OS X" failifexecutionfails="false" logerror="true">
+            <arg file="${dita.dir}/../ditareports/src/ditadebug.php"/>
+            <arg file="${src-dir}/@{map}"/>
+          </exec>
+        </then>
+      </if>
+    </sequential>
+  </macrodef>
+
+  <macrodef name="checklinks" description="Check links in HTML output and generate report">
+    <attribute name="dir" default="NOT_SET"/>
+    <attribute name="map" default="NOT_SET"/>
+    <sequential>
+      <!--Run linklint if report="true" and if OS is Mac or a Unix-like OS, which ship with Perl.-->
+      <if>
+        <and>
+          <istrue value="${report}"/>
+          <or>
+            <os family="mac"/>
+            <os family="unix"/>
+          </or>
+        </and>
+        <then>
+          <echo/>
+          <echo>------------------------------------------------------</echo>
+          <echo message="linklint:  checking links in output"/>
+          <exec dir="${basedir}" executable="perl" os="Mac OS X" failifexecutionfails="false"
+            logerror="true">
+            <arg file="${dita.dir}/../linklint/src/linklint"/>
+            <arg value="-root"/>
+            <arg path="@{dir}"/>
+            <arg line="/@ -no_warn_index -htmlonly -quiet"/>
+            <arg value="-doc"/>
+            <arg path="${log-dir}/@{map}_link-report"/>
+          </exec>
+          <echo/>
+          <echo>See index.html in logs directory for full link report:  ${log-dir}/@{map}_link-report</echo>
+          <echo>------------------------------------------------------</echo>
+          <echo/>
+        </then>
+      </if>
+    </sequential>
+  </macrodef>
+
+  <macrodef name="deleteflagimages" description="Delete flagging images inserted by DITA-OT">
+    <!--Delete flagging images inserted by DITA-OT because a ditaval file is specified-->
+    <attribute name="output-dir" default="NOT_SET"/>
+    <sequential>
+      <delete file="@{output-dir}/delta.gif"/>
+      <delete file="@{output-dir}/deltaend.gif"/>
+    </sequential>
+  </macrodef>
+
+  <macrodef name="replacecss" description="Replace default CSS">
+    <!--Delete extraneous CSS from output folder and copy Motorola Dev Ed CSS to output folder..-->
+    <attribute name="output-dir" default="NOT_SET"/>
+    <sequential>
+      <delete file="@{output-dir}/commonrtl.css"/>
+      <copy file="${basedir}/../../resources/commonltr.css" todir="@{output-dir}" overwrite="yes"/>
+    </sequential>
+  </macrodef>
+
+</project>

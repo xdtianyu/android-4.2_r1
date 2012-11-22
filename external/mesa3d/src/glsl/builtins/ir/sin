@@ -1,0 +1,45 @@
+((function sin
+   (signature float
+     (parameters
+       (declare (in) float angle))
+		(
+			(return (expression float sin (var_ref angle)))
+		)
+	)
+
+   (signature vec2
+     (parameters
+       (declare (in) vec2 angle))
+      	(
+			(declare () vec2 ret)
+			(assign (constant bool (1)) (x) (var_ref ret) (call sin ((swiz x (var_ref angle)))))
+			(assign (constant bool (1)) (y) (var_ref ret) (call sin ((swiz y (var_ref angle)))))
+			(return (var_ref ret))
+		)
+	)
+
+   (signature vec3
+     (parameters
+       (declare (in) vec3 angle))
+		(
+			(declare () vec3 ret)
+			(assign (constant bool (1)) (x) (var_ref ret) (call sin ((swiz x (var_ref angle)))))
+			(assign (constant bool (1)) (y) (var_ref ret) (call sin ((swiz y (var_ref angle)))))
+			(assign (constant bool (1)) (z) (var_ref ret) (call sin ((swiz z (var_ref angle)))))
+			(return (var_ref ret))
+		)
+	)
+
+	(signature vec4
+		(parameters 
+			(declare (in) vec4 angle))
+		(
+			(declare () vec4 ret)
+			(assign (constant bool (1)) (x) (var_ref ret) (call sin ((swiz x (var_ref angle)))))
+			(assign (constant bool (1)) (y) (var_ref ret) (call sin ((swiz y (var_ref angle)))))
+			(assign (constant bool (1)) (z) (var_ref ret) (call sin ((swiz z (var_ref angle)))))
+			(assign (constant bool (1)) (w) (var_ref ret) (call sin ((swiz w (var_ref angle)))))
+			(return (var_ref ret))
+		)
+	)
+))

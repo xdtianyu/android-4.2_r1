@@ -1,0 +1,23 @@
+# keep names that are used by reflection.
+
+# Keep names that are used only by unit tests
+-keep class ** {
+  *** *ForTest(...);
+}
+
+-keepclasseswithmembers class com.android.exchange.adapter.Parser {
+  *** resetInput(java.io.InputStream);
+}
+
+-keepclasseswithmembers class com.android.exchange.provider.GalResult {
+  *** addGalData(com.android.exchange.provider.GalResult$GalData);
+  *** addGalData(long, java.lang.String, java.lang.String);
+}
+
+-keepclasseswithmembers class com.android.exchange.CalendarSyncEnabler {
+  public <init>(android.content.Context);
+}
+
+-keepclasseswithmembers class com.android.exchange.provider.MailboxUtilities {
+  *** setFlagsAndChildrensParentKey(android.content.Context, java.lang.String, java.lang.String);
+}

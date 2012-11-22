@@ -1,0 +1,51 @@
+//
+// A basic Android application that follows all the conventions
+//
+buildscript {
+    repositories {
+        maven { url '../../repo' }
+    }
+    dependencies {
+        classpath 'com.android.build:gradle-android:0.1-SNAPSHOT'
+    }
+}
+apply plugin: 'android'
+
+android {
+    target = "android-15"
+    testBuildType = "staging"
+    
+
+    defaultConfig {
+        signingStoreLocation = "debug.keystore"
+        signingStorePassword = "android"
+        signingKeyAlias = "androiddebugkey"
+        signingKeyPassword = "android"
+
+        buildConfig "private final static boolean DEFAULT = true;", \
+                    "private final static String FOO = \"foo\";"
+
+    }
+
+    productFlavors {
+        f1 {
+            packageName = "com.android.tests.flavored.f1"
+            buildConfig "private final static String FLAVOR = \"f1\";"
+        }
+        f2 {
+            packageName = "com.android.tests.flavored.f2"
+            buildConfig "private final static String FLAVOR = \"f2\";"
+        }
+    }
+    
+    buildTypes {
+        debug {
+            packageNameSuffix = ".debug"
+            buildConfig "private final static boolean DEBUG2 = false;"
+        }
+        staging {
+            packageNameSuffix = ".staging"
+            debugSigned = true
+        }
+    }
+}

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference id="u_db-create" xml:lang="en-us">
+  <title>Create Database</title>
+  <shortdesc>Creates a new database, and optionally defines one or more new, empty tables within that database. To
+    access this dialog, select the project in which the database is to be created using the Package Explorer. Then,
+    either right-click the project and select <menucascade><uicontrol>MOTODEV Studio</uicontrol><uicontrol>Create
+        Database</uicontrol></menucascade> or select <menucascade><uicontrol>Manage Database</uicontrol><uicontrol
+        >Create Database</uicontrol></menucascade> from the MOTODEV menu.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <simpletable>
+        <strow>
+          <stentry><uicontrol>Database Name</uicontrol></stentry>
+          <stentry>The name of the SQLite database to be created.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Tables</uicontrol></stentry>
+          <stentry>Use this area to specify tables to be created within the new database. Clicking <uicontrol
+            >Add</uicontrol> brings up the Create New Table dialog, with which you specify the particulars of a given
+            database table. Note that you can have zero, one, or more database tables created within the new database.
+            As well, at any time you can manually use the Create New Table dialog to add, edit, or remove tables within
+            this database.</stentry>
+        </strow>
+      </simpletable>
+    </section>
+  </refbody>
+</reference>

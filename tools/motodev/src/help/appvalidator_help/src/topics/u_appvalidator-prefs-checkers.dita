@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference id="u_appvalidator-prefs-checkers" xml:lang="en-us">
+  <title>Android App Validator preferences - Checkers tab</title>
+  <shortdesc>The Checkers tab of the Android App Validator preferences dialog enables you to specify which checkers and
+    conditions the App Validator should validate your app against, as well as to fine-tune the operation of those
+    checkers.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <p>This tab contains two list boxes, one beneath the other. The upper list box lists all of the supported
+        checkers, while the lower list box lists those conditions that are validated by the currently selected checker
+        (this lower list box is empty if a checker is not selected). To the left of each checker is a checkbox that
+        indicates whether the checker or condition will be run. By default, all checkers are selected; clearing a given
+        checkbox prevents that checker from being run when an app is validated. Note the <uicontrol>Select/deselect
+        all</uicontrol> control beneath the list of checkers; this applies to all listed checkers.</p>
+      <p>In addition to the checkboxes, you can click in the <uicontrol>Parameters</uicontrol> and <uicontrol>Change
+          Warning Level</uicontrol> columns for a given checker row to specify parameters and increase or decrease the
+        warning level for that checker. Similarly, for a given condition row you can click within the <uicontrol>Change
+          Warning Level</uicontrol> column to increase or decrease the warning level for an individual condition.</p>
+    </section>
+  </refbody>
+</reference>

@@ -1,0 +1,507 @@
+/* -*- c++ -*- */
+/*
+ * Copyright (C) 2009 The Android Open Source Project
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *  * Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ *  * Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in
+ *    the documentation and/or other materials provided with the
+ *    distribution.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+ * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+ * COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+ * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+ * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS
+ * OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
+ * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+ * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+ * OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ * SUCH DAMAGE.
+ */
+
+#ifndef ANDROID_ASTL_VECTOR__
+#define ANDROID_ASTL_VECTOR__
+
+#include <cstddef>
+#include <cstdlib>
+#include <cstring>
+#include <algorithm>
+#include <iterator>
+#include <memory>
+#include <type_traits.h>
+
+namespace std {
+
+#ifdef _T
+#error "_T is a macro."
+#endif
+
+// Simple vector implementation. Its purpose is to be able to compile code that
+// uses the STL and requires std::vector.
+//
+// IMPORTANT:
+// . This class it is not fully STL compliant. Some constructors/methods maybe
+// missing, they will be added on demand.
+// . A standard container which offers fixed time access to individual
+// elements in any order.
+//
+// TODO: Use the stack for the default constructor. When the capacity
+// grows beyond that move the data to the heap.
+
+template<typename _T>
+class vector
+{
+    typedef vector<_T> vector_type;
+
+  public:
+    typedef _T         value_type;
+    typedef _T*        pointer;
+    typedef const _T*  const_pointer;
+    typedef _T&        reference;
+    typedef const _T&  const_reference;
+
+    typedef __wrapper_iterator<pointer,vector_type>  iterator;
+    typedef __wrapper_iterator<const_pointer,vector_type> const_iterator;
+
+    typedef size_t    size_type;
+    typedef ptrdiff_t difference_type;
+
+    vector();
+
+    // Create a vector with bitwise copies of an exemplar element.
+    // @param num The number of elements to create.
+    // @param init_value The element to copy.
+    explicit vector(const size_type num, const value_type& init_value = value_type());
+
+    // Create a vector by copying the elements from [first, last).
+    //
+    // If the iterators are random-access, the constructor will be
+    // able to reserve the memory in a single call before copying the
+    // elements. If the elements are POD, the constructor uses memmove.
+    template<typename _Iterator>
+    vector(_Iterator first, _Iterator last) {
+        // Because of template matching, vector<int>(int n, int val)
+        // will now match this constructor (int != size_type) instead
+        // of the repeat one above. In this case, the _Iterator
+        // template parameter is an integral type and not an iterator,
+        // we use that to call the correct initialize impl.
+        typedef typename is_integral<_Iterator>::type integral;
+        initialize(first, last, integral());
+    }
+
+    ~vector() { clear(); }
+
+    // @return true if the vector is empty, false otherwise.
+    bool empty() const { return mLength == 0; }
+    size_type size() const { return mLength; }
+
+    // @return the maximum size for a vector.
+    size_type max_size() const { return (~size_type(0)) / sizeof(value_type); }
+
+    // Change the capacity to new_size. 0 means shrink to fit. The
+    // extra memory is not initialized when the capacity is grown.
+    // @param new_size number of element to be allocated.
+    // @return true if successful. The STL version returns nothing.
+    bool reserve(size_type new_size = 0);
+
+    // @return The total number of elements that the vector can hold
+    // before more memory gets allocated.
+    size_type capacity() const { return mCapacity; }
+
+    reference front() { return *mBegin; }
+    const_reference front() const { return *mBegin; }
+
+    reference back() { return mLength ? *(mBegin + mLength - 1) : front(); }
+    const_reference back() const { return mLength ? *(mBegin + mLength - 1) : front(); }
+
+    // Subscript access to the vector's elements. Don't do boundary
+    // check. Use at() for checked access.
+    // @param index Of the element (0-based).
+    // @return A const reference to the element.
+    const_reference operator[](size_type index) const { return *(mBegin + index); }
+
+    // @param index Of the element (0-based).
+    // @return A reference to the element.
+    reference operator[](size_type index) { return *(mBegin + index); }
+
+    // 'at' is similar to operator[] except that it does check bounds.
+    const_reference at(const size_type index) const
+    { return index < mLength ? *( mBegin + index) : sDummy; }
+
+    reference at(const size_type index)
+    { return index < mLength ? *( mBegin + index) : sDummy; }
+
+    iterator begin() { return iterator(mBegin); }
+    iterator end() { return iterator(mBegin + mLength); }
+
+    const_iterator begin() const { return const_iterator(mBegin); }
+    const_iterator end() const { return const_iterator(mBegin + mLength); }
+
+    // Add data at the end of the vector. Constant in time if the
+    // memory has been preallocated (e.g using reserve).
+    // @param elt To be added.
+    void push_back(const value_type& elt);
+
+    // Remove the last element. However, no memory is reclaimed from
+    // the internal buffer: you need to call reserve() to recover it.
+    void pop_back();
+
+    // Remove the element pointed by the iterator.
+    // Expensive since the remaining elts must be shifted around.
+    // @param pos Iterator pointing to the elt to be removed.
+    // @return An iterator pointing to the next elt or end().
+    iterator erase(iterator pos);
+
+    // Remove a range of elements [first, last)
+    // @param first Iterator pointing to the first element to be removed.
+    // @param last Iterator pointing to one past the last element to be removed.
+    // @return An iterator pointing to the elt next to 'last' or end().
+    iterator erase(iterator first, iterator last);
+
+    // Empty the vector on return. Release the internal buffer. Length
+    // and capacity are both 0 on return. If you want to keep the
+    // internal buffer around for reuse, call 'resize'/'erase' instead.
+    void clear();
+
+    // Resize the vector to contain 'size' element. If 'size' is
+    // smaller than the current size, the extra elements are dropped
+    // but the reserved memory is not changed (use 'swap' to recover
+    // memory.) If 'size' is greater, the vector is expanded by
+    // inserting at the end as many copy of 'init_value' (this may
+    // lead to some realloc) as necessary. See 'reserve'.
+    void resize(size_type size, value_type init_value = value_type());
+
+    void swap(vector& other);
+  private:
+    // See the 2 'initialize' methods first. They desambiguate between
+    // repeat and range initialize. For range initialize, there is
+    // another desambiguation based on the nature of the iterators.
+
+    // Repeat constructor implementation.
+    void repeat_initialize(const size_type num,
+                           const value_type& init_value);
+
+    // Initialize from a random access iterator.
+    template<typename _Iterator>
+    void range_initialize(_Iterator first, _Iterator last,
+                          random_access_iterator_tag);
+
+    // Initialize from an input iterator.
+    template<typename _InputIterator>
+    void range_initialize(_InputIterator first, _InputIterator last,
+                          input_iterator_tag);
+
+    // Repeat constructor that matched the templatized constructor for iterator.
+    // The last parameter true_type is used by the caller to target this method.
+    template<typename _Integral>
+    void initialize(_Integral num, _Integral init_value, true_type) {
+        repeat_initialize((size_type)num, init_value);
+    }
+
+    // Not a repeat constructor (last param type is false_type). first
+    // and last are really iterators. Dispatch the call depending on
+    // the iterators' category.
+    template<typename _InputIterator>
+    void initialize(_InputIterator first, _InputIterator last, false_type) {
+        range_initialize(first, last, android::iterator_category(first));
+    }
+
+    // @return New internal buffer size when it is adjusted automatically.
+    size_type grow() const;
+
+    // Calls the class' deallocator explicitely on each instance in
+    // the vector.
+    void deallocate();
+
+    pointer mBegin;
+    size_type mCapacity;
+    size_type mLength;
+    static value_type sDummy;  // at() doen't throw exception and returns mDummy.
+    static const size_type kExponentialFactor = 2;
+    static const size_type kExponentialLimit = 256;
+    static const size_type kLinearIncrement = 256;
+};
+
+
+// The implementation uses malloc instead of new because Posix states that:
+// The pointer returned if the allocation succeeds shall be suitably
+// aligned so that it may be assigned to a pointer to any type of
+// object and then used to access such an object in the space
+// allocated
+// So as long as we malloc() more than 4 bytes, the returned block
+// must be able to contain a pointer, and thus will be 32-bit
+// aligned. I believe the bionic implementation uses a minimum of 8 or 16.
+//
+// Invariant: mLength <= mCapacity <= max_size()
+
+
+template<typename _T>
+vector<_T>::vector()
+        :mBegin(NULL), mCapacity(0), mLength(0) { }
+
+template<typename _T>
+vector<_T>::vector(const size_type num, const value_type& init_value)
+{
+    repeat_initialize(num, init_value);
+}
+
+template<typename _T>
+void vector<_T>::repeat_initialize(const size_type num,
+                                   const value_type& init_value)
+{
+    if (num < max_size())
+    {
+        mBegin = static_cast<pointer>(malloc(num * sizeof(value_type)));
+        if (mBegin)
+        {
+            mLength = mCapacity =  num;
+            std::uninitialized_fill(mBegin, mBegin + mLength, init_value);
+            return;
+        }
+    }
+    mBegin = NULL;
+    mLength = mCapacity =  0;
+}
+
+template<typename _T>
+bool vector<_T>::reserve(size_type new_size)
+{
+    if (0 == new_size)
+    {
+        if (0 == mLength)  // Free whatever has been reserved.
+        {
+            clear();
+            return true;
+        }
+        new_size = mLength;  // Shrink to fit.
+    }
+    else if (new_size < mLength || new_size > max_size())
+    {
+        return false;
+    }
+
+    if (is_pod<value_type>::value)
+    {
+        pointer oldBegin = mBegin;
+        mBegin = static_cast<pointer>(
+            realloc(mBegin, new_size * sizeof(value_type)));
+        if (!mBegin)
+        {
+            mBegin = oldBegin;
+            return false;
+        }
+    }
+    else
+    {
+        pointer newBegin =  static_cast<pointer>(
+            malloc(new_size * sizeof(value_type)));
+        if (!newBegin) return false;
+
+        if (mBegin != NULL) {
+            std::uninitialized_copy(mBegin, mBegin + mLength, newBegin);
+            deallocate();
+        }
+        mBegin = newBegin;
+    }
+    mCapacity = new_size;
+    return true;
+}
+
+template<typename _T>
+void vector<_T>::push_back(const value_type& elt)
+{
+    if (max_size() == mLength) return;
+    if (mCapacity == mLength)
+    {
+        const size_type new_capacity = grow();
+        if (0 == new_capacity || !reserve(new_capacity)) return;
+    }
+    // mLength < mCapacity
+    if (is_pod<value_type>::value) {
+        *(mBegin + mLength) = elt;
+    } else {
+        // The memory where the new element is added is uninitialized,
+        // we cannot use assigment (lhs is not valid).
+        new((void *)(mBegin + mLength)) _T(elt);
+    }
+    ++mLength;
+}
+
+template<typename _T>
+void vector<_T>::pop_back()
+{
+    if (mLength > 0)
+    {
+        --mLength;
+        if (!is_pod<value_type>::value)
+        {
+            (mBegin + mLength)->~_T();
+        }
+    }
+}
+
+template<typename _T>
+typename vector<_T>::iterator
+vector<_T>::erase(iterator pos) {
+    if (mLength) {
+        std::copy(pos + 1, end(), pos);
+        --mLength;
+        if (!is_pod<value_type>::value) {
+            end()->~_T();
+        }
+    }
+    return pos;
+}
+
+template<typename _T>
+typename vector<_T>::iterator
+vector<_T>::erase(iterator first, iterator last) {
+    difference_type len = std::distance(first, last);
+    if (len > 0) {
+        last = std::copy(last, end(), first);
+
+        if (!is_pod<value_type>::value) {
+            while (last != end()) {
+                last->~_T();
+                ++last;
+            }
+        }
+        mLength -= len;
+    }
+    return first;
+}
+
+template<typename _T>
+void vector<_T>::clear()
+{
+    if(mBegin)
+    {
+        if (is_pod<value_type>::value)
+        {
+            free(mBegin);
+        }
+        else
+        {
+            deallocate();
+        }
+    }
+    mBegin = NULL;
+    mCapacity = 0;
+    mLength = 0;
+}
+
+template<typename _T>
+void vector<_T>::resize(size_type new_size, value_type init_value)
+{
+    if (mLength == new_size || new_size > max_size()) {
+        return;
+    } else if (new_size < mLength) {
+        if (!is_pod<value_type>::value) {
+            const pointer end = mBegin + mLength;
+            for (pointer begin = mBegin + new_size;
+                 begin < end; ++begin) {
+                begin->~_T();
+            }
+        }
+        mLength = new_size;
+        return;
+    }
+
+    if (new_size > mCapacity && !reserve(new_size)) {
+        return;
+    }
+    std::uninitialized_fill(mBegin + mLength, mBegin + new_size, init_value);
+    mLength = new_size;
+}
+
+template<typename _T>
+void vector<_T>::swap(vector& other)
+{
+    std::swap(mBegin, other.mBegin);
+    std::swap(mCapacity, other.mCapacity);
+    std::swap(mLength, other.mLength);
+}
+
+template<typename _T>
+template<typename _InputIterator>
+void vector<_T>::range_initialize(_InputIterator first, _InputIterator last,
+                                  input_iterator_tag) {
+    // There is no way to know how many elements we are going to
+    // insert, call push_back which will alloc/realloc as needed.
+    mBegin = NULL;
+    mLength = mCapacity =  0;
+    for (; first != last; ++first) {
+        push_back(*first);
+    }
+}
+
+template<typename _T>
+template<typename _Iterator>
+void vector<_T>::range_initialize(_Iterator first, _Iterator last,
+                                  random_access_iterator_tag) {
+    typedef typename iterator_traits<_Iterator>::difference_type difference_type;
+    const difference_type num = std::distance(first, last);
+
+    if (0 <= num && static_cast<size_type>(num) < max_size()) {
+        mBegin = static_cast<pointer>(malloc(num * sizeof(value_type)));
+        if (mBegin) {
+            mLength = mCapacity =  num;
+            std::uninitialized_copy(first, last, iterator(mBegin));
+            return;
+        }
+    }
+    mBegin = NULL;
+    mLength = mCapacity =  0;
+}
+
+
+// Grow the capacity. Use exponential until kExponentialLimit then
+// linear until it reaches max_size().
+template<typename _T>
+typename vector<_T>::size_type vector<_T>::grow() const
+{
+    size_type new_capacity;
+    if (mCapacity > kExponentialLimit)
+    {
+        new_capacity = mCapacity + kLinearIncrement;
+    }
+    else
+    {
+        new_capacity = mCapacity == 0 ? kExponentialFactor : mCapacity * kExponentialFactor;
+    }
+    if (mCapacity > new_capacity || new_capacity > max_size())
+    { // Overflow: cap at max_size() if not there already.
+        new_capacity = mCapacity == max_size() ? 0 : max_size();
+    }
+    return  new_capacity;
+}
+
+
+// mBegin should not be NULL.
+template<typename _T>
+void vector<_T>::deallocate()
+{
+    pointer begin = mBegin;
+    pointer end = mBegin + mLength;
+
+    for (; begin != end; ++begin)
+    {
+        begin->~_T();
+    }
+    free(mBegin);
+}
+
+// Dummy element returned when at() is out of bound.
+template<typename _T> _T vector<_T>::sDummy;
+
+}  // namespace std
+
+#endif  // ANDROID_ASTL_VECTOR__

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2010 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<com.android.photoeditor.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/toolbar"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <com.android.photoeditor.PhotoView
+        android:id="@+id/photo_view"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"/>
+
+    <com.android.photoeditor.actions.TouchView
+        android:id="@+id/touch_view"
+        style="@style/FullscreenToolView"/>
+    <com.android.photoeditor.actions.DoodleView
+        android:id="@+id/doodle_view"
+        style="@style/FullscreenToolView"/>
+    <com.android.photoeditor.actions.RotateView
+        android:id="@+id/rotate_view"
+        style="@style/FullscreenToolView"/>
+    <com.android.photoeditor.actions.CropView
+        android:id="@+id/crop_view"
+        style="@style/FullscreenToolView"/>
+    <com.android.photoeditor.actions.ScaleWheel
+        android:id="@+id/scale_wheel"
+        android:tag="fadeOnIdle"
+        style="@style/Wheel"/>
+    <com.android.photoeditor.actions.ColorWheel
+        android:id="@+id/color_wheel"
+        android:tag="fadeOnIdle"
+        style="@style/Wheel"/>
+
+    <com.android.photoeditor.EffectsBar
+        android:id="@+id/effects_bar"
+        android:layout_below="@+id/action_bar"
+        style="@style/EffectsBar">
+
+        <LinearLayout
+            android:id="@+id/effects_container"
+            style="@style/EffectsBarLinearLayout">
+
+            <include layout="@layout/exposure_effects"/>
+            <include layout="@layout/fix_effects"/>
+            <include layout="@layout/artistic_effects"/>
+            <include layout="@layout/color_effects"/>
+        </LinearLayout>
+    </com.android.photoeditor.EffectsBar>
+
+    <com.android.photoeditor.ActionBar
+        android:id="@+id/action_bar"
+        android:tag="fadeOnIdle"
+        style="@style/ActionBar">
+
+        <RelativeLayout style="@style/ActionBarTranslucent">
+            <LinearLayout style="@style/ActionBarLinearLayout">
+
+                <LinearLayout
+                    android:id="@+id/action_bar_back"
+                    style="@style/ActionBarBackLinearLayout">
+                    <ImageView style="@style/ActionBarArrow"/>
+                    <ImageView style="@style/ActionBarIcon"/>
+                </LinearLayout>
+
+                <TextView android:id="@+id/action_effect_name" style="@style/ActionBarText"/>
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/ActionBarLinearLayout"
+                android:layout_alignParentRight="true">
+
+                <ImageButton
+                    android:id="@+id/save_button"
+                    style="@style/ActionButton"
+                    android:src="@drawable/saveas"/>
+                <ImageButton
+                    android:id="@+id/undo_button"
+                    style="@style/ActionButton"
+                    android:src="@drawable/undo"/>
+                <ImageButton
+                    android:id="@+id/redo_button"
+                    style="@style/ActionButton"
+                    android:src="@drawable/redo"/>
+                <ImageButton
+                    android:id="@+id/quickview_button"
+                    style="@style/RightmostActionButton"
+                    android:src="@drawable/quickview"/>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <ImageButton
+            android:id="@+id/quickview_on_button"
+            style="@style/RightmostActionButton"
+            android:layout_gravity="center_vertical|right"
+            android:src="@drawable/quickview_on"/>
+
+    </com.android.photoeditor.ActionBar>
+</com.android.photoeditor.Toolbar>

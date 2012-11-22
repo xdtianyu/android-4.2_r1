@@ -1,0 +1,35 @@
+buildscript {
+    repositories {
+        maven { url '../../../repo' }
+    }
+    dependencies {
+        classpath 'com.android.build:gradle-android:0.1-SNAPSHOT'
+    }
+}
+apply plugin: 'android-library'
+apply plugin: 'maven'
+
+repositories {
+    maven { url '../../../repo' }
+    mavenCentral()
+}
+
+dependencies {
+    compile 'com.example.android.multiproject:baseLib:1.0'
+}
+
+android {
+    target 'android-15'
+}
+
+group = 'com.example.android.multiproject'
+archivesBaseName = 'lib'
+version = '1.0'
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: uri("../../../repo"))
+        }
+    }
+}

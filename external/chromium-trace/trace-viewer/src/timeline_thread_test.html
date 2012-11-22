@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html>
+<!--
+Copyright (c) 2012 The Chromium Authors. All rights reserved.
+Use of this source code is governed by a BSD-style license that can be
+found in the LICENSE file.
+-->
+<head>
+<title>TimelineThread tests</title>
+<script src="base.js"></script>
+<script>
+  base.require('unittest');
+  base.require('test_utils');
+  base.require('timeline_model');
+</script>
+</head>
+<body>
+<script>
+  'use strict';
+
+  var TimelineThreadSlice = tracing.TimelineThreadSlice;
+  var TimelineProcess = tracing.TimelineProcess;
+  var TimelineThread = tracing.TimelineThread;
+  var newSliceNamed = test_utils.newSliceNamed;
+  var newAsyncSlice = test_utils.newAsyncSlice;
+  var newAsyncSliceNamed = test_utils.newAsyncSliceNamed;
+
+  function testPTIDFromPidAndTid() {
+    assertEquals('1:2', TimelineThread.getPTIDFromPidAndTid(1, 2));
+  }
+
+  function testThreadBounds_Empty() {
+    var t = new TimelineThread(new TimelineProcess(7), 1);
+    t.updateBounds();
+    assertEquals(undefined, t.minTimestamp);
+    assertEquals(undefined, t.maxTimestamp);
+  }
+
+  function testThreadBounds_SubRow() {
+    var t = new TimelineThread(new TimelineProcess(7), 1);
+    t.pushSlice(new TimelineThreadSlice('', 'a', 0, 1, {}, 3));
+    t.updateBounds();
+    assertEquals(1, t.minTimestamp);
+    assertEquals(4, t.maxTimestamp);
+  }
+
+  function testThreadBounds_AsyncSliceGroup() {
+    var t = new TimelineThread(new TimelineProcess(7), 1);
+    t.pushSlice(new TimelineThreadSlice('', 'a', 0, 1, {}, 3));
+    t.asyncSlices.push(newAsyncSlice(0.1, 5, t, t));
+    t.updateBounds();
+    assertEquals(0.1, t.minTimestamp);
+    assertEquals(5.1, t.maxTimestamp);
+  }
+
+  function testThreadBounds_Cpu() {
+    var t = new TimelineThread(new TimelineProcess(7), 1);
+    t.cpuSlices = [newSliceNamed('x', 0, 1)];
+    t.updateBounds();
+    assertEquals(0, t.minTimestamp);
+    assertEquals(1, t.maxTimestamp);
+  }
+
+  function testShiftTimestampsForwardWithCpu() {
+    var t = new TimelineThread(new TimelineProcess(7), 1);
+    t.pushSlice(new TimelineThreadSlice('', 'a', 0, 0, {}, 3));
+    t.asyncSlices.push(newAsyncSlice(0, 5, t, t));
+    t.cpuSlices = [newSliceNamed('x', 0, 1)];
+
+    var shiftCount = 0;
+    t.asyncSlices.shiftTimestampsForward = function(ts) {
+      if (ts == 0.32)
+        shiftCount++;
+    };
+
+    t.shiftTimestampsForward(0.32);
+
+    assertEquals(1, shiftCount);
+    assertEquals(0.32, t.slices[0].start);
+    assertEquals(0.32, t.cpuSlices[0].start);
+  }
+
+  function testShiftTimestampsForwardWithoutCpu() {
+    var t = new TimelineThread(new TimelineProcess(7), 1);
+    t.pushSlice(new TimelineThreadSlice('', 'a', 0, 0, {}, 3));
+    t.asyncSlices.push(newAsyncSlice(0, 5, t, t));
+
+    var shiftCount = 0;
+    t.asyncSlices.shiftTimestampsForward = function(ts) {
+      if (ts == 0.32)
+        shiftCount++;
+    };
+
+    t.shiftTimestampsForward(0.32);
+
+    assertEquals(1, shiftCount);
+    assertEquals(0.32, t.slices[0].start);
+  }
+</script>
+</body>
+</html>

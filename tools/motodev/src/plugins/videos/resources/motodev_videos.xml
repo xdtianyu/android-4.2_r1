@@ -1,0 +1,14 @@
+<videos>
+
+	<user name="motorolamotodev" password=""/>
+	
+	<channels>
+		<!-- 
+		<channel display_name="" name="" order="{fixed, variable}" default="{true, false}"/>
+		-->
+		<channel display_name="Getting Started" name="Getting Started" order="fixed" default="true"/>
+		<channel display_name="MOTODEV Studio Features" name="MOTODEV Studio Features"/>
+		<channel display_name="Programming Android" name="Programming Android"/>
+	</channels>
+	
+</videos>

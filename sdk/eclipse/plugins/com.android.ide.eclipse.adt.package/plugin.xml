@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="org.eclipse.ui.ide.workbench"
+            name="Eclipse IDE for Android">
+         <property
+            name="preferenceCustomization"
+            value="plugin_customization.ini" />
+         <property
+            name="appName"
+            value="Eclipse IDE for Android" />
+         <property
+            name="introTitle"
+            value="Eclipse IDE for Android" />
+         <property
+            name="introBrandingImage"
+            value="product:eclipse.png" />
+         <property
+            name="introBrandingImageText"
+            value="AOSP" />
+         <property
+            name="startupProgressRect"
+            value="10,250,200,5" />
+         <property
+            name="startupMessageRect"
+            value="10,260,300,30" />
+         <property
+            name="startupForegroundColor"
+            value="AAAAAA" />
+      </product>
+   </extension>
+   <extension
+         point="org.eclipse.ui.intro">
+      <intro
+            class="org.eclipse.ui.intro.config.CustomizableIntroPart"
+            icon="$nl$/icons/image_obj.gif"
+            id="org.eclipse.intro.minimal"
+            label="Android IDE"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.intro.config">
+      <config
+            content="introcontent.xml"
+            id="org.eclipse.intro.minimal.config"
+            introId="org.eclipse.intro.minimal">
+         <presentation
+               home-page-id="root"
+               standby-page-id="standby">
+            <implementation
+                  kind="html">
+            </implementation>
+         </presentation>
+      </config>
+   </extension>
+   <extension
+         point="org.eclipse.ui.intro">
+      <introProductBinding
+            introId="org.eclipse.intro.minimal"
+            productId="com.android.ide.eclipse.adt.package.product">
+      </introProductBinding>
+   </extension>
+</plugin>

@@ -1,0 +1,5 @@
+The object in this prebuilt directory can be rebuilt from
+	platform/sdk/ddms/libs/ddmlib
+
+From the commit 6464f39ddb29be9fac3684aa2f6ed50bae8f286e
+

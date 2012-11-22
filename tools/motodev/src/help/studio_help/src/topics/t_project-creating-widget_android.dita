@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task
+  PUBLIC "-//OASIS//DTD DITA Task//EN" "../dtd/task.dtd">
+<task xml:lang="en-us" id="t_project-creating-widget_android">
+  <title>Creating an Android widget project</title>
+  <shortdesc>The New Android Widget Project wizard allows you to quickly and easily create a new widget application for
+    an Android device.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <context/>
+    <steps>
+      <step>
+        <cmd>Select <menucascade><uicontrol>File</uicontrol><uicontrol>New</uicontrol><uicontrol>Android Widget Project
+              using Studio for Android</uicontrol></menucascade>. </cmd>
+        <stepresult>The New Android Widget Project dialog appears with a number of default values filled
+        in.</stepresult>
+      </step>
+      <step>
+        <cmd>Specify a name for your new project in <uicontrol>Project name</uicontrol>.</cmd>
+      </step>
+      <step>
+        <cmd>If you want your project stored in a subdirectory (named with the project name) within default location
+          (usually the workspace root) leave <uicontrol>Use default location</uicontrol> selected. Otherwise: </cmd>
+        <substeps>
+          <substep>
+            <cmd>Clear <uicontrol>Use default location</uicontrol>.</cmd>
+          </substep>
+          <substep>
+            <cmd>Use the <uicontrol>Location</uicontrol> field to specify the directory in which the project
+              subdirectory should be created.</cmd>
+          </substep>
+        </substeps>
+      </step>
+      <step>
+        <cmd>Verify that the SDK target is correct for your widget application.</cmd>
+      </step>
+      <step>
+        <cmd>Using the <uicontrol>Application name</uicontrol> field, supply the name that should identify your widget
+          in the widgets list accessible from the Android home screen.</cmd>
+      </step>
+      <step>
+        <cmd>Verify the <uicontrol>Package name</uicontrol>, <uicontrol>Activity name</uicontrol>, and <uicontrol>Min
+            SDK version</uicontrol> fields. All are set to reasonable defaults by the new Android Widget Project wizard,
+          but all can be changed if needed for your particular application.</cmd>
+      </step>
+      <step>
+        <cmd>Click <uicontrol>Finish</uicontrol>.</cmd>
+      </step>
+    </steps>
+    <result>You project is now created and added to those listed in the Project Explorer view. </result>
+  </taskbody>
+</task>

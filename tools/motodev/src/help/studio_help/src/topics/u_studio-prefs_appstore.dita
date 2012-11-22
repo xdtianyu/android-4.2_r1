@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference xml:lang="en-us" id="u_studio-prefs_appstore">
+  <title>MOTODEV Login preferences</title>
+  <shortdesc>Contains preferences that are used when publishing applications to Motorola, Inc. </shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <p>To access these preferences, select <uicontrol>Preferences</uicontrol> from the <ph
+          conref="g_variables.dita#g_variables/studio-sdk-prefs-parent-menu"/> menu. Then from the list of preferences,
+        select <menucascade><uicontrol>MOTODEV Studio</uicontrol><uicontrol>MOTODEV Login</uicontrol></menucascade>.</p>
+      <p>When connecting to the web site used to publish applications to Motorola, Inc., if you save your credentials the
+        Login and Password fields will be pre-populated in future sessions. Use this preferences dialog to edit or
+        remove those credentials.</p>
+      <simpletable>
+        <strow>
+          <stentry>
+            <uicontrol>Login</uicontrol> and <uicontrol>Password</uicontrol>
+          </stentry>
+          <stentry>Your credentials. Normally these are your MOTODEV login and password.</stentry>
+        </strow>
+      </simpletable>
+    </section>
+  </refbody>
+</reference>

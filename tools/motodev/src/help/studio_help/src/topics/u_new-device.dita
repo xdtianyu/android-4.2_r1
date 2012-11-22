@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference id="u_new-device" xml:lang="en-us">
+  <title>Create a New Device dialog</title>
+  <shortdesc>Creates a new Android Virtual Device (AVD).</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <p>When creating a new device you are presented with a series of dialogs in sequence. The first simply asks for a
+        name for the new AVD; supply a name and click <uicontrol>Next</uicontrol>. The second dialog contains basic
+        information about the AVD; see <xref href="u_new-device-main_android.dita" format="dita"/> for details. The
+        third dialog, which is optional, allows you to specify startup options to be applied each time the emulator is
+        started. <xref href="u_new-device-startup_android.dita"/> describes the available startup options.</p>
+    </section>
+  </refbody>
+</reference>

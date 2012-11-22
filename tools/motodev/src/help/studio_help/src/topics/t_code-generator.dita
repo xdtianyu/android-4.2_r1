@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "../dtd/task.dtd">
+<task id="t_code-generator" xml:lang="en-us">
+  <title>Generating Java Code</title>
+  <shortdesc>The Java code generator can quickly generate boilerplate code for selected UI elements defined in an
+    activity's or fragment's layout file. It generates attribute declarations, findViewById() calls, and event handlers.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <steps>
+      <step>
+        <cmd>Construct your layout file, ensuring that it contains all of the UI elements that you want to
+          programmatically access from your Java Activity or Fragment subclass. Save your work.</cmd>
+      </step>
+      <step>
+        <cmd>Right-click the Activity or Fragment subclass that presents and controls the layout (right-click either the
+          editor window showing this subclass, or the subclass' filename in the Package Explorer) and select
+            <menucascade><uicontrol>Source</uicontrol><uicontrol>Generate Java Code Based on
+          Layout</uicontrol></menucascade>.</cmd>
+        <info>
+          <note>In order for this operation to work, your Activity or Fragment code must not have errors. As well, the
+            xml file that defines your layout must be well-formed.</note>
+        </info>
+        <stepresult>The Generate Java Code Based on Layout dialog appears.</stepresult>
+      </step>
+      <step>
+        <cmd>Ensure that the <uicontrol>Project</uicontrol> and <uicontrol>Target Class</uicontrol> selections are
+          correct.</cmd>
+      </step>
+      <step>
+        <cmd>From the <uicontrol>UI objects</uicontrol> list, select those items for which code is to be generated.</cmd>
+        <info>To avoid adding duplicate code, if the code generator finds an existing findViewById() statement for a
+          given UI object, it does not include that UI object in the list.</info>
+      </step>
+      <step>
+        <cmd>If at least one of the UI objects is normally used with a listener object, and you do <i>not</i> want
+          listeners to be created for you, clear the <uicontrol>Generate default listeners when possible</uicontrol>
+          option. Otherwise, leave this option selected so that listeners are generated for the appropriate UI
+        objects.</cmd>
+      </step>
+      <step>
+        <cmd>Click <uicontrol>OK</uicontrol>.</cmd>
+        <info>Note that the <uicontrol>OK</uicontrol> button isn't enabled until you select at least one UI object from
+          the list.</info>
+      </step>
+    </steps>
+    <result>Attribute declarations, findViewById() calls, and event handlers are generated, as appropriate, and added to
+      the selected Activity or Fragment subclass.</result>
+  </taskbody>
+</task>

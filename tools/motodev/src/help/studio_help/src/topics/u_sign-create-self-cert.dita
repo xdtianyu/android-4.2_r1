@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference id="u_sign-create-self-cert" xml:lang="en-us">
+  <title>Create Key dialog</title>
+  <shortdesc>Allows you to create a new self-signing key for use when signing Android packages (APKs). Contains fields
+    for the key name (its "alias"), for each of the components of a distinguished name (DN; used to identify the creator
+    of a key pair or certificate) and for a password used to protect the key.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <p>This dialog is displayed when you select a keystore and then click <image href="../images/KeyCreate.png"/>
+        (Create Key) in the Signing and Keys view. The new key will be placed in the selected keystore.</p>
+      <p>You must supply a value for each of the starred (*) form fields in order to generate the public-private key
+        pair.</p>
+      <simpletable>
+        <strow>
+          <stentry><uicontrol>Alias name</uicontrol></stentry>
+          <stentry>A unique name to be given to this key pair. Key pairs are identified by alias within the
+            keystore.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>First and Last Name</uicontrol></stentry>
+          <stentry>Your name.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Organization</uicontrol></stentry>
+          <stentry>The name of the company you are working for.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Organization unit</uicontrol></stentry>
+          <stentry>The company branch or division you are working for.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>City or Locality</uicontrol></stentry>
+          <stentry>The full name of your city or locality. For instance, "New York".</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>State or Province</uicontrol></stentry>
+          <stentry>Your state or province. This should be a full name. For instance, "California".</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Country Code (XX)</uicontrol></stentry>
+          <stentry>Select your country from the list.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Validity (years)</uicontrol></stentry>
+          <stentry>How long (in years) the certificate should be considered valid. </stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Password</uicontrol></stentry>
+          <stentry>A password that protects this key. You must supply this password when you use this key to sign an
+            Android package. Note that if you select <uicontrol>Save this password</uicontrol>, MOTODEV Studio will
+            remember the password and supply it for you when you use this key to sign a package.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Confirm Password</uicontrol></stentry>
+          <stentry>Enter the key password again, to confirm that what you entered is what you intended.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Save this password</uicontrol></stentry>
+          <stentry>Select this option if you want MOTODEV Studio to automatically supply the password when you sign
+            packages with this key. Leave this option unselected if you want MOTODEV Studio to prompt for the password
+            each time this key is used.</stentry>
+        </strow>
+      </simpletable>
+    </section>
+  </refbody>
+</reference>

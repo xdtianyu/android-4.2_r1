@@ -1,0 +1,27 @@
+com.android.monkeyrunner.easy contains classes intended to make it easier
+to interact with applications using the MonkeyRunner framework. Instead of
+referencing a button or input box by x,y coordinate, they can be referenced
+by identifier, as in the following Python example:
+
+##############################################################################
+
+from com.android.monkeyrunner import MonkeyRunner, MonkeyDevice
+from com.android.monkeyrunner.easy import EasyMonkeyDevice
+from com.android.monkeyrunner.easy import By
+
+# Connect to the current device.
+device = MonkeyRunner.waitForConnection()
+
+# Use the EasyMonkey API, all methods on device are available in easy_device.
+easy_device = EasyMonkeyDevice(device)
+
+if not easy_device.visible(By.id('id/all_apps_button')):
+    raise Error('Could not find the "all apps" button')
+
+print "Location of element:", easy_device.locate(By.id('id/all_apps_button'))
+
+easy_device.touch(By.id('id/all_apps_button'), 'DOWN_AND_UP')
+
+##############################################################################
+
+WARNING: This API is under development and may change without notice.

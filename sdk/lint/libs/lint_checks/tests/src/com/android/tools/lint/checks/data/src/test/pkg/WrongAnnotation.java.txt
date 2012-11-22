@@ -1,0 +1,19 @@
+package com.example.test2;
+
+import android.annotation.SuppressLint;
+
+public class WrongAnnotation {
+    @Override
+    @SuppressLint("NewApi") // Valid: class-file check on method
+    public static void foobar(View view, @SuppressLint("NewApi") int foo) { // Invalid: class-file check
+        @SuppressLint("NewApi") // Invalid
+        boolean a;
+        @SuppressLint({"SdCardPath", "NewApi"}) // Invalid: class-file based check on local variable
+        boolean b;
+        @android.annotation.SuppressLint({"SdCardPath", "NewApi"}) // Invalid (FQN)
+        boolean c;
+        @SuppressLint("SdCardPath") // Valid: AST-based check
+        boolean d;
+    }
+}
+

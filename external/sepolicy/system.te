@@ -1,0 +1,210 @@
+#
+# Apps that run with the system UID, e.g. com.android.system.ui,
+# com.android.settings.  These are not as privileged as the system
+# server.
+#
+type system_app, domain;
+app_domain(system_app)
+
+# Perform binder IPC to any app domain.
+binder_call(system_app, appdomain)
+binder_transfer(system_app, appdomain)
+
+# Read and write system data files.
+# May want to split into separate types.
+allow system_app system_data_file:dir create_dir_perms;
+allow system_app system_data_file:file create_file_perms;
+
+# Read wallpaper file.
+allow system_app wallpaper_file:file r_file_perms;
+
+# Write to dalvikcache.
+allow system_app dalvikcache_data_file:file { write setattr };
+
+# Talk to keystore.
+unix_socket_connect(system_app, keystore, keystore)
+
+# Read SELinux enforcing status.
+selinux_getenforce(system_app)
+
+bool manage_selinux true;
+if (manage_selinux) {
+# Set SELinux enforcing status.
+selinux_setenforce(system_app)
+
+# Set SELinux booleans.
+selinux_setbool(system_app)
+
+# Read syslog to display AVC messages.
+allow system_app kernel:system syslog_read;
+}
+
+bool manage_mac true;
+if (manage_mac) {
+# Set properties via the init property service.
+unix_socket_connect(system_app, property, init)
+
+# Set the persist.mac_enforcing_mode property.
+allow system_app system_prop:property_service set;
+
+# Run logcat and read the logs for MAC denials.
+allow system_app system_file:file x_file_perms;
+allow system_app log_device:chr_file read;
+}
+
+#
+# System Server aka system_server spawned by zygote.
+# Most of the framework services run in this process.
+#
+type system, domain, mlstrustedsubject;
+
+# Child of the zygote.
+allow system zygote:fd use;
+allow system zygote:process sigchld;
+allow system zygote_tmpfs:file read;
+
+# system server gets network and bluetooth permissions.
+net_domain(system)
+bluetooth_domain(system)
+
+# These are the capabilities assigned by the zygote to the
+# system server.
+# XXX See if we can remove some of these.
+allow system self:capability { kill net_bind_service net_broadcast net_admin net_raw sys_module sys_boot sys_nice sys_resource sys_time sys_tty_config };
+
+# Trigger module auto-load.
+allow system kernel:system module_request;
+
+# Use netlink uevent sockets.
+allow system self:netlink_kobject_uevent_socket *;
+
+# Kill apps.
+allow system appdomain:process { sigkill signal };
+
+# Set scheduling info for apps.
+allow system appdomain:process setsched;
+allow system mediaserver:process setsched;
+
+# Read /proc data for apps.
+allow system appdomain:dir r_dir_perms;
+allow system appdomain:{ file lnk_file } rw_file_perms;
+
+# Write to /proc/net/xt_qtaguid/ctrl.
+allow system qtaguid_proc:file rw_file_perms;
+allow system qtaguid_device:chr_file rw_file_perms;
+
+# Notify init of death.
+allow system init:process sigchld;
+
+# Talk to init and various daemons via sockets.
+unix_socket_connect(system, property, init)
+unix_socket_connect(system, qemud, qemud)
+unix_socket_connect(system, installd, installd)
+unix_socket_connect(system, netd, netd)
+unix_socket_connect(system, vold, vold)
+unix_socket_connect(system, zygote, zygote)
+unix_socket_connect(system, keystore, keystore)
+unix_socket_connect(system, dbus, dbusd)
+unix_socket_connect(system, gps, gpsd)
+unix_socket_send(system, wpa, wpa)
+
+# Communicate over a socket created by surfaceflinger.
+allow system surfaceflinger:unix_stream_socket { read write setopt };
+
+# Perform Binder IPC.
+tmpfs_domain(system)
+binder_use(system)
+binder_call(system, binderservicedomain)
+binder_call(system, appdomain)
+binder_service(system)
+# Transfer other Binder references.
+binder_transfer(system, binderservicedomain)
+binder_transfer(system, appdomain)
+
+# Read /proc/pid files for Binder clients.
+r_dir_file(system, appdomain)
+r_dir_file(system, mediaserver)
+allow system appdomain:process getattr;
+allow system mediaserver:process getattr;
+
+# Specify any arguments to zygote.
+allow system self:zygote *;
+
+# Check SELinux permissions.
+selinux_check_access(system)
+
+# XXX Label sysfs files with a specific type?
+allow system sysfs:file rw_file_perms;
+allow system sysfs_nfc_power_writable:file rw_file_perms;
+
+# Access devices.
+allow system device:dir r_dir_perms;
+allow system device:chr_file rw_file_perms;
+allow system device:sock_file rw_file_perms;
+allow system akm_device:chr_file rw_file_perms;
+allow system accelerometer_device:chr_file rw_file_perms;
+allow system alarm_device:chr_file rw_file_perms;
+allow system graphics_device:dir search;
+allow system graphics_device:chr_file rw_file_perms;
+allow system input_device:dir r_dir_perms;
+allow system input_device:chr_file rw_file_perms;
+allow system tty_device:chr_file rw_file_perms;
+allow system urandom_device:chr_file rw_file_perms;
+allow system video_device:chr_file rw_file_perms;
+allow system qemu_device:chr_file rw_file_perms;
+
+# Manage data files.
+allow system data_file_type:dir create_dir_perms;
+allow system data_file_type:notdevfile_class_set create_file_perms;
+
+# Read /file_contexts.
+allow system rootfs:file r_file_perms;
+
+# Relabel apk files.
+allow system apk_tmp_file:file { relabelfrom relabelto };
+allow system apk_data_file:file { relabelfrom relabelto };
+
+# Relabel wallpaper.
+allow system system_data_file:file relabelfrom;
+allow system wallpaper_file:file relabelto;
+allow system wallpaper_file:file rw_file_perms;
+
+# Relabel /data/anr.
+allow system system_data_file:dir relabelfrom;
+allow system anr_data_file:dir relabelto;
+
+# Property Service write
+allow system system_prop:property_service set;
+allow system radio_prop:property_service set;
+
+# ctl interface
+allow system ctl_default_prop:property_service set;
+
+# Create a socket for receiving info from wpa.
+type_transition system wifi_data_file:sock_file system_wpa_socket;
+allow system system_wpa_socket:sock_file create_file_perms;
+
+# Manage cache files.
+allow system cache_file:dir create_dir_perms;
+allow system cache_file:file create_file_perms;
+
+# Run system programs, e.g. dexopt.
+allow system system_file:file x_file_perms;
+
+# Allow reading of /proc/pid data for other domains.
+# XXX dontaudit candidate
+allow system domain:dir r_dir_perms;
+allow system domain:file r_file_perms;
+
+# LocationManager(e.g, GPS) needs to read and write
+# to uart driver and ctrl proc entry
+allow system gps_device:chr_file rw_file_perms;
+allow system gps_control:file rw_file_perms;
+
+# system Read/Write udp_socket of untrusted_app
+allow system appdomain:udp_socket { read write };
+# Allow abstract socket connection
+allow system rild:unix_stream_socket connectto;
+
+# connect to vpn tunnel
+allow system mtp:unix_stream_socket { connectto };

@@ -1,0 +1,7 @@
+The objects in this prebuilt directory can be rebuilt from the source in
+$ANDROID/external/qemu/distrib/sdl-1.2.15.
+
+$ cd $ANDROID/external/qemu/distrib/sdl-1.2.15
+$ USE_MINGW=1 ./android-configure.sh --prefix=$ANDROID/prebuilts/tools/windowssdl
+$ make
+$ make install

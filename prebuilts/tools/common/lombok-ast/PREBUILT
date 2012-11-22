@@ -1,0 +1,41 @@
+The source code for the classes in this prebuilt can
+be found in the src.zip in this directory.
+
+The objects in this prebuilt directory can also be
+rebuilt using the source archive hosted at
+
+http://projectlombok.org/
+
+Specifically, changeset df3fbf80b9ac3efe67a3b1d2713a0de30b6a74d5
+from
+https://github.com/rzwitserloot/lombok.ast
+
+NOTE: Lombok.AST was combined with Guava 13.0.1 to match
+what is used in the rest of the tools, and Guava was also
+removed from the lombok binary (which by default jarjar's it
+into the lombok.jar), since it will always be used in a
+context where Guava is already ready, so no point in bundling
+a private copy.
+
+diff --git a/build.xml b/build.xml
+index 3575ecf..11570d0 100644
+--- a/build.xml
++++ b/build.xml
+@@ -231,6 +231,7 @@
+                <unjar dest="build/lombok.ast">
+                        <path refid="runtime.path" />
+                </unjar>
++                <delete dir="build/lombok.ast/com/google" />
+        </target>
+
+        <target name="dist" depends="compile, version, unpackLibs" description="Creates distributable.">
+@@ -240,7 +241,9 @@
+                        <fileset dir="build/lombok.ast" />
+                        <fileset dir="." includes="LICENSE" />
+                        <fileset dir="." includes="AUTHORS" />
++<!--
+                        <rule pattern="com.google.common.**" result="lombok.ast.libs.com.google.common.@1" />
++-->
+                        <rule pattern="org.parboiled.**" result="lombok.ast.libs.org.parboiled.@1" />
+                        <rule pattern="com.zwitserloot.cmdreader.**" result="lombok.ast.libs.com.zwitserloot.cmdreader.@1
+                        <manifest>

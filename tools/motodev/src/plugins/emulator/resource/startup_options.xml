@@ -1,0 +1,141 @@
+<!--
+  Copyright (C) 2012 The Android Open Source Project
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+
+<startupOptions>
+
+	<group id="%StartUp_UserInterface_Tab_Label">
+	
+		<startupOption name="-dpi-device" fName="%StartUp_Options_DpiDevice_Label" type="int">
+			<description>%StartUp_Options_DpiDevice_Description</description>
+		</startupOption>
+		
+		<startupOption name="-scale" fName="%StartUp_Options_Scale_Label" type="text">
+			<description>%StartUp_Options_Scale_Description</description>
+		</startupOption>
+		
+		<startupOption name="-no-boot-anim" fName="%StartUp_Options_BootAnim_Label" type="none">
+			<description>%StartUp_Options_BootAnim_Description</description>
+		</startupOption>
+		
+		<startupOption name="-no-skin" fName="%StartUp_Options_NoSkin_Label" type="none">
+			<description>%StartUp_Options_NoSkin_Description</description>
+		</startupOption>
+		
+	</group>
+	
+	
+	<group id="%StartUp_DiskImages_Tab_Label">
+	
+		<startupOption name="-cache" fName="%StartUp_Options_Cache_Label" type="path" typeDetails=".img">
+			<description>%StartUp_Options_Cache_Description</description>
+		</startupOption>
+		
+		<startupOption name="-data" fName="%StartUp_Options_UserData_Label" type="path" typeDetails=".img">
+			<description>%StartUp_Options_UserData_Description</description>
+		</startupOption>
+		
+		<startupOption name="-initdata" fName="%StartUp_Options_InitData_Label"  type="path" typeDetails=".img">
+			<description>%StartUp_Options_InitData_Description</description>
+		</startupOption>
+		
+		<startupOption name="-ramdisk" fName="%StartUp_Options_RAM_Label" type="path" typeDetails=".img">
+			<description>%StartUp_Options_RAM_Description</description>
+		</startupOption>
+		
+		<startupOption name="-sdcard" fName="%StartUp_Options_SDCard_Label" type="path" typeDetails=".img">
+			<description>%StartUp_Options_SDCard_Description</description>
+		</startupOption>
+		
+		<startupOption name="-nocache" fName="%StartUp_Options_NoCache_Label" type="none">
+			<description>%StartUp_Options_NoCache_Description</description>
+		</startupOption>
+		
+		<startupOption name="-wipe-data" fName="%StartUp_Options_WipeData_Label" type="none">
+			<description>%StartUp_Options_WipeData_Description</description>
+		</startupOption>
+		
+	</group>
+	
+	
+	<group id="%StartUp_Network_Tab_Label">
+	
+		<startupOption name="-dns-server" fName="%StartUp_Options_DNSServer_Label" type="text" typeDetails="csv">
+			<description>%StartUp_Options_DNSServer_Description</description>
+		</startupOption>		
+				
+		<startupOption name="-netdelay" fName="%StartUp_Options_NetDelay_Label" type="text">
+			<description>%StartUp_Options_NetDelay_Description</description>
+			<values>
+				<value>gprs</value>
+				<value>edge</value>
+				<value>umts</value>
+				<value>none</value>
+			</values>
+		</startupOption>
+		
+		<startupOption name="-netspeed" fName="%StartUp_Options_NetSpeed_Label" type="text">
+			<description>%StartUp_Options_NetSpeed_Description</description>
+			<values>
+				<value>gsm</value>
+				<value>hscsd</value>
+				<value>gprs</value>
+				<value>edge</value>
+				<value>umts</value>
+				<value>hsdpa</value>
+				<value>hsdpa</value>
+				<value>full</value>
+			</values>
+		</startupOption>
+		
+		<startupOption name="-port" fName="%StartUp_Options_Port_Label" type="int" typeDetails="5554;5584">
+			<description>%StartUp_Options_Port_Description</description>
+		</startupOption>
+		
+		<startupOption name="-netfast" fName="%StartUp_Options_NetFast_Label"  type="none">
+			<description>%StartUp_Options_NetFast_Description</description>
+		</startupOption>
+
+	</group>
+	
+	
+	<group id="%StartUp_System_Tab_Label">
+	
+		<startupOption name="-cpu-delay" fName="%StartUp_Options_CPUDelay_Label" type="int" typeDetails="0;1000">
+			<description>%StartUp_Options_CPUDelay_Description</description>
+		</startupOption>
+		
+		<startupOption name="-gps" fName="%StartUp_Options_GPS_Label" type="text">
+			<description>%StartUp_Options_GPS_Description</description>
+		</startupOption>
+		
+		<startupOption name="-nojni" fName="%StartUp_Options_NoJni_Label" type="none">
+			<description>%StartUp_Options_NoJni_Description</description>
+		</startupOption>
+		
+	</group>
+	
+	
+	<group id="%StartUp_Others_Tab_Label">
+	
+		<startupOption name="other" fName="%StartUp_Options_OtherOptions_Label" type="text">
+			<description>%StartUp_Options_OtherOptions_Description</description>
+		</startupOption>
+		
+	</group>
+	
+	
+</startupOptions>

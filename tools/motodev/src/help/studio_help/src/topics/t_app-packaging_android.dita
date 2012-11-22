@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task
+  PUBLIC "-//OASIS//DTD DITA Task//EN" "../dtd/task.dtd">
+<task xml:lang="en-us" id="t_app-packaging_android">
+  <title>Packaging an Android application</title>
+  <shortdesc>Describes how to create Android Package (APK) files for one or more MOTODEV Studio for Android projects.
+    APK files are used to distribute and deploy applications for the Android platform. </shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <prereq>
+      <p>Note that in order to create an Android package the application being packaged must build without error.</p>
+    </prereq>
+    <steps>
+      <step>
+        <cmd>In the Package Explorer, right-click the project you wish to package into an APK file and select <uicontrol
+            >Export</uicontrol> from the menu that appears.</cmd>
+        <stepresult>The Export dialog appears.</stepresult>
+      </step>
+      <step>
+        <cmd>Select <menucascade><uicontrol>Android</uicontrol><uicontrol>Export Android Application using Studio for
+              Android</uicontrol></menucascade> and click <uicontrol>Next</uicontrol>.</cmd>
+      </step>
+      <step>
+        <cmd>Verify the contents of the Export Android Package Files dialog.</cmd>
+        <substeps>
+          <substep>
+            <cmd>Ensure that the desired packages are selected. An APK file will be generated for each selected
+            package.</cmd>
+          </substep>
+          <substep>
+            <cmd>By default, each APK file is placed in a <codeph>dist</codeph> directory within the corresponding
+              project. Alternatively, you can specify a single directory into which the generated APK files are to be
+              placed: clear the <uicontrol>Use default destination</uicontrol> option, and specify the destination
+              directory using the <uicontrol>Destination</uicontrol> field.</cmd>
+          </substep>
+          <substep>
+            <cmd>If the packages are to be signed, select <uicontrol>Sign the package</uicontrol> and choose the
+              keystore and key to be used. To create an unsigned APK file, make sure that <uicontrol>Sign the
+                package</uicontrol> is not selected.</cmd>
+            <info><ul>
+                <li>If the keystore is already known to (and listed in) the Signing and Keys view, select it from the
+                  drop-down list. Otherwise, click <uicontrol>Use existing</uicontrol> to specify an existing keystore
+                  that is not yet known to the Signing and Keys view, or <uicontrol>Add new</uicontrol> to create and
+                  use a new keystore.</li>
+                <li>Select an existing key from the drop-down list, or create a new key in the keystore by selecting
+                    <uicontrol>Add</uicontrol>.</li>
+              </ul></info>
+          </substep>
+        </substeps>
+      </step>
+      <step>
+        <cmd>Click <uicontrol>Finish</uicontrol>.</cmd>
+        <stepresult>
+          <p>The APK files are generated as directed. If you elected to use the default destination, the APK file for
+            each selected project can be found in that project's <codeph>dist</codeph> directory. If you specified your
+            own destination directory, that directory should now contain an APK file for each selected project.</p>
+          <note importance="normal">If you chose to sign the packages, after signing the zipalign tool is used to align
+            the Android Package files on 4-byte boundaries. Also, if obfuscation is enabled for the project, the
+            project's Java classes will be obfuscated.</note>
+        </stepresult>
+      </step>
+    </steps>
+  </taskbody>
+</task>

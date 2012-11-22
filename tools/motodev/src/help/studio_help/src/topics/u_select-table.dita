@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference id="u_select-table" xml:lang="en-us">
+  <title>Select Database Table dialog</title>
+  <shortdesc>Allows you to select the database table that is to be displayed within a new Database List
+    activity.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <p>When creating a new activity based upon the Database List template, you are first asked to select the database
+        table that should be displayed. Use this dialog to select the table. After this dialog you will be given a
+        chance to select the individual columns within the table that are to be displayed.</p>
+    </section>
+  </refbody>
+</reference>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference id="u_options-menu-code-create" xml:lang="en-us">
+  <title>Generate Options Menu Code Based on xml file</title>
+  <shortdesc>Generates options menu code from a selected xml-format menu definition file in your project's res/menu
+    folder. </shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <p>This dialog is presented when you select a project in the Package Explorer that has one or more menus in the
+        project's res/menu folder and then select <menucascade>
+          <uicontrol>Auto-Generated Code</uicontrol>
+          <uicontrol>Generate Java Code Based on Menu xml Files</uicontrol>
+        </menucascade> from the <uicontrol>MOTODEV</uicontrol> menu.</p>
+      <p>This command can be re-invoked as many times as necessary to accomodate changes to your xml file.</p>
+      <simpletable>
+        <strow>
+          <stentry><uicontrol>Project</uicontrol></stentry>
+          <stentry>The project into which the menu-handling code is to be added.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Target Class</uicontrol></stentry>
+          <stentry>The Java class (an Activity or Fragement) to which the menu-handling code is to be added. The Generate Options Menu... feature
+            adds an onCreateOptionsMenu() method that inflates the specified menu. It also adds an
+            onOptionsItemSelected() method containing an if/else block that provides you with a place to put your menu
+            item handler code for each item in the menu.</stentry>
+        </strow>
+        <strow>
+          <stentry><uicontrol>Menu xml File</uicontrol></stentry>
+          <stentry>The xml file in the selected project's res/menu folder that defines the menu for which code is to be
+            generated.</stentry>
+        </strow>
+      </simpletable>
+    </section>
+  </refbody>
+</reference>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "../dtd/task.dtd">
+<task xml:lang="en-us" id="t_app-launching_android">
+  <title>Running an Android application</title>
+  <shortdesc>Use this procedure to run an Android application, defined by a project listed in the Package Explorer, on
+    an emulated device or on a physical device connected to your development
+    computer.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <prereq>In order to run your application, you need to have a target device defined. To run on an emulated device,
+      you must have created at least one AVD. To run on a physical device, you must <!--either -->connect that device to
+      your development computer using a supported method such as a USB
+      cable<!--, or you must have acquired the device and connected to it using the <tm tmtype="tm" xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/">DeviceAnywhere</tm> service-->.</prereq>
+    <steps>
+      <step>
+        <cmd>Right-click the project in the Package Explorer and select <menucascade><uicontrol>Run
+              As</uicontrol><uicontrol>Android Application using Studio for Android</uicontrol></menucascade> from the
+          menu that appears. If MOTODEV Studio is able to determine on which device the app should be run, it will
+          simply run the app. Otherwise, The Run Configurations dialog appears, open to your application's run
+          configuration (if this is the first time you have run this application, a new configuration will have been
+          created for you).</cmd>
+        <substeps>
+          <substep>
+            <cmd>On the Main tab of the Run Configurations dialog, click <uicontrol>Browse</uicontrol> next to the
+                <uicontrol>Device</uicontrol> field and select the target AVD or device.</cmd>
+            <info>The Device Selection list lists all AVDs and all physical devices connected to your development
+              computer<!--, and all Android devices acquired through the DeviceAnywhere VDL-->. If the Device Selection
+              list is empty, you will either need to create an AVD or connect an Android device to your development
+              computer<!--, or use the DeviceAnywhere VDL to acquire a target device-->.</info>
+          </substep>
+          <substep>
+            <cmd>Click <uicontrol>Run</uicontrol> to save and run your new configuration.</cmd>
+          </substep>
+        </substeps>
+        <info>When you use <menucascade><uicontrol>Run As</uicontrol><uicontrol>Android Application using Studio for
+              Android</uicontrol></menucascade> and there isn't an existing Run Configuration for your application,
+          MOTODEV Studio constructs one for you. It determines the appropriate target device by first looking at online
+          devices; the first one (in alphabetical order, by name) that has a compatible API version is used. If there
+          are no compatible devices currently online, it then looks at the offline devices: the first of these (again,
+          in alphabetical order, by name) that has a compatible API version is started and used. If none of the devices,
+          online or not, are compatible, you are presented with the Run Configurations dialog.</info>
+      </step>
+      <!--<step xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"><cmd>If you are running on a remote device through the DeviceAnywhere VDL, select <uicontrol>Launcher for DeviceAnywhere Studio devices</uicontrol>. Otherwise, leave <uicontrol>Default launcher</uicontrol> selected.</cmd></step>-->
+      <step>
+        <cmd>If you are running your application on an emulated device and the Android Emulator view is not open, you
+          will be asked whether the emulator should be presented within an Eclipse view. If you click <uicontrol
+          >No</uicontrol>, the emulator will appear in a separate window.</cmd>
+        <info>At any time you can switch the emulator from a view within MOTODEV Studio to an external window (or from
+          an external window to a view): see <xref href="t_emulator-external.dita"/>. </info>
+      </step>
+    </steps>
+    <result>The application is transferred to the target device and then launched.</result>
+  </taskbody>
+</task>

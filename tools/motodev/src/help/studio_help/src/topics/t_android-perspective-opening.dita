@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE task
+  PUBLIC "-//OASIS//DTD DITA Task//EN" "../dtd/task.dtd">
+<task xml:lang="en-us" id="t_android-perspective-opening">
+  <title>Opening the MOTODEV Studio for Android perspective</title>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <taskbody>
+    <context>The MOTODEV Studio for Android perspective is normally opened automatically, but in the event you need to
+      open it manually you open it like any other <tm tmtype="tm">Eclipse</tm> perspective.</context>
+    <steps>
+      <step>
+        <cmd>Bring up the Open Perspective dialog by doing one of the following:</cmd>
+        <choices>
+          <choice>Click Open Perspective (<image href="../images/open-persp-button.jpg" placement="inline">
+            </image>), located in the top right corner of the MOTODEV Studio window, and select <uicontrol
+            >Other</uicontrol>.</choice>
+          <choice>From the <uicontrol>Window</uicontrol> menu, select <menucascade><uicontrol>Open
+              Perspective</uicontrol>
+              <uicontrol>Other</uicontrol>
+            </menucascade></choice>
+        </choices>
+      </step>
+      <step>
+        <cmd>In the <uicontrol>Open Perspective</uicontrol> dialog, click <uicontrol>MOTODEV Studio for
+          Android</uicontrol> and then click <uicontrol>OK</uicontrol>.</cmd>
+        <stepresult>The MOTODEV Studio for Android perspective is displayed. </stepresult>
+      </step>
+    </steps>
+    <postreq>
+      <note type="note">For further information on how to use, create, customize and configure perspectives, refer to
+        the Eclipse documentation: <ol>
+          <li>Select <uicontrol>Help Contents</uicontrol> from the <uicontrol>Help</uicontrol> menu. </li>
+          <li>Select <menucascade><uicontrol>Workbench User Guide</uicontrol><uicontrol>Getting
+                Started</uicontrol><uicontrol>Basic Tutorial</uicontrol>
+              <uicontrol>Perspectives</uicontrol></menucascade>.</li>
+        </ol></note>
+    </postreq>
+  </taskbody>
+</task>

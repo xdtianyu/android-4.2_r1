@@ -1,0 +1,207 @@
+Quake
+
+In order to run Quake on the simulator and/or device, you must:
+
+	1) Configure the Sources
+        2) Build
+	3) Install
+	4) Run
+	5) Uninstall Quake (this step is optional)
+
+Configure the Sources
+---------------------
+
+Edit src/com/android/quake/QuakeActivity.java to configure where and how Quake will obtain its data files. The
+configuration variables are:
+
+    private final static boolean USE_INTERNAL_FLASH = false;
+    private final static boolean USE_DOWNLOADER = false;
+
+This means that by default Quake will look for its files on the SD Card, and it will not
+attempt to download the files from an external web server. (Use the ./setupdevicesdcard.sh script,
+described below, to copy the data files from the Android source tree onto the device's SD Card.)
+
+Note that if USE_DOWNLOADER is set to true then you need to configure a web server to serve the Quake
+data files, and the FILE_CONFIG_URL variable needs to be set to point to the configuration file on
+the web server. Read the source for DownloaderActivity.java to figure out how to do this.
+
+Building Quake
+--------------
+
+Quake and libQuake are built by default, as part of the standard Android build.
+If for some reason you would like to build Quake manually, you can do so by
+using the mm command:
+
+$ cd $TOP/apps/Quake
+$ mm
+
+
+Installing Quake
+----------------
+
+Quake is not installed by default. To install Quake you need to copy the Quake executable
+files and data files to the device.
+
+Quake needs about 20 MB of space to store its data files. Quake files go on an external
+micro SD card (This is /sdcard/data/quake directory).
+
+Using the device with a microsd card:
+
+	Turn on phone, plug into your development PC/Mac using the supplied ADB cable.
+	cd $TOP/apps/Quake
+	adb remount
+	adb install $OUT/system/app/Quake.apk
+
+Make sure your device is not mounted as an USB Storage Device:
+    Press Home button on Phone
+    Press Menu
+    Select "SD card & phone storage
+    Make sure "Use for USB storage" is unchecked.
+
+Then install the Quake data files by executing this script:
+
+	./setupdevice.sh
+
+(Or if you've set QuakeActivity.USE_INTERNAL_FLASH to false, then use this script instead:)
+
+	./setupdevicesdcard.sh
+
+Using the emulator:
+
+	You can use Quake with the emulator, but you have to create and mount an sdcard image.
+	(Doing that is beyond the scope of this document.)
+	Once you've started the emulator with a sdcard image you can follow the directions for
+	a real device.
+
+
+Running Quake
+-------------
+
+Turn on the device
+
+Look for Quake in the Activities folder. Launch it as you would any other activity.
+It will take up to thirty seconds to start running.
+
+When Quake starts running it will display a console with some debug information, then
+go into an "attract mode" loop.
+
+Starting a game:
+
+Press space bar to bring up the main menu.
+The "Quake icon" should be next to the "Single Player" menu item. Press the
+"Enter" button twice to start the game.
+
+Controls:
+
+The Quake controls are customizable, depending upon the settings of config.cfg,
+but the defaults are:
+
+Android     PC Key    Command          Notes
+Keypad
+----------  --------- ---------------  ----------------------------------
+Alt Space   TAB       +showscores      Shows scores in multiplayer games
+DPad Enter  ENTER     +jump
+Menu        ESCAPE    togglemenu       Shows/hides menu
+space       SPACE     +jump
++           +         sizeup           Increases size of screen
+,           ,         +moveleft	       Strafe left
+-           -         sizedown
+.           .         +moveright       Strafe right
+/           /         impulse 10       Toggle weapons up
+0           0         impulse 0        
+1           1         impulse 1        Select weapon 1 (axe)
+2           2         impulse 2        Select weapon 2 (shotgun)
+3           3         impulse 3        Double-barrled shotgun
+4           4         impulse 4        Nailgun
+5           5         impulse 5        Super nailgun
+6           6         impulse 6        Grenade launcher
+7           7         impulse 7        Rocket Launcher
+8           8         impulse 8        Thunderbolt
+=           =         sizeup
+\           \         +mlook           Mouse look. (Not very useful, as there is no mouse.)
+Alt w       `         toggleconsole    Used to enter fancy commands.
+w           w         +forward
+s           s         +back
+a           a         +left
+d           d         +right
+q           q         +lookup
+z           z         +lookdown
+v           v         +movedown
+f           f         +moveup
+t           t         messagemode
+DPad Up     UPARROW   +forward
+DPad Down   DOWNARROW +back
+DPad Left   LEFTARROW +left
+DPad Right  RIGHTARROW+right
+Alt         ALT       +strafe
+@ or /      CTRL      +attack
+Cap         SHIFT     +speed
+Alt 1       F1        help              (This is just an advertisement in the shareware version.)
+Alt 2       F2        menu_save
+Alt 3       F3        menu_load
+Alt 4       F4        menu_options
+Alt 5       F5        menu_multiplayer
+Alt 6       F6        echo Quicksaving...; wait; save quick
+Alt 9       F9        echo Quickloading...; wait; load quick
+Alt 0       F10       quit
+Alt t       F11       zoom_in
+Alt y       F12       screenshot
+<none>      INS       +klook
+<none>      DEL       +lookdown
+<none>      PGDN      +lookup
+<none>      END       centerview
+<none>      MOUSE1    +attack
+<none>      MOUSE2    +forward
+<none>      MOUSE3    +mlook
+Alt z       PAUSE     pause
+Camera      HOME      ...not bound by default...
+-----
+
+Console Commands:
+
+timedemo demo#  run time demo # (1..3)
+god 	        turns on god mode
+fly 	        enables fly mode
+kill 	        commits suicide
+notarget 	enemies don't attack until provoked
+noclip 	    walk through walls
+give s # 	gives # (where # = a number) of shotgun shells
+give n # 	gives # of nails
+give r # 	gives # of rockets/grenades
+give c # 	gives # of cells
+give h # 	gives # of health
+give # 	    gives weapon #
+map e#m# 	warps to the episode and mission specified
+impulse -1 	quad cheat
+impulse 9 	all weapons and keys
+impulse 255 	quad cheat
+
+
+ 
+Uninstalling Quake
+------------------
+
+Quake has to be uninstalled in two parts:
+    a) the Quake.apk file
+    b) the data files on the sdcard
+
+Use the Phone UI to uninstall the Quake apk:
+
+    Press Home Key
+    Press Menu Key
+    Select Settings
+    Select Applications
+    Selct Manage Applications
+    Select Quake
+    Press "Uninstall"
+
+Make sure your device is not mounted as an USB Storage Device:
+    Press Home button on Phone
+    Press Menu
+    Select "SD card & phone storage
+    Make sure "Use for USB storage" is unchecked
+
+Then run this script to delete the Quake files on the sdcard:
+
+    cd $TOP/apps/Quake
+    ./cleanupdevicesdcard.sh

@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ======================================================================
+     03/05/2010 16:08:47
+
+     build_l10n
+     Build App Validator localization features
+
+     rdbp36
+     ====================================================================== -->
+<project name="build_l10n" default="main">
+	<description>
+            Build Studio for Android localization features
+			All parameters come from studioBuild.xml since all properties are inherited
+			You should not call this build file directly
+    </description>
+
+	<property name="buildDirectoryl10n" value="/tmp/application_validator_l10n_${appvalidatorLangpackVersion}" />
+	<property name="archivePrefix" value="application_validator" />
+
+	<target name="main" description="Build AppValidator localization features">
+		<antcall target="setup" />
+		<antcall target="buildNL">
+			<param name="langID" value="pt" />
+			<param name="countryID" value="_BR" />
+			<param name="langlabel" value="Brazilian Portuguese (Portugu\u00eas do Brasil)" />
+		</antcall>
+		<antcall target="buildNL">
+			<param name="langID" value="es" />
+			<param name="countryID" value="" />
+			<param name="langlabel" value="Spanish (Espa\u00f1ol)" />
+		</antcall>
+		<antcall target="buildNL">
+			<param name="langID" value="zh" />
+			<param name="countryID" value="" />
+			<param name="langlabel" value="Chinese (\u4e2d\u6587)" />
+		</antcall>
+
+		<!-- Generate structure for plug-ins that are not yet translated -->
+		<antcall target="buildNL">
+			<param name="langID" value="fr" />
+			<param name="countryID" value="" />
+			<param name="langlabel" value="French (Fran\u00e7ais) Eclipse Only" />
+		</antcall>
+		<antcall target="buildNL">
+			<param name="langID" value="de" />
+			<param name="countryID" value="" />
+			<param name="langlabel" value="German (Deutsch) Eclipse Only" />
+		</antcall>
+		<antcall target="buildNL">
+			<param name="langID" value="ru" />
+			<param name="countryID" value="" />
+			<param name="langlabel" value="Russian (\u0420\u0443\u0441\u0441\u043a\u0438\u0439) Eclipse Only" />
+		</antcall>
+		<antcall target="buildNL">
+			<param name="langID" value="ko" />
+			<param name="countryID" value="" />
+			<param name="langlabel" value="Korean (\ud55c\uad6d\uc758) Eclipse Only" />
+		</antcall>
+		<antcall target="buildNL">
+			<param name="langID" value="ar" />
+			<param name="countryID" value="" />
+			<param name="langlabel" value="Arabic (\u0627\u0644\u0639\u0631\u0628\u064a\u0629) Eclipse Only" />
+		</antcall>
+		<antcall target="buildNL">
+			<param name="langID" value="iw" />
+			<param name="countryID" value="" />
+			<param name="langlabel" value="Hebrew (\u05e2\u05d1\u05e8\u05d9\u05ea) Eclipse Only" />
+		</antcall>
+		<antcall target="buildNL">
+			<param name="langID" value="it" />
+			<param name="countryID" value="" />
+			<param name="langlabel" value="Italian (Italiano) Eclipse Only" />
+		</antcall>
+
+		<antcall target="createUpdateSitePackage" />
+
+	</target>
+
+	<!-- Copy some build of MOTODEV Studio for Android to the base folder of transformed repos -->
+	<target name="setup" description="Copy need information from Studio Android Build Process">
+		<delete dir="${buildDirectoryl10n}/" includes="**" includeemptydirs="true" />
+		<mkdir dir="${buildDirectoryl10n}" />
+		<mkdir dir="${buildDirectoryl10n}/repositories" />
+
+		<copy todir="${buildDirectoryl10n}/repositories">
+			<fileset dir="${BASE_REPOSITORIES_DIR}" includes="**" />
+		</copy>
+		<copy todir="${buildDirectoryl10n}/repositories/REPO_APPVALIDATOR">
+			<fileset dir="${APPVALIDATOR_OUTPUT}" includes="**" />
+		</copy>
+
+		<delete includeemptydirs="true" failonerror="false">
+			<fileset dir="${OUTPUT_LANGPACK_APPVALIDATOR}" includes="**" />
+		</delete>
+		<mkdir dir="${OUTPUT_LANGPACK_APPVALIDATOR}" />
+	</target>
+
+	<target name="buildNL" description="Build language pack for an specific language">
+		<antcall target="clean" />
+		<antcall target="copySource" />
+		<antcall target="removeExtraLanguages">
+			<param name="langID" value="${langID}" />
+			<param name="countryID" value="${countryID}" />
+		</antcall>
+		<antcall target="adjustBundles">
+			<param name="langID" value="${langID}" />
+			<param name="countryID" value="${countryID}" />
+			<param name="langlabel" value="${langlabel}" />
+		</antcall>
+		<antcall target="build">
+			<param name="langID" value="${langID}" />
+			<param name="countryID" value="${countryID}" />
+		</antcall>
+		<antcall target="publish">
+			<param name="langID" value="${langID}" />
+			<param name="countryID" value="${countryID}" />
+		</antcall>
+	</target>
+
+	<target name="clean" description="Prepare the place to the next language pack">
+		<delete includeemptydirs="true">
+			<fileset dir="${buildDirectoryl10n}">
+				<include name="**" />
+				<exclude name="**/repositories/**" />
+				<exclude name="**/transformed/**" />
+				<exclude name="**/output/**" />
+			</fileset>
+		</delete>
+	</target>
+
+	<target name="copySource" description="Copy source code from repository to a temporary location">
+		<echo message="Copying source to a temporary location" />
+		<copy todir="${buildDirectoryl10n}">
+			<fileset dir="${SOURCE_DIR}" includes="**/*.nl/**" />
+		</copy>
+		<copy todir="${buildDirectoryl10n}">
+			<fileset dir="${MAKEFILE}/preflighting/l10n/" includes="*" />
+		</copy>
+		<delete file="${buildDirectoryl10n}/build.xml" />
+	</target>
+
+	<target name="removeExtraLanguages" description="Remove the extra languages of the fragments">
+		<echo message="Removing extra languages" />
+		<delete failonerror="false" includeEmptyDirs="true">
+			<fileset dir="${buildDirectoryl10n}">
+				<exclude name="**/*.nl/**/*_${langID}${countryID}.properties" />
+				<exclude name="**/*.nl/**/*_${langID}.properties" />
+				<exclude name="**/*.nl/**/build.properties" />
+				<exclude name="**/*.nl/**/feature.properties" />
+				<include name="**/*.nl/**/*.properties" />
+			</fileset>
+		</delete>
+	</target>
+
+	<target name="adjustBundles" description="Adjust bundles names/ids to have the correct one">
+		<echo message="Adding language id to bundles: ${langID}" />
+		<echo message="Adding country id to bundles: ${countryID}" />
+		<replace dir="${buildDirectoryl10n}">
+			<include name="**/*.nl/META-INF/MANIFEST.MF" />
+			<replacefilter token="@langcode" value="${langID}${countryID}" />
+		</replace>
+		<replace dir="${buildDirectoryl10n}">
+			<include name="**/*.nl/feature*" />
+			<replacefilter token="@langcode" value="${langID}${countryID}" />
+			<replacefilter token="@langlabel" value="${langlabel}" />
+		</replace>
+		<replace dir="${buildDirectoryl10n}">
+			<include name="build.properties" />
+			<replacefilter token="@langcode" value="${langID}${countryID}" />
+		</replace>
+		<move tofile="${buildDirectoryl10n}/features/com.motorolamobility.preflighting.feature.nl_${langID}${countryID}" file="${buildDirectoryl10n}/features/preflighting.nl" />
+	</target>
+
+	<target name="build" description="Build the language pack">
+		<echo message="Building" />
+		<java failonerror="true" jar="${eclipse.builder.path}/plugins/${eclipse.builder.launcher}" fork="true">
+			<jvmarg value="-Xmx1024m" />
+			<jvmarg value="-Xms80m" />
+			<arg value="-application" />
+			<arg value="org.eclipse.ant.core.antRunner" />
+			<arg value="-buildfile" />
+			<arg value="${eclipse.builder.path}/plugins/${eclipse.builder.pde}/scripts/build.xml" />
+			<arg value="-Dbuilder=${buildDirectoryl10n}" />
+			<arg value="-Dtimestamp=${timestamp}" />
+			<arg value="-DforceContextQualifier=${forceContextQualifier}" />
+			<arg value="-Dbase=${BASE_DIR}" />
+			<arg value="-DbaseLocation=${eclipse.builder.path}" />
+			<arg value="-DarchivePrefix=${archivePrefix}" />
+			<arg value="-DbuildDirectory=${buildDirectoryl10n}" />
+		</java>
+	</target>
+
+	<!-- target name="signStudio">
+		<p2.process.artifacts repositorypath="file:/${buildDirectoryl10n}/output">
+			<sign keystore="${MAKEFILE}/MOTODEV.keystore" alias="motodev" keypass="${motodev.keypass}" storepass="${motodev.storepass}" />
+		</p2.process.artifacts>
+	</target -->
+
+	<target name="publish" description="Publish the language pack to a certain folder">
+		<unzip dest="${buildDirectoryl10n}" src="${buildDirectoryl10n}/dist/com.motorolamobility.preflighting.feature.nl_${langID}${countryID}-dist-group.group.group.zip" />
+
+		<p2.publish.featuresAndBundles append="true" artifactrepository="file:/${buildDirectoryl10n}/output" artifactrepositoryname="MOTODEV App Validator Language Packs" metadatarepository="file:/${buildDirectoryl10n}/output" metadatarepositoryname="MOTODEV App Validator Language Packs" source="${buildDirectoryl10n}/${archivePrefix}" />
+	</target>
+
+
+
+	<target name="createUpdateSitePackage">
+		<!-- antcall target="signStudio" / -->
+
+		<!-- Adjusting site.xml -->
+		<replace dir="${buildDirectoryl10n}">
+			<include name="site.xml" />
+			<replacefilter token="@featureversion" value="${appvalidatorLangpackVersion}.${forceContextQualifier}" />
+		</replace>
+
+		<!-- mirror babel languages (copy is quicker than p2.mirror task-->
+
+		<copy todir="${OUTPUT_LANGPACK_APPVALIDATOR}">
+			<fileset dir="${buildDirectoryl10n}/output/" includes="**" />
+		</copy>
+
+		<!-- categorize -->
+
+		<!-- run the category publisher.. there is no ant task to execute it -->
+		<java failonerror="true" jar="${eclipse.builder.path}/plugins/${eclipse.builder.launcher}" fork="true">
+			<arg value="-application" />
+			<arg value="org.eclipse.equinox.p2.publisher.CategoryPublisher" />
+			<arg value="-metadataRepository" />
+			<arg value="file:/${OUTPUT_LANGPACK_APPVALIDATOR}" />
+			<arg value="-categoryDefinition" />
+			<arg value="file:/${buildDirectoryl10n}/site.xml" />
+		</java>
+
+	</target>
+
+</project>

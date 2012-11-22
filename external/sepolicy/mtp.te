@@ -1,0 +1,13 @@
+# vpn tunneling protocol manager
+type mtp, domain;
+type mtp_exec, exec_type, file_type;
+
+init_daemon_domain(mtp)
+
+# pptp policy
+allow mtp self:tcp_socket { create setopt connect write read };
+allow mtp self:socket { create connect };
+allow mtp self:rawip_socket create;
+allow mtp self:capability net_raw;
+allow mtp ppp:process signal;
+allow mtp port:tcp_socket name_connect;

@@ -1,0 +1,39 @@
+//
+// A basic Android application that follows all the conventions
+//
+buildscript {
+    repositories {
+        maven { url '../../repo' }
+    }
+    dependencies {
+        classpath 'com.android.build:gradle-android:0.1-SNAPSHOT'
+    }
+}
+apply plugin: 'android'
+
+android {
+    target = "android-15"
+    testBuildType = "debug"
+
+    defaultConfig {
+        signingStoreLocation = "debug.keystore"
+        signingStorePassword = "android"
+        signingKeyAlias = "androiddebugkey"
+        signingKeyPassword = "android"
+ 
+        buildConfig "private final static boolean DEFAULT = true;", \
+                    "private final static String FOO = \"foo\";"
+    }
+
+    buildTypes {
+        debug {
+            packageNameSuffix = ".debug"
+
+            buildConfig "private final static boolean DEBUG2 = false;"
+        }
+    }
+
+    aaptOptions {
+        noCompress "txt"
+    }
+}

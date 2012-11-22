@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference id="u_emulator_android" xml:lang="en-us">
+  <title>Android Emulator view</title>
+  <shortdesc>The Android Emulator view allows you to see and interact with a running AVD. This allows you to test your
+    applications without needing an Android device, all from within MOTODEV Studio for Android. Note that this view
+    displays all running AVDs; if there are none, the view is empty. </shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>This view presents the complete AVD image, including the virtual keyboard if the image includes one. Use
+      the scroll bars to move around the image, and the zoom controls to resize the image within the view. Select
+      between multiple running AVDs by clicking the tabs that identify each by name. Use the <xref
+        href="u_device-manager_android.dita">Device Management view</xref> to start and stop an AVD within this view or
+      to install applications to the running AVD.</section>
+    <section>To open the Android Emulator view, either launch an AVD (which will open the Android Emulator View
+      automatically) or click the <uicontrol>Window</uicontrol> menu and select <menucascade><uicontrol>Show
+          View</uicontrol><uicontrol>Android Emulator</uicontrol></menucascade>. <simpletable>
+        <strow>
+          <stentry><image href="../images/emulator-zoom-in.png"/></stentry>
+          <stentry>Zooms in, enlarging the image of the emulated Android device.</stentry>
+        </strow>
+        <strow>
+          <stentry><image href="../images/emulator-zoom-out.png"/></stentry>
+          <stentry>Zooms out, shrinking the image of the emulated Android device.</stentry>
+        </strow>
+        <strow>
+          <stentry><image href="../images/emulator-switch-layout.png"/></stentry>
+          <stentry>Click the handset icon to toggle between portrait and landscape orientations. Click the small black
+            triangle to select a specific orientation.</stentry>
+        </strow>
+        <strow>
+          <stentry><image href="../images/menu-button.png"/></stentry>
+          <stentry>Opens a menu with the following entries:<ul>
+              <li><b>Zoom</b>: allows you to scale the AVD image to various sizes.</li>
+              <li><b>Switch Layout</b>: lets you select between portrait and landscape orientations.</li>
+            </ul></stentry>
+        </strow>
+      </simpletable></section>
+  </refbody>
+</reference>

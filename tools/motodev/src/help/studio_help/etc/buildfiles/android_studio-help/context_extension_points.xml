@@ -1,0 +1,22 @@
+
+<!--Context extension point for all Studio for Android cshelp-->
+<extension point="org.eclipse.help.contexts">
+
+  <contexts file="cs_android.xml" plugin="com.motorola.studio.android.codeutils"/>
+  <contexts file="cs_android.xml" plugin="com.motorola.studio.android.devices.services"/>
+  <contexts file="cs_android.xml" plugin="com.motorola.studio.android.emulator"/>
+  <contexts file="cs_android.xml" plugin="com.motorola.studio.android.installer"/>
+  <contexts file="cs_android.xml" plugin="com.motorola.studio.android.launch.ui"/>
+  <contexts file="cs_android.xml" plugin="com.motorola.studio.android.launch"/>
+  <contexts file="cs_android.xml" plugin="com.motorola.studio.android.packaging.ui"/>
+  <contexts file="cs_android.xml" plugin="com.motorola.studio.android.videos.views"/>
+  <contexts file="cs_android.xml" plugin="com.motorola.studio.android"/>
+  <contexts file="cs_android.xml" plugin="com.motorola.studio.platform.logger.collector"/>
+  <contexts file="cs_android.xml" plugin="com.motorola.studio.platform.tools.sign.ui"/>
+  <contexts file="cs_android.xml" plugin="com.motorolamobility.studio.android.db.core"/>
+  <contexts file="cs_android.xml" plugin="com.motorolamobility.studio.android.db.devices"/>
+  <contexts file="cs_android.xml" plugin="org.eclipse.datatools.sqltools.sqleditor"/>
+  <contexts file="cs_android.xml" plugin="org.eclipse.sequoyah.device.framework.ui"/>
+  <contexts file="cs_android.xml" plugin="com.motorolamobility.studio.android.certmanager"/>
+
+</extension>

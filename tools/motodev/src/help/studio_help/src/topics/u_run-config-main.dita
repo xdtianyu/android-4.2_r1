@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE reference
+  PUBLIC "-//OASIS//DTD DITA Reference//EN" "../dtd/reference.dtd">
+<reference xml:lang="en-us" id="u_run-config-main">
+  <title>Run Configurations dialog</title>
+  <shortdesc>A run configuration brings together all of the information needed to run a specific executable on a
+    specific device instance, making it simple to repeatedly run that executable on that device instance.</shortdesc>
+  <prolog>
+    <metadata>
+      <keywords>
+        <!--<indexterm></indexterm>-->
+      </keywords>
+    </metadata>
+  </prolog>
+  <refbody>
+    <section>
+      <p>You can create different <term>run configurations</term> in order to run or debug <ph product="webui"
+          >WebUI</ph><ph product="android-studio">Android</ph> applications<ph product="webui"> or widgets</ph> on real
+        or emulated devices. A run configuration encapsulates all of the information relating to a single execution
+        scenario into a single entity. It identifies not only the specific <ph product="webui">package within a
+          particular </ph>project to be run, but the device on which it is to be run. By creating multiple run
+        configurations, you can quickly and easily switch between them to try out different scenarios.</p>
+      <p>The Run Configurations dialog appears when you select <uicontrol>Run Configurations</uicontrol> from the
+          <uicontrol>Run</uicontrol> menu and then either create or select an existing <uicontrol>Android Application
+          using Studio for Android</uicontrol> configuration.</p>
+      <simpletable>
+        <strow>
+          <stentry>
+            <uicontrol>Project</uicontrol>
+          </stentry>
+          <stentry>Specifies the project that contains the application to be run. </stentry>
+        </strow>
+        <strow product="webui">
+          <stentry>
+            <uicontrol>Package/Descriptor</uicontrol>
+          </stentry>
+          <stentry>Specifies the package that corresponds to the application to be run. The package can either be a
+              <codeph>.descriptor</codeph> or a <codeph>.mpkg</codeph> file. </stentry>
+        </strow>
+        <strow>
+          <stentry>
+            <uicontrol>Device</uicontrol>
+          </stentry>
+          <stentry>Specifies the device instance on which the application should run. This can be either a real or an
+            emulated device.</stentry>
+        </strow>
+        <strow product="webui">
+          <stentry>
+            <uicontrol>Signing</uicontrol>
+          </stentry>
+          <stentry>Specifies the certificate to be used to sign the application before transferring it to the device. If
+            the chosen instance is a MOTOMAGX Emulator, this field is disabled; you can only specify a certificate if
+            the run configuration is for a physical device.</stentry>
+        </strow>
+        <strow product="android-studio">
+          <stentry>
+            <uicontrol>Activity</uicontrol>
+          </stentry>
+          <stentry>Specifies the activity that should be launched, if any. Often you will just want the default activity
+            to be launched, but you can specify a specific activity by selecting <uicontrol>Launch</uicontrol> and
+            indicating the activity to be launched. If the project should be installed but not run (as might be in the
+            case of a widget), select <uicontrol>Do Nothing</uicontrol>.</stentry>
+        </strow>
+      </simpletable>
+    </section>
+  </refbody>
+</reference>
